@@ -1,0 +1,19 @@
+ 
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+html{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+    #panorama, body{
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        /*position: absolute;*/
+        padding: 0;
+        margin:0;
+        overflow: hidden;
+    }

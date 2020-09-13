@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+    <link rel="stylesheet" href="../all.css"/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	* { box-sizing: border-box; }
+
+body { font-family: sans-serif; 
+overflow:hidden;
+background: linear-gradient(white 30%, black 70%);
+}
+
+.scene {
+  width: 100vw;
+  height: 100vh;
+  perspective: 1200px;
+}
+
+.cube {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-50vw);
+  transition: transform 1s;
+}
+
+.cube.show-front  { transform: translateZ(-50vw) rotateY(   0deg); }
+.cube.show-right  { transform: translateZ(-50vw) rotateY( -90deg); }
+.cube.show-back   { transform: translateZ(-50vw) rotateY(-180deg); }
+.cube.show-left   { transform: translateZ(-50vw) rotateY(  90deg); }
+.cube.show-top    { transform: translateZ(-50vw) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(-50vw) rotateX(  90deg); }
+
+.cube__face {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  line-height: 100vw;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  transition-delay: 0.15s;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-color: black
+}
+
+.cube__face--front  { background-image: url(img1.png) }
+.cube__face--right  { background-image: url(img4.png) }
+.cube__face--back   { background-image: url(img3.png) }
+.cube__face--left   { background-image: url(img2.png) }
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(50vw); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(50vw); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(50vw);}
+.cube__face--left   { transform: rotateY(-90deg) translateZ(50vw); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(50vw); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(50vw); }
+.cube.show-front .cube__face--front{opacity: 0;}
+.cube.show-right .cube__face--right{opacity: 0;}
+.cube.show-left .cube__face--left  {opacity: 0;}
+.cube.show-back .cube__face--back  {opacity: 0;}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.text').addClass('texton')
+			$('.text').html('그렇게 도착한 곳은 적색왜성에 딸린 행성이었다.')
+
+		var sidearray = ['left','front','right','back'];
+		var cube = document.querySelector('.cube');
+		var currentClass = '';
+		var rotate = 2
+		function changeSide() {
+			console.log(rotate)
+		  	var showClass = 'show-' + sidearray[rotate];
+		  	if ( currentClass ) {
+		    	cube.classList.remove( currentClass );
+		  	}
+		  	cube.classList.add( showClass );
+		  	currentClass = showClass;
+		}
+		// set initial side
+		changeSide();
+
+			$(document).bind('touchstart', function(e){
+				originX = e.originalEvent.touches[0].pageX
+			})
+			$(document).bind('touchend', function(){
+			});
+			$(document).bind('touchmove', function(e){
+				upX = e.originalEvent.touches[0].pageX
+				if(originX > upX + 50){
+					rotate = rotate+1
+					if(rotate>3){
+						rotate = 3
+					}
+					originX = upX
+					changeSide()
+					return false
+				}
+				if(originX < upX - 50){
+					rotate = rotate-1
+					if(rotate<1){
+						rotate = 1
+					}
+					originX = upX
+					changeSide()
+					return false
+				}
+				if(rotate == 1){
+					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 등지고 있다.<br> 그쪽은 언제나 밤이라 차다.')
+				}
+				if(rotate == 2){
+					$('.text').html('중간지대에는 어찌어찌 살 수 있을 것 같았지만, 쉽지 않아 보인다.')
+				}
+				if(rotate == 3){
+					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 바라보고 있다<br> 그쪽은 언제나 낮이라 뜨겁다.')
+				}
+			});
+
+		})
+	</script>
+		<div class="text"></div>
+	<div class="scene">
+  <div class="cube show-right">
+    <div class="cube__face cube__face--front"></div>
+    <div class="cube__face cube__face--back"></div>
+    <div class="cube__face cube__face--right"></div>
+    <div class="cube__face cube__face--left"></div>
+  </div>
+</div>
+	</body>
+<html>

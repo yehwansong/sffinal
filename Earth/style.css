@@ -1,0 +1,611 @@
+    @font-face {
+    font-family: luminari;
+    src: url(font/Luminari-Regular.woff);
+    }
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+html{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+    #loading{
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        position: fixed;
+        background-color: #a5a5a5;
+        color: black;
+        z-index: 100000;
+
+        box-sizing: border-box;
+    }
+    @keyframes flickerAnimation {
+  0%   { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:0; }
+  100% { opacity:1; }
+}    @keyframes flickerAnimation2{
+  0%   { opacity:0; }
+  50% { opacity:1; }
+  100% { opacity:0; }
+}
+@-o-keyframes flickerAnimation2{
+  0%   { opacity:0; }
+  50% { opacity:1; }
+  100% { opacity:0; }
+}
+@-moz-keyframes flickerAnimation2{
+  0%   { opacity:0; }
+  50% { opacity:1; }
+  100% { opacity:0; }
+}
+@-webkit-keyframes flickerAnimation2{
+  0%   { opacity:0; }
+  50% { opacity:1; }
+  100% { opacity:0; }
+}
+    .loading_logo{
+   -webkit-animation: flickerAnimation 3s;
+   -moz-animation: flickerAnimation 3s;
+   -o-animation: flickerAnimation 3s;
+    animation: flickerAnimation 3s;
+        width: 15vw;
+        margin:auto;
+        right: 0;
+        top: 50vh;
+        bottom: 0;
+        left: 50vw;
+        margin-top: -5vw;
+        margin-left: -7.5vw;
+        position: relative;
+        display: block;
+    }
+    .loading_text{
+   -webkit-animation: flickerAnimation2 3s infinite;
+   -moz-animation: flickerAnimation2 3s infinite;
+   -o-animation: flickerAnimation2 3s infinite;
+    animation: flickerAnimation2 3s infinite;
+        width: 18vw;
+        margin:auto;
+        right: 0;
+        top: 59vh;
+        bottom: 0;
+        left: 50.2vw;
+        margin-top: -6vw;
+        margin-left: -9vw;
+        position: relative;
+        display: block;
+        font-family: "luminari", "Noto Sans KR", sans-serif;
+        font-size: 1.9vh;
+        line-height: 1.9vh;
+
+    }
+
+
+    #site_branding{z-index: 1000;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+    .phonelogo{
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        right: 1vw;
+        z-index: 10000
+
+    }
+    .logo{
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        right: 1vw;
+        bottom: 0vh;
+        height: auto;
+        width: 26.28vh;
+        z-index: 10000
+
+    }
+    @media only screen and (max-height: 850px) {
+    .logo {
+        width: 223.38px;
+    }
+    }
+    .listdiv{
+        width: calc(100vw - 37vh);
+        height: auto;
+        left: 1vh;
+        word-break: keep-all;
+        /*color:white;*/
+        position: fixed;
+        bottom: 2.184vh;
+        /*left: calc(1vh + 0.2vw);*/
+        font-family: "luminari", "Noto Sans KR", sans-serif;
+        font-size: 1.5vh;
+        line-height: 1.9vh;
+        box-sizing: border-box;
+        text-shadow: 0 0 1vh #000000;
+        text-align: center;
+        color:white;
+    }
+    @media only screen and (max-height: 850px) {
+    .listdiv {
+        width: calc(100vw - 314.5px);
+        left:0.85px;
+        bottom:24.14px;
+        font-size: 12.75px;
+        line-height: 16.15px;
+
+    }
+    }
+    .listdiv span a{
+        color:white !important;
+    }
+
+/*    @media only screen and (max-height: 850px) {
+    .listdiv {
+        font-size: 12.75px;
+        line-height: 161.5px;
+    }
+    }*/
+    .mulogo{
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        right: 24.5vh;
+        bottom: 1.5vh;
+        width: 12vh;
+        height: auto;
+        z-index: 10000
+    }
+    @media only screen and (max-height: 850px) {
+    .mulogo {
+        right: 208.25px;
+        bottom: 12.75px;
+        width: 102px;
+    }
+    }
+    a{
+        display: inline-block;
+        text-decoration: none;
+        color:black;
+    }
+
+
+
+
+
+
+
+    .arrowleft{
+        width: 60px;
+        height: 20px;
+        position: absolute;
+        margin-left: -60px;
+        left: 0;
+        top: 0;
+        background-image: url(arrow.svg);
+        background-size: contain;
+        display: none
+    }
+    .arrowright{
+        width: 60px;
+        height: 20px;
+        position: absolute;
+        margin-right: -60px;
+        right: 0;
+        top: 0;
+        background-image: url(arrow.svg);
+        background-size: contain;
+        transform: scaleX(-1);
+        display: none
+    }
+    .image{
+        height: 91.8vh;
+        width: 42vh;
+        top:0;
+        padding: 0;
+        margin: 0;
+        display: none;
+        position: fixed;
+        background-color: #a5a5a5;
+        /*display: none;*/
+        pointer-events: none;
+        background-size: contain;
+        z-index: 1900;
+        overflow: hidden;
+    }
+    @media only screen and (max-height: 850px) {
+    .image{
+        height: 780.3px;
+        width: 357px;
+    }
+    }
+    /*////////////////*/
+    .image_sq{
+        position: absolute;
+        left: 0;
+        top: 50vh;
+        width: 100%;
+        height: auto;
+        margin:0;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+    @media only screen and (max-height: 850px) {
+    .image_sq {
+        top: 425px;
+    }
+    }
+
+    .title{
+        text-align: center;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin:0;
+        padding: 0;
+        padding-top: 3px;
+        color: black;
+        word-break:keep-all;
+        font-family: "luminari","Noto Sans KR", serif;
+        font-size: 2.1vh !important;
+        /*text-decoration: underline;*/
+    }
+    @media only screen and (max-height: 850px) {
+    .title {
+        font-size: 17.85px !important;
+    }
+    }
+    .content{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin:0;
+        padding: 0;
+        padding-right: 3px;
+        padding-left: 3px;
+        box-sizing: border-box;
+        color: black;
+        text-align: center;
+        word-break:keep-all;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 500;
+        font-size: 1.85vh;
+        line-height: 2.9vh;
+        word-break: keep-all;
+    }
+    .eng{
+        font-family: "luminari", serif;
+        line-height: 2vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .content {
+        font-size: 15.73px;
+        line-height: 23.8px;
+    }
+    }
+    .links{
+        /*position: absolute;*/
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin:0;
+        padding: 0;
+        color: white;
+        word-break:keep-all;
+        font-family: "luminari","Noto Sans KR", sans-serif;
+        font-size: 1.5vh !important;
+        line-height: 1.9vh;
+        text-align: center;
+
+    }
+    @media only screen and (max-height: 850px) {
+    .links {
+        font-size: 12.75px !important;
+        line-height: 16.15px;
+    }
+    }
+    .type{
+        font-size: 1.5vh !important;
+        line-height: 2.5vh !important;
+        display: inline-block;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-decoration: none !important;
+        text-align: center!important;
+    }
+    @media only screen and (max-height: 850px) {
+    .type {
+        font-size: 12.75px !important;
+        line-height: 23.8px !important;
+    }
+    }
+
+
+
+
+
+
+
+
+    /*#image1{background-image: }*/
+    .pnlm-load-button{
+        z-index: 100
+    }
+    #panorama, body{
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        /*position: absolute;*/
+        padding: 0;
+        margin:0;
+        overflow: hidden;
+    }
+    .custom-hotspot {
+    box-shadow: 0px 0px 15px 2px #111111;
+        height: 90px;
+        width: 90px;
+        cursor: pointer;
+        /*background: #f00;*/
+        background-size: contain;
+        background: #ffffff26
+    }
+    .hotspot1{
+        height: 8.39vh;
+        width: 16.78vh;
+    box-shadow: 0px 0px 15px 2px #4c4c4c;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot1{
+        height: 71.735px;
+        width: 143.47px;
+    }
+    }
+    .hotspot2{
+        height: 10.59vh;
+        width: 10.59vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot2{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot3{
+        height: 16.78vh;
+        width: 8.39vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot3{
+        height: 143.47px;
+        width: 71.735px;
+    }
+    }
+    .hotspot4{
+        height: 10.59vh;
+        width: 10.59vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot4{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot5{
+        height: 8.39vh;
+        width: 16.78vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot5{
+        height: 71.735px;
+        width: 143.47px;
+    }
+    }
+    .hotspot6{
+        height: 16.78vh;
+        width: 8.39vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot6{
+        height: 143.47px;
+        width: 71.735px;
+    }
+    }
+    .hotspot7{
+        height: 10.59vh;
+        width: 10.59vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot7{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot8{
+        height: 8.39vh;
+        width: 16.78vh;
+    box-shadow: 0px 0px 15px 2px #4c4c4c;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot8{
+        height: 71.735px;
+        width: 143.47px;
+    }
+    }
+    .hotspot9{
+        height: 10.59vh;
+        width: 10.59vh;
+    box-shadow: 0px 0px 15px 2px #4c4c4c;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot9{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot10{
+        height: 10.59vh;
+        width: 10.59vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot10{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot11{
+        height: 8.39vh;
+        width: 16.78vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot11{
+        height: 71.735px;
+        width: 143.47px;
+    }
+    }
+    .hotspot12{
+        height: 10.59vh;
+        width: 10.59vh;
+    box-shadow: 0px 0px 15px 2px #4c4c4c;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot12{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot13{
+        height: 10.59vh;
+        width: 10.59vh;
+    box-shadow: 0px 0px 15px 2px #4c4c4c;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot13{
+        height: 90.015px;
+        width: 90.015px;
+    }
+    }
+    .hotspot14{
+        height: 16.78vh;
+        width: 8.39vh;
+    }
+    @media only screen and (max-height: 850px) {
+    .hotspot14{
+        height: 143.47px;
+        width: 71.735px;
+    }
+    }
+    .append{
+        /*display:none;*/
+        position: absolute;
+        left: -1vh;
+        top: -1vh;
+        padding:0 !important;
+        margin:0 !important;
+        width: 2vh;
+        height: 2vh;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 500;
+        font-size: 2.1vh;
+        line-height: 3.6vh;
+        background-image: url("circle-01.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        visibility: visible !important;
+        text-align: center
+
+    }
+    @media only screen and (max-height: 850px) {
+    .append{
+        top: -19.06px;
+        height: 34.308px;
+        font-size: 20.013px;
+        line-height: 34.308px;
+    }
+    }
+    div.custom-tooltip span {
+        visibility: hidden;
+        position: absolute;
+/*        border-radius: 3px;
+        background-color: #fff;*/
+        color: #000;
+        text-align: center;
+        max-width: 200px;
+        padding: 5px 10px;
+        margin-left: -220px;
+        cursor: default;
+    }
+    div.custom-tooltip:hover span:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid;
+        border-color: #fff transparent transparent transparent;
+        bottom: -20px;
+        left: -10px;
+        margin: 0 50%;
+    }
+    .kor{
+        font-family: "Noto Sans KR", serif !important;
+    }
+    .small{
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 1.5vh;
+        top: 1vh;
+        display: inline-block;
+        position: absolute;
+    }
+    .message{
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    background-color: white;
+    font-family: sans-serif;
+    padding: 1vw;
+    padding-bottom: 0.5vw;
+    font-size: 4vw;
+    z-index: 10000000000;
+    border-radius: 1vw;
+    border: 0.3vw solid black;
+    display: none;
+    }
+    .ponnone{pointer-events: none;}
+    @media only screen and (max-height: 850px) {
+    .small{
+        font-size: 14.295px;
+        top: 9.53px;
+    }
+    }
+@media (max-aspect-ratio: 13/20) {
+  .listdiv {display: none
+  }
+}

@@ -1,0 +1,30 @@
+
+	.text{
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		z-index: 100000000000000000000;
+		width: 90vw;
+
+		display: block;
+		background: black;
+		color: white;
+
+		font-size: 5vw;
+		text-align: center;
+		line-height: 1.2;
+		padding: 2vw;
+		/* width: 18vw; */
+		padding-top: 2.5vw;
+		 opacity: 0; 
+	}
+	.texton{
+		opacity: 1
+	}
+	*{
+		margin:0;
+		padding: 0;
+		font-family: 'KoPub Batang', serif;
+		word-break: keep-all;
+	}

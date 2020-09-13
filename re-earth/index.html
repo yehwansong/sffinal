@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+	font-family: 'KoPub Batang', serif;
+		word-break: keep-all;
+	}
+	body, html{
+		width: 100vw;
+		height: 100%;
+		background: black
+	}
+	.text{
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		z-index: 10000;
+		width: 90vw;
+
+		display: block;
+		background: black;
+		color: white;
+
+		font-size: 5vw;
+		text-align: center;
+		line-height: 1.2;
+		padding: 2vw;
+		/* width: 18vw; */
+		padding-top: 2.5vw;
+		 opacity: 0; 
+	}
+	.texton{
+		opacity: 1
+	}
+	.bg_wrapper{
+		width: 100vw;
+		height: 100%;
+		position: fixed;
+		transform: perspective(100vw) rotateX(40deg) rotateZ(0deg) scale(2);
+		transition: 0.3s
+	}
+	.notran{
+		transition: 0
+	}
+	.bg,
+	.bubble_wrapper{
+		width: 500vw;
+		height: 1500vw;
+		position: fixed;
+		left: 0;
+		top: -1000vw;
+		left: -200vw;
+		background-image: url(reearth.png);
+		background-size: 100vw;
+		background-repeat: repeat;
+	}
+	.bubble{
+		pointer-events: none;
+		position: fixed;
+		transform: translateZ(510vw);
+		z-index: 11000000;
+		transform-origin: center;
+	}
+	.bubble_1{
+		left: 0%;
+		top: -50vh
+	}
+	.bubble_2{
+		left: 50vw;
+		top: -70vh
+	}
+	.bubble_3{
+		left: 0;
+		top: -90vh
+	}
+	.bubble_4{
+		left: 20vw;
+		top: -110vh
+	}
+	.bubble_5{
+		left: 0;
+		top: -130vh
+	}
+	.bubble_6{
+		left: 50vw;
+		top: -150vh
+	}
+	.bubble_7{
+		left: 0;
+		top: -140vh
+	}
+	.bubble_8{
+		left: 0vw;
+		top: -140vh
+	}
+	.bubble_9{
+		left: 50vw;
+		top: -120vh
+	}
+	.bubble_10{
+		left: 0;
+		top: -120vh
+	}
+	.bubble_11{
+		left: 20vw;
+		top: -100vh
+	}
+	.bubble_12{
+		left: 0;
+		top: -100vh
+	}
+	.bubble_13{
+		left: 50vw;
+		top: -80vh
+	}
+	.bubble_14{
+		left: 0;
+		top: -80vh
+	}
+	.bubble_15{
+		left: 0vw;
+		top: -60vh
+	}
+	.bubble_16{
+		left: 50vw;
+		top: -60vh
+	}
+	.bubble_17{
+		left: 0;
+		top: -40vh
+	}
+	.bubble_18{
+		left: 20vw;
+		top: -40vh
+	}
+	.bubble_19{
+		left: 0;
+		top: -20vh
+	}
+	.bubble_20{
+		left: 50vw;
+		top: -20vh
+	}
+	.bubble_21{
+		left: 0;
+		top: 0vh
+	}
+	.bubble_22{
+		left: 0;
+		top: -0vh
+	}
+	.bubble_23{
+		left: 0vw;
+		top: 20vh
+	}
+	.bubble_24{
+		left: 50vw;
+		top: 20vh
+	}
+	.bubble_25{
+		left: 0;
+		top: 40vh
+	}
+	.bubble_26{
+		left: 20vw;
+		top: 40vh
+	}
+	.bubble_27{
+		left: 0;
+		top: 60vh
+	}
+	.bubble_28{
+		left: 50vw;
+		top: 60vh
+	}
+	.bubble_29{
+		left: 0;
+		top: 70vh
+	}
+	.bubble_30{
+		left: 0;
+		top: 80vh
+	}
+
+
+
+
+
+	.bubble_31{
+		left: 0%;
+		top: -150vh
+	}
+	.bubble_32{
+		left: 50vw;
+		top: -170vh
+	}
+	.bubble_33{
+		left: 0;
+		top: -190vh
+	}
+	.bubble_34{
+		left: 20vw;
+		top: -210vh
+	}
+	.bubble_35{
+		left: 0;
+		top: -230vh
+	}
+	.bubble_36{
+		left: 50vw;
+		top: -250vh
+	}
+	.bubble_37{
+		left: 0;
+		top: -240vh
+	}
+	.bubble_38{
+		left: 0vw;
+		top: -240vh
+	}
+	.bubble_39{
+		left: 50vw;
+		top: -220vh
+	}
+	.bubble_40{
+		left: 0;
+		top: -220vh
+	}
+	.bubble_41{
+		left: 20vw;
+		top: -200vh
+	}
+	.bubble_42{
+		left: 0;
+		top: -200vh
+	}
+	.bubble_43{
+		left: 50vw;
+		top: -380vh
+	}
+	.bubble_44{
+		left: 0;
+		top: -380vh
+	}
+	.bubble_45{
+		left: 0vw;
+		top: -360vh
+	}
+	.bubble_46{
+		left: 50vw;
+		top: -360vh
+	}
+	.bubble_47{
+		left: 0;
+		top: -340vh
+	}
+	.bubble_48{
+		left: 20vw;
+		top: -340vh
+	}
+	.bubble_49{
+		left: 0;
+		top: -320vh
+	}
+	.bubble_50{
+		left: 50vw;
+		top: -320vh
+	}
+	.bubble_51{
+		left: 0;
+		top: 400vh
+	}
+	.bubble_52{
+		left: 0;
+		top: -400vh
+	}
+	.bubble_53{
+		left: 0vw;
+		top: 20vh
+	}
+	.bubble_54{
+		left: 50vw;
+		top: 420vh
+	}
+	.bubble_55{
+		left: 0;
+		top: 440vh
+	}
+	.bubble_56{
+		left: 20vw;
+		top: 440vh
+	}
+	.bubble_57{
+		left: 0;
+		top: 460vh
+	}
+	.bubble_58{
+		left: 50vw;
+		top: 460vh
+	}
+	.bubble_59{
+		left: 0;
+		top: 470vh
+	}
+	.bubble_60{
+		left: 0;
+		top: 480vh
+	}
+	.bubble img{
+		width: 60vw
+	}
+	.flyer{
+		position: fixed;
+		width: 15vw;
+		height: 15vw;
+		border-radius: 50%;
+		background: white;
+		border:0.5vw solid black;
+		left: 35vw;
+		top: 80%;
+		z-index: 10000000;
+		transform: translateX(-50%) translateY(-50%) translateZ(110vw);
+	}
+	.flyer_1{
+		left: 25vw;
+	}
+	.fire{
+		position: fixed;
+		width: 50vw;
+		transform: translateX(-50%) translateY(-30%) translateZ(105vw);
+		z-index: 11000000;
+		pointer-events: none;
+	}
+	.bubble span{
+		display: block;
+		text-align: center;
+		padding: 1vw;
+		background:white;
+	}
+	.text{
+		position: fixed;
+		left: 50%;
+		transform: translateZ(560vw) translateX(-50%);
+		bottom: 10px;
+		z-index: 10000;
+		width: 90vw;
+
+		display: block;
+		background: black;
+		color: white;
+
+		font-size: 5vw;
+		text-align: center;
+		line-height: 1.2;
+		padding: 2vw;
+		/* width: 18vw; */
+		padding-top: 2.5vw;
+		 opacity: 0; 
+z-index: 10000000000;
+	}
+	.texton{
+		opacity: 1
+	}
+	.space{
+width: 100vw;
+height: 100vh;
+position: fixed;
+z-index: 10000000000;
+left: 0;
+top: 0;
+background: black;
+transform: translateZ(550vw);
+	}
+	.earth{
+		width: 30vw;
+		position: fixed;
+		left: 35vw;
+		top: 70vw;
+		transition: 3s
+	}
+</style>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+</head>
+<body>
+	<script type="text/javascript">
+		var w = window.innerWidth
+		var h = window.innerHeight
+  document.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+  }, { passive: false });
+		var touchamout = 0 
+
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+ 
+        // }, { passive: false });
+		function map_range(value, low1, high1, low2, high2) {
+		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+		}
+		var fly_counter = 0
+		$(document).ready(function(){
+		text_1()
+
+		function text_1(){
+			$('.text').addClass('texton')
+			$('.text').html('기계가 되자 몸이 강해진게 느껴진다.')
+			setTimeout(function(){
+				text_2()
+			},2000)
+		}
+		function text_2(){
+			$('.text').html('지구에 가볼 수 있을 것 같다.')
+			setTimeout(function(){
+				text_3()
+			},2500)
+		}
+		function text_3(){
+			$('.text').html('지구를 클릭해 지구로 들어가보자')
+		}
+		$('.earth').click(function(){
+			$('.earth').css({'transform':'scale(10)'})
+			setTimeout(function(){
+				$('.space').fadeOut(500)
+			},2500)
+			setTimeout(function(){
+				text_4()
+			},3000)
+		})
+		function text_4(){
+			$('.text').html('지구다!')
+			setTimeout(function(){
+				text_5()
+			},2000)
+		}
+		function text_5(){
+			$('.text').html('지구는 비슷하면서도 다른 모습이다.')
+			setTimeout(function(){
+				text_6()
+			},2000)
+		}
+		function text_6(){
+			$('.text').html('기후 변화는 어느 정도 안정됐지만, 다시 과거로 돌아가지는 못했다.')
+			setTimeout(function(){
+				text_7()
+			},2000)
+		}
+		function text_7(){
+			$('.text').html('화면을 클릭해 지구를 돌아다녀 보자')
+			setTimeout(function(){
+				text_7()
+			},2000)
+		}
+
+
+
+
+
+		$('.bubble').each(function(){
+			$(this).addClass('bubble_sel_'+(Math.floor(Math.random() * 5) + 1) )
+		})
+				var touch_0
+				flyer_1 = false
+
+			$(document).bind('touchstart', function(e){
+				flyer_1 = true
+				e.preventDefault();
+				touchamout = e.originalEvent.touches.length
+				fly(e)
+			})
+			$(document).bind('touchend', function(e){
+				flyer_1 = false
+				touchamout = e.originalEvent.touches.length
+					$('.flyer_1').css({'left':w/4+'px'})
+					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+			});
+			$(document).bind('touchmove', function(e){
+					$('.flyer_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
+					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+				$('.bg').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/3+'px'})
+				$('.bubble_sel_1').css({'margin-left':e.originalEvent.touches[0].pageX-w/2+'px'})
+				$('.bubble_sel_2').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/2+'px'})
+				$('.bubble_sel_3').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/3+'px'})
+				$('.bubble_sel_4').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/4+'px'})
+			});
+			function fly(e){
+				fly_counter = fly_counter+3
+				$('.bg').css({'margin-top':fly_counter%(5*w)+'px'})
+				$('.bubble').css({'margin-top':(fly_counter%(6*h))/2+'px'})
+				$('.bubble').each(function(){
+					$(this).css({'transform':'scale('+(0.75+(((parseInt($(this).css('top'),10)+(fly_counter%(6*h))/2)%h)/(h)))+') translateZ(310vw)'})
+				})
+				setTimeout(function(e){
+					if(flyer_1){
+						fly(e)
+					}
+				},10)
+			}
+			function angle(p1_x,p1_y,p2_x,p2_y){
+				return Math.atan2(p2_y - p1_y, p2_x - p1_x) * 180 / Math.PI;
+			}
+			var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+		})
+	</script>
+	<div class="text"></div>
+	<div class="space">
+		<img class="earth" src="earth.png">
+	</div>
+	<img src="fire.png" class='fire fire_1'>
+	<img src="fire.png" class='fire fire_2'>
+				<span>기후 변화는 어느 정도 안정됐지만, 다시 과거로 돌아가지는 못했다.</span>
+		<div class="flyer flyer_1"></div>
+		<div class="flyer flyer_2"></div>
+		<div class="bg_wrapper">
+			<div class="bg">
+			</div>
+		</div>
+		<div class="bg_wrapper">
+			<div class="bg">
+			</div>
+		</div>\
+			<div class="bubble bubble_1">
+				<span>새로운 기후에 적응한 동식물이 자라고 있다.</span>
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_2">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_3">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_4">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_5">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_6">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_7">
+				<span>몇몇 동식물은 새로운 모습으로 적응하려는 기미도 보인다.</span>
+				<img src="bird.png">
+			</div>
+			<div class="bubble bubble_8">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_9">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_10">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_11">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_12">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_13">
+				<!-- <span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span> -->
+				<img src="turtle.png">
+			</div>
+			<div class="bubble bubble_14">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_15">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_16">
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_17">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_18">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_19">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_20">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_21">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_22">
+				<!-- <span>지구는 비슷하면서도 다른 모습이다.</span> -->
+				<img src="fish.png">
+			</div>
+			<div class="bubble bubble_23">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_24">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_25">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_26 speaking_1">
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_27">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_28">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_29">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_30">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_31">
+				<span>새로운 기후에 적응한 동식물이 자라고 있다.</span>
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_32">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_33">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_34">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_35">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_36">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_37">
+				<span>몇몇 동식물은 새로운 모습으로 적응하려는 기미도 보인다.</span>
+				<img src="bird.png">
+			</div>
+			<div class="bubble bubble_38">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_39">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_40">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_41">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_42">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_43">
+				<span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span>
+				<img src="turtle.png">
+			</div>
+			<div class="bubble bubble_44">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_45">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_46">
+				<!-- <span>기후 변화는 어느 정도 안정됐지만, 다시 과거로 돌아가지는 못했다.</span> -->
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_47">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_48">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_49">
+				<img src="plant6.png">
+			</div>
+			<div class="bubble bubble_50">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_51">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_52">
+				<span>지구는 비슷하면서도 다른 모습이다.</span>
+				<img src="fish.png">
+			</div>
+			<div class="bubble bubble_53">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_54">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_55">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_56 speaking_1">
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_57">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_58">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_59">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_60">
+				<img src="plant6.png">
+			</div>
+		<!-- <div class="bubble_wrapper">
+		</div> -->
+</body>
+</html>

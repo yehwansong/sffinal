@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		overflow-x: hidden;
+		margin:0;
+		padding:0;}
+	body, html{
+		width: 100%;
+		overflow-x: hidden;
+	}
+	.craft{
+		z-index: 100;
+		position: relative;
+		pointer-events: none;
+	}
+	img{
+		width: 100%;
+	}
+	.bg_wrapper{width: 100%;
+		height: 100vh;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		background: black
+	}
+	.bg_wrapper img{
+		width: 88vw;
+		height: auto;
+		position: fixed;
+		bottom: 0;
+		left: 6vw;
+	}
+	.button{
+		width: 10vw;
+		height: 10vw;
+		background: white;
+		border: 1vw solid blue;
+		border-radius: 50%;
+		position: absolute;
+		z-index: 100000000
+	}
+	.button_0{
+		left: 50vw;
+		width: 15vw;
+		height: 15vw;
+		top: 65vw;
+	}
+	.button_1{
+		left: 73vw;
+		width: 15vw;
+		height: 15vw;
+		top: 65vw;
+	}
+	.button_2{
+		left: 64.5vw;
+		width: 15vw;
+		height: 15vw;
+		top: 144vw;
+	}
+	.button_3{
+		left: 33vw;
+		width: 15vw;
+		height: 15vw;
+		top: 264vw;
+	}
+	.button_4{
+left: 71vw;
+width: 15vw;
+height: 15vw;
+top: 340vw;
+	}
+	.button_5{
+left: 32vw;
+width: 15vw;
+height: 15vw;
+top: 365vw;
+	}
+	.button_6{
+left: 70vw;
+width: 15vw;
+height: 15vw;
+top: 390vw;
+	}
+	.button_7{
+left: 3vw;
+width: 15vw;
+height: 15vw;
+top: 390vw;
+	}
+	.black{
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		z-index: 10000000;
+		background: black;
+		display: none;
+	}
+	.stone{
+position: fixed;
+z-index: 10;
+transform: translateY(30vw) scale(0.25);
+transition:5s;
+}
+	.text{
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		z-index: 10000;
+		width: 90vw;
+
+		display: block;
+		background: black;
+		color: white;
+
+		font-size: 5vw;
+		text-align: center;
+		line-height: 1.2;
+		padding: 2vw;
+		/* width: 18vw; */
+		padding-top: 2.5vw;
+		 opacity: 0; 
+	}
+	.texton{
+		opacity: 1
+	}
+</style>
+</head>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var bg_counter = 0
+		animate()
+		function animate(){
+			bg_counter++
+			setTimeout(function(){
+				animate()
+			}, 100)
+			// $('.bg').hide()
+			$('.bg_'+Math.abs(bg_counter%59 - 29)).css({'z-index':bg_counter})
+		}
+		$('.stone').click(function(){
+			die_1()
+		})
+		function die_1(){
+			$('.text').addClass('texton')
+			$('.text').html('저게 뭐지?')
+			$('.stone').css({'transform': 'translateY(30vw) scale(5)'})
+			setTimeout(function(){
+				die_2()
+			},2500)
+		}
+		function die_2(){
+			$('.text').html('으아악')
+			setTimeout(function(){
+				die_3()
+			},2500)
+		}
+		function die_3(){
+			$('.black').show()
+		}
+
+
+		  	var button_array = [
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
+		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.']
+		$('.button').bind('touchstart', function(e){
+			e.preventDefault();
+			var num = parseInt($(this).attr('class').split('button_')[1].split(' ')[0])
+			$(this).addClass('button_visible')
+			$('.text').html(button_array[num])
+			$('.text').addClass('texton')
+		})
+		$('.button').bind('touchend', function(e){
+	    	e.preventDefault();
+			$('.button').removeClass('button_visible')
+			$('.text').html(' ')
+			$('.text').removeClass('texton')
+			var rocktime = setTimeout(function(){
+
+			})
+		});
+	})
+</script>
+<body>
+	<div class="black">&nbsp;</div>
+	<img src="rock4.png" class="stone">
+	<img src="craft.png" class="craft">
+	<div class="button button_0"></div>
+	<div class="button button_1"></div>
+	<div class="button button_2"></div>
+	<div class="button button_3"></div>
+	<div class="button button_4"></div>
+	<div class="button button_5"></div>
+	<div class="button button_6"></div>
+	<div class="button button_7"></div>
+		<div class="text"></div>
+	<div class="bg_wrapper">
+		<img class="bg bg_1" src="bg_seq/bg1.png">
+		<img class="bg bg_2" src="bg_seq/bg2.png">
+		<img class="bg bg_3" src="bg_seq/bg3.png">
+		<img class="bg bg_4" src="bg_seq/bg4.png">
+		<img class="bg bg_5" src="bg_seq/bg5.png">
+		<img class="bg bg_6" src="bg_seq/bg6.png">
+		<img class="bg bg_7" src="bg_seq/bg7.png">
+		<img class="bg bg_8" src="bg_seq/bg8.png">
+		<img class="bg bg_9" src="bg_seq/bg9.png">
+		<img class="bg bg_10" src="bg_seq/bg10.png">
+		<img class="bg bg_11" src="bg_seq/bg11.png">
+		<img class="bg bg_12" src="bg_seq/bg12.png">
+		<img class="bg bg_13" src="bg_seq/bg13.png">
+		<img class="bg bg_14" src="bg_seq/bg14.png">
+		<img class="bg bg_15" src="bg_seq/bg15.png">
+		<img class="bg bg_16" src="bg_seq/bg16.png">
+		<img class="bg bg_17" src="bg_seq/bg17.png">
+		<img class="bg bg_18" src="bg_seq/bg18.png">
+		<img class="bg bg_19" src="bg_seq/bg19.png">
+		<img class="bg bg_20" src="bg_seq/bg20.png">
+	</div>
+</body>
+</html>

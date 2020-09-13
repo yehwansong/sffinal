@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+	font-family: 'KoPub Batang', serif;
+		word-break: keep-all;
+	}
+	body, html{
+		width: 100vw;
+		height: 100%;
+		background: black
+	}
+	.text{
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		z-index: 10000;
+		width: 90vw;
+
+		display: block;
+		background: black;
+		color: white;
+
+		font-size: 5vw;
+		text-align: center;
+		line-height: 1.2;
+		padding: 2vw;
+		/* width: 18vw; */
+		padding-top: 2.5vw;
+		 opacity: 0; 
+	}
+	.texton{
+		opacity: 1
+	}
+	.bg_wrapper{
+		width: 100vw;
+		height: 100%;
+		position: fixed;
+		transform: perspective(100vw) rotateX(40deg) rotateZ(0deg) scale(2);
+		transition: 0.3s
+	}
+	.notran{
+		transition: 0
+	}
+	.bg,
+	.bubble_wrapper{
+		width: 500vw;
+		height: 1500vw;
+		position: fixed;
+		left: 0;
+		top: -1000vw;
+		left: -200vw;
+		background-image: url(reearth.png);
+		background-size: 100vw;
+		background-repeat: repeat;
+	}
+	.bubble{
+		pointer-events: none;
+		position: fixed;
+		transform: translateZ(110vw);
+		z-index: 11000000;
+	}
+	.bubble_1{
+		left: 0%;
+		top: 0vh
+	}
+	.bubble_2{
+		left: 50vw;
+		top: 0vh
+	}
+	.bubble_3{
+		left: 0;
+		top: 30vh
+	}
+	.bubble_4{
+		left: 20vw;
+		top: 10vh
+	}
+	.bubble_5{
+		left: 0;
+		top: 60vh
+	}
+	.bubble_6{
+		left: 50vw;
+		top: 60vh
+	}
+	.bubble_7{
+		left: 0;
+		top: 50vh
+	}
+	.bubble_8{
+		left: 0vw;
+		top: -30vh
+	}
+	.bubble_9{
+		left: 50vw;
+		top: -0vh
+	}
+	.bubble_10{
+		left: 0;
+		top: -30vh
+	}
+	.bubble_11{
+		left: 20vw;
+		top: -10vh
+	}
+	.bubble_12{
+		left: 0;
+		top: -60vh
+	}
+	.bubble_13{
+		left: 50vw;
+		top: -60vh
+	}
+	.bubble_14{
+		left: 0;
+		top: -80vh
+	}
+	.bubble_15{
+		left: 0vw;
+		top: -80vh
+	}
+	.bubble_16{
+		left: 50vw;
+		top: -100vh
+	}
+	.bubble_17{
+		left: 0;
+		top: -120vh
+	}
+	.bubble_18{
+		left: 20vw;
+		top: -120vh
+	}
+	.bubble_19{
+		left: 0;
+		top: -150vh
+	}
+	.bubble_20{
+		left: 50vw;
+		top: -180vh
+	}
+	.bubble_21{
+		left: 0;
+		top: -180vh
+	}
+	.bubble img{
+		width: 50vw
+	}
+	.flyer{
+		position: fixed;
+		width: 15vw;
+		height: 15vw;
+		border-radius: 50%;
+		background: white;
+		border:0.5vw solid black;
+		left: 35vw;
+		top: 80%;
+		z-index: 10000000;
+		transform: translateX(-50%) translateY(-50%) translateZ(110vw);
+	}
+	.flyer_1{
+		left: 15vw;
+	}
+	.flyer_2{
+		left: 75vw;
+	}
+	.fire{
+		position: fixed;
+		width: 50vw;
+		transform: translateX(-50%) translateY(-30%) translateZ(105vw);
+		z-index: 11000000;
+		pointer-events: none;
+	}
+	.fire{
+		position: fixed;
+		transform: translateX(-50%) translateY(-30%) translateZ(105vw);
+		z-index: 11000000;
+	}
+	.bubble span{
+		display: block;
+		text-align: center;
+		padding: 1vw;
+		background:white;}
+</style>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+</head>
+<body>
+	<script type="text/javascript">
+		var w = window.innerWidth
+		var h = window.innerHeight
+  document.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+  }, { passive: false });
+		var touchamout = 0 
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+ 
+        // }, { passive: false });
+		function map_range(value, low1, high1, low2, high2) {
+		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+		}
+		var fly_counter = 0
+		$(document).ready(function(){
+var touch_0
+var touch_1
+				flyer_1 = false
+				flyer_2 = false
+
+			$('.flyer_1').bind('touchstart', function(e){
+				e.preventDefault();
+				touchamout = e.originalEvent.touches.length
+				console.log(1)
+				flyer_1 = true
+				if(flyer_1 && flyer_2){
+					// fly(e)
+				}
+			})
+			$('.flyer_1').bind('touchend', function(e){
+				console.log(2)
+				flyer_1 = false
+			});
+			$('.flyer_2').bind('touchstart', function(e){
+				e.preventDefault();
+				touchamout = e.originalEvent.touches.length
+				console.log(3)
+				flyer_2 = true
+				if(flyer_1 && flyer_2){
+					// fly(e)
+				}
+			})
+			$('.flyer_2').bind('touchend', function(e){
+				console.log(4)
+				flyer_2 = false
+			});
+			$(document).bind('touchend', function(e){
+				touchamout = e.originalEvent.touches.length
+			});
+			$(document).bind('touchmove', function(e){
+				touch_0 = e.originalEvent.touches[0]
+				touch_1 = e.originalEvent.touches[1]
+				if(e.originalEvent.touches.length==1){
+					$('.flyer_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
+					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+					$('.fire_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
+					$('.fire_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+
+				}
+				else if(e.originalEvent.touches.length>1){
+					fly(e)
+					$('.flyer_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
+					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+					$('.flyer_2').css({'left':e.originalEvent.touches[1].pageX+'px'})
+					$('.flyer_2').css({'top' :e.originalEvent.touches[1].pageY+'px'})
+					$('.fire_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
+					$('.fire_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+					$('.fire_2').css({'left':e.originalEvent.touches[1].pageX+'px'})
+					$('.fire_2').css({'top' :e.originalEvent.touches[1].pageY+'px'})
+				}
+				else{
+					$('.flyer_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
+					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
+					$('.flyer_2').css({'left':e.originalEvent.touches[1].pageX+'px'})
+					$('.flyer_2').css({'top' :e.originalEvent.touches[1].pageY+'px'})
+				}
+			});
+			function fly(e){
+				fly_counter++
+				if(touchamout<2){
+					flyer_1 = false
+					flyer_2 = false
+				}
+					var rotate = angle(touch_0.pageX, touch_0.pageY,touch_1.pageX,touch_1.pageY)
+					console.log(rotate)
+				$('.bg').css({'margin-top':fly_counter%(5*w)+'px'})
+				$('.bubble').css({'margin-top':(fly_counter%(3*h))/2+'px'})
+				$('.bubble').css({'margin-left':rotate+'px'})
+				$('.bubble').each(function(){
+					$(this).css({'transform':'scale('+(0.5+2*(($(this).offset().top%h)/(h)))+') translateZ(310vw)'})
+				})
+				setTimeout(function(e){
+					if(flyer_1 && flyer_2){
+						fly(e)
+					console.log('perspective(100vw) rotateX(40deg) rotateZ('+rotate+'deg)')
+					$('.bg_wrapper').addClass('notran')
+					// $('.bg_wrapper').css({'transform': 'perspective(100vw) rotateX(40deg) rotateZ('+rotate+'deg) scale(1)'})
+					}
+				},10)
+			}
+			function angle(p1_x,p1_y,p2_x,p2_y){
+				return Math.atan2(p2_y - p1_y, p2_x - p1_x) * 180 / Math.PI;
+			}
+			var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+		})
+	</script>
+	<img src="fire.png" class='fire fire_1'>
+	<img src="fire.png" class='fire fire_2'>
+		<div class="flyer flyer_1"></div>
+		<div class="flyer flyer_2"></div>
+		<div class="bg_wrapper">
+			<div class="bg">
+			</div>
+		</div>
+		<div class="bg_wrapper">
+			<div class="bg">
+			</div>
+		</div>
+			<div class="bubble bubble_1">
+				<span>가나다라마바</span>
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_2">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_3">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_4">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_5">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_6">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_7">
+				<span>가나다라마바</span>
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_8">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_9">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_10">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_11">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_12">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_13">
+				<span>가나다라마바</span>
+				<img src="frog.png">
+			</div>
+			<div class="bubble bubble_14">
+				<img src="plant1.png">
+			</div>
+			<div class="bubble bubble_15">
+				<img src="plant2.png">
+			</div>
+			<div class="bubble bubble_16">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_17">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_18">
+				<img src="plant5.png">
+			</div>
+			<div class="bubble bubble_19">
+				<img src="plant3.png">
+			</div>
+			<div class="bubble bubble_20">
+				<img src="plant4.png">
+			</div>
+			<div class="bubble bubble_21">
+				<img src="plant5.png">
+			</div>
+		<!-- <div class="bubble_wrapper">
+		</div> -->
+</body>
+</html>

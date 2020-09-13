@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+		font-family: 'KoPub Batang', serif;
+		word-break: keep-all;
+	}
+	img{
+		width: 100vw;
+		height: 360vw;
+		position: relative;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+	}
+	body{
+		height: 100%;
+		background:linear-gradient(to right, rgb(48, 87, 214), white);
+	}
+	.wrapper{
+		transform-origin: 80%;
+		transition: 1s;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		left: 0;
+		top: 0;
+		overflow-y: scroll;
+	}
+	.wrapper_fly{
+		transform: scale(1);
+	}
+	.popupbutton,
+	.button{
+		position: absolute;
+		width: 95vw;
+		height: 95vw;
+		background-position: center;
+		background-repeat: no-repeat;
+		transition: 0.5s;
+		z-index: 10000;
+	}
+	.button_0{
+		border-radius: 50%;
+		transform:translate(-50%, -50%) scale(0.2);
+		left: 50vw;
+		top: 50vw;
+		border:0.8vw solid red;
+		background-image: url(images/tree.png);
+		background-size: contain;
+	}
+	.button_1{
+		transform: translate(-50%, -50%) scale(0.4);
+		left: 70vw;
+		top: 115vw;
+		background-image: url(images/din_1.png);
+		background-size: contain;
+	}
+	.button_2{
+		transform: translate(-50%, -50%) scale(0.6);
+		left: 30vw;
+		top: 220vw;
+		background-image: url(images/din_2.png);
+		background-size: contain;
+	}
+	.button_3{
+		transform: translate(-50%, -50%) scale(0.4);
+		left: 70vw;
+		top: 335vw;
+		background-image: url(images/din_3.png);
+		background-size: contain;
+	}
+	.button_4{
+		transform: translate(-50%, -50%) scale(0.2);
+		left: 20vw;
+		top: 305vw;
+		background-image: url(images/fox.png);
+		background-size: contain;
+	}
+	.button_5{
+		transform: translate(-50%, -50%) scale(0.3);
+		left: 20vw;
+		top: 95vw;
+		background-image: url(images/frog.png);
+		background-size: contain;
+	}
+	.button_6{
+		transform: translate(-50%, -50%) scale(0.3);
+		left: 70vw;
+		top: 335vw;
+		background-image: url(images/bird.png);
+		background-size: contain;
+	}
+	.popupbutton_1{
+		transform: translate(-50%, -50%) scale(0.3);
+		left: 70vw;
+		top: 35vw;
+		background-image: url(images/monkey_1.png);
+		background-size: contain;
+	}
+	.popupbutton_2{
+		transform: translate(-50%, -50%) scale(0.3);
+		left: 30vw;
+		top: 435vw;
+		background-image: url(images/monkey_2.png);
+		background-size: contain;
+	}
+	.popupbutton_3{
+		transform: translate(-50%, -50%) scale(0.3);
+		left: 70vw;
+		top: 235vw;
+		background-image: url(images/monkey_3.png);
+		background-size: contain;
+	}
+	.button_visible{
+		transform:translate(-50%, -50%) scale(1);
+	}
+	.content_warpper{
+		pointer-events: none;
+		z-index: 10000;
+		position: fixed;
+	}
+	.planet2,
+	.planet3,
+	.planet4,
+	.planet5{
+		position: fixed;
+		left: 0;
+		top: 0;
+		pointer-events: none;
+	}
+	.planet1{z-index: 5}
+	.planet2{z-index: 4}
+	.planet3{z-index: 3}
+	.planet4{z-index: 2}
+	.planet5{z-index: 1;opacity: 0.5;}
+	.text{
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		z-index: 10000;
+		width: 90vw;
+
+		display: block;
+		background: black;
+		color: white;
+
+		font-size: 5vw;
+		text-align: center;
+		line-height: 1.2;
+		padding: 2vw;
+		/* width: 18vw; */
+		padding-top: 2.5vw;
+		 opacity: 0; 
+	}
+	.texton{
+		opacity: 1
+	}
+	.popup{
+		width: 90vw;
+		background:black;
+		left: 5vw;
+		position: fixed;
+		top: 5vw;
+		z-index: 100000;
+		z-index: 100000;
+padding: 5%;
+box-sizing: border-box;
+display: none;
+border-radius: 2vw;
+	}
+	.popup img{
+		width: 90%;
+		position: relative;
+		left: 5%;
+		height: auto;
+	}
+	.popup div{
+		color:white;
+		font-size: 5vw;
+		text-align: center;
+	}
+	.popup .closebutton{
+display: inline-block;
+left: 50%;
+position: relative;
+transform: translateX(-50%);
+border: 0.5vw solid white;
+padding: 2vw;
+padding-bottom: 1.5vw;
+border-radius: 2vw;}
+</style>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+</head>
+<body>
+	<script type="text/javascript">
+		var w = window.innerWidth
+		var h = window.innerHeight
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+ 
+        // }, { passive: false });
+		function map_range(value, low1, high1, low2, high2) {
+		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+		}
+
+		$(document).ready(function(){
+		text_1()
+		function text_1(){
+			$('.text').html('외계행성에 도착했다.')
+			$('.text').addClass('texton')
+			setTimeout(function(){
+				text_2()
+			},5500)
+		}
+		function text_2(){
+			$('.text').html('도착해 보니 다행히 지구와 비슷해 사람이 살 수 있을 것 같다!')
+		}
+			var scrolltimeout 
+		  	$(document).scroll(function(){
+		  		var scrolltop = $(window).scrollTop()/w
+		  		console.log(map_range(scrolltop, 0, 2.6, 0, 1))
+		  		$('.planet2').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.8)*-100+'vw'})
+		  		$('.planet3').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.5)*-100+'vw'})
+		  		$('.planet4').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2)*-100+'vw'})
+		  		$('.planet5').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2.5)*-100+'vw'})
+		    })
+		  	var button_array = [
+		  		' 거대 동물이 지상을 활보하고 있다.',
+		  		' 거대 동물이 지상을 활보하고 있다.',
+		  		' 거대 동물이 지상을 활보하고 있다.',
+		  		' 거대 동물이 지상을 활보하고 있다.'
+		  		,
+		  		' 온갖 크고 작은 생명체가 살고 있는 것 같다.',
+		  		' 온갖 크고 작은 생명체가 살고 있는 것 같다.',
+		  		' 온갖 크고 작은 생명체가 살고 있는 것 같다.'
+		  		]
+		$('.button').bind('touchstart', function(e){
+			e.preventDefault();
+			var num = parseInt($(this).attr('class').split('button_')[1].split(' ')[0])
+			$(this).addClass('button_visible')
+			$('.text').html(button_array[num])
+			$('.text').addClass('texton')
+		})
+		$('.button').bind('touchend', function(e){
+	    	e.preventDefault();
+			$('.button').removeClass('button_visible')
+			$('.text').html(' ')
+			$('.text').removeClass('texton')
+		});
+			$('.popupbutton').click(function(){
+				$('.popup').show()
+			})
+			$('.closebutton').click(function(){
+				$('.popup').hide()
+			})
+		})
+	</script>
+		<img class="planet1 planet" src="planet1.png">
+		<img class="planet2 planet" src="planet2.png">
+		<img class="planet3 planet" src="planet3.png">
+		<img class="planet4 planet" src="planet4.png">
+		<img class="planet5 planet" src="planet5.png">
+		<!-- <div class="button button_tree">&nbsp;</div> -->
+	<div class="wrapper">
+	</div>
+		<div class="button button_0"></div>
+		<div class="button button_1"></div>
+		<div class="button button_2"></div>
+		<div class="button button_3"></div>
+
+		<div class="button button_4"></div>
+		<div class="button button_5"></div>
+		<div class="button button_6"></div>
+		<div class="popupbutton popupbutton_1"></div>
+		<div class="popupbutton popupbutton_2"></div>
+		<div class="popupbutton popupbutton_3"></div>
+		<div class="text"></div>
+		<div class="popup">
+			<img src="images/dna.png">
+			<div>
+				인간과 비슷한<br>DNA를 지니고 있는 것으로 보인다!
+				<br><br>
+			</div>
+			<div class='closebutton'>
+				확인
+			</div>
+		</div>
+</body>
+</html>
