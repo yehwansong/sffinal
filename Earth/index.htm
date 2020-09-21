@@ -9,7 +9,6 @@
   <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
   <meta name="apple-mobile-web-app-title" content="onlyWebPro" />
   <style type="text/css"> 
-    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 html{
     width: 100vw;
     height: 100vh;
@@ -50,9 +49,10 @@ html{
     .texton{
         opacity: 1
     }
+    .custom-hotspot-extra img,
     .custom-hotspot img{
         width: 100%
-    }
+    }.custom-hotspot-extra,
     .custom-hotspot{
         height: 12vh;
         width: 12vh;
@@ -81,10 +81,109 @@ html{
         height: 15vh;
         width: 10vh;
     }
+    .hotspot8{
+        height: 15vh;
+        width: 10vh;
+    }
+    .hotspot9{
+        height: 30vh;
+        width: 10vh;
+    }
+    .speaking{
+        background: black;
+        position: fixed;
+        z-index: 10000000;
+        left: 0;
+        top: 0;
+        width: 35vw;
+        box-sizing: border-box;
+        padding: 5.5vw;
+        text-align: center;
+        border: 0.4vw solid white;
+        border-radius: 1vw;
+        font-size: 4.5vw;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+    .speaking_1{
+left: 20vw;
+top: 20vw;
+    }
+    .speaking_2{
+left: 60vw;
+top: 25vw;
+
+    }
+    .speaking_3{
+left: 20vw;
+top: 115vw;
+    }
+    .speaking_4{
+left: 25vw;
+top: 75vw;
+    }
+    .speaking_5{
+left: 75vw;
+top: 100vw;
+    }
+    .speaking_6{
+left: 77vw;
+top: 135vw;
+}
+    .speaking_7{
+left: 80vw;
+top: 50vw;
+    }
+    .speaking_8{
+left: 50vw;
+top: 60vw;
+    }
+    .speaking_9{
+left: 50vw;
+top: 105vw;
+    }
+.selector_wrapper,
+.speaking_wrapper{display: none;
+z-index: 1000;
+position: absolute;
+height: 100vh;
+width: 100vw;
+left: 0;
+top: 0;
+}
+.selector{
+margin-left: 5vw;
+background: black;
+color: white !important;
+text-align: center;
+visibility: visible;
+bottom: -20vw;
+color:white !important;
+position: relative;}
+.selector_2{
+margin-left: 2.5vw;
+position: absolute;}
+.y{
+    background-image: url('../img/Layer 1.png');
+    left: 50vw
+}
+.c{
+    background-image: url('../img/Layer 2.png')
+}
+.c .speaking{
+left: 25vw;
+top: 120vw;}
+.y .speaking{
+left: 75vw;
+top: 120vw;}
+.text img{
+    width: 100%
+}
 </style>
 </head>
 <body>
     <link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css"/>
+    <link rel="stylesheet" href="../all.css"/>
     <script type="text/javascript" src="pannellum.js"></script>
     <script type="text/javascript" src="libpannellum.js"></script>
     <script type="text/javascript" src="RequestAnimationFrame.js"></script>
@@ -141,18 +240,34 @@ viewer = pannellum.viewer('panorama', ﻿{
             "yaw": -160, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot hotspot7"
+        },
+        {
+            "pitch": -20,
+            "yaw": -160, 
+            "createTooltipFunc": hotspot,
+            "cssClass":"custom-hotspot hotspot8"
+        },
+        {
+            "pitch": 30,
+            "yaw": -200, 
+            "createTooltipFunc": hotspot,
+            "cssClass":"custom-hotspot-extra hotspot9"
         }
     ]
 });
+
 var button_array = [
             ' ',
-            '신종 전염병이 계속 나타난다.',
-            '지구는 극심한 온난화를 겪고 있다.',
-            '지구는 극심한 온난화를 겪고 있다.',
-            '신종 전염병이 계속 나타난다.',
-            '인류가 더 이상 지구에서 살기는 어려워 보인다.',
-            '인류가 더 이상 지구에서 살기는 어려워 보인다.',
-            '여행할 수 있는 항성간 우주선을 개발하고 있다.']
+            '신종 전염병 등으로 지구는 이제 인류가 살 수 없는 곳이 됐다.',
+            '기후 변화로 인한 생태계 파괴는 걷잡을 수 없게 심해졌다.',
+            '기후 변화로 인한 생태계 파괴는 걷잡을 수 없게 심해졌다.',
+            '신종 전염병 등으로 지구는 이제 인류가 살 수 없는 곳이 됐다.',
+            '지구를 벗어나는 것만이 유일한 살 길.',
+            '지구를 벗어나는 것만이 유일한 살 길.',
+            '그때까지 살아남은 인류는 두 갈래로 나뉜다.<br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.',
+            '그때까지 살아남은 인류는 두 갈래로 나뉜다.<br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.',
+            ' \
+                ']
 function hotspot() {
     $('.hotspot1').empty().append('<img src="virus.png">')
     $('.hotspot2').empty().append('<img src="fire.png">')
@@ -161,6 +276,45 @@ function hotspot() {
     $('.hotspot5').empty().append('<img src="building.png">')
     $('.hotspot6').empty().append('<img src="building2.png">')
     $('.hotspot7').empty().append('<img src="rocket.png">')
+    $('.hotspot8').empty().append('<img src="../img/speaking.png">')
+    $('.hotspot9').empty().append('<img src="../img/candy.png">')
+    $('.hotspot9').bind('touchstart', function(e){
+            text_3()
+            console.log("----")
+            $('.black').show()
+    })
+        function text_3(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('<img src="../img/candy.png">그때까지 살아남은 인류는 두 갈래로 나뉜다.\
+                <br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.\
+                ')
+            setTimeout(function(){
+                text_4()
+            },3000)
+        }
+        function text_4(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('<img src="../img/candy.png">\
+                <br>나의 단짝 친구인 철수과 영희은 각자 다른 선택을 한다.\
+                <br>철수는 태양계에 남아 지구에 희망을 걸 생각이고,영희는 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+                ')
+            setTimeout(function(){
+                text_5()
+            },3000)
+        }
+        function text_5(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('<img src="../img/candy.png">\
+                <br>그리고 나 역시 두 길 중 하나를 선택해 떠나야 한다. \
+                <br>어떻게 하면 좋을까?\
+                <a href="../SpaceStation/index.html" class="selector">태양계에 머물자</a>\
+                <a class="a_2 selector_2 selector">태양계를 떠나 외계 행성으로 가자</a>\
+                ')
+        }
+                
     $('.custom-hotspot').bind('touchstart', function(e){
             $(this).find('img').css({'transform':'scale(4)'})
             var num = parseInt($(this).attr('class').split(' hotspot')[1].split(' ')[0])
@@ -184,11 +338,65 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
     isMobile = true;
 }
+$(document).ready(function(){
+            text_1()
+        function text_1(){
+            $('.text').addClass('texton center')
+            $('.text').html('서기 2XXX년. 지구')
+            setTimeout(function(){
+                text_2()
+            },4000)
+        }
+        function text_2(){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+        }
+        $('.next').bind('touchstart', function(e){
+            text_4()
+            console.log("----")
+            $('.black').show()
+        })
+        function text_4(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('친구들을 찾아보자')
+        }
+        function text_3(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('그때까지 살아남은 인류는 두 갈래로 나뉜다.\
+                <br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.\
+                <br>나의 단짝 친구인 하준과 서윤은 각자 다른 선택을 한다.\
+                <br>하준은 태양계에 남아 지구에 희망을 걸 생각이고,서윤은 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+                <br>그리고 나 역시 두 길 중 하나를 선택해 떠나야 한다. \
+                <br>어떻게 하면 좋을까?\
+                <a class="selector">태양계를 떠나 외계 행성으로 가자</a>\
+                <a href="../SpaceStation/index.html" class="selector selector_2 a_2">태양계에 머물자</a>\
+                ')
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
+})
 
 </script>
-<div class="message">사막화가 진행되고 있다.</div>
+        <div class="black"></div>
         <div class="text"></div>
-        <div class="selector"><div>
+        <div class="next">?</div>
+            <img src="../img/close.png" class="close">
+        <div class="selector_wrapper">
+            <img src="../img/close.png" class="close">
+            <a href="" class="c selector">
+                <div class="selector_speaking_1 speaking">우리 가족은 태양계에 남을 생각이야.</div>
+            </a>
+            <a href="" class="y selector">
+                <div class="selector_speaking_1 speaking">우리 가족은 외계행성을 찾아가2 생각이야.</div>
+            </a>
+        </div>
 </body>
 
 </html>

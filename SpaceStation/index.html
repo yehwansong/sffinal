@@ -9,6 +9,7 @@
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"></script>
+<link rel='stylesheet'  href='../all.css' type='text/css' media='all' />
 <style type="text/css">
 	*{
 		overflow-x: hidden;
@@ -22,6 +23,12 @@ crossorigin="anonymous"></script>
 		z-index: 100;
 		position: relative;
 		pointer-events: none;
+		width: 100vw;
+		height: 500vw;
+		background-image: url('craft.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: left top
 	}
 	img{
 		width: 100%;
@@ -41,39 +48,44 @@ crossorigin="anonymous"></script>
 		left: 6vw;
 	}
 	.button{
-		width: 10vw;
-		height: 10vw;
-		background: white;
-		border: 1vw solid blue;
-		border-radius: 50%;
+width: 30vw !important;
+height: 30vw !important;
 		position: absolute;
-		z-index: 100000000
+		z-index: 1000000;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 	.button_0{
-		left: 50vw;
+		background-image: url(../img/laptop.png);
+		left: 40vw;
 		width: 15vw;
 		height: 15vw;
 		top: 65vw;
 	}
 	.button_1{
+		background-image: url(../img/spacefood.png);
 		left: 73vw;
 		width: 15vw;
 		height: 15vw;
 		top: 65vw;
 	}
 	.button_2{
+		background-image: url(../img/recycle.png);
 		left: 64.5vw;
 		width: 15vw;
 		height: 15vw;
 		top: 144vw;
 	}
 	.button_3{
+		background-image: url(../img/capsule.png);
 		left: 33vw;
 		width: 15vw;
 		height: 15vw;
 		top: 264vw;
 	}
 	.button_4{
+		background-image: url(../img/science.png);
 left: 71vw;
 width: 15vw;
 height: 15vw;
@@ -97,47 +109,45 @@ width: 15vw;
 height: 15vw;
 top: 390vw;
 	}
-	.black{
-		position: fixed;
-		width: 100vw;
-		height: 100vh;
-		z-index: 10000000;
-		background: black;
-		display: none;
-	}
 	.stone{
 position: fixed;
 z-index: 10;
 transform: translateY(30vw) scale(0.25);
-transition:5s;
+transition:3s cubic-bezier(.43,.01,1,.53);
 }
-	.text{
-		position: fixed;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 10px;
-		z-index: 10000;
-		width: 90vw;
-
-		display: block;
-		background: black;
-		color: white;
-
-		font-size: 5vw;
-		text-align: center;
-		line-height: 1.2;
-		padding: 2vw;
-		/* width: 18vw; */
-		padding-top: 2.5vw;
-		 opacity: 0; 
-	}
-	.texton{
-		opacity: 1
-	}
 </style>
 </head>
 <script type="text/javascript">
 	$(document).ready(function(){
+        text_1()
+        function text_1(){
+            $('.text').addClass('texton center')
+            $('.text').html('지구를 떠난 사람들은 달과 화성 등으로 흩어졌다.')
+            setTimeout(function(){
+                text_2()
+            },2500)
+        }
+        function text_2(){
+            $('.text').addClass('texton center')
+            $('.text').html('나는 하준과 지구 궤도에 건설한 우주정거장에 머물며 지구 복원 계획에 참여한다.')
+            setTimeout(function(){
+                text_3()
+            },2500)
+        }
+        function text_3(){
+            $('.text').addClass('texton center')
+            $('.text').html('우주정거장')
+            setTimeout(function(){
+                text_4()
+            },2500)
+        }
+        function text_4(){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+        }
+
+
 		var bg_counter = 0
 		animate()
 		function animate(){
@@ -153,32 +163,32 @@ transition:5s;
 		})
 		function die_1(){
 			$('.text').addClass('texton')
-			$('.text').html('저게 뭐지?')
-			$('.stone').css({'transform': 'translateY(30vw) scale(5)'})
+			$('.text').html('저게 뭐지?<br>')
+			setTimeout(function(){
+				$('.stone').css({'transform': 'translateY(30vw) scale(5)'})
+			},500)
 			setTimeout(function(){
 				die_2()
-			},2500)
+			},2000)
 		}
 		function die_2(){
-			$('.text').html('으아악')
+			$('.text').html('으아악<br>')
 			setTimeout(function(){
 				die_3()
-			},2500)
+			},1500)
 		}
 		function die_3(){
 			$('.black').show()
+			location.replace("../emptyroom.html");
 		}
 
 
 		  	var button_array = [
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.',
-		  		'이건 어떤 비행사가 100년 전에 사용한 어떤 것이라고 한다.']
+			'우주정거장의 생활은 단조롭다.',
+			'맛보다 영양에만 신경 쓴 식사',
+			'자원을 최대한 아끼기 위한 재활용 장치',
+			'우리는 달의 연구소에서 유전자를 조작해 이산화탄소를 제거하게 만든 미생물을 캡슐에 담아 지구 대기에 살포한다. ',
+			'그 외의 여러 아이디어의 효과를 테스트하는 실험도 임무의 일부다.']
 		$('.button').bind('touchstart', function(e){
 			e.preventDefault();
 			var num = parseInt($(this).attr('class').split('button_')[1].split(' ')[0])
@@ -195,12 +205,30 @@ transition:5s;
 
 			})
 		});
+        $('.next').bind('touchstart', function(e){
+            text_next()
+            console.log("----")
+            $('.black').show()
+        })
+        function text_next(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('정거장 창 너머로 돌이 보인다.')
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
 	})
 </script>
 <body>
+        <div class="next">?</div>
+            <img src="../img/close.png" class="close">
 	<div class="black">&nbsp;</div>
 	<img src="rock4.png" class="stone">
-	<img src="craft.png" class="craft">
+	<div class="craft"></div>
 	<div class="button button_0"></div>
 	<div class="button button_1"></div>
 	<div class="button button_2"></div>

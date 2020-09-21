@@ -55,11 +55,17 @@
         height: 10vh;
         width: 5vh;
     }
+    .hotspot8{
+        height: 10vh;
+        width: 15vh;
+        /*background:blue;*/
+    }
 </style>
 </head>
 <body>
   <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css"/>
+<link rel='stylesheet'  href='../all.css' type='text/css' media='all' />
     <script type="text/javascript" src="pannellum.js"></script>
     <script type="text/javascript" src="libpannellum.js"></script>
     <script type="text/javascript" src="RequestAnimationFrame.js"></script>
@@ -69,6 +75,27 @@
   crossorigin="anonymous"></script>
 <div id="panorama"></div>
 <script>
+    $(document).ready(function(){
+            text_0()
+        function text_0(){
+            $('.text').addClass('texton center')
+            $('.text').html('나는 인간으로 남기로 한다.')
+            setTimeout(function(){
+                text_1()
+            },2500)
+        }
+        function text_1(){
+            $('.text').html('철수의 도움으로 나는 화성에 왔다.')
+            setTimeout(function(){
+                text_2()
+            },2500)
+        }
+        function text_2(){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+        }
+    })
 viewer = pannellum.viewer('panorama', ﻿{
     "type": "equirectangular",
     "panorama": "examplepano-01.png",
@@ -116,6 +143,12 @@ viewer = pannellum.viewer('panorama', ﻿{
             "yaw": 120, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot hotspot7"
+        },
+        {//1mellowsong  Center Pitch: 4.780283566889203, Center Yaw: 52.38215770325755, HFOV: 90
+            "pitch": -60,
+            "yaw": 180, 
+            "createTooltipFunc": hotspot,
+            "cssClass":"custom-hotspot hotspot8"
         }
     ]
 });
@@ -127,7 +160,8 @@ var button_array = [
             '지구? 들어본 것 같긴 하다',
             '가끔가다 부모님이 고향 이야기를 하신다.',
             '지구? 인류가 처음 생겨난 곳으로 알고있다.',
-            '저 소행성은 한번 꼭 가보고 싶다.']
+            '저 소행성은 한번 꼭 가보고 싶다.',
+            '사람들이 많이 모여있다. 한번 살펴보러 가자.']
 function hotspot() {
     $('.hotspot1').empty().append('<img src="earth.png">')
     $('.hotspot2').empty().append('<img src="city.png">')
@@ -136,6 +170,7 @@ function hotspot() {
     $('.hotspot5').empty().append('<img src="people-2.png">')
     $('.hotspot6').empty().append('<img src="people-3.png">')
     $('.hotspot7').empty().append('<img src="alien.png">')
+    $('.hotspot8').empty().append('<img src="../img/marspeople_icon.png">')
     $('.custom-hotspot').bind('touchstart', function(e){
             $(this).find('img').css({'transform':'scale(4)'})
             var num = parseInt($(this).attr('class').split(' hotspot')[1].split(' ')[0])
@@ -143,6 +178,11 @@ function hotspot() {
             $('.text').addClass('texton')
             e.preventDefault();
         })
+    $('.hotspot8').bind('touchstart', function(e){
+        setTimeout(function(){
+            location.replace("../mars_story.html");
+        })
+    })
     $('.custom-hotspot').bind('touchend', function(e){
             $('.custom-hotspot').find('img').css({'transform':'scale(1)'})
             $('.text').html(' ')
@@ -161,6 +201,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
 </script>
+<div class="black"></div>
 <div class="message">사막화가 진행되고 있다.</div>
         <div class="text"></div>
 </body>

@@ -1,4 +1,7 @@
-
+@font-face {
+  font-family: KoPub Batang;
+  src: url(KoPubBatangPMA.woff);
+}
 	.text{
 		position: fixed;
 		left: 50%;
@@ -13,7 +16,7 @@
 
 		font-size: 5vw;
 		text-align: center;
-		line-height: 1.2;
+		line-height: 1.4;
 		padding: 2vw;
 		/* width: 18vw; */
 		padding-top: 2.5vw;
@@ -22,9 +25,83 @@
 	.texton{
 		opacity: 1
 	}
+	.text.center{
+bottom: 52.5% !important;
+transform: translateY(50%) translateX(-50%);}
 	*{
+
+  touch-action: manipulation;
 		margin:0;
 		padding: 0;
-		font-family: 'KoPub Batang', serif;
+		font-family: san-serif;
 		word-break: keep-all;
+		font-size: 5vw;
+		line-height: 1.4
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 	}
+.next{
+position: fixed;
+width: 15vw;
+height: 15vw;
+right: 0;
+top: 0;
+background: red;
+border-radius: 100%;
+border: 0.8vw solid black;
+text-align: center;
+line-height: 15vw;
+pointer-events: all;
+z-index: 100000;
+font-family: sans-serif;
+}
+.close{
+position: fixed;
+right: 0;
+top: 0;
+width: 10vw;
+height: 10vw;
+display: block;
+left: auto;
+transform: none;
+/* background: white; */
+z-index: 10000000000;
+display: none;
+}
+	.black{position: fixed;
+width: 100vw;
+height: 100vh;
+z-index: 10000000;
+background: black;
+left: 0;
+top: 0;
+	}
+	.white{position: fixed;
+width: 100vw;
+height: 100vh;
+z-index: 10000000;
+background: white;
+left: 0;
+top: 0;
+pointer-events: none;
+	}
+.text a,.selector {
+    border: 0.3vw solid white;
+    padding: 1.5vw;
+    display: block;
+    display: block;
+    border-radius: 1vw;
+    margin-top: 2vw;
+    width: 40vw;
+    /* float: left; */
+    position: absolute;
+    height: 14vw;
+}
+    .text .a_2,.selector_2 {
+left: 50vw;
+}
