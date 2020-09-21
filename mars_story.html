@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel='stylesheet' href='all.css' type='text/css' media='all' />
+<style type="text/css">
+	*{
+		margin:0;
+	}
+	.ppl, .wife{
+		width: 20vw;
+		height: 60vw;
+		display: inline-block;
+		float: left;
+		background-size: 130% 130%;
+		background-repeat: no-repeat;
+		background-position: top center;
+		margin-bottom:-35vw;
+		position: relative;
+		transition: 0.5s
+	}
+	.wife{
+		transition: 1s
+	}
+	.ppl_down{
+		transform: translateY(-35vw);
+		background-size: 100% 100%
+	}
+	.warpper>div:nth-child(4n){
+		background-image: url(img/mars_story-03.jpg)
+	}
+	.warpper>div:nth-child(4n+1){
+		background-image: url(img/mars_story-04.jpg)
+	}
+	.warpper>div:nth-child(4n+2){
+		background-image: url(img/mars_story-05.jpg)
+	}
+	.warpper>div:nth-child(4n+3){
+		background-image: url(img/mars_story-06.jpg)
+	}
+	.warpper>div:nth-child(9n-3){
+		margin-left: 10vw;
+	}
+	.wrapper{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.wife{
+		background-image: url(img/mars_story-wife.png) !important;
+		position: absolute;
+		right: 0;
+		top: 200vw;
+		z-index: 100000000000;
+		height: 20vw;
+		transform-origin: right;
+	}
+.wife_5{z-index: 10000}
+.wife_4{z-index: 100000}
+.wife_3{z-index: 1000000}
+.wife_2{z-index: 10000000}
+.wife_1{z-index: 100000000}
+.heart{
+	position: fixed;
+	bottom: 0;
+	width: 20vw;
+	transform: translateY(20vh);
+	transition: 8s;z-index: 10000000000
+}
+.heart_ani{
+	transform: translateY(-120vh);
+}
+</style>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var leftarray = []
+			var toparray = []
+			$('.ppl').each(function(){
+				leftarray.push($(this).offset().left)
+				toparray.push($(this).offset().top)
+				if(leftarray.length == $('.ppl').length){
+					$('.ppl').each(function(index){
+						$(this).css({'position':'absolute'})
+						$(this).css({'left':leftarray[index] + 'px'})
+						$(this).css({'top':toparray[index] + 'px'})
+					})
+				}
+			})
+        text_1()
+        function text_1(){
+            $('.text').addClass('texton')
+            $('.text').html('소행성대처럼 중력이 거의 없는 곳에서 사는 게 보편적이 되다 보니 사람의 몸도 사실 많이 변했다.')
+            setTimeout(function(){
+                text_2()
+            },2500)
+        }
+        function text_2(){
+            $('.text').html('지구인보다 훨씬 더 키가 크고 호리호리한 몸으로, 이제는 사실 지구에 가고 싶어도 가지 못하게 됐다.')
+            setTimeout(function(){
+                text_3()
+            },2500)
+        }
+        function text_3(){
+            $('.text').html('과연 자신이 고집한 원래의 몸이라는 게 의미가 있는걸까?')
+            setTimeout(function(){
+            	text_4()
+            },2500)
+        }
+          
+        function text_4(){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+        }
+			// $('.ppl').each(function(i) {
+		 //        $(this).css('z-index', 1000 - i);
+		 //    });
+
+        function text_5(){
+            $('.text').addClass('texton')
+            $('.text').html('아름다워 보이는 여인을 발견했다.')
+            setTimeout(function(){
+            	text_6()
+            },2500)
+        }
+        function text_6(){
+            $('.text').html('소행성대의 여인이다.')
+            setTimeout(function(){
+            	text_7()
+            },2500)
+        }
+        function text_7(){
+            $('.text').html('그렇게 나는 사랑에 빠졌다.')
+            setTimeout(function(){
+            	location.replace("../mars_story_2.html");
+            },5000)
+			    	setTimeout(function(){
+			    		$('.heart_1').addClass('heart_ani')
+			    	},1*200)
+			    	setTimeout(function(){
+			    		$('.heart_2').addClass('heart_ani')
+			    	},2*200)
+			    	setTimeout(function(){
+			    		$('.heart_3').addClass('heart_ani')
+			    	},3*200)
+			    	setTimeout(function(){
+			    		$('.heart_4').addClass('heart_ani')
+			    	},4*200)
+			    	setTimeout(function(){
+			    		$('.heart_5').addClass('heart_ani')
+			    	},5*200)
+			    	setTimeout(function(){
+			    		$('.heart_6').addClass('heart_ani')
+			    	},6*200)
+			    	setTimeout(function(){
+			    		$('.heart_7').addClass('heart_ani')
+			    	},7*200)
+			    	setTimeout(function(){
+			    		$('.heart_8').addClass('heart_ani')
+			    	},8*200)
+			    	setTimeout(function(){
+			    		$('.heart_9').addClass('heart_ani')
+			    	},9*200)
+			    	setTimeout(function(){
+			    		$('.heart_10').addClass('heart_ani')
+			    	},10*200)
+			    	setTimeout(function(){
+			    		$('.heart_11').addClass('heart_ani')
+			    	},11*200)
+			    	setTimeout(function(){
+			    		$('.heart_12').addClass('heart_ani')
+			    	},12*200)
+			    	setTimeout(function(){
+			    		$('.heart_13').addClass('heart_ani')
+			    	},13*200)
+			    	setTimeout(function(){
+			    		$('.heart_14').addClass('heart_ani')
+			    	},14*200)
+			    	setTimeout(function(){
+			    		$('.heart_15').addClass('heart_ani')
+			    	},15*200)
+			    	setTimeout(function(){
+			    		$('.heart_16').addClass('heart_ani')
+			    	},16*500)
+        }
+
+
+    $(".ppl")
+        .on("touchmove", function(e) {
+            var xPos = e.originalEvent.touches[0].pageX;
+            var yPos = e.originalEvent.touches[0].pageY;
+
+            $(document.elementFromPoint(xPos, yPos)).addClass('ppl_down')
+        }).end()
+
+        .on("touchend", function() {
+            $(".ppl").removeClass('ppl_down') // Reset color when let go
+        });
+
+
+
+
+	        $('.ppl').bind('touchstart', function(e){
+			    	$(this).addClass('ppl_down')
+	        })
+	        $('.ppl').bind('touchend', function(e){
+			    	$(this).removeClass('ppl_down')
+	        })
+			        $('.heart').each(function(){
+			        	$(this).css({'left':Math.floor(Math.random() * 10 ) * 10 + 'vw'})
+			        })
+
+	        $('.wife').bind('touchstart', function(e){
+	        	text_5()
+			    	$('.wife_5').css({'transform':'scale(5)'})
+			    	$('.wife_4').css({'transform':'scale(4)'})
+			    	$('.wife_3').css({'transform':'scale(3)'})
+			    	$('.wife_2').css({'transform':'scale(2)'})
+			    	$('.wife_1').css({'transform':'scale(1)'})
+	        })
+	        $('.wife').bind('touchend', function(e){
+			    	// $('.wife_1').css({'transform':'scale(1)'})
+			    	// $('.wife_2').css({'transform':'scale(1)'})
+			    	// $('.wife_3').css({'transform':'scale(1)'})
+			    	// $('.wife_4').css({'transform':'scale(1)'})
+			    	// $('.wife_5').css({'transform':'scale(1)'})
+	        })
+	        $('.heart').each(function(){
+	        	$(this).css({'left':Math.floor(Math.random() * 10 ) * 10 + 'vw'})
+	        })
+
+		})
+	</script>
+        <div class="text"></div>
+	<div class="warpper">
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="wife wife_1"></div>
+		<div class="wife wife_2"></div>
+		<div class="wife wife_3"></div>
+		<div class="wife wife_4"></div>
+		<div class="wife wife_5"></div>
+		<div class="wife wife_6"></div>
+		<div class="wife wife_7"></div>
+		<div class="wife wife_8"></div>
+		<div class="wife wife_9"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+		<div class="ppl"></div>
+
+		<img src='img/mars_story-heart.png' class="heart heart_1">
+		<img src='img/mars_story-heart.png' class="heart heart_2">
+		<img src='img/mars_story-heart.png' class="heart heart_3">
+		<img src='img/mars_story-heart.png' class="heart heart_4">
+		<img src='img/mars_story-heart.png' class="heart heart_5">
+		<img src='img/mars_story-heart.png' class="heart heart_6">
+		<img src='img/mars_story-heart.png' class="heart heart_7">
+		<img src='img/mars_story-heart.png' class="heart heart_8">
+		<img src='img/mars_story-heart.png' class="heart heart_9">
+		<img src='img/mars_story-heart.png' class="heart heart_10">
+		<img src='img/mars_story-heart.png' class="heart heart_11">
+		<img src='img/mars_story-heart.png' class="heart heart_12">
+		<img src='img/mars_story-heart.png' class="heart heart_13">
+		<img src='img/mars_story-heart.png' class="heart heart_14">
+		<img src='img/mars_story-heart.png' class="heart heart_15">
+		<img src='img/mars_story-heart.png' class="heart heart_16">
+		<img src='img/mars_story-heart.png' class="heart heart_1">
+		<img src='img/mars_story-heart.png' class="heart heart_2">
+		<img src='img/mars_story-heart.png' class="heart heart_3">
+		<img src='img/mars_story-heart.png' class="heart heart_4">
+		<img src='img/heart.png' class="heart heart_5">
+	</div>
+</body>
+</html>

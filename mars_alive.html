@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+		font-family: 'KoPub Batang', serif;
+		word-break: keep-all;
+	}
+	img{
+		width: 100vw;
+		height: 360vw;
+		position: relative;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+	}
+	html,body{
+		height: 100%;
+		width: 100vw;
+		overflow:hidden;
+	}
+	body{
+		background-image: url('img/c_door-02.png');
+		background-size: 101% 101%;
+		background-position: center;
+	}
+	img{
+		width: auto;
+		height: 100%;
+		position: absolute;
+		left: 50vw;
+		transform: translateX(-50%);
+		top: 0;
+	}
+.wrapper {
+width: 100vw;
+height: 100vh;
+top: 50%;
+transform: translateY(-50%);
+position: absolute;
+background-color: black;
+border-bottom: 0.5vw solid white;
+	}
+	.wrapper_son{
+		display: none;
+		z-index: 100000;
+		position: absolute;
+width: 100vw;
+height: 100vh;
+top: 0;
+left: 0;
+background: linear-gradient(to right, rgb(225, 227, 235) 49.5%, black 49.58%)
+
+
+	}
+	.wrapper_all{
+display: none;
+z-index: 10000000;
+position: absolute;
+width: 100vw;
+height: 600vw;
+bottom: 0vw;
+left: 0;
+background-image: url('img/mars_alive.png');
+background-size: 100vw;
+background-position: bottom;
+background-color: white;
+background-repeat: no-repeat;
+transition: 18s
+	}
+	.wrapper_all_ani{
+		bottom: -400vw
+	}
+	.wrapper_all img{
+position: absolute;
+bottom: 0;
+width: 100vw;
+height: auto;
+left: 0;
+top: auto;
+transform: none;
+	}
+	.arrow{
+width: 30vw !important;
+height: auto;
+z-index: 10000;
+position: absolute;
+top: 100vw !important;
+left: 35vw !important;
+	}
+	.son_face, .alive_face{
+		display: none;
+	}
+	.wrapper_son img{
+width: 50vw;
+top: 0;
+position: absolute;
+left: 0;
+transform: none;
+height: auto;
+	}
+	.rightside{
+		left: 50vw !important
+	}
+	.speakingbox{
+position: absolute;
+opacity: 0;
+background: black;
+color: white;
+padding: 4vw;
+box-sizing: border-box;
+	}
+.speakingbox_1{
+left: 4.5vw;
+top: 103.5vw;
+width: 27.5vw;
+height: 29vw;
+}
+.speakingbox_2{
+left: 41vw;
+top: 8.8vw;
+width: 55.5vw;
+}
+.speakingbox_3{
+top: 76vw;
+left: 37vw;
+width: 28vw;
+height: 29vw;
+}
+.speakingbox_4{
+top: 41vw;
+width: 56vw;
+left: 8vw;
+height: 27.8vw;
+}
+.speakingbox_5{
+width: 28.5vw;
+left: 70vw;
+top: 42vw;
+height: 56vw;
+}
+.speakingbox_6{
+top: 41vw;
+width: 56vw;
+left: 8vw;
+height: 27.8vw;
+}
+.speakingbox_7{
+top: 112vw;
+width: 56.5vw;
+left: 38vw;
+height: 46.5vw;
+}
+.speakingbox_8{
+left: 38vw;
+top: 112vw;
+width: 56vw;
+height: 47vw;
+}
+.speakingbox_9{
+width: 28.5vw;
+left: 70vw;
+top: 42vw;
+height: 56vw;
+}
+.speakingbox_10{
+top: 41vw;
+width: 56vw;
+left: 8vw;
+height: 27.8vw;
+}
+.door{
+position: absolute;
+left: 50vw;
+transform-origin: bottom;
+transition: 8s;
+	transform: translateX(-50%) scale(1.5);
+}
+.c_face{
+	opacity: 1;
+}
+.selector{
+margin-left: 5vw;
+background: black;
+color: white !important;
+text-align: center;
+bottom: 5vw;
+visibility: hidden;}
+.selector_2{
+margin-left: 2.5vw;}
+</style>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+<link rel='stylesheet' href='all.css' type='text/css' media='all' />
+</head>
+<body>
+	<script type="text/javascript">
+		var w = window.innerWidth
+		var h = window.innerHeight
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+ 
+        // }, { passive: false });
+		function map_range(value, low1, high1, low2, high2) {
+		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+		}
+
+		$(document).ready(function(){
+			var counter_son = 0
+			text_1()
+			function text_1(){
+				$('.text').html('나는 아내의 반대를 무릅쓰고 아들을 살리러 철수를 찾아간다.')
+				$('.text').addClass('texton')
+				$('.text').addClass('center')
+				$('.wrapper').css({'height':'100%'})
+				// $('.door').css({'transform': 'translateX(-50%) scale(1.09)'})
+				setTimeout(function(){
+					text_2()
+				},2500)
+			}
+			function text_2(){
+				$('.text').removeClass('texton')
+				$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+				setTimeout(function(){
+					speaking_1()
+				},2500)
+			}
+
+
+
+			function speaking_1(){
+				$('.text').removeClass('texton')
+				$('.speakingbox').css({'opacity':0})
+				$('.speakingbox_1').css({'opacity':1})
+				setTimeout(function(){
+					speaking_2()
+				},2500)
+			}
+			function speaking_2(){
+				$('.speakingbox').css({'opacity':0})
+				$('.speakingbox_2').css({'opacity':1})
+				setTimeout(function(){
+					speaking_3()
+				},2500)
+			}
+			function speaking_3(){
+				$('.speakingbox').css({'opacity':0})
+				$('.speakingbox_3').css({'opacity':1})
+				setTimeout(function(){
+					son_1()
+				},2500)
+			}
+			function son_1(){
+				$('.wrapper_son').fadeIn(800)
+				setTimeout(function(){
+					son_2()
+				},1400)
+			}
+			function son_2(){
+				$('.son_face_1').fadeIn(100)
+				setTimeout(function(){
+					son_3()
+				},1000)
+			}
+			function son_3(){
+				$('.son_face_2').fadeIn(100)
+				setTimeout(function(){
+					son_4()
+				},1000)
+			}
+			function son_4(){
+				$('.son_face_3').fadeIn(100)
+				setTimeout(function(){
+					son_5()
+				},1000)
+			}
+			function son_5(){
+				$('.son_face_4').fadeIn(100)
+				setTimeout(function(){
+					son_6()
+				},1000)
+			}
+			function son_6(){
+				$('.son_face_5').fadeIn(100)
+				setTimeout(function(){
+					son_7()
+				},1000)
+			}
+			function son_7(){
+				$('.son_face_6').fadeIn(100)
+				setTimeout(function(){
+					text_3()
+				},1000)
+			}
+			function text_3(){
+				$('.text').addClass('texton')
+				$('.text').html('아들이 살아났다.')
+            	$('.black').fadeOut(300)
+				setTimeout(function(){
+					text_4()
+				},2500)
+			}
+			function text_4(){
+				$('.text').addClass('texton')
+				$('.text').html('이렇게나마 아들을 다시 보게 되어 기쁘다.')
+            	$('.black').fadeOut(300)
+				setTimeout(function(){
+					text_5()
+				},4000)
+			}
+			function text_5(){
+				$('.text').html('기계 속의 의식으로 오래 지낸 인간들은 두세 사람이 정신을 합쳐 하나의 존재가 되기도 한다.')
+				$('.wrapper_all').fadeIn(300)
+				setTimeout(function(){
+					alive_1()
+				},2500)
+			}
+			function alive_1(){
+				$('.alivepper_son').fadeIn(300)
+				setTimeout(function(){
+					alive_2()
+				},1000)
+			}
+			function alive_2(){
+				$('.alive_face_1').fadeIn(100)
+				setTimeout(function(){
+					alive_3()
+				},1000)
+			}
+			function alive_3(){
+				$('.alive_face_2').fadeIn(100)
+				setTimeout(function(){
+					alive_4()
+				},1000)
+			}
+			function alive_4(){
+				$('.alive_face_3').fadeIn(100)
+				setTimeout(function(){
+					alive_5()
+				},1000)
+			}
+			function alive_5(){
+				$('.alive_face_4').fadeIn(100)
+				setTimeout(function(){
+					alive_6()
+				},1000)
+			}
+			function alive_6(){
+				$('.alive_face_5').fadeIn(100)
+				setTimeout(function(){
+					 alive_7()
+				},1000)
+			}
+			function alive_7(){
+				$('.alive_face_7').fadeIn(100)
+				setTimeout(function(){
+					 alive_8()
+				},1000)
+			}
+			function alive_8(){
+				$('.alive_face_8').fadeIn(100)
+				setTimeout(function(){
+					 alive_9()
+				},1000)
+			}
+			function alive_9(){
+				$('.alive_face_9').fadeIn(100)
+				setTimeout(function(){
+					 alive_10()
+				},1000)
+			}
+			function alive_10(){
+				$('.alive_face_10').fadeIn(100)
+				setTimeout(function(){
+					 alive_11()
+				},1000)
+			}
+			function alive_11(){
+				$('.alive_face_11').fadeIn(100)
+				setTimeout(function(){
+					alive_12()
+				},1000)
+			}
+			function alive_12(){
+				$('.alive_face_12').fadeIn(100)
+				setTimeout(function(){
+					alive_13()
+					$('.wrapper_all').addClass('wrapper_all_ani')
+				},1000)
+			}
+			function alive_13(){
+				$('.alive_face_6').fadeIn(100)
+				setTimeout(function(){
+					text_6()
+				},2000)
+			}
+			function text_6(){
+				$('.text').html('과연 이들도 자신과 같은 인간이 맞을까')
+				setTimeout(function(){
+					text_7()
+				},2500)
+			}
+			function text_7(){
+				$('.text').html('아들도 나중에 이렇게 되는 걸까')
+
+				setTimeout(function(){
+					text_8()
+				},2500)
+			}
+			function text_8(){
+				$('.text').html('나는 육체가 수명을 다할 때까지 아들의 성장을 곁에서 바라볼 것이다.')
+				setTimeout(function(){
+					text_9()
+				},2500)
+			}
+			function text_9(){
+				$('.text').html('새로운 방향으로 진화하고 있는 인류의 미래를 상상하며...')
+				setTimeout(function(){
+					text_10()
+				},2500)
+			}
+			function text_10(){
+				$('.text').addClass('center')
+				$('.text').html('The end')
+				setTimeout(function(){
+				},2500)
+			}
+			var counter_op = 0
+			$('.black').bind('touchstart', function(e){
+				console.log(counter)
+				counter_op ++
+				if(counter_op == 1 ){
+					$('.crack').css({'left':(e.targetTouches[0].clientX) + 'px'})
+					$('.crack').css({'top':(e.targetTouches[0].clientY) + 'px'})
+
+				}
+				$('.crack').css({'opacity':counter_op/5})
+				if(counter_op == 6){
+					$('.black').hide()
+					$('.crack').hide()
+				}
+			})
+
+			var counter = 0
+			var max_am = 12
+			var allread = false
+			var white_counter = 0
+			$('.ppl').click(function(){
+				showcontent()
+			})
+			$('.arrow').click(function(){
+				showcontent()
+			})
+		})
+	</script>
+        <div class="black"></div>
+        <div class="text"></div>
+        <div class="wrapper">
+        	<img src="img/c_door-03.png" class="door">
+        	<img src="img/c/1.png">
+        	<img src="img/c/2.png" class="c_face">
+        	<img src="img/c/3.png" class="c_face">
+        	<img src="img/c/4.png" class="c_face">
+        	<img src="img/c/5.png" class="c_face">
+        	<img src="img/c/6.png" class="c_face">
+        	<img src="img/c/7.png" class="c_face">
+        </div>
+        <div class="wrapper_son">
+        	<img src="img/arrow.png" class="arrow">
+        	<img src="img/son/body.png" class="leftside">
+        	<img src="img/son/bg.png" class="rightside">
+        	<img src="img/son/1.png" class="son_face son_face_1 rightside">
+        	<img src="img/son/2.png" class="son_face son_face_2 rightside">
+        	<img src="img/son/3.png" class="son_face son_face_3 rightside">
+        	<img src="img/son/4.png" class="son_face son_face_4 rightside">
+        	<img src="img/son/5.png" class="son_face son_face_5 rightside">
+        	<img src="img/son/6.png" class="son_face son_face_6 rightside">
+        </div>
+
+        <div class="wrapper_all">
+        	<img src="img/mars_alive/body.png" class="leftside">
+        	<img src="img/mars_alive/bg.png" class="rightside">
+        	<img src="img/mars_alive/1.png" class="alive_face alive_face_1">
+        	<img src="img/mars_alive/2.png" class="alive_face alive_face_2">
+        	<img src="img/mars_alive/3.png" class="alive_face alive_face_3">
+        	<img src="img/mars_alive/4.png" class="alive_face alive_face_4">
+        	<img src="img/mars_alive/5.png" class="alive_face alive_face_5">
+        	<img src="img/mars_alive/6.png" class="alive_face alive_face_6">
+        	<img src="img/mars_alive/7.png" class="alive_face alive_face_7">
+        	<img src="img/mars_alive/8.png" class="alive_face alive_face_8">
+        	<img src="img/mars_alive/9.png" class="alive_face alive_face_9">
+        	<img src="img/mars_alive/10.png" class="alive_face alive_face_10">
+        	<img src="img/mars_alive/11.png" class="alive_face alive_face_11">
+        	<img src="img/mars_alive/12.png" class="alive_face alive_face_12">
+        	<img src="img/mars_alive/13.png" class="alive_face alive_face_13">
+        </div>
+
+			<dig class="speakingbox speakingbox_1">아들?</dig>
+			<dig class="speakingbox speakingbox_2">그래 물론 기계의 몸으로 바꾸어줄 수 있지.</dig>
+			<dig class="speakingbox speakingbox_3">아들의 의식을 컴퓨터 속으로 전송할게.</dig>
+			<a class="selector selector_2">기계 몸을 선택한다.</a>
+</body>
+</html>

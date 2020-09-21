@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin:0;
+	}
+	body, html{
+		height: 100%
+	}
+	.son{
+		width: 100vw;
+		position: fixed;
+		top: 0
+	}
+	.sky{
+		position: fixed;
+		height: 80%;
+		top: 0;
+		left: 0;
+  		animation: example 10s infinite linear
+	}
+	.junk{
+		position: fixed;
+		width: 100vw;
+		top: 0;
+		transform: scale(0);
+		transform-origin: 75% 25%;
+transition:3s cubic-bezier(.43,.01,1,.53);
+	}
+	.hos{
+		width: 100vw;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		background-image: url('img/mars_story-hos.png');
+		background-size: cover;
+		background-position: center;
+		display: none;
+		z-index: 100
+	}
+	.wife{
+		background-image: url('img/mars_story-wife.png');
+		background-size: cover;
+		background-position: center;
+		position: fixed;
+		width: 20vw;
+		height: 20vw;
+		border-radius: 50%;
+		right: 0
+	}
+.speaking{
+	z-index: 10000000;
+	left: 0;
+	box-sizing: border-box;
+	text-align: left;
+	border: 0.4vw solid black;
+	background: white;
+	padding: 3vw;
+	font-size: 4vw;
+	line-height: 1.4;
+	width: 100vw;
+	left: 0;
+	top: 75vw;
+	position: absolute;
+	transform: scale(0);
+	height: auto;
+	transition: 0.3s ease-in-out;
+	text-align: center;
+	transform-origin: 95vw -75vw;
+	pointer-events: none;
+}
+.speaking_12{
+	transform: scale(1.2);
+	opacity: 0
+}
+.speaking_1{
+	transform:scale(0.1);
+	opacity: 0
+}
+.speaking_2{
+	transform:scale(0.2);
+	opacity: 0
+}
+.speaking_3{
+	transform:scale(0.3);
+	opacity: 0
+}
+.speaking_4{
+	transform:scale(0.4);
+	opacity: 1
+}
+.speaking_5{
+	transform:scale(0.5);
+	opacity: 1
+}
+.speaking_6{
+	transform:scale(0.6);
+	opacity: 1
+}
+.speaking_7{
+	transform:scale(0.7);
+	opacity: 1
+}
+.speaking_8{
+	transform:scale(0.8);
+	opacity: 1
+}
+.speaking_9{
+	transform:scale(0.9);
+	opacity: 1
+}
+.speaking_10{
+	transform:scale(1);
+	opacity: 1
+}
+.wife_speaking{
+width: 75vw;
+background: white;
+border: 0.5vw solid red;
+margin: 2vw;
+padding: 2vw;
+box-sizing: border-box;
+padding-bottom: 1.5vw;
+border-radius: 2vw;
+display: none;
+	/* The animation code */
+}
+.selector{
+margin-left: 5vw;
+background: black;
+color: white !important;
+text-align: center;
+bottom: 5vw;
+visibility: hidden;
+z-index: 1000000000}
+.selector_2{
+margin-left: 2.5vw;}
+@keyframes example {
+	0%   {transform: translateX(0vw)}
+	50%  {transform: translateX(-80vw)}
+	100% {transform: translateX(0vw)}
+}
+</style>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+<link rel='stylesheet' href='all.css' type='text/css' media='all' />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout(function(){
+				 text_0()
+			},3000)
+        function text_0(){
+            $('.text').addClass('texton')
+            $('.text').addClass('center')
+            $('.text').html('우리는 결혼을 했고 이내 귀여운 아들까지 가지게 되었다.')
+            setTimeout(function(){
+                text_1()
+            },2500)
+        }
+        function text_1(){
+            $('.text').removeClass('center')
+            $('.text').addClass('texton')
+        	$('.black').fadeOut(300)
+            $('.text').html('그러던 어느날')
+            setTimeout(function(){
+                text_2()
+            },2500)
+        }
+        function text_2(){
+            $('.text').html('저게 뭐지?')
+            setTimeout(function(){
+				$('.junk').css({'transform':'scale(7)'})
+            },500)
+            setTimeout(function(){
+                text_3()
+            },2500)
+        }
+        function text_3(){
+            $('.text').html('으아악')
+			$('.black').fadeIn(100)
+            setTimeout(function(){
+                text_4()
+            },1500)
+        }
+        function text_4(){
+            $('.text').addClass('center')
+            $('.text').html('우주선 사고로 어린 아들이 중태에 빠진다. 이미 가망이 없는 상황이다.')
+			$('.black').fadeIn(100)
+			$('.hos').fadeIn(400)
+			$('.wife').fadeIn(400)
+            setTimeout(function(){
+                text_5()
+            },2500)
+        }
+        function text_5(){
+            $('.text').html('')
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+			$('.black').fadeOut(400)
+            setTimeout(function(){
+                text_6()
+            },3000)
+        }
+        function text_6(){
+            $('.text').addClass('texton')
+            $('.text').html('철수에게 데려가 아들의 의식을 기계로 옮기면 아들은 기계 몸으로나마 계속 살아갈 수 있다.')
+            setTimeout(function(){
+                text_7()
+            },2500)
+        }
+        function text_7(){
+            $('.text').html('하지만 개척과 모험을 중시하는 소행성대인 아내는,')
+            setTimeout(function(){
+                text_8()
+            },2500)
+        }
+        function text_8(){
+            $('.text').html(' ')
+            $('.text').removeClass('texton')
+            $('.wife_speaking').show()
+            $('.wife_speaking').html('사람의 삶이 원래 다 그런 거에요. 받아들이는게 좋겠어요.')
+            setTimeout(function(){
+                text_9()
+            },2500)
+        }
+        function text_9(){
+            $('.text').addClass('texton')
+            $('.text').html('나는 어떻게 하는게 좋을까?')
+            setTimeout(function(){
+                text_10()
+            },2500)
+        }
+        function text_10(){
+            $('.text').removeClass('texton')
+        	$('.selector').css({'visibility':'visible'})
+        }
+		})
+	</script>
+        <div class="text"></div>
+	<div class="black"></div>
+	<img src="img/mars_story-sky.jpg" class="sky">
+	<img src="img/mars_story-junk.png" class="junk">
+	<img src="img/mars_story-son.png" class="son">
+	<div class="hos">
+		<div class="wife"></div>
+		<div class="wife_speaking"></div>
+	</div>
+			<a href="mars_death.html" class="selector ">아들의 죽음을 선택한다. </a>
+			<a href="mars_alive.html" class="selector selector_2">아들의 생존을 선택한다.</a>
+</body>
+</html>

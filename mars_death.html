@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel='stylesheet' href='all.css' type='text/css' media='all' />
+<style type="text/css">
+	*{
+		margin:0;
+	}
+	img{
+		position: absolute;
+		width: 100vw;
+		bottom: 0;
+		transition: 25s
+	}
+	.img_animate{
+		margin-bottom: -450vw;
+	}
+</style>
+<link rel='stylesheet' href='all.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+	        text_1()
+	        function text_1(){
+	            $('.text').addClass('texton')
+	            $('.text').addClass('center')
+	            $('.text').html('나는 소행성대의 문화에 따라 아들의 죽음을 지켜본다.')
+	            setTimeout(function(){
+	                text_2()
+	            },2500)
+	        }
+	        function text_2(){
+	        	$('img').addClass('img_animate')
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('위험한 우주에서 생존을 위해 모든 것과 싸우며 살아가는 사람들에게 죽음은 자연스러운 것이다.')
+	            setTimeout(function(){
+	                text_3()
+	            },6000)
+        	}
+	        function text_3(){
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('나는 기계인간과는 또 다른 새로운 우주 세대의 인간을 바라보며 외로움을 느끼지만,')
+	            setTimeout(function(){
+	                text_3_2()
+	            },6000)
+        	}
+	        function text_3_2(){
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('한편으로는 인류가 앞으로 멸망할 일은 없을지도 모르겠다고 생각한다. ')
+	            setTimeout(function(){
+	                text_4()
+	            },6000)
+        	}
+	        function text_4(){
+            	$('.text').addClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('The End')
+	            setTimeout(function(){
+	                text_5()
+	            },6000)
+        	}
+	        function text_5(){
+	            $('.text').fadeOut(500)
+        	}
+		})
+	</script>
+      <div class="text"></div>
+	<div class="black"></div>
+	<img src="img/mars_death.png">
+</body>
+</html>
