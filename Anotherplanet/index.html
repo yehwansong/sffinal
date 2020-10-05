@@ -98,7 +98,7 @@ background: linear-gradient(white 30%, black 70%);
 		}
 		// set initial side
 		changeSide();
-
+		var rotatedamount = 0
 			$(document).bind('touchstart', function(e){
 				originX = e.originalEvent.touches[0].pageX
 			})
@@ -107,6 +107,7 @@ background: linear-gradient(white 30%, black 70%);
 			$(document).bind('touchmove', function(e){
 				upX = e.originalEvent.touches[0].pageX
 				if(originX > upX + 50){
+					rotatedamount++
 					rotate = rotate+1
 					if(rotate>3){
 						rotate = 3
@@ -116,6 +117,7 @@ background: linear-gradient(white 30%, black 70%);
 					return false
 				}
 				if(originX < upX - 50){
+					rotatedamount++
 					rotate = rotate-1
 					if(rotate<1){
 						rotate = 1
@@ -124,6 +126,9 @@ background: linear-gradient(white 30%, black 70%);
 					changeSide()
 					return false
 				}
+				var rotate_1 = false
+				var rotate_2 = false
+				var rotate_1 = false
 				if(rotate == 1){
 					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 등지고 있다.<br> 그쪽은 언제나 밤이라 차다.')
 				}
@@ -132,6 +137,16 @@ background: linear-gradient(white 30%, black 70%);
 				}
 				if(rotate == 3){
 					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 바라보고 있다<br> 그쪽은 언제나 낮이라 뜨겁다.')
+				}
+				if(rotatedamount > 5){
+					setTimeout(function(){
+				        	$('.black').show()
+				            $('.text').addClass('texton center')
+				            $('.text').html('결국 이 행성을 포기하고 또 다른 행성을 찾아 여행을 떠난다.')
+				            setTimeout(function(){
+				            	location.replace("../call.html");
+				            },1500)
+					},1500)
 				}
 			});
 

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+	}
+	body{
+		background-image: url('img/newplanet_bg-01.png');
+		background-size: 100vw;
+		background-position: top;
+	}
+	.wrapper>div{
+		width: 16.65vw;
+		height:  16.65vw;
+		border:0.1vw solid black;
+		position: absolute;
+	}
+	.left_2{
+		left:16.65vw
+	}
+	.left_3{
+		left:33.1vw
+	}
+	.left_4{
+		left:49.95vw
+	}
+	.left_5{
+		left:66.6vw
+	}
+	.left_6{
+		left:83.25vw
+	}
+	.top_2{
+		top:16.65vw
+	}
+	.top_3{
+		top:33.1vw
+	}
+	.top_4{
+		top:49.95vw
+	}
+	.top_5{
+		top:66.6vw
+	}
+	.top_6{
+		top:83.25vw
+	}
+	.top_7{
+		top:100vw
+	}
+	.top_8{
+		top:116.655vw
+	}
+	.top_9{
+		top:133.1vw
+	} 
+	.top_10{
+		top:149.95vw
+	} 
+	.top_11{
+		top:166.6vw
+	} 
+	.selected{
+		background-color:black;
+	}
+	.wrapper img{
+		width: 100%;
+		position:absolute;
+		bottom: 0;
+		left: 0
+	}
+	.building{
+		opacity: 0
+	}
+	.selected img{
+		opacity: 0
+	}
+	.selected .building{
+		opacity: 1
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(this).addClass('selected')
+		$('.wrapper>div').bind('touchstart', function(e){
+			var left_var = $(this).attr('class').split('left_')[1].split(' ')[0]
+			var top_var = $(this).attr('class').split('top_')[1].split(' ')[0]
+			randomselect(left_var, top_var, true)
+			randomselect(left_var, top_var, true)
+			randomselect(left_var, top_var, true)
+			randomselect(left_var, top_var, true)
+		})
+		function randomselect(left, top, init){
+			var random_left = parseInt(left,10) + Math.floor(Math.random()*2)
+			var random_top = parseInt(top,10) + Math.floor(Math.random()*2)
+			if(($('.left_'+random_left+'.top_'+random_top).length>0) && !($('.left_'+random_left+'.top_'+random_top).hasClass('selected'))){
+				$('.left_'+random_left+'.top_'+random_top).addClass('selected')
+				if(init){
+					randomselect(random_left, random_top, false)
+				}
+			}else{
+				// randomselect(left, top)
+			}
+		}
+		var img_array =[
+		'<img src="Newplanet/images/bird.png">	',
+		'<img src="Newplanet/images/din_1-clip.png">',
+		'<img src="Newplanet/images/din_2-clip.png">',
+		'<img src="Newplanet/images/din_3-clip.png">',
+		'<img src="Newplanet/images/frog-clip.png">',
+		'<img src="Newplanet/images/monkey_2.png">',
+		'<img src="Newplanet/images/monkey_3.png">',
+		'<img src="Newplanet/images/tree.png">    ',
+		'<img src="Newplanet/images/fox-clip.png">',
+		'','',''
+		]
+		$('.box').each(function(){
+			$(this).append(img_array[Math.floor(Math.random()*15)])
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="box left_1 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_1"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_2"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_3"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_4"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_5"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_6"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_7"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_8"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_9"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_10"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_11"><img class="building" src="img/building.png"></div>
+	</div>
+</body>
+</html>

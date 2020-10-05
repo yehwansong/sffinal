@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+	}
+	body{
+		background-image: url('img/newplanet_bg-01.png');
+		background-size: 100vw;
+		background-position: top;
+	}
+	.wrapper>div{
+		width: 16.65vw;
+		height:  16.65vw;
+		border:0.1vw solid black;
+		position: absolute;
+	}
+	.popup{
+		width: 90vw;
+		background:black;
+		left: 5vw;
+		position: fixed;
+		top: 5vw;
+		z-index: 100000;
+		z-index: 100000;
+		padding: 5vw;
+		box-sizing: border-box;
+		border-radius: 2vw;
+		padding-bottom: 40vw;
+	}
+	.popup img{
+		width: 90%;
+		position: relative;
+		left: 5%;
+		height: auto;
+	}
+	.popup div{
+		color:white;
+		font-size: 5vw;
+		text-align: center;
+	}
+	.popup .closebutton{
+		display: inline-block;
+		left: 50%;
+		position: relative;
+		transform: translateX(-50%);
+		border: 0.5vw solid white;
+		padding: 2vw;
+		padding-bottom: 1.5vw;
+		border-radius: 2vw;
+	}
+.selector{
+	left: 2.5vw
+	background: black;
+	color: white !important;
+	text-align: center;
+	bottom: 5vw;
+	height: 35vw;
+}
+.selector_2{
+	right: 2.5vw;
+	left: auto
+}
+	.warning{
+width: 10vw;
+background: red;
+height: 10vw;
+line-height: 2;
+border-radius: 50%;
+left: 50%;
+position: relative;
+transform: translateX(-50%);
+margin-bottom: 3vw;}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(this).addClass('selected')
+		var clickcounter = 0
+		$('.wrapper>div').bind('touchstart', function(e){
+			clickcounter++
+			if(clickcounter>2){
+				$('.popup').show()
+            	$('.text').removeClass('texton')
+			}
+			var left_var = $(this).attr('class').split('left_')[1].split(' ')[0]
+			var top_var = $(this).attr('class').split('top_')[1].split(' ')[0]
+			randomselect(left_var, top_var, true)
+			randomselect(left_var, top_var, true)
+			randomselect(left_var, top_var, true)
+			randomselect(left_var, top_var, true)
+		})
+		function randomselect(left, top, init){
+			var random_left = parseInt(left,10) + Math.floor(Math.random()*2)
+			var random_top = parseInt(top,10) + Math.floor(Math.random()*2)
+			if(($('.left_'+random_left+'.top_'+random_top).length>0) && !($('.left_'+random_left+'.top_'+random_top).hasClass('selected'))){
+				$('.left_'+random_left+'.top_'+random_top).addClass('selected')
+				if(init){
+					randomselect(random_left, random_top, false)
+				}
+			}else{
+				// randomselect(left, top)
+			}
+		}
+		var img_array =[
+		'<img src="Newplanet/images/bird.png">	',
+		'<img src="Newplanet/images/din_1-clip.png">',
+		'<img src="Newplanet/images/din_2-clip.png">',
+		'<img src="Newplanet/images/din_3-clip.png">',
+		'<img src="Newplanet/images/frog-clip.png">',
+		'<img src="Newplanet/images/monkey_2.png">',
+		'<img src="Newplanet/images/monkey_3.png">',
+		'<img src="Newplanet/images/tree.png">    ',
+		'<img src="Newplanet/images/fox-clip.png">',
+		'','',''
+		]
+		$('.box').each(function(){
+			$(this).append(img_array[Math.floor(Math.random()*15)])
+		})
+
+
+		text_1()
+        function text_1(){
+        }
+	})
+</script>
+</head>
+<body>
+		<div class="text"></div>
+		<div class="popup">
+			<div class="warning">!</div>
+			<img src="img/earlyhuman.png">
+			<div> 
+				 즉 우리가 만난 생명체는 우리의 친척인 셈이다. 더구나 이미 문명의 싹을 틔우고 있는 종족이다. 어떻게 해야할까?
+				<br><br>
+			</div>
+			<a href="destroy.html" class="selector ">이들이 나중에 문명을 발전시키면 인류의 적이 될 수도 있다. 아예 싹을 없애자</a>
+			<a href="coexistence.html" class="selector selector_2">공존을 모색해야 한다.</a>
+		</div>
+	<div class="wrapper">
+	</div>
+</body>

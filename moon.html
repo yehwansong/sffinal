@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
+<link rel='stylesheet' href='all.css' type='text/css' media='all' />
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		background: black;
+	}
+	body{
+	}
+	.moon{
+		position: absolute;
+		width: 100vw;
+		height: auto;
+		left: 12.5vw;
+		top: 0;
+		z-index: 0;
+		pointer-events: none;
+	}
+	.top{
+	}
+	.mid{
+		top: 25vw;
+		z-index: 10;
+		transform-origin: center 150vw;
+		transition: 5s
+	}
+	.mid, .inner{
+		top: 25vw
+	}
+	.bot{
+		top: 100vw;
+		z-index: 1000;
+	}
+	.animate{
+		top: 25vw;
+		transform: translateY(40vw);
+	}
+	.wrapper{
+		width: 125vw;
+		height: 125vw;
+		position: fixed;
+		top: 10vw;
+		margin-left: -12.5vw;
+		overflow: hidden;
+		border-radius: 50%;
+	}
+.ppl_speaking_1,
+.ppl_speaking_2{
+	background: blue;
+	display: inline-block;
+	padding: 1.5vw;
+	padding-left: 3vw;
+	padding-right: 3vw;
+	left: 50vw;
+	position: fixed;
+	transform: translateX(-50%);
+	text-align: center;
+	top: 0vw;
+	border-radius: 1vw;
+	display: none;
+	z-index: 1000000000000000000000000;
+}
+.ppl_speaking_1{
+display: block;
+width: 94vw;
+top: 3vw;
+box-sizing: border-box;
+color: white;}
+.ppl_speaking_2{
+top: auto;
+top: 125vw;
+width: 40vw;
+background: rgb(255, 135, 0);
+height: 40vw;
+right: 0;
+left: auto;
+transform: none;
+box-sizing: border-box;
+font-size: 4.5vw;
+box-shadow: 0vw 0vw 3vw black;}
+.words{
+	z-index: 10000;
+	position: fixed;
+	width: 55vw;
+	top: 50vw;
+}
+.story img{
+	width: 100%;
+	opacity: 0;
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+.story{
+position: absolute;
+z-index: 10000;
+width: 42.5vw;
+background: black;
+height: 42.5vw;
+top: 105vw;
+right: 40vw;
+border-radius: 1vw;
+overflow: hidden;
+box-shadow: 0vw 0vw 3vw black;
+display: none;
+left: auto;
+}
+.words{
+	display: none;
+}.inner{background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 252) 2.1%, white)}
+@keyframes rotating {
+  from {
+    top:-100vh;
+  }
+  to {
+    top:100vh;
+  }
+}
+
+</style>
+<script type="text/javascript">
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+ 
+        }, { passive: false });
+	$(document).ready(function(){
+			text_1()
+			function text_1(){
+				$('.ppl_speaking_1').show()
+				$('.ppl_speaking_1').html('안녕하세요')
+				setTimeout(function(){
+					text_2()
+				},2500)
+			}
+			function text_2(){
+				$('.ppl_speaking_1').show()
+				$('.ppl_speaking_1').html('저희는 달 뒷면에 지하 도시를 건설하는 팀입니다.')
+				setTimeout(function(){
+					text_3()
+				},2500)
+			}
+			function text_3(){
+				$('.ppl_speaking_1').show()
+				$('.ppl_speaking_1').html('달에서 알 수 없는 유적지를 발굴했습니다.')
+				setTimeout(function(){
+					text_4()
+				},2500)
+			}
+			function text_4(){
+				$('.ppl_speaking_1').hide()
+				$('.text').html('외계인의 흔적이다.')
+				$('.text').addClass('texton')
+				setTimeout(function(){
+					text_5()
+				},2500)
+			}
+			function text_5(){
+				$('.text').html('달을 터치해 유적이 뭔지 살펴보자.')
+				$('.text').addClass('texton')
+				setTimeout(function(){
+					// text_6()
+				},2500)
+			}
+			function text_6(){
+				$('.ppl_speaking').hide()
+				$('.text').html('도시를 건설하려 했던 흔적이 보인다.')
+				$('.text').addClass('texton')
+				setTimeout(function(){
+					text_7()
+				},2500)
+			}
+			function text_7(){
+				$('.ppl_speaking').hide()
+					$('.words').fadeIn(300)
+				$('.text').html('글을 발견했다.')
+				$('.text').addClass('texton')
+				setTimeout(function(){
+					text_8()
+				},2500)
+			}
+			function text_8(){
+				$('.ppl_speaking').hide()
+				$('.text').html('분석해보자.')
+				$('.text').addClass('texton')
+				setTimeout(function(){
+					text_9()
+				},2500)
+			}
+
+
+			function text_9(){
+				$('.text').removeClass('texton')
+				$('.ppl_speaking_2').show()
+				$('.story').show()
+				$('.ppl_speaking_2').html('[분석결과]<br>우리는 생명체를 찾아다니던 중')
+				$('.story img').css({'opacity': 0})
+				$('.ufo').css({'opacity': 1})
+				setTimeout(function(){
+					text_10()
+				},2500)
+			}
+
+			function text_10(){
+				$('.ppl_speaking_2').html('[분석결과]<br>지구에 오게 되었다. ')
+				$('.story img').css({'opacity': 0})
+				$('.earth').css({'opacity': 1})
+				setTimeout(function(){
+					text_11()
+				},2500)
+			}
+
+			function text_11(){
+				$('.ppl_speaking_2').html('[분석결과]<br>하지만 지구는 소행성 충돌로 인해 생명체가 죽어나가고 있던 중이었다. ')
+				$('.story img').css({'opacity': 0})
+				$('.astroid').css({'opacity': 1})
+				setTimeout(function(){
+					text_12()
+				},2500)
+			}
+
+			function text_12(){
+				$('.ppl_speaking_2').html('[분석결과]<br>이대로 두면 이곳 생명체가 절멸할 것이다.')
+				$('.story img').css({'opacity': 0})
+				$('.earth').css({'opacity': 1})
+				setTimeout(function(){
+					text_13()
+				},2500)
+			}
+
+			function text_13(){
+				$('.ppl_speaking_2').html('[분석결과]<br>그래서 생명체 일부를 실어다 지구와 환경이 비슷한 외계행성에 놓아두었다. ')
+				$('.story img').css({'opacity': 0})
+				$('.move').css({'opacity': 1})
+				setTimeout(function(){
+                	location.replace("last_selector.html");
+				},2500)
+			}
+
+
+
+			$('.wrapper').bind('touchstart', function(e){
+            	e.preventDefault();
+				$('.mid').addClass('animate')
+				setTimeout(function(){
+					text_6()
+				},5000)
+			})
+	})
+</script>
+</head>
+<body>
+	<img src="img/words-01.png" class="words">
+    <div class="text"></div>
+	<div class="ppl_speaking_1"></div>
+	<div class="ppl_speaking_2"></div>
+	<div class="wrapper">
+		<img src="img/moon/img3.png" class="moon top">
+		<img src="img/moon/img2.png" class="moon mid">
+		<img src="img/moon/img1 copy.png" class="moon inner">
+		<img src="img/moon/img4.png" class="moon bot">
+	</div>
+	<div class="story">
+		<img src="img/moon/earth.png" class="earth">
+		<img src="img/moon/astroid.png" class="astroid">
+		<img src="img/moon/ufo.png" class="ufo">
+		<img src="img/moon/move-02.png" class="move">
+	</div>
+</body>
+</html>

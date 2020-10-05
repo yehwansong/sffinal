@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+    <link rel="stylesheet" href="all.css"/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden
+	}
+	body{
+		background-image: url(img/travel.gif);
+		background-size: 100vw;
+		background-position: top;
+		left: 0;
+		top: 0
+	}
+	.alien{
+		position: absolute;
+		z-index: 1000;
+		width: 20vw;
+		left: 40vw;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		text_1()
+        $('.black').show()
+        function text_1(){
+            $('.text').addClass('texton center')
+            $('.text').html('나는 영희와 함께 새로운 행성을 찾아 외계행성으로 떠나기로 했다.\
+                ')
+            setTimeout(function(){
+        $('.black').fadeOut(300)
+                text_2()
+            },3000)
+        }
+        function text_2(){
+            $('.text').removeClass('center')
+            $('.text').html('저 멀리 외계행성이 하나 보인다.')
+            setTimeout(function(){
+                text_3()
+            },3000)
+        }
+        function text_3(){
+            $('.text').html('관측 결과 가장 가까우면서도 지구와 가장 비슷한 행성이다.')
+            setTimeout(function(){
+                text_4()
+            },3000)
+        }
+        function text_4(){
+        	$('.black').fadeIn(1500)
+            $('.text').html('나와 영희는 외계행성에 수백년 날아가기 위해 동면 상태로 들어간다.')
+            setTimeout(function(){
+                location.replace("Newplanet/index.html");
+            },3000)
+        }
+	})
+</script>
+</head>
+<body>
+    <div class="black"></div>
+    <div class="text"></div>
+    <img src="../Mars/alien.png" class="alien">
+</body>
+</html>

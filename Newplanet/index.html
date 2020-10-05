@@ -200,7 +200,83 @@ border: 0.5vw solid white;
 padding: 2vw;
 padding-bottom: 1.5vw;
 border-radius: 2vw;}
+	.black{
+		pointer-events: none;
+		opacity: 1
+	}
+.crack{
+	width: 100vw;
+	height: auto;
+	transform: translate(-50%, -50%);
+	z-index: 1000000000000000000000000000000000;
+	position: fixed;
+	opacity: 0;
+	pointer-events: none;
+}
+.op_1, .op_2{
+position: fixed;
+z-index: 100000;
+width: 100vw;
+top: 45%;
+transform: translateY(-150%);
+height: 20vw;
+pointer-events: none;
+background: rgb(123, 147, 190);
+box-shadow: 0vh 0vh 1vh 1vh rgb(123, 147, 190);
+display: none;
+}
+.op_2{
+	transform: none;
+	}
+.ppl{
+	width: 18vw;
+	height: 18vw;
+	border-radius: 50%;
+	position: absolute;
+}
+.op_1 .ppl{
+	left: 0.5vw;
+	border: 0.5vw solid red;
+	background-image: url(../img/ppl_1.jpg);
+	background-size: cover;
+	background-position: bottom;
+}
+.op_2 .ppl{
+	right: 0.5vw;
+	border: 0.5vw solid blue;
+	background-image: url(../img/ppl_2.jpg);
+	background-size: cover;
+	background-position: bottom;
+}
+.speaking{
+	width: 70vw;
+	left: 22vw;
+	position: absolute;
+	background: white;
+	padding: 2vw;
+	box-sizing: border-box;
+	padding-bottom: 1.3vw;
+	border-radius: 1vw;
+	border: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	top: 50%;
+}
+.op_1 .speaking{
+	right: 1vw;
+	border: 0.5vw solid red
+}
+.op_2 .speaking{
+right: 22vw;
+border: 0.7vw solid blue;
+left: auto;
+}
+.text .a_2, .selector_2 {
+left: 48vw !important;
+/*padding-bottom: 21vw;*/
+}
 </style>
+    <link rel="stylesheet" href="../all.css"/>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
 </head>
 <body>
@@ -217,16 +293,66 @@ border-radius: 2vw;}
 
 		$(document).ready(function(){
 		text_1()
-		function text_1(){
-			$('.text').html('외계행성에 도착했다.')
-			$('.text').addClass('texton')
-			setTimeout(function(){
-				text_2()
-			},5500)
-		}
-		function text_2(){
-			$('.text').html('도착해 보니 다행히 지구와 비슷해 사람이 살 수 있을 것 같다!')
-		}
+        function text_1(){
+        	$('.black').show()
+            $('.text').addClass('texton center')
+            $('.text').html('X백년 뒤')
+            setTimeout(function(){
+                text_2()
+            },3000)
+        }
+        function text_2(){
+        	$('.black').fadeIn(1500)
+            $('.text').html('도착한걸까?')
+            setTimeout(function(){
+                text_3()
+            },3000)
+        }
+        function text_3(){
+        	$('.black').fadeIn(1500)
+            $('.text').html('화면을 두드려 동면상태에서 일어나보자.')
+                $('.black').css({'pointer-events':'all'})
+        }
+        var counter_op = 0
+		$('.black').bind('touchstart', function(e){
+            $('.text').removeClass('texton center')
+			counter_op ++
+			if(counter_op == 1 ){
+				$('.crack').css({'left':(e.targetTouches[0].clientX) + 'px'})
+				$('.crack').css({'top':(e.targetTouches[0].clientY) + 'px'})
+			}
+			$('.crack').css({'opacity':counter_op/5})
+			if(counter_op == 6){
+				$('.black').hide()
+				$('.crack').hide()
+				text_4()
+			}
+		})
+        function text_4(){
+            $('.text').addClass('texton')
+            $('.text').html('도착했다!')
+            setTimeout(function(){
+                text_5()
+            },3000)
+        }
+        function text_5(){
+            $('.text').html('다행히 지구와 비슷해 사람이 살 수 있을 것 같다.')
+            setTimeout(function(){
+                text_6()
+            },3000)
+        }
+        function text_6(){
+            $('.text').html('조금 더 살펴보도록 할까?')
+                $('.black').css({'pointer-events':'all'})
+        }
+
+
+		// 이 행성에는 토착생명체가 있다. 
+		// 선발대가 위험을 파악하기 위해 내려간다. 
+		// 선발대가 가져온 결과는 놀랍다. 
+		// 지구의 공룡을 연상하게 하는 거대 동물이 지상을 활보하는 등 온갖 크고 작은 생명체가 살고 있는 것이다. 
+		// 게다가 샘플을 분석해 보니 이곳 동물의 생리가 지구의 동물과 매우 비슷하다. 심지어 인간과 비슷한 DNA까지 지니고 있다!
+
 			var scrolltimeout 
 		  	$(document).scroll(function(){
 		  		var scrolltop = $(window).scrollTop()/w
@@ -237,22 +363,78 @@ border-radius: 2vw;}
 		  		$('.planet5').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2.5)*-100+'vw'})
 		    })
 		  	var button_array = [
-		  		' 거대 동물이 지상을 활보하고 있다.',
-		  		' 거대 동물이 지상을 활보하고 있다.',
-		  		' 거대 동물이 지상을 활보하고 있다.',
-		  		' 거대 동물이 지상을 활보하고 있다.'
+		  		' 온갖 동식물이 행성 전체에 퍼져 살고 있다.',
+		  		' 공룡을 닮은 듯한 거대 동물이 지상을 활보하고 있다.',
+		  		' 공룡을 닮은 듯한 거대 동물이 지상을 활보하고 있다.',
+		  		' 놀랍게도 토착생명체가 있다.'
 		  		,
 		  		' 온갖 크고 작은 생명체가 살고 있는 것 같다.',
 		  		' 온갖 크고 작은 생명체가 살고 있는 것 같다.',
 		  		' 온갖 크고 작은 생명체가 살고 있는 것 같다.'
 		  		]
+		  		var button_counter = 0
 		$('.button').bind('touchstart', function(e){
+			button_counter++
 			e.preventDefault();
 			var num = parseInt($(this).attr('class').split('button_')[1].split(' ')[0])
 			$(this).addClass('button_visible')
 			$('.text').html(button_array[num])
 			$('.text').addClass('texton')
+			if(button_counter > 7){
+				$('.button').css({'pointer-events':'none'})
+	            setTimeout(function(){
+					$('.text').addClass('texton')
+	                text_7()
+	            },500)
+			}
 		})
+		 // text_7()
+        function text_7(){
+        	$('.text').addClass('texton')
+            $('.text').html('우주선을 같이 탄 사람들 사이에서 논쟁이 들린다.')
+        	$('.op_1').show()
+        	$('.op_2').show()
+            $('.op_1 .speaking').html('!!!$#@#^&!!!')
+            $('.op_2 .speaking').html('!!!$#@#^&!!!')
+            setTimeout(function(){
+                text_8()
+            },3000)
+        }
+        function text_8(){
+        	$('.op_1').show()
+            $('.op_1 .speaking').html('이미 자리잡고 있는 생명체의 터전을 빼앗을 수 없습니다.')
+            setTimeout(function(){
+                text_9()
+            },3000)
+        }
+        function text_9(){
+            $('.op_1 .speaking').html('다른 외계행성을 찾아 떠나야 합니다.')
+            setTimeout(function(){
+                text_10()
+            },3000)
+        }
+        function text_10(){
+        	$('.op_2').show()
+            $('.op_2 .speaking').html('인간의 생존이 최우선입니다.')
+            setTimeout(function(){
+                text_11()
+            },3000)
+        }
+        function text_11(){
+            $('.op_2 .speaking').html('정착해야 합니다.')
+            setTimeout(function(){
+                text_12()
+            },3000)
+        }
+        function text_12(){
+        	console.log($('.selector_1').outerHeight())
+            $('.text').html('\
+                어떻게 하면 좋을까?\
+                <a href="../toanotherplanet.html" class="selector selector_1">다른 외계 행성을 찾자</a>\
+                <a href="../start_building.html" class="selector selector_2 a_2">정착하자</a>\
+                ')
+        	$('.text').css({'padding-bottom':$('.selector_1').outerHeight() + 0.04*w})
+        }
 		$('.button').bind('touchend', function(e){
 	    	e.preventDefault();
 			$('.button').removeClass('button_visible')
@@ -267,6 +449,7 @@ border-radius: 2vw;}
 			})
 		})
 	</script>
+	<img src="../img/crack.jpg" class='crack'>
 		<img class="planet1 planet" src="planet1.png">
 		<img class="planet2 planet" src="planet2.png">
 		<img class="planet3 planet" src="planet3.png">
@@ -286,16 +469,27 @@ border-radius: 2vw;}
 		<div class="popupbutton popupbutton_1"></div>
 		<div class="popupbutton popupbutton_2"></div>
 		<div class="popupbutton popupbutton_3"></div>
+		<div class="black"></div>
 		<div class="text"></div>
 		<div class="popup">
 			<img src="images/dna.png">
-			<div>
-				인간과 비슷한<br>DNA를 지니고 있는 것으로 보인다!
+			<div> 
+				놀랍게도 분석 결과 이들의 DNA는 지구 생명체와 비슷하다.<br>
+				공통의 조상을 갖고 있다고 설명할 수밖에 없다. 
 				<br><br>
 			</div>
 			<div class='closebutton'>
 				확인
 			</div>
+		</div>
+
+		<div class="op_1">
+			<div class="ppl"></div>
+			<div class="speaking"></div>
+		</div>
+		<div class="op_2">
+			<div class="ppl"></div>
+			<div class="speaking"></div>
 		</div>
 </body>
 </html>

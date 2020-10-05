@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+overflow: hidden;
+background: white;
+	}
+	body{
+		background-image: url(img/travel.gif);
+		background-size: 100vw;
+		background-position: top;
+		left: 0;
+		top: 0
+	}
+	.call{
+		width: 200vw;
+		background: radial-gradient(rgba(255, 255, 255, 0.5) 20vw, black 30vw, rgba(255, 255, 255, 0.5) 24vw,black 40vw, rgba(255, 255, 255, 0.5) 31vw,black 51vw, rgba(255, 255, 255, 0.5) 31vw,black 66vw, rgba(255, 255, 255, 0.5) 31vw,black 87vw, rgba(255, 255, 255, 0.5) 31vw);
+		height: 200vw;
+		margin-left: -50vw;
+		top: calc(50% - 100vw);
+		position: absolute;
+		display: none;
+	}
+	.center, .screen{
+		height: 60vw;
+		width: 60vw;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		pointer-events: none;
+		overflow:hidden;
+		transform: translate(-50%,-50%);
+		z-index: 10
+	}
+	.center_blue{
+background: radial-gradient(blue 36.55%, transparent 76.89%) !important;
+z-index: 10000000;
+pointer-events: none;
+opacity: 0;
+transition: 1s;
+	}
+
+	.center_blue_animate{
+background: radial-gradient(black 36.55%, transparent 76.89%) !important;
+ transform: translate(-50%,-50%) scale(10) !important; 
+ opacity: 1 !important
+}
+	.black{
+z-index: 1 !important;
+	}
+	.center{
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%) scale(0.6);
+pointer-events: all;
+background: rgba(0, 0, 0, 0.22);
+background-image: url(img/craft.png);
+background-position: center;
+background-repeat: no-repeat;
+
+background-size: contain;
+display: none;
+	}
+	.inner{
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		transition: opacity 1s}
+	.screen_1 .inner{
+background-image: url(img/call/30-02.png);
+  -webkit-animation: rotating 5s linear infinite;
+  -moz-animation: rotating 5s linear infinite;
+  -ms-animation: rotating 5s linear infinite;
+  -o-animation: rotating 5s linear infinite;
+  animation: rotating 5s linear infinite;
+	}
+	.screen_2{
+transform: translate(-50%,-50%) scale(1.3);
+	}
+	.screen_2 .inner{
+background-image: url(img/call/50-02.png);
+  -webkit-animation: rotating 5s 0.75s linear infinite;
+  -moz-animation: rotating 5s 0.75s linear infinite;
+  -ms-animation: rotating 5s 0.75s linear infinite;
+  -o-animation: rotating 5s 0.75s linear infinite;
+  animation: rotating 5s 0.75s linear infinite;
+	}
+	.screen_3{
+transform: translate(-50%,-50%) scale(1.7);
+	}
+	.screen_3 .inner{
+background-image: url(img/call/70-02.png);
+  -webkit-animation: rotating 5s 1.5s linear infinite;
+  -moz-animation: rotating 5s 1.5s linear infinite;
+  -ms-animation: rotating 5s 1.5s linear infinite;
+  -o-animation: rotating 5s 1.5s linear infinite;
+  animation: rotating 5s 1.5s linear infinite;
+	}
+	.screen_4{
+transform: translate(-50%,-50%) scale(2.2);
+	}
+	.screen_4 .inner{
+background-image: url(img/call/90-02.png);
+  -webkit-animation: rotating 5s 2.25s linear infinite;
+  -moz-animation: rotating 5s 2.25s linear infinite;
+  -ms-animation: rotating 5s 2.25s linear infinite;
+  -o-animation: rotating 5s 2.25s linear infinite;
+  animation: rotating 5s 2.25s linear infinite;
+	}
+	.screen_5{
+transform: translate(-50%,-50%) scale(2.9);
+	}
+	.screen_5 .inner{
+background-image: url(img/call/100-02.png);
+  -webkit-animation: rotating 5s 3s linear infinite;
+  -moz-animation: rotating 5s 3s linear infinite;
+  -ms-animation: rotating 5s 3s linear infinite;
+  -o-animation: rotating 5s 3s linear infinite;
+  animation: rotating 5s 3s linear infinite;
+	}
+	.screen_6{
+	transform: translate(-50%,-50%) scale(3.8);
+	}
+	.screen_6 .inner{
+background-image: url(img/call/100-02.png);
+  -webkit-animation: rotating 5s 3.75s linear infinite;
+  -moz-animation: rotating 5s 3.75s linear infinite;
+  -ms-animation: rotating 5s 3.75s linear infinite;
+  -o-animation: rotating 5s 3.75s linear infinite;
+  animation: rotating 5s 3.75s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+<!-- 이제는 다시 동면에 들어가면 깨어날 수 있을지 없을지 확신이 없다. 우주선이 낡아서 위태롭기 때문이다. 우리는 운명을 걸고 다시 목표를 잡아서 떠난다. 어느 날 미지의 우주선과 마주친다. 자동으로 동면에서 깨어난 나는 외계인의 우주선을 만났다고 생각하며 조심스럽게 의사소통을 시작한다.  -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function(){
+			 text_0()
+		},3000)
+        function text_0(){
+        	$('.black').hide()
+            $('.text').addClass('texton')
+            $('.text').html('이제는 다시 동면에 들어가면 깨어날 수 있을지 없을지 확신이 없다.')
+            setTimeout(function(){
+                text_1()
+            },2500)
+        }
+        function text_1(){
+            $('.text').html('우주선이 낡아서 위태롭기 때문이다.')
+            setTimeout(function(){
+                text_2()
+            },2500)
+        }
+        function text_2(){
+        	$('.black').fadeIn(500)
+            $('.text').html('우리는 운명을 걸고 다시 목표를 잡아서 떠난다.')
+            setTimeout(function(){
+                text_3()
+            },2500)
+        }
+        function text_3(){
+        	$('.center').fadeIn(500)
+            $('.text').html('어느 날 미지의 우주선과 마주친다.')
+            setTimeout(function(){
+                text_4()
+            },2500)
+        }
+        function text_4(){
+            $('.text').html('외계인의 우주선을 만난 것 같다.')
+            setTimeout(function(){
+                text_5()
+            },2500)
+        }
+        function text_5(){
+            $('.text').html('우주선을 터치해 조심스럽게 의사소통을 시도해보자.')
+            setTimeout(function(){
+            },2500)
+        }
+		var timeout
+			$('.center').bind('touchstart', function(e){
+				console.log('-------')
+			  clearTimeout(timeout);
+			  timeout = setTimeout(function(){
+			  	$('.screen_1 .inner').css({'opacity':1})
+			  }, 1000);
+			  timeout = setTimeout(function(){
+			  	$('.screen_2 .inner').css({'opacity':1})
+			  }, 2000);
+			  timeout = setTimeout(function(){
+			  	$('.screen_3 .inner').css({'opacity':1})
+			  }, 3000);
+			  timeout = setTimeout(function(){
+			  	$('.screen_4 .inner').css({'opacity':1})
+			  }, 4000);
+			  timeout = setTimeout(function(){
+			  	$('.screen_5 .inner').css({'opacity':1})
+            	$('.text').html('연결이 되었다!')
+            	$('.center_blue').addClass('center_blue_animate')
+				  timeout = setTimeout(function(){
+						location.replace("c_2.html");
+				  }, 1000);
+			  }, 5000);
+			})
+			$('.center').bind('touchend', function(e){
+			  clearTimeout(timeout);
+			})
+			$('.center').bind('touchmove', function(e){
+				console.log(e.pageX)
+				$('img').css({'left':-1*($('.center').offset().left-e.pageX)})
+				$('img').css({'top':-1*($('.center').offset().top-e.pageY)})
+				// $('img').css({'left':$('.center').offset().left-e.pageX})
+			})
+		})
+</script>
+</head>
+<body>
+		<div class="black"></div>
+		<div class="text"></div>
+	<div class="call"></div>
+	<div class="center"></div>
+	<div class="center center_blue"></div>
+	<div class="screen screen_1"><div class="inner"></div></div>
+	<div class="screen screen_2"><div class="inner"></div></div>
+	<div class="screen screen_3"><div class="inner"></div></div>
+	<div class="screen screen_4"><div class="inner"></div></div>
+	<div class="screen screen_5"><div class="inner"></div></div>
+	<div class="screen screen_6"><div class="inner"></div></div>
+</body>
+</html>

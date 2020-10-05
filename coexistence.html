@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+	}
+	body{
+		background-image: url('img/newplanet_bg-01.png');
+		background-size: 100vw;
+		background-position: top;
+	}
+	.wrapper>div{
+		width: 16.65vw;
+		height:  16.65vw;
+		border:0.1vw solid black;
+		position: absolute;
+	}
+	.left_2{
+		left:16.65vw
+	}
+	.left_3{
+		left:33.1vw
+	}
+	.left_4{
+		left:49.95vw
+	}
+	.left_5{
+		left:66.6vw
+	}
+	.left_6{
+		left:83.25vw
+	}
+	.top_2{
+		top:16.65vw
+	}
+	.top_3{
+		top:33.1vw
+	}
+	.top_4{
+		top:49.95vw
+	}
+	.top_5{
+		top:66.6vw
+	}
+	.top_6{
+		top:83.25vw
+	}
+	.top_7{
+		top:100vw
+	}
+	.top_8{
+		top:116.655vw
+	}
+	.top_9{
+		top:133.1vw
+	} 
+	.top_10{
+		top:149.95vw
+	} 
+	.top_11{
+		top:166.6vw
+	} 
+	.selected{
+		background-color:rgb(157, 226, 20);
+	}
+	.wrapper img{
+		width: 100%;
+		position:absolute;
+		bottom: 0;
+		left: 0
+	}
+	.building{
+		opacity: 0
+	}
+	.selected img{
+		opacity: 0
+	}
+	.selected .building{
+		opacity: 1
+	}
+	.popup,
+	.popup2{
+		width: 90vw;
+		background:black;
+		left: 5vw;
+		position: fixed;
+		top: 5vw;
+		z-index: 100000;
+		z-index: 100000;
+		padding: 5%;
+		box-sizing: border-box;
+		display: none;
+		border-radius: 2vw;
+	}
+	.popup div,
+	.popup2 div{
+		color:white;
+		font-size: 5vw;
+		text-align: center;
+	}
+	.popup .closebutton,
+	.popup2 .closebutton2{
+		display: inline-block;
+		left: 50%;
+		position: relative;
+		transform: translateX(-50%);
+		border: 0.5vw solid white;
+		padding: 2vw;
+		padding-bottom: 1.5vw;
+		border-radius: 2vw;
+	}
+	.creature_2{
+		transition: 1s;
+	}
+	.scale{
+		transform: scale(3);
+	}
+	.warning{
+width: 10vw;
+background: red;
+height: 10vw;
+line-height: 2;
+border-radius: 50%;
+left: 50%;
+position: relative;
+transform: translateX(-50%);
+margin-bottom: 3vw;}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+			text_1()
+			function text_1(){
+				$('.text').addClass('texton center')
+				$('.text').html('토착 생명체와 공존을 모색하기로 했다.')
+				setTimeout(function(){
+					text_2()
+				},2500)
+			}
+			function text_2(){
+				$('.black').hide()
+				$('.text').removeClass('center')
+				$('.text').html('우리는 세심하게 토착 생명체와 인간이 사는 지역을 분리한다.')
+				setTimeout(function(){
+					text_3()
+				},2500)
+			}
+			function text_3(){
+				$('.text').html('영역을 터치해 우리가 개발할 지역을 결정해보자.')
+				setTimeout(function(){
+					$('.text').removeClass('texton')
+				},2500)
+			}
+
+			$('.closebutton2').bind('touchstart', function(e){
+				$('.popup2').hide()
+				$('.box').css({'pointer-event':'none'})
+				$('.creature_2').addClass('scale')
+				$('.text').addClass('texton')
+				$('.text').html('개척 초반에 토착 생명체의 희생은 어쩔 수 없이 있었지만, 안정을 이룬 지금은 토착 생명체와 소수의 인간이 공존하며 살 수 있게 되었다.')
+				setTimeout(function(){
+					$('.text').removeClass('texton')
+				},2500)
+			})
+			function text_4(){
+				$('.text').html('이들이 인간의 문명을 따라잡을 수준이 된다면 어쩔 수 없이 대립하게 될까?')
+				setTimeout(function(){
+					text_5()
+				},2500)
+			}
+			function text_5(){
+				$('.text').html('아니면 한 행성에서 두 종족이 어울려 살 수 있을까?')
+				setTimeout(function(){
+					text_6()
+				},2500)
+			}
+			function text_6(){
+				$('.text').html('정답은 아직 알 수 없지만, 우리는 조금이라도 더 많은 경험을 한 인류가 공존을 위해 노력해야 한다는 데 동의한다.')
+				setTimeout(function(){
+					text_7()
+				},2500)
+			}
+			function text_7(){
+				$('.text').html('부디 시간이 흘러도 이런 마음가짐이 변하지 않기를 바라면서 우리는 불안한 공존을 계속한다.')
+				setTimeout(function(){
+					text_8()
+				},2500)
+			}
+			function text_8(){
+				$('.text').addClass('center')
+				$('.text').html('THE END')
+				setTimeout(function(){
+				},2500)
+			}
+
+		var touchcounter = 0
+		$('.wrapper>div').bind('touchstart', function(e){
+			if($(this).hasClass('scale')){
+				$('.text').addClass('texton')
+				$('.text').html('그동안 인류는 토착 지적 종족에게 기술을 가르쳤고, 이들은 벌써 금속을 다루는 수준까지 올라왔다.')
+				setTimeout(function(){
+					text_4()
+				},2500)
+			}else if($(this).hasClass('creature')){
+				$('.popup').show()
+			}else if($('.selected').length > 10){
+				$('.popup2').show()
+			}else{
+				$(this).addClass('selected')
+				var left_var = $(this).attr('class').split('left_')[1].split(' ')[0]
+				var top_var = $(this).attr('class').split('top_')[1].split(' ')[0]
+				randomselect(left_var, top_var, true)
+				randomselect(left_var, top_var, true)
+				randomselect(left_var, top_var, true)
+				randomselect(left_var, top_var, true)
+			}
+		})
+		function randomselect(left, top, init){
+			var random_left = parseInt(left,10) + Math.floor(Math.random()*2)
+			var random_top = parseInt(top,10) + Math.floor(Math.random()*2)
+			if(($('.left_'+random_left+'.top_'+random_top).length>0) && !($('.left_'+random_left+'.top_'+random_top).hasClass('selected'))){
+				$('.left_'+random_left+'.top_'+random_top).addClass('selected')
+				if(init){
+					randomselect(random_left, random_top, false)
+				}
+			}else{
+				// randomselect(left, top)
+			}
+		}
+		var img_array =[
+		'<img src="Newplanet/images/bird.png">	',
+		'<img src="Newplanet/images/din_1-clip.png">',
+		'<img src="Newplanet/images/din_2-clip.png">',
+		'<img src="Newplanet/images/din_3-clip.png">',
+		'<img src="Newplanet/images/frog-clip.png">',
+		'<img src="Newplanet/images/monkey_2.png">',
+		'<img src="Newplanet/images/monkey_3.png">',
+		'<img src="Newplanet/images/tree.png">    ',
+		'<img src="Newplanet/images/fox-clip.png">',
+		'','',''
+		]
+		$('.creature').each(function(){
+			if($(this).hasClass('creature_2')){
+			}else{
+				$(this).append(img_array[Math.floor(Math.random()*10)])
+			}
+		})
+		$('.closebutton').bind('touchstart', function(e){
+			$('.popup').hide()
+		})
+	})
+</script>
+</head>
+<body>
+	<!-- 우리는 세심하게 토착 생명체와 인간이 사는 지역을 분리한다. 지구에서 저지른 실수를 막기 위해 인간의 활동이 환경에 끼칠 영향도 엄밀하게 관찰하고 있고, 인구도 너무 많이 늘어나지 않기 위해 제한을 두고 있다. 개척 초반에 토착 생명체의 희생은 어쩔 수 없이 있었지만, 안정을 이룬 지금은 토착 생명체와 소수의 인간이 공존하며 살 수 있게 되었다.
+ 
+
+ 정답은 아직 알 수 없지만, 우리는 조금이라도 더 많은 경험을 한 인류가 공존을 위해 노력해야 한다는 데 동의한다. 부디 시간이 흘러도 이런 마음가짐이 변하지 않기를 바라면서 우리는 불안한 공존을 계속한다. -->
+		<div class="text"></div>
+		<div class="black"></div>
+		<div class="popup">
+			<div class="warning">!</div>
+			<div> 
+				토착 생명체가 사는 지역이다. 인간의 활동이 토착 생명체에 악영향을 주어서는 안된다. 
+				<br><br>
+			</div>
+			<div class='closebutton'>
+				확인
+			</div>
+		</div>
+		<div class="popup2">
+			<div class="warning">!</div>
+			<div> 
+				너무 많은 영역을 차지해선 안 된다. 공존을 위해 인구도 너무 많이 늘어나지 않기 위해 제한을 두고 있다.
+				<br><br>
+			</div>
+			<div class='closebutton2'>
+				확인
+			</div>
+		</div>
+	<div class="wrapper">
+		<div class="box creature left_1 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_3 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_4 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_5 top_1"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_6 top_1"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_3 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_4 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_5 top_2"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_6 top_2"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_3 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_4 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_5 top_3"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_3"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_3 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box creature creature_2 left_4 top_4"><img class="building" src="img/building.png"><img src="../img/earlyhuman.png"></div>
+		<div class="box left_5 top_4"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_4"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_3 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_5"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_5"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_6"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_6"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_7"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_7"><img class="building" src="img/building.png"></div>
+
+		<div class="box creature left_1 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box creature left_2 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_8"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_8"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_9"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_9"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_10"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_10"><img class="building" src="img/building.png"></div>
+
+		<div class="box left_1 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_2 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_3 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_4 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_5 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_6 top_11"><img class="building" src="img/building.png"></div>
+	</div>
+</body>
+</html>

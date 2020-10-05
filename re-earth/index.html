@@ -10,12 +10,6 @@ src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"></script>
 <style type="text/css">
-	*{
-		margin:0;
-		padding: 0;
-	font-family: 'KoPub Batang', serif;
-		word-break: keep-all;
-	}
 	body, html{
 		width: 100vw;
 		height: 100%;
@@ -383,6 +377,29 @@ top: 0;
 background: black;
 transform: translateZ(550vw);
 	}
+	.popup_call{
+width: 60vw;
+background: rgba(255, 255, 255, 0.9);
+left: 20vw;
+position: fixed;
+top: 35vw;
+z-index: 100000;
+z-index: 100000000000;
+padding: 5%;
+box-sizing: border-box;
+display: none;
+border-radius: 1.5vw;
+box-shadow: 0vh 0vh 5vh 4vh black;
+text-align: center;
+border: 0.5vw solid white;
+transform: translateZ(10000vw);
+	}
+	.popup_call img{
+		width: 40%;
+		margin: 30%;
+		background: rgb(255, 40, 0);
+		border-radius: 50%;
+	}
 	.earth{
 		width: 30vw;
 		position: fixed;
@@ -411,7 +428,9 @@ transform: translateZ(550vw);
 		}
 		var fly_counter = 0
 		$(document).ready(function(){
+			setTimeout(function(){
 		text_1()
+			},2000)
 
 		function text_1(){
 			$('.text').addClass('texton')
@@ -496,6 +515,12 @@ transform: translateZ(550vw);
 			});
 			function fly(e){
 				fly_counter = fly_counter+3
+				console.log(fly_counter)
+				if(fly_counter>4100){
+					flyer_1 = false
+					$('.text').html('갑자기 달에서 연락이 왔다.')
+					$('.popup_call').show()
+				}
 				$('.bg').css({'margin-top':fly_counter%(5*w)+'px'})
 				$('.bubble').css({'margin-top':(fly_counter%(6*h))/2+'px'})
 				$('.bubble').each(function(){
@@ -513,6 +538,10 @@ transform: translateZ(550vw);
 			var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
 		})
 	</script>
+		<div class="popup_call">
+			달
+			<a href="../moon_2.html"><img src="../img/call.svg"></a>
+		</div>
 	<div class="text"></div>
 	<div class="space">
 		<img class="earth" src="earth.png">

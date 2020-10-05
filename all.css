@@ -105,3 +105,6 @@ pointer-events: none;
     .text .a_2,.selector_2 {
 left: 50vw;
 }
+.selector{
+	color:white !important;
+}

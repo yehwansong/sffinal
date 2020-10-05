@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		background: white;
+	}
+	body{
+		background:black
+	}
+	.scan{
+animation: rotating 5s linear infinite;
+width: 100vw;
+height: 0vh;
+position: fixed;
+overflow: hidden;
+transition: height 10s;
+    top:-100vh;
+background: linear-gradient(rgb(14, 0, 110), rgb(0, 92, 255) 18.07%, rgb(2, 81, 236) 82.35%, rgb(13, 0, 110));
+	}
+	.black{
+		pointer-events: none;
+	}
+	.height_10{
+		height: 100vh
+	}
+	.inner{
+		position: fixed;
+		width: 100vw;
+		height: auto;
+		left: 0;
+		top: 0;
+		position: fixed;
+	}
+	.finger{
+		position: fixed;
+		width: 100vw;
+		height: auto;
+		left: 0;
+		top: 0;
+		position: fixed;
+	}
+/* top: 0; */
+.h_finger{
+	margin-left: -65vw
+}
+.r_finger{
+	margin-left: -30vw
+
+}
+img{
+	pointer-events: none;
+}
+@keyframes rotating {
+  from {
+    top:-100vh;
+  }
+  to {
+    top:100vh;
+  }
+}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+			text_0()
+			function text_0(){
+				$('.text').html('나는 철수처럼 기계 몸을 선택한다.')
+				$('.text').addClass('texton')
+				$('.text').addClass('center')
+				setTimeout(function(){
+					text_1()
+				},2500)
+			}
+			function text_1(){
+				$('.text').html('화면을 터치해 기계로 몸을 바꾸어보자')
+				$('.text').addClass('texton')
+				$('.text').addClass('center')
+				setTimeout(function(){
+					$('.text').removeClass('center')
+				},2500)
+			}
+
+			$('body').bind('touchstart', function(e){
+				$('.black').fadeOut(300)
+				setTimeout(function(){
+					$('.text').html('20%')
+				},2000)
+				setTimeout(function(){
+					$('.text').html('40%')
+				},4000)
+				setTimeout(function(){
+					$('.text').html('60%')
+				},6000)
+				setTimeout(function(){
+					$('.text').html('80%')
+				},8000)
+				setTimeout(function(){
+					$('.text').html('100%')
+					$('.scan').css({'animation':'none'})
+					$('.scan').css({'top':'0'})
+					setTimeout(function(){
+									location.replace("re-earth/index.html");
+					},1000)
+				},10000)
+				$('.scan').addClass('height_10')
+			})
+
+			$('body').bind('touchstart', function(e){
+				console.log('--------')
+            	var xPos = e.originalEvent.touches[0].pageX;
+            	var yPos = e.originalEvent.touches[0].pageY;
+            	$('.finger').css({'left':xPos + 'px'})
+            	$('.finger').css({'top':yPos + 'px'})
+
+			})
+			$('body').bind('touchmove', function(e){
+				console.log('--------')
+            	var xPos = e.originalEvent.touches[0].pageX;
+            	var yPos = e.originalEvent.touches[0].pageY;
+            	$('.finger').css({'left':xPos + 'px'})
+            	$('.finger').css({'top':yPos + 'px'})
+
+			})
+	})
+</script>
+</head>
+<body>
+	<div class="text"></div>
+		<div class="black"></div>
+	<img class="h_finger finger" src="img/robot1.png">
+	<div class="scan">
+		<div class="inner"></div>
+		<img class="r_finger finger" src="img/robot2.png">
+	</div>
+</body>
+</html>
