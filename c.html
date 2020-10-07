@@ -34,21 +34,21 @@ crossorigin="anonymous"></script>
 		background-position: center;
 	}
 	img{
-		width: auto;
-		height: 100%;
+		height: auto;
+		width: 113.5%;
 		position: absolute;
 		left: 50vw;
 		transform: translateX(-50%);
 		top: 0;
 	}
 .wrapper {
-width: 100vw;
-height: 0vh;
+width: 0;
+height: 100%;
 transition: 8s;
 top: 50%;
-transform: translateY(-50%);
+/* transform: translateY(-50%); */
 position: absolute;
-background-color: black;
+/* background-color: black; */
 border-bottom: 0.5vw solid white;
 	}
 	.speakingbox{
@@ -61,52 +61,52 @@ border-bottom: 0.5vw solid white;
 text-align: center;
 	}
 .speakingbox_1{
-    left: 3.5vh;
-    top: 59.5%;
-    width: 16.5vh;
-    height: 17%;
+left: 4.5vw;
+top: 103.5vw;
+width: 27.5vw;
+height: 29vw;
 }
 .speakingbox_2{
-	left: 24.5vh;
-    top: 5.2%;
-    width: 32vh;
-    height: 16%;
+left: 41vw;
+top: 8.8vw;
+width: 55.5vw;
+height: 28vw;
 }
 .speakingbox_3{
-    top: 44%;
-    left: 22.5vh;
-    width: 16.3vh;
-    height: 16.8%;
+top: 76vw;
+left: 37.5vw;
+width: 27.5vw;
+height: 29vw;
 }
 .speakingbox_4{
-    top: 23.8%;
-    width: 32.2vh;
-    left: 5.8vh;
-    height: 15.8%;
+top: 41vw;
+width: 56vw;
+left: 8vw;
+height: 27.8vw;
 }
 .speakingbox_5{
-    width: 15.7vh;
-    left: 41.8vh;
-    top: 24%;
-    height: 33%;
+width: 28.5vw;
+left: 70vw;
+top: 42vw;
+height: 56vw;
 }
 .speakingbox_6{
-    top: 23.8%;
-    width: 32.2vh;
-    left: 5.8vh;
-    height: 15.8%;
+top: 41vw;
+width: 56vw;
+left: 8vw;
+height: 27.8vw;
 }
 .speakingbox_7{
-	top: 64.5%;
-    width: 32.5vh;
-    left: 23vh;
-    height: 27.5%;
+top: 112vw;
+width: 56.5vw;
+left: 38vw;
+height: 46.5vw;
 }
 .speakingbox_8{
-	top: 64.5%;
-    width: 32.5vh;
-    left: 23vh;
-    height: 27.5%;
+left: 38vw;
+top: 112vw;
+width: 56vw;
+height: 47vw;
 }
 .speakingbox_9{
 width: 28.5vw;
@@ -126,6 +126,7 @@ left: 50vw;
 transform-origin: bottom;
 transition: 8s;
 	transform: translateX(-50%) scale(1.5);
+	background: black
 }
 .c_face{
 	opacity: 0;
@@ -157,11 +158,13 @@ margin-left: 2.5vw;}
 		}
 
 		$(document).ready(function(){
+
 			text_1()
 			function text_1(){
 				$('.text').html('누군가의 도움으로 나는 탈출할 수 있었다.')
 				$('.text').addClass('texton')
-				$('.wrapper').css({'height':'100%'})
+				$('.wrapper').css({'width': '100vw'})
+				$('.wrapper').css({'transform': 'translateY(-50%)'})
 				// $('.door').css({'transform': 'translateX(-50%) scale(1.09)'})
 				setTimeout(function(){
 					text_2()
@@ -337,14 +340,14 @@ margin-left: 2.5vw;}
         	<img src="img/c/7.png" class="c_face">
         </div>
 
-			<dig class="speakingbox speakingbox_1">좀 괜찮아?</dig>
-			<dig class="speakingbox speakingbox_2">나는 몸을 기계로 바꿔 100년이 지난 지금까지 계속 살고 있었어. </dig>
-			<dig class="speakingbox speakingbox_3">저들은 순수 인간주의자</dig>
-			<dig class="speakingbox speakingbox_4">육체를 온전하게 보존하기 어려울 정도로 다친 사람들을 </dig>
-			<dig class="speakingbox speakingbox_5">기계로 만드는 것을 막는 운동을 하고 있지.</dig>
-			<dig class="speakingbox speakingbox_6">너도 나처럼 기계 몸으로 옮기는 것은 어떨까?</dig>
-			<dig class="speakingbox speakingbox_7">이미 인공두뇌에 정신까지 완전히 옮길 수 있는 기술이 개발되었어. </dig>
-			<dig class="speakingbox speakingbox_8">만약 싫다면 의학 기술이 가장 발달한 화성으로 갈 수 있게 해줄게.</dig>
+			<div class="speakingbox speakingbox_1">좀 괜찮아?</div>
+			<div class="speakingbox speakingbox_2">나는 몸을 기계로 바꿔 100년이 지난 지금까지 계속 살고 있었어. </div>
+			<div class="speakingbox speakingbox_3">저들은 순수 인간주의자</div>
+			<div class="speakingbox speakingbox_4">육체를 온전하게 보존하기 어려울 정도로 다친 사람들을 </div>
+			<div class="speakingbox speakingbox_5">기계로 만드는 것을 막는 운동을 하고 있지.</div>
+			<div class="speakingbox speakingbox_6">너도 나처럼 기계 몸으로 옮기는 것은 어떨까?</div>
+			<div class="speakingbox speakingbox_7">이미 인공두뇌에 정신까지 완전히 옮길 수 있는 기술이 개발되었어. </div>
+			<div class="speakingbox speakingbox_8">만약 싫다면 의학 기술이 가장 발달한 화성으로 갈 수 있게 해줄게.</div>
 			<a href="Mars/index.htm" class="selector ">원래대로의 인간 몸을 선택한다. </a>
 			<a href="robotize.html" class="selector selector_2">기계 몸을 선택한다.</a>
 </body>
