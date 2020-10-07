@@ -341,10 +341,13 @@ crossorigin="anonymous"></script>
 		pointer-events: none;
 	}
 	.bubble span{
-		display: block;
-		text-align: center;
-		padding: 1vw;
-		background:white;
+    z-index: 100000000000000000;
+    display: block;
+    text-align: center;
+    padding: 1vw;
+    background: white;
+    position: relative;
+    transform: translateZ(10000vw);
 	}
 	.text{
 		position: fixed;
