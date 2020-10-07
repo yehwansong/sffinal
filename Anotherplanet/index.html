@@ -81,7 +81,7 @@ background: linear-gradient(white 30%, black 70%);
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.text').addClass('texton')
-			$('.text').html('그렇게 도착한 곳은 적색왜성에 딸린 행성이었다.')
+			$('.text').html('연료가 넉넉하지 않아 어쩔 수 없이 가장 가까운 행성을 찾았다.')
 
 		var sidearray = ['left','front','right','back'];
 		var cube = document.querySelector('.cube');
@@ -130,15 +130,15 @@ background: linear-gradient(white 30%, black 70%);
 				var rotate_2 = false
 				var rotate_1 = false
 				if(rotate == 1){
-					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 등지고 있다.<br> 그쪽은 언제나 밤이라 차다.')
+					$('.text').html('이 행성은 조석 고정 현상으로 항상 똑같은 면이 별을 향하고 있다.<br> 그쪽은 언제나 밤이라 차다.')
 				}
 				if(rotate == 2){
 					$('.text').html('중간지대에는 어찌어찌 살 수 있을 것 같았지만, 쉽지 않아 보인다.')
 				}
 				if(rotate == 3){
-					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 바라보고 있다<br> 그쪽은 언제나 낮이라 뜨겁다.')
+					$('.text').html('그쪽은 언제나 낮이라 뜨겁고, 반대쪽은 언제나 밤이라 춥다.<br> 그쪽은 언제나 낮이라 뜨겁다.')
 				}
-				if(rotatedamount > 5){
+				if(rotatedamount > 3){
 					setTimeout(function(){
 				        	$('.black').show()
 				            $('.text').addClass('texton center')

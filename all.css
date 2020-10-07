@@ -25,6 +25,9 @@
 	.texton{
 		opacity: 1
 	}
+	.texton_force{
+		opacity: 1 !important
+	}
 	.text.center{
 bottom: 52.5% !important;
 transform: translateY(50%) translateX(-50%);}
