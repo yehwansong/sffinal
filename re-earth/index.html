@@ -9,12 +9,15 @@
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"></script>
+<link rel='stylesheet'  href='../all.css' type='text/css' media='all' />
 <style type="text/css">
 	body, html{
 		width: 100vw;
 		height: 100%;
-		background: black
+		background: black;
+		transform-style: preserve-3d;
 	}
+	*{transform-style: preserve-3d;}
 	.text{
 		position: fixed;
 		left: 50%;
@@ -418,7 +421,7 @@ transform: translateZ(10000vw);
       e.preventDefault();
   }, { passive: false });
 		var touchamout = 0 
-
+		var ua = navigator.userAgent.toLowerCase();
         // document.addEventListener('touchmove', function(e) {
         //     e.preventDefault();
  
@@ -428,12 +431,18 @@ transform: translateZ(10000vw);
 		}
 		var fly_counter = 0
 		$(document).ready(function(){
-			setTimeout(function(){
-		text_1()
-			},2000)
+
+		var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+		if(isAndroid) {
+			$('.bg_wrapper').css({'transform':'none'})
+		}
+
+
+			text_1()
 
 		function text_1(){
 			$('.text').addClass('texton')
+			console.log('hey!!!!')
 			$('.text').html('기계가 되자 몸이 강해진게 느껴진다.')
 			setTimeout(function(){
 				text_2()
@@ -514,7 +523,12 @@ transform: translateZ(10000vw);
 				$('.bubble_sel_4').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/4+'px'})
 			});
 			function fly(e){
-				fly_counter = fly_counter+3
+				if(isAndroid){
+					fly_counter = fly_counter+30
+				}else{
+					fly_counter = fly_counter+3
+
+				}
 				console.log(fly_counter)
 				if(fly_counter>4100){
 					flyer_1 = false
@@ -523,9 +537,14 @@ transform: translateZ(10000vw);
 				}
 				$('.bg').css({'margin-top':fly_counter%(5*w)+'px'})
 				$('.bubble').css({'margin-top':(fly_counter%(6*h))/2+'px'})
-				$('.bubble').each(function(){
-					$(this).css({'transform':'scale('+(0.75+(((parseInt($(this).css('top'),10)+(fly_counter%(6*h))/2)%h)/(h)))+') translateZ(310vw)'})
-				})
+				if(isAndroid){
+
+				}else{
+					$('.bubble').each(function(){
+						$(this).css({'transform':'scale('+(0.75+(((parseInt($(this).css('top'),10)+(fly_counter%(6*h))/2)%h)/(h)))+') translateZ(310vw)'})
+					})
+					
+				}
 				setTimeout(function(e){
 					if(flyer_1){
 						fly(e)
@@ -535,7 +554,7 @@ transform: translateZ(10000vw);
 			function angle(p1_x,p1_y,p2_x,p2_y){
 				return Math.atan2(p2_y - p1_y, p2_x - p1_x) * 180 / Math.PI;
 			}
-			var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
+			// var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
 		})
 	</script>
 		<div class="popup_call">

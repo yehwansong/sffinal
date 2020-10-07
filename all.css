@@ -1,7 +1,5 @@
-@font-face {
-  font-family: KoPub Batang;
-  src: url(KoPubBatangPMA.woff);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 	.text{
 		position: fixed;
 		left: 50%;
@@ -31,12 +29,24 @@
 	.text.center{
 bottom: 52.5% !important;
 transform: translateY(50%) translateX(-50%);}
+.end{
+    background-position: center;
+    background-image: url(img/theend.png);
+    display: block;
+    width: 30vw;
+    height: 15vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
 	*{
 
   touch-action: manipulation;
 		margin:0;
 		padding: 0;
-		font-family: san-serif;
+		font-family: 'Roboto', 'Noto Sans KR',  san-serif;
 		word-break: keep-all;
 		font-size: 5vw;
 		line-height: 1.4

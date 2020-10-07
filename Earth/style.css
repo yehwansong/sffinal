@@ -1,8 +1,8 @@
-    @font-face {
+    /*@font-face {
     font-family: luminari;
     src: url(font/Luminari-Regular.woff);
     }
-    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);*/
 html{
     width: 100vw;
     height: 100vh;

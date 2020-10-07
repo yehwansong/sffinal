@@ -13,7 +13,7 @@ crossorigin="anonymous"></script>
 	*{
 		margin:0;
 		padding: 0;
-		font-family: 'KoPub Batang', serif;
+		/*font-family: 'KoPub Batang', serif;*/
 		word-break: keep-all;
 	}
 	img{
@@ -77,73 +77,59 @@ text-align: center;
 	}
 	.handbox_1,
 .speakingbox_1{
-left: 4.5vw;
-top: 103.5vw;
-width: 27.5vw;
-height: 29vw;
+    left: 3.5vh;
+    top: 59.5%;
+    width: 16.5vh;
+    height: 17%;
 }
 .handbox_2,
 .speakingbox_2{
-left: 41vw;
-top: 8.8vw;
-width: 55.5vw;
-height: 28vw;
+	left: 24.5vh;
+    top: 5.2%;
+    width: 32vh;
+    height: 16%;
 }
 .handbox_3,
 .speakingbox_3{
-top: 76vw;
-left: 37.5vw;
-width: 27.5vw;
-height: 29vw;
+    top: 44%;
+    left: 22.5vh;
+    width: 16.3vh;
+    height: 16.8%;
 }
 .handbox_4,
 .speakingbox_4{
-top: 41vw;
-width: 56vw;
-left: 8vw;
-height: 27.8vw;
+    top: 23.8%;
+    width: 32.2vh;
+    left: 5.8vh;
+    height: 15.8%;
 }
 .handbox_5,
 .speakingbox_5{
-width: 28.5vw;
-left: 70vw;
-top: 42vw;
-height: 56vw;
+    width: 15.7vh;
+    left: 41.8vh;
+    top: 24%;
+    height: 33%;
 }
 .handbox_6,
 .speakingbox_6{
-top: 41vw;
-width: 56vw;
-left: 8vw;
-height: 27.8vw;
+    top: 23.8%;
+    width: 32.2vh;
+    left: 5.8vh;
+    height: 15.8%;
 }
 .handbox_7,
 .speakingbox_7{
-top: 112vw;
-width: 56.5vw;
-left: 38vw;
-height: 46.5vw;
+	top: 64.5%;
+    width: 32.5vh;
+    left: 23vh;
+    height: 27.5%;
 }
 .handbox_8,
 .speakingbox_8{
-left: 38vw;
-top: 112vw;
-width: 56vw;
-height: 47vw;
-}
-.handbox_9,
-.speakingbox_9{
-width: 28.5vw;
-left: 70vw;
-top: 42vw;
-height: 56vw;
-}
-.handbox_10,
-.speakingbox_10{
-top: 41vw;
-width: 56vw;
-left: 8vw;
-height: 27.8vw;
+	top: 64.5%;
+    width: 32.5vh;
+    left: 23vh;
+    height: 27.5%;
 }
 .handbox_3{
 	pointer-events: none;
@@ -370,7 +356,8 @@ z-index: 1}
 				setTimeout(function(){
 					$('.handbox_3').removeClass('handbox_3_animate')
 					$('.handbox').css({'opacity':1})
-				$('.text').html('THE END')
+				$('.text').html('<span class="end"></span>')
+				$('.text').css({'background':'transparent'})
 				},2500)
 			}
 			var counter = 0
