@@ -90,6 +90,12 @@ left: 70vw;
 top: 42vw;
 height: 56vw;
 }
+.speakingbox_5_2{
+width: 28.5vw;
+left: 70vw;
+top: 42vw;
+height: 56vw;
+}
 .speakingbox_6{
 top: 41vw;
 width: 56vw;
@@ -180,7 +186,7 @@ margin-left: 2.5vw;}
 				},2500)
 			}
 			function text_3(){
-				$('.text').html('하준?')
+				$('.text').html('호, 혹시 하준?')
 				$('.text').addClass('texton')
 				setTimeout(function(){
 					speaking_1()
@@ -221,6 +227,13 @@ margin-left: 2.5vw;}
 			function speaking_5(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_5').css({'opacity':1})
+				setTimeout(function(){
+					speaking_5_2()
+				},2500)
+			}
+			function speaking_5_2(){
+				$('.speakingbox').css({'opacity':0})
+				$('.speakingbox_5_2').css({'opacity':1})
 				setTimeout(function(){
 					speaking_6()
 				},2500)
@@ -342,9 +355,10 @@ margin-left: 2.5vw;}
 
 			<div class="speakingbox speakingbox_1">좀 괜찮아?</div>
 			<div class="speakingbox speakingbox_2">나는 몸을 기계로 바꿔 100년이 지난 지금까지 계속 살고 있었어. </div>
-			<div class="speakingbox speakingbox_3">저들은 순수 인간주의자</div>
-			<div class="speakingbox speakingbox_4">육체를 온전하게 보존하기 어려울 정도로 다친 사람들을 </div>
+			<div class="speakingbox speakingbox_3">저들은 순수 인간주의자야.</div>
+			<div class="speakingbox speakingbox_4">육체를 온전하게 보존하기 어려울 정도로 다친 사람들까지도</div>
 			<div class="speakingbox speakingbox_5">기계로 만드는 것을 막는 운동을 하고 있지.</div>
+			<div class="speakingbox speakingbox_5_2">기계가 되면 지구는 물론 어디서도 살 수 있어.</div>
 			<div class="speakingbox speakingbox_6">너도 나처럼 기계 몸으로 옮기는 것은 어떨까?</div>
 			<div class="speakingbox speakingbox_7">이미 인공두뇌에 정신까지 완전히 옮길 수 있는 기술이 개발되었어. </div>
 			<div class="speakingbox speakingbox_8">만약 싫다면 의학 기술이 가장 발달한 화성으로 갈 수 있게 해줄게.</div>

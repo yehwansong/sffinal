@@ -303,50 +303,76 @@ display: none;}
 			function text_6(){
 				$('.text').html('')
 				$('.ppl_speaking').show()
-				$('.ppl_speaking').html('정신이 드는가')
+				$('.ppl_speaking').html('정신이 듭니까?')
 				setTimeout(function(){
 					text_7()
 				},2500)
 			}
 			function text_7(){
-				$('.ppl_speaking').html('자네가 사고를 당한지 100년이 지났네.')
+				$('.ppl_speaking').html('당신이 사고를 당한 지 100년이 넘게 지났습니다.')
 				setTimeout(function(){
 					text_8()
 				},2500)
 			}
 			function text_8(){
-				$('.ppl_speaking').html('지금은 달 세력을 중심으로 우주공간에서 더욱 편히 살 수 있도록 인간의 기계화를 추구하고 있네.')
+				$('.ppl_speaking').hide()
+				$('.text').addClass('texton')
+				$('.text').html('이제 제 상처를 치료할 수 있게 된 건가요?')
 				setTimeout(function(){
 					text_9()
 				},2500)
 			}
 			function text_9(){
-				$('.ppl_speaking').html('하지만 우리는 그것에 동의하지 않아')
+				$('.ppl_speaking').show()
+				$('.text').removeClass('texton')
+				$('.ppl_speaking').html('그렇긴 하지만 여기는 병원이 아닙니다. 저희가 당신을 빼돌려 은밀한 곳으로 데려온 겁니다.')
 				setTimeout(function(){
 					text_10()
 				},2500)
 			}
 			function text_10(){
-				$('.ppl_speaking').html('생명 공학기술을 발전시 인간의 육체를 순수하게 간직해야 한다고 생각하네.')
+				$('.ppl_speaking').hide()
+				$('.text').addClass('texton')
+				$('.text').html('뭐, 뭐라고? 어, 어째서?')
 				setTimeout(function(){
 					text_11()
 				},2500)
 			}
 			function text_11(){
-				$('.ppl_speaking').html('자네도 몸 상태가 좋지 않지만, 기계가 되는 대신 인간의 육체를 보하겠다고 약속해주게')
+				$('.ppl_speaking').show()
+				$('.text').removeClass('texton')
+				$('.ppl_speaking').html('지난 100년 동안 달을 중심으로 한 세력이 인간의 기계화를 추구하고 있습니다.')
 				setTimeout(function(){
 					text_12()
 				},2500)
 			}
-			var fullread = false
 			function text_12(){
-				fullread = true
-				$('.ppl_speaking').html('약속해주기 전에는 여기서 나갈 수 없네.')
+				$('.ppl_speaking').html('하지만 저희는 그것에 동의하지 않습니다.')
 				setTimeout(function(){
 					text_13()
 				},2500)
 			}
 			function text_13(){
+				$('.ppl_speaking').html('아무리 지구를 떠났다고 해도 인간의 육체를 순수하게 간직해야 한다고 생각합니다.')
+				setTimeout(function(){
+					text_14()
+				},2500)
+			}
+			function text_14(){
+				$('.ppl_speaking').html('이제 당신도 그런 권유를 받을 겁니다. 저희는 당신이 본래 육체를 소중히 여긴다는 메시지를 발표해 주길 바랍니다.')
+				setTimeout(function(){
+					text_15()
+				},2500)
+			}
+			var fullread = false
+			function text_15(){
+				fullread = true
+				$('.ppl_speaking').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
+				setTimeout(function(){
+					text_16()
+				},2500)
+			}
+			function text_16(){
 				$('.ppl_speaking').hide()
 				$('.right_button').show()
 				$('.text').addClass('texton')
@@ -357,7 +383,7 @@ display: none;}
 			$('body').bind('touchstart', function(e){
 				if(fullread){
 								$('.ppl_speaking').show()
-								$('.ppl_speaking').html('약속해주기 전에는 여기서 나갈 수 없네.')
+								$('.ppl_speaking').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
 								setTimeout(function(){
 								$('.ppl_speaking').hide()
 								},2500)

@@ -234,10 +234,13 @@ background-image: url(img/call/100-02.png);
 			  timeout = setTimeout(function(){
 			  	$('.screen_5 .inner').css({'opacity':1})
             	$('.text').html('연결이 되었다!')
-            	$('.center_blue').addClass('center_blue_animate')
-				  timeout = setTimeout(function(){
-						location.replace("c_2.html");
-				  }, 1000);
+	            setTimeout(function(){
+            	$('.text').html('그 우주선은 인간의 우주선이다! 대화를 나누던 도중 나는 아는 사람을 발견한다.')
+	            	$('.center_blue').addClass('center_blue_animate')
+						  timeout = setTimeout(function(){
+								location.replace("c_2.html");
+						  }, 1000);
+		        },2500)
 			  }, 5000);
 			})
 			$('.center').bind('touchend', function(e){

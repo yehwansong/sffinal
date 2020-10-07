@@ -445,8 +445,14 @@ transform: translateZ(10000vw);
 
 		function text_1(){
 			$('.text').addClass('texton')
-			console.log('hey!!!!')
-			$('.text').html('기계가 되자 몸이 강해진게 느껴진다.')
+			$('.text').html('몸이 기계로 바뀌자 기분이 색다르다.')
+			setTimeout(function(){
+				text_1_2()
+			},2000)
+		}
+		function text_1_2(){
+			$('.text').addClass('texton')
+			$('.text').html('피곤하지도 않고, 춥거나 더워도 불편하지 않다.')
 			setTimeout(function(){
 				text_2()
 			},2000)
@@ -535,7 +541,7 @@ transform: translateZ(10000vw);
 				console.log(fly_counter)
 				if(fly_counter>4100){
 					flyer_1 = false
-					$('.text').html('갑자기 달에서 연락이 왔다.')
+					$('.text').html('그러던 어느 날 달에서 연락이 왔다.')
 					$('.popup_call').show()
 				}
 				$('.bg').css({'margin-top':fly_counter%(5*w)+'px'})

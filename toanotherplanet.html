@@ -43,9 +43,17 @@ crossorigin="anonymous"></script>
 	$(document).ready(function(){
 		text_1()
         function text_1(){
+            $('.black').show()
+            $('.text').addClass('texton center')
+            $('.text').html('서윤은 먼저 우리가 살아야 한다며 정착하자는 편에 선다.')
+            setTimeout(function(){
+                text_1_1()
+            },3000)
+        }
+        function text_1_1(){
         	$('.black').show()
             $('.text').addClass('texton center')
-            $('.text').html('주인 있는 행성을 빼앗을 수 없다. 새로운 외계행성을 찾아 다시 길을 떠난다.')
+            $('.text').html('그러나 나는 도저히 주인 있는 행성을 빼앗을 수 없다. 뜻이 같은 사람들과 새로운 행성을 찾아 다시 길을 떠난다.')
             setTimeout(function(){
                 text_2()
             },3000)
@@ -60,15 +68,7 @@ crossorigin="anonymous"></script>
         }
         function text_3(){
         	$('.black').hide()
-            $('.text').html('저기 어떤 행성이 보인다.')
-            setTimeout(function(){
-                text_4()
-            },3000)
-        }
-        function text_4(){
-        	$('.black').hide()
-            $('.text').removeClass('center')
-            $('.text').html('들어가보자')
+            $('.text').removeClass('texton')
             $('img').addClass('inner')
             setTimeout(function(){
                 location.replace("Anotherplanet/index.html");
