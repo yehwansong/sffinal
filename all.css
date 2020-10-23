@@ -37,7 +37,8 @@ html,body{
 	bottom: 52.5% !important;
 	transform: translateY(50%);
 padding-right: 2vw;
-    width: 100vw;}
+    width: 100vw;
+left: 0}
 .end{
     background-position: center;
     background-image: url(img/theend.png);
@@ -238,9 +239,9 @@ left: 50%;
 transform: translateX(-50%)
 }
 .theend{
-width: 50vw;
-height: auto;
-    left: 25vw;
+    width: 50vw !important;
+    height: auto;
+    left: 25vw !important;
 }
 .theend a,
 .theend .sum{

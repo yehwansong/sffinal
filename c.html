@@ -501,6 +501,8 @@ img{
 			}
 
 			function showcontent_white(){
+				$('.arrow-left').css({'pointer-events':'none'})
+				$('.arrow-right').css({'pointer-events':'none'})
 					$('.white_speaking_1').css({'opacity':1})
 					setTimeout(function(){
 						$('.white_speaking_2').css({'opacity':0})
