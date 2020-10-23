@@ -550,15 +550,15 @@ img{
 				})
 				$('.robot_wrapper').bind('touchstart', function(e){
 					if(stage == 13){
-						$('.robot_wrapper').css({'pointer-events':'none'})
-						$('.human_wrapper').css({'pointer-events':'none'})
+						$('.robot_wrapper').css("pointer-events", "none !important")
+						$('.human_wrapper').css("pointer-events", "none !important")
 						location.replace("selector_becomerobot.html");
 					}
 				})
 				$('.human_wrapper').bind('touchstart', function(e){
 					if(stage == 13){
-						$('.robot_wrapper').css({'pointer-events':'none'})
-						$('.human_wrapper').css({'pointer-events':'none'})
+						$('.robot_wrapper').css("pointer-events", "none !important")
+						$('.human_wrapper').css("pointer-events", "none !important")
 						$('.whole').css({'transform':'translateY(0vh)'})
 						$('.whole_original').css({'transform':'translateY(-80vh)'})
 						stage = 14
