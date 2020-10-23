@@ -45,93 +45,93 @@ Searching 75 files for "the end"
 6 matches across 6 files
 
 
-Searching 69 files for "하준"
+Searching 69 files for "준"
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/c.html:
   197  			}
   198  			function text_3(){
-  199: 				$('.text').html('하준?')
+  199: 				$('.text').html('준?')
   200  				$('.text').addClass('texton')
   201  				setTimeout(function(){
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/c_2.html:
   246  			}
   247  			function text_3(){
-  248: 				$('.text').html('하준?')
+  248: 				$('.text').html('준?')
   249  				$('.text').addClass('texton')
   250  				setTimeout(function(){
   ...
   314  			function speaking_9(){
   315  				$('.speakingbox').css({'opacity':0})
-  316: 				$('.text').html('나는 하준의 권유를 받아들여, 정신을 컴퓨터에 업로드해 하준와 함께 하기로 한다.')
+  316: 				$('.text').html('나는 준의 권유를 받아들여, 정신을 컴퓨터에 업로드해 준과 함께 하기로 한다.')
   317  				$('.text').addClass('texton center')
   318  				$('.black').show()
   ...
   363  				$('.robotme_5').hide()
   364  				$('.robotme_4').hide()
-  365: 				$('.text').html('나는 하준와 하나로 융합했다.')
+  365: 				$('.text').html('나는 준과 하나로 융합했다.')
   366  				setTimeout(function(){
   367  					speaking_12()
   ...
   371  				$('.black').hide()
   372  				$('.text').addClass('texton')
-  373: 				$('.text').html('그 결과 그동안 하준가 겪은 모든 경험을 나의 것으로 만들었다.')
+  373: 				$('.text').html('그 결과 그동안 준ㅇ 겪은 모든 경험을 나의 것으로 만들었다.')
   374  				setTimeout(function(){
   375  					speaking_13()
   ...
   379  				$('.black').hide()
   380  				$('.text').addClass('texton')
-  381: 				$('.text').html('나와 하준는 먼 우주를 향해 여행을 떠난다.')
+  381: 				$('.text').html('나와 준는 먼 우주를 향해 여행을 떠난다.')
   382  				setTimeout(function(){
   383  					$('.handbox_3').removeClass('handbox_3_animate')
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/mars_alive.html:
   218  			text_1()
   219  			function text_1(){
-  220: 				$('.text').html('나는 아내의 반대를 무릅쓰고 아들을 살리러 하준를 찾아간다.')
+  220: 				$('.text').html('나는 아내의 반대를 무릅쓰고 아들을 살리러 준를 찾아간다.')
   221  				$('.text').addClass('texton')
   222  				$('.text').addClass('center')
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/mars_story_2.html:
   216          function text_6(){
   217              $('.text').addClass('texton')
-  218:             $('.text').html('하준에게 데려가 아들의 의식을 기계로 옮기면 아들은 기계 몸으로나마 계속 살아갈 수 있다.')
+  218:             $('.text').html('준에게 데려가 아들의 의식을 기계로 옮기면 아들은 기계 몸으로나마 계속 살아갈 수 있다.')
   219              setTimeout(function(){
   220                  text_7()
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/robotize.html:
    82  			text_0()
    83  			function text_0(){
-   84: 				$('.text').html('나는 하준처럼 기계 몸을 선택한다.')
+   84: 				$('.text').html('나는 준처럼 기계 몸을 선택한다.')
    85  				$('.text').addClass('texton')
    86  				$('.text').addClass('center')
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/Earth/index.htm:
   300              $('.text').addClass('texton center')
   301              $('.text').html('<img src="../img/candy.png">\
-  302:                 <br>나의 단짝 친구인 하준과 서윤은 각자 다른 선택을 한다.\
-  303:                 <br>하준는 태양계에 남아 지구에 희망을 걸 생각이고,서윤는 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+  302:                 <br>나의 단짝 친구인 준과 서윤은 각자 다른 선택을 한다.\
+  303:                 <br>준는 태양계에 남아 지구에 희망을 걸 생각이고,서윤는 우주선에 몸을 싣고 외계 행성으로 떠난다.\
   304                  ')
   305              setTimeout(function(){
   ...
   370              $('.text').html('그때까지 살아남은 인류는 두 갈래로 나뉜다.\
   371                  <br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.\
-  372:                 <br>나의 단짝 친구인 하준과 서윤은 각자 다른 선택을 한다.\
-  373:                 <br>하준은 태양계에 남아 지구에 희망을 걸 생각이고,서윤은 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+  372:                 <br>나의 단짝 친구인 준과 서윤은 각자 다른 선택을 한다.\
+  373:                 <br>준은 태양계에 남아 지구에 희망을 걸 생각이고,서윤은 우주선에 몸을 싣고 외계 행성으로 떠난다.\
   374                  <br>그리고 나 역시 두 길 중 하나를 선택해 떠나야 한다. \
   375                  <br>어떻게 하면 좋을까?\
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/Mars/index.htm:
    86          }
    87          function text_1(){
-   88:             $('.text').html('하준의 도움으로 나는 화성에 왔다.')
+   88:             $('.text').html('준의 도움으로 나는 화성에 왔다.')
    89              setTimeout(function(){
    90                  text_2()
 
 /Users/song-yehwan/Library/Mobile Documents/com~apple~CloudDocs/과천과학관/novel/SpaceStation/index.html:
   130          function text_2(){
   131              $('.text').addClass('texton center')
-  132:             $('.text').html('나는 하준과 지구 궤도에 건설한 우주정거장에 머물며 지구 복원 계획에 참여한다.')
+  132:             $('.text').html('나는 준과 지구 궤도에 건설한 우주정거장에 머물며 지구 복원 계획에 참여한다.')
   133              setTimeout(function(){
   134                  text_3()
 

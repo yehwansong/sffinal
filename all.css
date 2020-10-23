@@ -1,26 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 .text{
-position: fixed;
-left: 50%;
-transform: translateX(-50%);
-bottom: 10px;
-z-index: 100000000000000000000;
-width: 95vw;
-display: block;
-background: black;
-color: white;
-font-size: 5vw;
-text-align: center;
-line-height: 1.4;
-padding: 2vw;
-/* width: 18vw; */
-padding-top: 2.5vw;
-opacity: 0;
-pointer-events: none;
-padding-right: 5vw;
-box-sizing: border-box;
-padding-right: 10vw;
+    position: fixed;
+    left: 2.5vw;
+    /* transform: translateX(-50%); */
+    bottom: 2.5vw;
+    z-index: 100000000000000000000;
+    width: 85vw;
+    display: block;
+    background: black;
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+    line-height: 1.4;
+    padding: 2vw;
+    /* width: 18vw; */
+    padding-top: 2.5vw;
+    opacity: 0;
+    pointer-events: none;
+    /* padding-right: 5vw; */
+    box-sizing: border-box;
 }
 html,body{
 	position: absolute;
@@ -36,7 +35,7 @@ html,body{
 }
 .text.center{
 	bottom: 52.5% !important;
-	transform: translateY(50%) translateX(-50%);
+	transform: translateY(50%);
 padding-right: 2vw;}
 .end{
     background-position: center;
