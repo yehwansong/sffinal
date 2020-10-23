@@ -36,7 +36,8 @@ html,body{
 .text.center{
 	bottom: 52.5% !important;
 	transform: translateY(50%);
-padding-right: 2vw;}
+padding-right: 2vw;
+    width: 100vw;}
 .end{
     background-position: center;
     background-image: url(img/theend.png);
@@ -239,6 +240,7 @@ transform: translateX(-50%)
 .theend{
 width: 50vw;
 height: auto;
+    left: 25vw;
 }
 .theend a,
 .theend .sum{
