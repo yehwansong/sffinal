@@ -224,16 +224,16 @@ crossorigin="anonymous"></script>
 			  clearTimeout(timeout);
 			  timeout = setTimeout(function(){
 			  	$('.screen_1 .inner').css({'opacity':1})
-			  }, 1000);
+			  }, 700);
 			  timeout = setTimeout(function(){
 			  	$('.screen_2 .inner').css({'opacity':1})
-			  }, 2000);
+			  }, 1400);
 			  timeout = setTimeout(function(){
 			  	$('.screen_3 .inner').css({'opacity':1})
-			  }, 3000);
+			  }, 2100);
 			  timeout = setTimeout(function(){
 			  	$('.screen_4 .inner').css({'opacity':1})
-			  }, 4000);
+			  }, 2800);
 			  timeout = setTimeout(function(){
 			  	$('.screen_5 .inner').css({'opacity':1})
             	$('.text').html('연결이 되었다!')
@@ -244,10 +244,10 @@ crossorigin="anonymous"></script>
 								location.replace("c_2.html");
 						  }, 1000);
 		        },2500)
-			  }, 5000);
+			  }, 3500);
 			})
 			$('.center').bind('touchend', function(e){
-			  clearTimeout(timeout);
+			  // clearTimeout(timeout);
 			})
 		})
 </script>
