@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		background: white;
+	}
+	body{
+		background:black
+	}
+	.thunder{
+		position: absolute;
+		width: 80vw;
+		transform-origin: center top;
+		opacity: 0
+	}
+	.thunder_1,.thunder_2{
+		left: 0vw;
+		top: 0;
+	}
+	.thunder_3,.thunder_4{
+		left:100vw;
+		top: 0;
+	}
+	.thunder_5,.thunder_6{
+		left: 0vw;
+		top: 100%;
+	}
+	.thunder_7,.thunder_8{
+		left:100vw;
+		top: 100%;
+	}
+	.circle{
+		opacity: 0;
+		width: 30vw;
+		height: 30vw;
+		background: radial-gradient(red 16.81%, transparent 61.34%);
+		margin-left: -15vw;
+		margin-top: -15vw;
+		position: fixed;
+		transition: opacity 0.5s
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+  	var w = window.innerWidth
+  	var h = window.innerHeight
+rotate()
+  	function rotate(){
+  		console.log('.thunder_set_'+(Math.floor(Math.random()*4)+1))
+  		console.log($('.thunder_set_'+(Math.floor(Math.random()*4)+1)))
+  		$('.thunder').hide()
+  		$('.thunder_set_1_'+(Math.floor(Math.random()*4)+1)).show()
+  		$('.thunder_set_2_'+(Math.floor(Math.random()*4)+1)).show()
+  		$('.thunder_set_1_'+(Math.floor(Math.random()*4)+1)).show()
+  		$('.thunder_set_2_'+(Math.floor(Math.random()*4)+1)).show()
+  		setTimeout(function(){
+  			rotate()
+  		},1000)
+  	}
+
+
+            var stage = 1
+            $('.arrow-left').click(function(){
+                if(stage > 1 && stage < 3){stage--}
+                console.log(stage)
+                move(stage)
+            })
+            $('.arrow-right').click(function(){
+                if(stage > 0 && stage < 2){stage++}
+                console.log(stage)
+                move(stage)
+            })
+            function move(stage){
+                console.log('hey!')
+                if(stage == 1){text_0()}
+                if(stage == 2){text_1()}
+            }
+
+			text_0()
+			function text_0(){
+				$('.text').html('나는 하준처럼 기계 몸을 선택한다.')
+				$('.text').addClass('texton')
+				$('.text').addClass('center')
+			}
+			function text_1(){
+				$('.text').html('두 손가락으로 화면을 터치해 움직여보며 기계로 몸을 바꾸어보자')
+				$('.text').addClass('texton')
+				$('.text').removeClass('center')
+			}
+
+			var percentage_counter = 0
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+ 
+        }, { passive: false });
+		$('.black').hide()
+			$(document).bind('touchstart', function(e){
+				$('audio')[0].play()
+            	var xPos = e.originalEvent.touches[0].pageX;
+            	var yPos = e.originalEvent.touches[0].pageY;
+            	$('.finger').css({'left':xPos + 'px'})
+            	$('.finger').css({'top':yPos + 'px'})
+			})
+			$(document).bind('touchmove', function(e) {
+				if(stage==2){
+						  	if(e.originalEvent.touches[0] !==null){
+									$('.circle_1').css({'opacity':1})
+								xPos = e.originalEvent.touches[0].pageX;
+								yPos = e.originalEvent.touches[0].pageY;
+								$('.thunder_1').css({'opacity':1})
+								$('.thunder_1').css({'height':getdis(xPos,yPos,0,0)+'px'})
+								$('.thunder_1').css({'width':getdis(xPos,yPos,0,0)/3+'px'})
+						  		$('.thunder_1').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,0,0)-90)+'deg)'})
+								$('.thunder_3').css({'opacity':1})
+								$('.thunder_3').css({'height':getdis(xPos,yPos,w,0)+'px'})
+								$('.thunder_3').css({'width':getdis(xPos,yPos,w,0)/3+'px'})
+						  		$('.thunder_3').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,w,0)-90)+'deg)'})
+								$('.thunder_5').css({'opacity':1})
+								$('.thunder_5').css({'height':getdis(xPos,yPos,0,h)+'px'})
+								$('.thunder_5').css({'width':getdis(xPos,yPos,0,h)/3+'px'})
+						  		$('.thunder_5').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,0,h)-90)+'deg)'})
+								$('.thunder_7').css({'opacity':1})
+								$('.thunder_7').css({'height':getdis(xPos,yPos,w,h)+'px'})
+								$('.thunder_7').css({'width':getdis(xPos,yPos,w,h)/3+'px'})
+						  		$('.thunder_7').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,w,h)-90)+'deg)'})
+								$('.circle_1').css({'left':xPos+'px'})
+								$('.circle_1').css({'top':yPos+'px'})
+						  	}
+						  	if(typeof e.originalEvent.touches[1] !== 'undefined') {
+						  		console.log(e.originalEvent.touches[1])
+						  		percentage_counter++
+						  		if(Math.floor(percentage_counter/3) < 100){
+						  						$('.text').html(Math.floor(percentage_counter/3) + '%')
+						  					}else{
+						  						$('.text').html('기계가 되었다.')
+												setTimeout(function(){
+														location.replace("re-earth/index.html");
+												},2500)
+						  					}
+			
+									$('.circle').css({'opacity':1})
+								xPos = e.originalEvent.touches[1].pageX;
+								yPos = e.originalEvent.touches[1].pageY;
+								$('.thunder_2').css({'opacity':1})
+								$('.thunder_2').css({'height':getdis(xPos,yPos,0,0)+'px'})
+								$('.thunder_2').css({'width':getdis(xPos,yPos,0,0)/3+'px'})
+						  		$('.thunder_2').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,0,0)-90)+'deg)'})
+								$('.thunder_4').css({'opacity':1})
+								$('.thunder_4').css({'height':getdis(xPos,yPos,w,0)+'px'})
+								$('.thunder_4').css({'width':getdis(xPos,yPos,w,0)/3+'px'})
+						  		$('.thunder_4').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,w,0)-90)+'deg)'})
+								$('.thunder_6').css({'opacity':1})
+								$('.thunder_6').css({'height':getdis(xPos,yPos,0,h)+'px'})
+								$('.thunder_6').css({'width':getdis(xPos,yPos,0,h)/3+'px'})
+						  		$('.thunder_6').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,0,h)-90)+'deg)'})
+								$('.thunder_8').css({'opacity':1})
+								$('.thunder_8').css({'height':getdis(xPos,yPos,w,h)+'px'})
+								$('.thunder_8').css({'width':getdis(xPos,yPos,w,h)/3+'px'})
+						  		$('.thunder_8').css({'transform': 'translateX(-50%) rotate('+(getdegree(xPos,yPos,w,h)-90)+'deg)'})
+								$('.circle_2').css({'left':xPos+'px'})
+								$('.circle_2').css({'top':yPos+'px'})
+						  	}
+						  	function getdegree(x1,y1,x2,y2){
+								return Math.atan2(y1-y2, x1-x2) * 180 / Math.PI;
+						  	}
+						  	function getdis(x1,y1,x2,y2){
+						  		return Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) );
+						  	}
+				}
+			});
+			$(document).bind('touchend', function(e) {
+				if(e.originalEvent.touches.length>0){
+					$('.thunder_1').css({'opacity':0})
+					$('.thunder_3').css({'opacity':0})
+					$('.thunder_5').css({'opacity':0})
+					$('.thunder_7').css({'opacity':0})
+					$('.circle_2').css({'opacity':0})
+				}else{
+					$('audio')[0].pause()
+					$('.thunder').css({'opacity':0})
+					$('.circle').css({'opacity':0})
+				}
+		  });
+	})
+</script>
+</head>
+<body>
+        	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+        	<img class="text-arrow arrow-left" src="img/arrow-left.png">
+	<div class="text"></div>
+	<div class="black"></div>
+	<img src="img/thunder2.png" class="thunder thunder_1 thunder_set_1_1">
+	<img src="img/thunder.png"  class="thunder thunder_2 thunder_set_2_3">
+	<img src="img/thunder2.png" class="thunder thunder_3 thunder_set_1_2">
+	<img src="img/thunder.png"  class="thunder thunder_4 thunder_set_2_4">
+	<img src="img/thunder2.png" class="thunder thunder_5 thunder_set_1_3">
+	<img src="img/thunder.png"  class="thunder thunder_6 thunder_set_2_1">
+	<img src="img/thunder2.png" class="thunder thunder_7 thunder_set_1_4">
+	<img src="img/thunder.png"  class="thunder thunder_8 thunder_set_2_2">
+	<div class="circle circle_1"></div>
+	<div class="circle circle_2"></div>
+	<audio>
+		<source src="sound/long_1.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>

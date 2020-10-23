@@ -43,7 +43,7 @@ crossorigin="anonymous"></script>
 	}
 .wrapper {
 width: 100vw;
-height: 100vh;
+height: 100%;
 top: 50%;
 transform: translateY(-50%);
 position: absolute;
@@ -67,26 +67,27 @@ display: none;
 z-index: 10000000;
 position: absolute;
 width: 100vw;
-height: 600vw;
+height: 100%;
 bottom: 0vw;
 left: 0;
 background-image: url('img/mars_alive.png');
 background-size: 100vw;
-background-position: bottom;
+background-position: top;
 background-color: white;
 background-repeat: no-repeat;
-transition: 18s
+transition: 18s;
+    background-color: #476972 !important;
 	}
 	.wrapper_all_ani{
 		bottom: -400vw
 	}
 	.wrapper_all img{
 position: absolute;
-bottom: 0;
+bottom: auto;
 width: 100vw;
 height: auto;
 left: 0;
-top: auto;
+top: 0;
 transform: none;
 	}
 	.arrow{
@@ -120,21 +121,22 @@ padding: 4vw;
 box-sizing: border-box;
 	}
 .speakingbox_1{
-left: 4.5vw;
-top: 103.5vw;
-width: 27.5vw;
-height: 29vw;
+left: 7.5vw;
+top: 41.5vw;
+width: 56.5vw;
+height: 28vw;
 }
 .speakingbox_2{
 left: 41vw;
 top: 8.8vw;
 width: 55.5vw;
+height: 28vw;
 }
 .speakingbox_3{
-top: 76vw;
-left: 37vw;
+top: 42vw;
+left: 70vw;
 width: 28vw;
-height: 29vw;
+height: 56vw;
 }
 .speakingbox_4{
 top: 41vw;
@@ -215,49 +217,53 @@ margin-left: 2.5vw;}
 
 		$(document).ready(function(){
 			var counter_son = 0
-			text_1()
-			function text_1(){
-				$('.text').html('나는 아내의 반대를 무릅쓰고 아들을 살리러 하준을 찾아간다.')
-				$('.text').addClass('texton')
-				$('.text').addClass('center')
-				$('.wrapper').css({'height':'100%'})
-				// $('.door').css({'transform': 'translateX(-50%) scale(1.09)'})
-				setTimeout(function(){
-					text_2()
-				},2500)
-			}
-			function text_2(){
-				$('.text').removeClass('texton')
-				$('.text').removeClass('center')
-            	$('.black').fadeOut(300)
-				setTimeout(function(){
-					speaking_1()
-				},2500)
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 0 && stage < 4) || (stage > 9 && stage < 12) || (stage > 19 && stage < 27)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 4) || (stage > 9  && stage < 12) || (stage > 19 && stage < 27)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){speaking_1()}
+				if(stage == 2){speaking_2()}
+				if(stage == 3){speaking_3()}
+				if(stage == 4){son_1()}
+
+				if(stage == 11){text_4()}
+				if(stage == 12){text_5()}
+
+				if(stage == 20){text_6()}
+				if(stage == 21){text_7()}
+				if(stage == 22){text_8()}
+				if(stage == 23){text_9()}
+				if(stage == 24){text_10()}
+				if(stage == 25){text_11()}
+				if(stage == 26){text_12()}
+
 			}
 
 
 
 			function speaking_1(){
+            	$('.black').hide()
 				$('.text').removeClass('texton')
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_1').css({'opacity':1})
-				setTimeout(function(){
-					speaking_2()
-				},2500)
 			}
 			function speaking_2(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_2').css({'opacity':1})
-				setTimeout(function(){
-					speaking_3()
-				},2500)
 			}
 			function speaking_3(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_3').css({'opacity':1})
-				setTimeout(function(){
-					son_1()
-				},2500)
 			}
 			function son_1(){
 				$('.wrapper_son').fadeIn(800)
@@ -302,20 +308,15 @@ margin-left: 2.5vw;}
 				},1000)
 			}
 			function text_3(){
+				stage = 10
 				$('.text').addClass('texton')
 				$('.text').html('비록 컴퓨터 속이지만 아들이 깨어났다.')
             	$('.black').fadeOut(300)
-				setTimeout(function(){
-					text_4()
-				},2500)
 			}
 			function text_4(){
 				$('.text').addClass('texton')
 				$('.text').html('이렇게나마 아들을 다시 보게 되어 기쁘다.')
             	$('.black').fadeOut(300)
-				setTimeout(function(){
-					text_5()
-				},4000)
 			}
 			function text_5(){
 				$('.text').html('기계 속의 의식으로 오래 지낸 인간들은 두세 사람이 정신을 합쳐 하나의 존재가 되기도 한다.')
@@ -394,57 +395,89 @@ margin-left: 2.5vw;}
 				$('.alive_face_12').fadeIn(100)
 				setTimeout(function(){
 					alive_13()
-					// $('.wrapper_all').addClass('wrapper_all_ani')
 				},1000)
 			}
 			function alive_13(){
+				stage = 20
 				$('.alive_face_6').fadeIn(100)
-				setTimeout(function(){
-					text_6()
-				},2000)
 			}
 			function text_6(){
 				$('.text').html('과연 이들도 자신과 같은 인간이 맞을까')
-				setTimeout(function(){
-					text_7()
-				},2500)
 			}
 			function text_7(){
 				$('.text').html('아들도 나중에 이렇게 되는 걸까')
-
-				setTimeout(function(){
-					text_8()
-				},2500)
 			}
 			function text_8(){
 				$('.text').html('나는 육체가 수명을 다할 때까지 아들의 성장을 곁에서 바라볼 것이다.')
-				setTimeout(function(){
-					text_9()
-				},2500)
 			}
 			function text_9(){
 				$('.text').html('육체를 간직하겠다는 내 생각에는 변함이 없다.')
-				setTimeout(function(){
-					text_10()
-				},2500)
 			}
 			function text_10(){
 				$('.text').html('늙어가는 나는 새로운 종으로 진화하는 것 같은 아들과 점점 거리감을 느낀다.')
-				setTimeout(function(){
-					text_11()
-				},2500)
 			}
 			function text_11(){
 				$('.text').html('마침내 나는 새로운 미래의 인류를 상상하며 눈을 감는다.')
-				setTimeout(function(){
-					text_12()
-				},2500)
 			}
 			function text_12(){
 				$('.text').addClass('center')
 				$('.text').html('THE END')
-				setTimeout(function(){
-				},2500)
+				$('.text').addClass('center theend')
+				$('.result').append('\
+		        	<img src="../img/close.png" class="close result_close">\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/1.PNG)"></div>\
+						<span>XX년, 지구에서 살던 나는</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/2.PNG)"></div>\
+						<span>준을 따라 태양계에 남기로 결정한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/3.PNG)"></div>\
+						<span>우주 정류장에서 우주 쓰레기에 맞는 사고를 당한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/4.PNG)"></div>\
+						<span>순수 인간주의자에게 납치를 당하지만</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/5.PNG)"></div>\
+						<span>철수의 도움으로 탈출하고</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/6.PNG)"></div>\
+						<span>인간으로 남아 화성으로 가기로 한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/7.PNG)"></div>\
+						<span>화성에서 인연을 만나</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/8.PNG)"></div>\
+						<span>아들을 낳지만 </span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/9.PNG)"></div>\
+						<span>아들은 우주쓰레기에 맞는 사고를 당하고</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/10.PNG)"></div>\
+						<span>아들의 생존을 위해</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_alive/11.PNG)"></div>\
+						<span>아들을 기계로 만들기로 결정한다.</span>\
+					</div>\
+				')
+				$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+				$('.sum').click(function(){
+					console.log
+					$('.result').show()
+				})
+				$('.result_close').click(function(){
+					$('.result').hide()
+				})
 			}
 			var counter_op = 0
 			$('.black').bind('touchstart', function(e){
@@ -474,6 +507,8 @@ margin-left: 2.5vw;}
 			})
 		})
 	</script>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
         <div class="black"></div>
         <div class="text"></div>
         <div class="wrapper">
@@ -520,5 +555,6 @@ margin-left: 2.5vw;}
 			<dig class="speakingbox speakingbox_2">그래 물론 기계의 몸으로 바꾸어줄 수 있지.</dig>
 			<dig class="speakingbox speakingbox_3">아들의 의식을 컴퓨터 속으로 전송할게.</dig>
 			<a class="selector selector_2">기계 몸을 선택한다.</a>
+	<div class="result"></div>
 </body>
 </html>

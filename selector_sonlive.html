@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		background: white;
+	}
+	.button{
+width: 13vw;
+height: 13vw;
+position: absolute;
+z-index: 10000;
+pointer-events: all;
+background-image: url(img/arrow-right.png);
+background-size: 80%;
+background-color: white;
+border-radius: 50%;
+border: 1vw solid rgb(83, 83, 83);
+background-position: center right;
+background-repeat: no-repeat;
+	}
+.button{
+}
+	.map{
+		width: 300vw;
+		height: 450vw;
+		background-image: url(img/findc_wide.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: top;
+		position: absolute;
+		transform: translate(-100vw, -175vw);
+	}
+	.rec_wrapper{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 300vw;
+		height: 450vw;
+		transform: translate(-100vw, -175vw);
+	}
+	.rec{background: red;
+background-size: cover !important;}
+.button_1{
+left: 43.5vw;
+top: 0;
+transform: rotate(-90deg);
+}
+.button_2{
+left: 43.5vw;
+bottom: 0vw;
+transform: rotate(90deg);
+}
+.button_3{
+left: 0vw;
+top: calc(50% - 5vw);
+transform: rotate(-180deg);
+}
+.button_4{
+right: 0vw;
+top: calc(50% - 5vw);
+transform: rotate(-0deg);
+}
+.rec_15 {
+  position: absolute;
+  left: 285.5vw;
+  top: 415.8vw;
+  width: 14.6vw;
+  height: 43.5vw;
+  z-index: 46;
+}
+.rec_20 {
+  position: absolute;
+  left: 85.9vw;
+  top: 429.9vw;
+  width: 47.8vw;
+  height: 23.3vw;
+  z-index: 45;
+}
+.rec_19 {
+  position: absolute;
+  left: 140.9vw;
+  top: 430.8vw;
+  width: 23.2vw;
+  height: 28.0vw;
+  z-index: 44;
+}
+.rec_18 {
+  position: absolute;
+  left: 178.2vw;
+  top: 413.9vw;
+  width: 40.2vw;
+  height: 44.9vw;
+  z-index: 43;
+}
+.rec_17 {
+  position: absolute;
+  left: 231.4vw;
+  top: 442.0vw;
+  width: 48.1vw;
+  height: 16.8vw;
+  z-index: 42;
+}
+.rec_16 {
+  position: absolute;
+  left: 225.9vw;
+  top: 412.9vw;
+  width: 24.0vw;
+  height: 23.5vw;
+  z-index: 41;
+}
+.rec_14 {
+  position: absolute;
+  left: 257.1vw;
+  top: 386.9vw;
+  width: 23.4vw;
+  height: 48.0vw;
+  z-index: 40;
+}
+.rec_13 {
+  position: absolute;
+  left: 202.5vw;
+  top: 351.1vw;
+  width: 53.0vw;
+  height: 33.2vw;
+  z-index: 39;
+}
+.rec_12 {
+  position: absolute;
+  left: 192.9vw;
+  top: 311.7vw;
+  width: 31.5vw;
+  height: 30.7vw;
+  z-index: 38;
+}
+.rec_11 {
+  position: absolute;
+  left: 177.7vw;
+  top: 254.1vw;
+  width: 40.1vw;
+  height: 48.2vw;
+  z-index: 37;
+}
+.rec_10 {
+  position: absolute;
+  left: 225.4vw;
+  top: 279.7vw;
+  width: 24.0vw;
+  height: 23.4vw;
+  z-index: 36;
+}
+.rec_9 {
+  position: absolute;
+  left: 256.7vw;
+  top: 281.0vw;
+  width: 23.4vw;
+  height: 48.2vw;
+  z-index: 35;
+}
+.rec_8 {
+  position: absolute;
+  left: 231.0vw;
+  top: 250.7vw;
+  width: 48.0vw;
+  height: 23.5vw;
+  z-index: 34;
+}
+.rec_7 {
+  position: absolute;
+  left: 246.3vw;
+  top: 164.6vw;
+  width: 40.3vw;
+  height: 48.0vw;
+  z-index: 33;
+}
+.rec_6 {
+  position: absolute;
+  left: 239.0vw;
+  top: 219.2vw;
+  width: 24.0vw;
+  height: 23.2vw;
+  z-index: 32;
+}
+.rec_5 {
+  position: absolute;
+  left: 214.7vw;
+  top: 190.3vw;
+  width: 24.1vw;
+  height: 23.2vw;
+  z-index: 31;
+}
+.rec_4 {
+  position: absolute;
+  left: 184.0vw;
+  top: 191.6vw;
+  width: 23.5vw;
+  height: 48.0vw;
+  z-index: 30;
+}
+.rec_3 {
+  position: absolute;
+  left: 185.2vw;
+  top: 161.1vw;
+  width: 47.9vw;
+  height: 23.4vw;
+  z-index: 29;
+}
+.rec_2 {
+  position: absolute;
+  left: 155.9vw;
+  top: 162.6vw;
+  width: 23.6vw;
+  height: 48.0vw;
+  z-index: 28;
+}
+.rec_1 {
+  position: absolute;
+  left: 99.0vw;
+  top: 161.9vw;
+  width: 48.1vw;
+  height: 40.3vw;
+  z-index: 27;
+}
+.rec_29 {
+  position: absolute;
+  left: 868vw;
+  top: 2174vw;
+  width: 235vw;
+  height: 481vw;
+  z-index: 26;
+}
+.rec_28 {
+  position: absolute;
+  left: 116.0vw;
+  top: 216.1vw;
+  width: 47.9vw;
+  height: 23.3vw;
+  z-index: 25;
+}
+.rec_27 {
+  position: absolute;
+  left: 145.6vw;
+  top: 245.1vw;
+  width: 24.1vw;
+  height: 23.4vw;
+  z-index: 24;
+}
+.rec_26 {
+  position: absolute;
+  left: 115.0vw;
+  top: 246.6vw;
+  width: 23.4vw;
+  height: 47.8vw;
+  z-index: 23;
+}
+.rec_25 {
+  position: absolute;
+  left: 16.3vw;
+  top: 345.7vw;
+  width: 52.9vw;
+  height: 63.1vw;
+  z-index: 22;
+}
+.rec_24 {
+  position: absolute;
+  left: 47.3vw;
+  top: 417.6vw;
+  width: 31.6vw;
+  height: 30.6vw;
+  z-index: 21;
+}
+.rec_23 {
+  position: absolute;
+  left: 83.4vw;
+  top: 353.9vw;
+  width: 30.7vw;
+  height: 63.2vw;
+  z-index: 20;
+}
+.rec_22 {
+  position: absolute;
+  left: 131.6vw;
+  top: 342.1vw;
+  width: 23.9vw;
+  height: 23.4vw;
+  z-index: 19;
+}
+.rec_21 {
+  position: absolute;
+  left: 162.8vw;
+  top: 316.1vw;
+  width: 23.3vw;
+  height: 47.9vw;
+  z-index: 18;
+}
+.rec_32 {
+  position: absolute;
+  left: .0vw;
+  top: 199.1vw;
+  width: 46.2vw;
+  height: 23.3vw;
+  z-index: 17;
+}
+.rec_45 {
+  position: absolute;
+  left: 46.1vw;
+  top: 2.5vw;
+  width: 48.0vw;
+  height: 23.3vw;
+  z-index: 16;
+}
+.rec_44 {
+  position: absolute;
+  left: 17.2vw;
+  top: 30.7vw;
+  width: 47.8vw;
+  height: 23.2vw;
+  z-index: 15;
+}
+.rec_43 {
+  position: absolute;
+  left: 72.1vw;
+  top: 31.6vw;
+  width: 23.4vw;
+  height: 48.0vw;
+  z-index: 14;
+}
+.rec_42 {
+  position: absolute;
+  left: 43.1vw;
+  top: 61.3vw;
+  width: 23.4vw;
+  height: 24.0vw;
+  z-index: 13;
+}
+.rec_41 {
+  position: absolute;
+  left: 11.9vw;
+  top: 89.3vw;
+  width: 23.3vw;
+  height: 24.1vw;
+  z-index: 12;
+}
+.rec_40 {
+  position: absolute;
+  left: -.5vw;
+  top: 120.6vw;
+  width: 34.2vw;
+  height: 23.5vw;
+  z-index: 11;
+}
+.rec_39 {
+  position: absolute;
+  left: 40.8vw;
+  top: 95.0vw;
+  width: 23.4vw;
+  height: 47.9vw;
+  z-index: 10;
+}
+.rec_38 {
+  position: absolute;
+  left: 101.2vw;
+  top: 71.7vw;
+  width: 47.8vw;
+  height: 23.2vw;
+  z-index: 9;
+}
+.rec_37 {
+  position: absolute;
+  left: 72.1vw;
+  top: 99.8vw;
+  width: 47.9vw;
+  height: 23.3vw;
+  z-index: 8;
+}
+.rec_36 {
+  position: absolute;
+  left: 127.1vw;
+  top: 100.7vw;
+  width: 23.4vw;
+  height: 48.0vw;
+  z-index: 7;
+}
+.rec_35 {
+  position: absolute;
+  left: 98.0vw;
+  top: 130.3vw;
+  width: 23.4vw;
+  height: 24.2vw;
+  z-index: 6;
+}
+.rec_34 {
+  position: absolute;
+  left: 69.2vw;
+  top: 154.7vw;
+  width: 23.1vw;
+  height: 24.1vw;
+  z-index: 5;
+}
+.rec_33 {
+  position: absolute;
+  left: 14.8vw;
+  top: 148.8vw;
+  width: 48.1vw;
+  height: 23.3vw;
+  z-index: 4;
+}
+.rec_31 {
+  position: absolute;
+  left: 24.4vw;
+  top: 229.6vw;
+  width: 23.3vw;
+  height: 24.1vw;
+  z-index: 3;
+}
+.rec_30 {
+  position: absolute;
+  left: 53.4vw;
+  top: 200.0vw;
+  width: 23.1vw;
+  height: 48.0vw;
+  z-index: 2;
+}
+
+
+
+
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var w = window.innerWidth
+		var h = window.innerHeight
+    var arr = [
+      'rgb(255, 40, 0)',
+      'blue',
+      'rgb(0, 255, 116)',
+      'url("img/random1.jpg")',
+      'url("img/random2.jpg")',
+      'url("img/random3.jpg")',
+      'url("img/random4.jpg")',
+      'url("img/random5.jpg")'
+    ]
+    blinking()
+      console.log(arr)
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+    }
+    function blinking(){
+      arr = shuffle(arr)
+      $('.rec').each(function(index){
+        $(this).css({'background':arr[index%8]})
+      })
+      setTimeout(function(){
+        blinking()
+      },5000)
+    }
+
+
+		// $('.map').css({'top' : '-100%'})
+		// $('.map').css({'left' : '-100%'})
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+ 
+        }, { passive: false });
+		$('.black').hide()
+		var top = 0
+		var left = 0
+		var timeout
+		var button_on = false
+			$('.button').bind('touchstart', function(e){
+					button_on = true
+					console.log('------')
+			})
+			$('.button').bind('touchend', function(e){
+				if(e.originalEvent.touches.length == 0){
+					button_on = false
+				}
+			})
+			$('.button_1').bind('touchstart', function(e){
+				move('top', 1)
+			})
+			$('.button_2').bind('touchstart', function(e){
+				move('top', -1)
+			})
+			$('.button_3').bind('touchstart', function(e){
+				move('left', 1)
+			})
+			$('.button_4').bind('touchstart', function(e){
+				move('left', -1)
+			})
+			function move(dir,amount){
+				if(dir === 'top' && top<175 && amount == 1){
+					top = top + amount
+				}
+				if(dir === 'top' && top>-175 && amount == -1){
+					top = top + amount
+				}
+				if(dir === 'left' && left < 100 && amount == 1){
+					left = left + amount
+				}
+				if(dir === 'left' && left>-100 && amount == -1){
+					left = left + amount
+				}
+				$('.map').css({'margin-top' : top + 'vw'})
+				$('.map').css({'margin-left' : left + 'vw'})
+				$('.rec_wrapper').css({'margin-top' : top + 'vw'})
+				$('.rec_wrapper').css({'margin-left' : left + 'vw'})
+        if( top > 165 && left < -90){
+          text_2()
+        }
+				if(button_on){
+					timeout = setTimeout(function(){
+						move(dir,amount)
+					},45)
+				}
+			}
+      var stage = 1
+      text(stage)
+      $('.arrow-left').click(function(){
+        if((stage > 1 && stage < 5)||(stage > 10 && stage < 14)||(stage > 20 && stage < 26)){stage--}
+        console.log(stage)
+        text(stage)
+      })
+      $('.arrow-right').click(function(){
+        if((stage > 0 && stage < 4)||(stage > 9 && stage < 13)||(stage > 19 && stage < 25)){stage++}
+        console.log(stage)
+        text(stage)
+      })
+      function text(stage){
+        if(stage == 1){text_0()}
+        if(stage == 2){text_1()}
+      }
+
+        function text_0(){
+            $('.text').addClass('texton')
+            $('.text').html('아들을 살리기 위해 서둘러 철수를 찾아야 한다.')
+        }
+        function text_1(){
+            $('.text').addClass('texton')
+            $('.text').html('위 아래 좌 우의 화살포를 터치해 무수히 많은 스크린 중 철수를 찾아보자')
+            setTimeout(function(){
+              $('.text').removeClass('texton')
+            },2500)
+        }
+        function text_2(){
+            $('.text').addClass('texton')
+            $('.text').html('철수를 찾았다!')
+            setTimeout(function(){
+                location.replace("mars_alive.html");
+            },2500)
+        }
+        $('.next').bind('touchstart', function(e){
+            text_next()
+            $('.black').show()
+        })
+        function text_next(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('우측 상단에서 준의 목소리가 들리는 것 같다.')
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
+
+
+	})
+</script>
+</head>
+<body>
+        <div class="next">?</div>
+        <img src="img/close.png" class="close">
+      <img class="text-arrow arrow-right" src="img/arrow-right.png">
+      <img class="text-arrow arrow-left" src="img/arrow-left.png">
+	<div class="text"></div>
+	<div class="black"></div>
+	<div class="map"></div>
+	<div class="button button_1"></div>
+	<div class="button button_2"></div>
+	<div class="button button_3"></div>
+	<div class="button button_4"></div>
+	<div class="rec_wrapper">
+		<div class="rec rec_1"></div>
+		<div class="rec rec_2"></div>
+		<div class="rec rec_3"></div>
+		<div class="rec rec_4"></div>
+		<div class="rec rec_5"></div>
+		<div class="rec rec_6"></div>
+		<div class="rec rec_7"></div>
+		<div class="rec rec_8"></div>
+		<div class="rec rec_9"></div>
+		<div class="rec rec_10"></div>
+		<div class="rec rec_11"></div>
+		<div class="rec rec_12"></div>
+		<div class="rec rec_13"></div>
+		<div class="rec rec_14"></div>
+		<div class="rec rec_15"></div>
+		<div class="rec rec_16"></div>
+		<div class="rec rec_17"></div>
+		<div class="rec rec_18"></div>
+		<div class="rec rec_19"></div>
+		<div class="rec rec_20"></div>
+		<div class="rec rec_21"></div>
+		<div class="rec rec_22"></div>
+		<div class="rec rec_23"></div>
+		<div class="rec rec_24"></div>
+		<div class="rec rec_25"></div>
+		<div class="rec rec_26"></div>
+		<div class="rec rec_27"></div>
+		<div class="rec rec_28"></div>
+		<div class="rec rec_29"></div>
+		<div class="rec rec_30"></div>
+		<div class="rec rec_31"></div>
+		<div class="rec rec_32"></div>
+		<div class="rec rec_33"></div>
+		<div class="rec rec_34"></div>
+		<div class="rec rec_35"></div>
+		<div class="rec rec_36"></div>
+		<div class="rec rec_37"></div>
+		<div class="rec rec_38"></div>
+		<div class="rec rec_39"></div>
+		<div class="rec rec_40"></div>
+		<div class="rec rec_41"></div>
+		<div class="rec rec_42"></div>
+		<div class="rec rec_43"></div>
+		<div class="rec rec_44"></div>
+		<div class="rec rec_45"></div>
+	</div>
+</body>
+</html>

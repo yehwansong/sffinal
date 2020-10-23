@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		font-size: 0
+	}
+	html,body{
+		height: 100%;
+		width: 100vw
+	}
+	body{
+		background-image: url(img/earth_walk.png);
+		background-size: cover;
+		background-position: 0
+	}
+	.foot{
+		height: 15vw;
+		width: 15vw;
+		background-image: url(img/footprint.svg);
+		background-size: contain;
+		position: absolute;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.foot_1{
+left: calc(50% - 8vw);
+top: 35vw;}
+	.foot_2{
+left: calc(50% + 8vw);
+top: 51vw;}
+	.foot_3{
+left: calc(50% - 12vw);
+top: 72vw;}
+	.foot_4{
+left: calc(50% - -10vw);
+top: 95vw;}
+	.foot_5{
+left: calc(50% - 19vw);
+top: 114vw;}
+	.foot_6{
+left: calc(50% - -15vw);
+top: 129vw;}
+.activated{
+	background:red;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.black').hide()
+			text_1()
+
+			var foot_1_on = false
+			var foot_2_on = false
+			var foot_3_on = false
+			var foot_4_on = false
+			var foot_5_on = false
+			var foot_6_on = false
+			$('.foot_1').bind('touchstart', function(e){
+				foot_1_on = true
+				$('.foot_1').addClass('activated')
+			})
+			$('.foot_2').bind('touchstart', function(e){
+				foot_2_on = true
+				$('.foot_2').addClass('activated')
+			})
+			$('.foot_3').bind('touchstart', function(e){
+				foot_3_on = true
+				$('.foot_3').addClass('activated')
+			})
+			$('.foot_4').bind('touchstart', function(e){
+				foot_4_on = true
+				$('.foot_4').addClass('activated')
+			})
+			$('.foot_5').bind('touchstart', function(e){
+				foot_5_on = true
+				$('.foot_5').addClass('activated')
+			})
+			$('.foot_6').bind('touchstart', function(e){
+				foot_6_on = true
+				$('.foot_6').addClass('activated')
+			})
+			$('.foot').bind('touchstart', function(e){
+				if(	foot_1_on&&
+					foot_2_on&&
+					foot_3_on&&
+					foot_4_on&&
+					foot_5_on&&
+					foot_6_on){
+
+
+				}
+			})
+		})
+        function text_1(){
+            $('.text').addClass('texton')
+            $('.text').html('나는 동면상태에 들어가길 기다리며 정보를 본다. 기울어지는 글자에 맞춰 화면을 기울여 보자')
+            setTimeout(function(){
+            },3000)
+        }
+	</script>
+    <div class="black"></div>
+    <div class="text"></div>
+    <div class="foot foot_1"></div>
+    <div class="foot foot_2"></div>
+    <div class="foot foot_3"></div>
+    <div class="foot foot_4"></div>
+    <div class="foot foot_5"></div>
+    <div class="foot foot_6"></div>
+</body>
+</html>

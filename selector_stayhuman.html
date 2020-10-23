@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	.whole{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		background: white;
+	}
+	.whole{
+background-color: black;
+background-image: url(img/selectorhuman.png);
+background-repeat: no-repeat;
+background-size: 100vw;
+background-position: top;
+	}
+	.scan{
+animation: rotating 5s linear infinite;
+width: 100vw;
+height: 0vh;
+position: fixed;
+overflow: hidden;
+transition: height 10s;
+    top:-100vh;
+background: linear-gradient(rgb(14, 0, 110), rgb(0, 92, 255) 18.07%, rgb(2, 81, 236) 82.35%, rgb(13, 0, 110));
+	}
+	.black{
+		pointer-events: none;
+		display: none;
+	}
+	.height_10{
+		height: 100vh
+	}
+	.inner{
+		position: fixed;
+		width: 100vw;
+		height: auto;
+		left: 0;
+		top: 0;
+		position: fixed;
+	}
+	.finger{
+		position: relative;
+		width: 100vw;
+		height: auto;
+		left: 0;
+		top: 0;
+	}
+/* top: 0; */
+.h_finger{
+	margin-left: -65vw
+}
+.r_finger{
+	margin-left: -30vw
+}
+.wrapper{
+	position: absolute;
+	overflow:hidden;
+}
+.wrapper_1{
+	width: 28vw;
+	height: 40vw;
+	z-index: 100;
+	top: 13.5vw;
+}
+.wrapper_2{
+left: 34.5vw;
+width: 23.5vw;
+top: 37vw;
+height: 24vw;
+}
+.wrapper_3{
+left: 64.5vw;
+width: 35.5vw;
+top: 13.5vw;
+height: 40vw;
+}
+.wrapper_4{
+width: 23.5vw;
+height: 24.5vw;
+top: 61vw;
+left: 5.5vw;
+}
+.wrapper_5{
+width: 48vw;
+height: 23.5vw;
+top: 92.5vw;
+left: 7vw;
+}
+.wrapper_6{
+width: 26vw;
+height: 23.5vw;
+top: 120.5vw;
+left: 0;
+}
+.wrapper_7{
+width: 23.5vw;
+height: 48vw;
+top: 67vw;
+left: 61vw;
+}
+.wrapper_8{
+width: 37.5vw;
+height: 23.5vw;
+top: 120.5vw;
+left: 62.5vw;
+}
+img{
+	pointer-events: none;
+}
+@keyframes rotating {
+  from {
+    top:-100vh;
+  }
+  to {
+    top:100vh;
+  }
+}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+			text_0()
+			function text_0(){
+				$('.text').html('여러개의 스크린 중 하나에 손을 대 본다. 인간이 내 손이 비춰보인다.')
+				$('.text').addClass('texton')
+				$('.text').addClass('center')
+				setTimeout(function(){
+					text_1()
+				},2500)
+			}
+			function text_1(){
+				$('.text').html('인간으로 남는것이 좋을지 고민하며 나는 삼초간 화면에 손을 대고 있는다.')
+				$('.text').addClass('texton')
+				$('.text').addClass('center')
+				setTimeout(function(){
+					$('.text').removeClass('center')
+				},2500)
+			}
+
+			$(document).bind('touchstart', function(e){
+				$('.black').fadeOut(300)
+				setTimeout(function(){
+					$('.text').html('20%')
+				},2000)
+			})
+
+			$(document).bind('touchstart', function(e){
+				console.log('--------')
+            	var xPos = e.originalEvent.touches[0].pageX;
+            	var yPos = e.originalEvent.touches[0].pageY;
+            	$('.finger').css({'left':(xPos/window.innerWidth*100 - 50) + '%'})
+            	$('.finger').css({'top':(yPos/window.innerHeight*100 - 50) + '%'})
+            	var array = [1,2,3,4,5,6,7,8]
+				array = shuffle(array)
+				$('.wrapper_'+array[0]).css({'background-color':'rgb(255, 40, 0)'})
+				$('.wrapper_'+array[1]).css({'background-color':'rgb(255, 40, 0)'})
+				$('.wrapper_'+array[2]).css({'background-color':'rgb(255, 151, 0)'})
+				$('.wrapper_'+array[3]).css({'background-color':'blue'})
+				$('.wrapper_'+array[4]).css({'background-color':'blue'})
+				$('.wrapper_'+array[5]).css({'background-color':'rgb(0, 255, 116)'})
+				$('.wrapper_'+array[6]).css({'background-color':'white'})
+				$('.wrapper_'+array[7]).css({'background-color':'white'})
+			})
+			$(document).bind('touchmove', function(e){
+				console.log('--------')
+            	var xPos = e.originalEvent.touches[0].pageX;
+            	var yPos = e.originalEvent.touches[0].pageY;
+            	$('.finger').css({'left':(xPos/window.innerWidth*100 - 50) + '%'})
+            	$('.finger').css({'top':(yPos/window.innerHeight*100 - 50) + '%'})
+			})
+			function shuffle(array) {
+			  var currentIndex = array.length, temporaryValue, randomIndex;
+
+			  // While there remain elements to shuffle...
+			  while (0 !== currentIndex) {
+
+			    // Pick a remaining element...
+			    randomIndex = Math.floor(Math.random() * currentIndex);
+			    currentIndex -= 1;
+
+			    // And swap it with the current element.
+			    temporaryValue = array[currentIndex];
+			    array[currentIndex] = array[randomIndex];
+			    array[randomIndex] = temporaryValue;
+			  }
+
+			  return array;
+			}
+
+			// Used like so
+			console.log(arr);
+	})
+</script>
+</head>
+<body>
+	<div class="whole">
+		<div class="wrapper wrapper_1"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_2"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_3"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_4"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_5"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_6"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_7"><img class="h_finger finger" src="img/robot1.png"></div>
+		<div class="wrapper wrapper_8"><img class="h_finger finger" src="img/robot1.png"></div>
+	</div>
+</body>
+</html>

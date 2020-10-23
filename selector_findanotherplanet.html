@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		font-size: 0
+	}
+	html,body{
+		height: 100%;
+		width: 100vw
+	}
+	.space_unit{
+		width: 25vw;
+		height: 25vw;
+		float: left;
+		position: relative;
+	}
+</style>
+</head>
+<body>
+
+	<!-- subwarp  -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.black').hide()
+            	var init_xPos
+            	var init_yPos
+            	var new_xPos 
+            	var new_yPos 
+            	var dir = 0
+			$('.space_unit').bind('touchstart', function(e){
+				console.log('111111111')
+            	init_xPos = e.originalEvent.touches[0].pageX;
+            	init_yPos = e.originalEvent.touches[0].pageY;
+            	touched = true
+			})
+			$('.space_unit').bind('touchmove', function(e){
+            	new_xPos = e.originalEvent.touches[0].pageX;
+            	new_yPos = e.originalEvent.touches[0].pageY;
+            	touched = true
+				console.log(dir)
+				if(dir == 0 && Math.abs(init_xPos - new_xPos) > 10){
+					dir = 1
+				}
+				if(dir == 0 && Math.abs(init_yPos - new_yPos) > 10){
+					dir = 2
+				}
+				if(dir == 1){
+					console.log($(this))
+					$(this).css({'transform':'translateX('+(new_xPos - init_xPos)+'px)'})
+				}
+				if(dir == 2){
+					$(this).css({'transform':'translateY('+(new_yPos - init_yPos)+'px)'})
+				}
+			})
+			$('.space_unit').bind('touchend', function(e){
+				console.log('111111113')
+				if(dir == 1){
+					console.log($(this))
+					$(this).css({'transform':'translateX(0px)'})
+				}
+				if(dir == 2){
+					$(this).css({'transform':'translateY(0px)'})
+				}
+				dir = 0
+			})
+			$('.foot').bind('touchstart', function(e){
+				if(	foot_1_on&&
+					foot_2_on&&
+					foot_3_on&&
+					foot_4_on&&
+					foot_5_on&&
+					foot_6_on){
+
+
+				}
+			})
+		})
+	</script>
+    <div class="black"></div>
+    <div class="text"></div>
+    <div class="bg"></div>
+    <div class="side"></div>
+    <div class="wrapper wrapper_1">
+    	<img class="space_unit space_unit_1"  src="img/search_space/s1.png">
+    	<img class="space_unit space_unit_2"  src="img/search_space/s2.png">
+    	<img class="space_unit space_unit_3"  src="img/search_space/s3.png">
+    	<img class="space_unit space_unit_4"  src="img/search_space/s4.png">
+    	<img class="space_unit space_unit_5"  src="img/search_space/s5.png">
+    	<img class="space_unit space_unit_6"  src="img/search_space/s6.png">
+    	<img class="space_unit space_unit_7"  src="img/search_space/s7.png">
+    	<img class="space_unit space_unit_8"  src="img/search_space/s8.png">
+    	<img class="space_unit space_unit_9"  src="img/search_space/s9.png">
+    	<img class="space_unit space_unit_10" src="img/search_space/s10.png">
+    	<img class="space_unit space_unit_11" src="img/search_space/s11.png">
+    	<img class="space_unit space_unit_12" src="img/search_space/s12.png">
+    	<img class="space_unit space_unit_13" src="img/search_space/s13.png">
+    	<img class="space_unit space_unit_14" src="img/search_space/s14.png">
+    	<img class="space_unit space_unit_15" src="img/search_space/s15.png">
+    	<img class="space_unit space_unit_16" src="img/search_space/s16.png">
+    	<img class="space_unit space_unit_17" src="img/search_space/s17.png">
+    	<img class="space_unit space_unit_18" src="img/search_space/s18.png">
+    	<img class="space_unit space_unit_19" src="img/search_space/s19.png">
+    	<img class="space_unit space_unit_20" src="img/search_space/s20.png">
+    	<img class="space_unit space_unit_21" src="img/search_space/s21.png">
+    	<img class="space_unit space_unit_22" src="img/search_space/s22.png">
+    	<img class="space_unit space_unit_23" src="img/search_space/s23.png">
+	</div>
+</body>
+</html>

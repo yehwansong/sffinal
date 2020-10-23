@@ -15,29 +15,12 @@ crossorigin="anonymous"></script>
 		width: 100vw;
 		height: 100%;
 		background: black;
-		transform-style: preserve-3d;
+		/*transform-style: preserve-3d;*/
 	}
-	*{transform-style: preserve-3d;}
-	.text{
-		position: fixed;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 10px;
-		z-index: 10000;
-		width: 90vw;
-
-		display: block;
-		background: black;
-		color: white;
-
-		font-size: 5vw;
-		text-align: center;
-		line-height: 1.2;
-		padding: 2vw;
-		/* width: 18vw; */
-		padding-top: 2.5vw;
-		 opacity: 0; 
-	}
+	/**{transform-style: preserve-3d;}*/
+	.text-arrow{
+	/*transform: translateZ(580vw) !important*/
+}
 	.texton{
 		opacity: 1
 	}
@@ -45,7 +28,7 @@ crossorigin="anonymous"></script>
 		width: 100vw;
 		height: 100%;
 		position: fixed;
-		transform: perspective(100vw) rotateX(40deg) rotateZ(0deg) scale(2);
+		/*transform: perspective(100vw) rotateX(40deg) rotateZ(0deg) scale(2);*/
 		transition: 0.3s
 	}
 	.notran{
@@ -66,9 +49,10 @@ crossorigin="anonymous"></script>
 	.bubble{
 		pointer-events: none;
 		position: fixed;
-		transform: translateZ(510vw);
+		/*transform: translateZ(510vw);*/
 		z-index: 11000000;
 		transform-origin: center;
+		transition: 0.5s
 	}
 	.bubble_1{
 		left: 0%;
@@ -95,8 +79,8 @@ crossorigin="anonymous"></script>
 		top: -150vh
 	}
 	.bubble_7{
-		left: 0;
-		top: -140vh
+left: 40vw;
+top: -140vh;
 	}
 	.bubble_8{
 		left: 0vw;
@@ -155,7 +139,7 @@ crossorigin="anonymous"></script>
 		top: 0vh
 	}
 	.bubble_22{
-		left: 0;
+		left: 40vw;
 		top: -0vh
 	}
 	.bubble_23{
@@ -320,15 +304,16 @@ crossorigin="anonymous"></script>
 	}
 	.flyer{
 		position: fixed;
-		width: 15vw;
-		height: 15vw;
+		width: 20vw;
+		height: 20vw;
 		border-radius: 50%;
 		background: white;
 		border:0.5vw solid black;
 		left: 35vw;
 		top: 80%;
 		z-index: 10000000;
-		transform: translateX(-50%) translateY(-50%) translateZ(110vw);
+		transform: translateX(-50%) translateY(-50%);
+		display: none;
 	}
 	.flyer_1{
 		left: 25vw;
@@ -336,38 +321,25 @@ crossorigin="anonymous"></script>
 	.fire{
 		position: fixed;
 		width: 50vw;
-		transform: translateX(-50%) translateY(-30%) translateZ(105vw);
+		transform: translateX(-50%) translateY(-30%);
 		z-index: 11000000;
 		pointer-events: none;
 	}
 	.bubble span{
-    z-index: 100000000000000000;
-    display: block;
-    text-align: center;
-    padding: 1vw;
-    background: white;
-    position: relative;
-    transform: translateZ(10000vw);
+width: 50vw;
+z-index: 100000000000000000;
+display: block;
+text-align: center;
+padding: 1.5vw;
+background: white;
+position: relative;
+/* transform: translateZ(10000vw); */
+border-radius: 0.5vw;
+transform: translateZ(10000vw);
+    /*transform: translateZ(10000vw);*/
 	}
 	.text{
-		position: fixed;
-		left: 50%;
-		transform: translateZ(560vw) translateX(-50%);
-		bottom: 10px;
-		z-index: 10000;
-		width: 90vw;
-
-		display: block;
-		background: black;
-		color: white;
-
-		font-size: 5vw;
-		text-align: center;
-		line-height: 1.2;
-		padding: 2vw;
-		/* width: 18vw; */
-		padding-top: 2.5vw;
-		 opacity: 0; 
+		transform: translateX(-50%) translateZ(5vw) ;
 z-index: 10000000000;
 	}
 	.texton{
@@ -381,7 +353,6 @@ z-index: 10000000000;
 left: 0;
 top: 0;
 background: black;
-transform: translateZ(550vw);
 	}
 	.popup_call{
 width: 60vw;
@@ -395,11 +366,11 @@ padding: 5%;
 box-sizing: border-box;
 display: none;
 border-radius: 1.5vw;
-box-shadow: 0vh 0vh 5vh 4vh black;
+box-shadow: 0vh 0vh 2vh 0.5vh black;
 text-align: center;
-border: 0.5vw solid white;
-transform: translateZ(10000vw);
+border: 0.5vw solid white
 	}
+	.popup_call a{display: block;pointer-events: auto;}
 	.popup_call img{
 		width: 40%;
 		margin: 30%;
@@ -411,8 +382,85 @@ transform: translateZ(10000vw);
 		position: fixed;
 		left: 35vw;
 		top: 70vw;
-		transition: 3s
+		transition: 3s;
+		pointer-events: all
 	}
+	.footer_wrapper{
+z-index: 110000000;
+position: absolute;
+transform: translateZ(1000vw)
+opacity:0;
+}
+	.foot{
+		height: 25vw !important;
+		width: 25vw !important;
+		/* background-color: red; */
+		background-size: contain;
+		position: absolute;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 100;
+		/* filter: invert(); */
+		pointer-events: auto !important;
+		touch-action: manipulation;
+		background-image: url(../img/footprint-01_outline.png) !important;
+		left: 50vw;
+		top: 90vw;
+		transform:translateY(-20vw);
+		opacity: 0;
+		transition: 0.5s
+	}
+	.footer_wrapper>div:nth-child(2n){
+		transform:scaleX(-1);
+		transform-origin: left;
+	}
+	.foot_activated{
+		transform:translateY(0vw);
+		opacity: 1
+	}
+	.foot_nonactivated{
+		transform:translateY(20vw);
+		opacity: 0
+	}
+	.bg,.bubble{
+		transition: margin-top 0.3s,margin-left 0.3
+	}
+	.zindex_up{
+z-index: 1000000000;
+transform: translateZ(1000000000000vw);
+	}
+.text img,
+.black>span>img{
+width: 3vw;
+top: 2vw;
+position: relative;
+padding-left: 1vw;
+padding-right: 1vw;}
+.next, .close,.black {
+transform: translateZ(1000vw);
+}
+.black {
+transform: translateZ(900vw);
+display: block;
+padding: 11vw;
+box-sizing: border-box;
+text-align: center;
+}
+.black img{
+width: 100%;
+margin-top: 30vw;}
+.next{
+transform: translateZ(800vw);
+}
+.next,.black{
+	display: none;
+}
+.black{
+	color: white;
+}
+/*.text{
+transform: translateZ(1000vw);
+}*/
 </style>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
 </head>
@@ -425,10 +473,6 @@ transform: translateZ(10000vw);
   }, { passive: false });
 		var touchamout = 0 
 		var ua = navigator.userAgent.toLowerCase();
-        // document.addEventListener('touchmove', function(e) {
-        //     e.preventDefault();
- 
-        // }, { passive: false });
 		function map_range(value, low1, high1, low2, high2) {
 		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 		}
@@ -440,33 +484,51 @@ transform: translateZ(10000vw);
 			$('.bg_wrapper').css({'transform':'none'})
 		}
 
+            var stage = 1
+            move(stage)
+            $('.arrow-left').click(function(){
+                if((stage > 1 && stage < 5)||(stage > 10 && stage < 14)){stage--}
+                console.log(stage)
+                move(stage)
+            })
+            $('.arrow-right').click(function(){
+                if((stage > 0 && stage < 4)||(stage > 9 && stage < 13)){
+            	console.log(';lakfj;asdf');stage++}
+                console.log(stage)
+                move(stage)
+            })
+            function move(stage){
+                console.log('hey!')
+                if(stage == 1){text_1()}
+                if(stage == 2){text_1_2()}
+                if(stage == 3){text_2()}
+                if(stage == 4){text_3()}
 
-			text_1()
+                if(stage == 10){text_4()}
+                if(stage == 11){text_5()}
+                if(stage == 12){text_6()}
+                if(stage == 13){text_7()}
+            }
+
+
 
 		function text_1(){
 			$('.text').addClass('texton')
 			$('.text').html('몸이 기계로 바뀌자 기분이 색다르다.')
-			setTimeout(function(){
-				text_1_2()
-			},2000)
 		}
 		function text_1_2(){
 			$('.text').addClass('texton')
 			$('.text').html('피곤하지도 않고, 춥거나 더워도 불편하지 않다.')
-			setTimeout(function(){
-				text_2()
-			},2000)
 		}
 		function text_2(){
 			$('.text').html('지구에 가볼 수 있을 것 같다.')
-			setTimeout(function(){
-				text_3()
-			},2500)
 		}
 		function text_3(){
 			$('.text').html('지구를 클릭해 지구로 들어가보자')
 		}
 		$('.earth').click(function(){
+			$('.next').show()
+			$('.footer_wrapper').css({'opacity':'1'})
 			$('.earth').css({'transform':'scale(10)'})
 			setTimeout(function(){
 				$('.space').fadeOut(500)
@@ -476,33 +538,22 @@ transform: translateZ(10000vw);
 			},3000)
 		})
 		function text_4(){
+			stage = 10
 			$('.text').html('지구다!')
-			setTimeout(function(){
-				text_5()
-			},2000)
 		}
 		function text_5(){
 			$('.text').html('지구는 비슷하면서도 다른 모습이다.')
-			setTimeout(function(){
-				text_6()
-			},2000)
 		}
 		function text_6(){
 			$('.text').html('기후 변화는 어느 정도 안정됐지만, 다시 과거로 돌아가지는 못했다.')
-			setTimeout(function(){
-				text_7()
-			},2000)
 		}
 		function text_7(){
-			$('.text').html('화면을 클릭해 지구를 돌아다녀 보자')
-			setTimeout(function(){
-				text_7()
-			},2000)
+			$('.text').html('손가락을 이용해 V자 모양을 만들어, 발자국 위(<img src="../img/footprint-01_outline.png">)를 손가락을 이용해 걸어가보자.')
 		}
 
 
 
-
+		var mleft = 0
 
 		$('.bubble').each(function(){
 			$(this).addClass('bubble_sel_'+(Math.floor(Math.random() * 5) + 1) )
@@ -510,62 +561,76 @@ transform: translateZ(10000vw);
 				var touch_0
 				flyer_1 = false
 
-			$(document).bind('touchstart', function(e){
+			$('.foot').bind('touchstart', function(e){
 				flyer_1 = true
 				e.preventDefault();
 				touchamout = e.originalEvent.touches.length
 				fly(e)
 			})
-			$(document).bind('touchend', function(e){
+			$('.foot').bind('touchend', function(e){
 				flyer_1 = false
 				touchamout = e.originalEvent.touches.length
 					$('.flyer_1').css({'left':w/4+'px'})
 					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
 			});
-			$(document).bind('touchmove', function(e){
+			$('.foot').bind('touchmove', function(e){
 					$('.flyer_1').css({'left':e.originalEvent.touches[0].pageX+'px'})
 					$('.flyer_1').css({'top' :e.originalEvent.touches[0].pageY+'px'})
 				$('.bg').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/3+'px'})
-				$('.bubble_sel_1').css({'margin-left':e.originalEvent.touches[0].pageX-w/2+'px'})
-				$('.bubble_sel_2').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/2+'px'})
-				$('.bubble_sel_3').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/3+'px'})
-				$('.bubble_sel_4').css({'margin-left':(e.originalEvent.touches[0].pageX-w/2)/4+'px'})
 			});
 			function fly(e){
-				if(isAndroid){
-					fly_counter = fly_counter+5
-				}else{
-					fly_counter = fly_counter+3
-
-				}
-				console.log(fly_counter)
-				if(fly_counter>4100){
+				fly_counter = fly_counter+1
+				if(fly_counter>40){
 					flyer_1 = false
+					stage = 40
 					$('.text').html('그러던 어느 날 달에서 연락이 왔다.')
 					$('.popup_call').show()
 				}
-				$('.bg').css({'margin-top':fly_counter%(5*w)+'px'})
-				$('.bubble').css({'margin-top':(fly_counter%(6*h))/2+'px'})
+				mleft = (Math.floor(Math.random()*3)-1)*(w/2)
+				console.log(Math.floor(Math.random()*3)-1)
+
+
+				$('.bubble_sel_1').css({'margin-left':(mleft-w/2)/10+'px'})
+				$('.bubble_sel_2').css({'margin-left':(mleft-w/2)/20+'px'})
+				$('.bubble_sel_3').css({'margin-left':(mleft-w/2)/30+'px'})
+				$('.bubble_sel_4').css({'margin-left':(mleft-w/2)/40+'px'})
+				$('.bubble_sel_5').css({'margin-left':(mleft-w/2)/50+'px'})
+
+
+				$('.foot').eq(fly_counter).addClass('foot_activated')
+				$('.foot').eq(fly_counter-1).addClass('foot_nonactivated')
+				$('.bg').css({'margin-top':(fly_counter*100)%(5*w)+'px'})
+				$('.bubble').css({'margin-top':((fly_counter*100)%(6*h))/2+'px'})
 				if(isAndroid){
 
 				}else{
 					$('.bubble').each(function(){
-						$(this).css({'transform':'scale('+(0.75+(((parseInt($(this).css('top'),10)+(fly_counter%(6*h))/2)%h)/(h)))+') translateZ(310vw)'})
+						// $(this).css({'transform':'scale('+(0.75+(((parseInt($(this).css('top'),10)+(fly_counter%(6*h))/2)%h)/(h)))+')'})
 					})
 					
 				}
-				setTimeout(function(e){
-					if(flyer_1){
-						fly(e)
-					}
-				},10)
 			}
 			function angle(p1_x,p1_y,p2_x,p2_y){
 				return Math.atan2(p2_y - p1_y, p2_x - p1_x) * 180 / Math.PI;
 			}
+        $('.next').bind('touchstart', function(e){
+            text_next()
+            $('.black').show()
+        })
+        function text_next(){
+            $('.close').show()
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
 			// var angleDeg = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
 		})
 	</script>
+        	<img class="text-arrow arrow-right" src="../img/arrow-right.png">
+        	<img class="text-arrow arrow-left" src="../img/arrow-left.png">
 		<div class="popup_call">
 			달
 			<a href="../moon_2.html"><img src="../img/call.svg"></a>
@@ -586,10 +651,54 @@ transform: translateZ(10000vw);
 		<div class="bg_wrapper">
 			<div class="bg">
 			</div>
-		</div>\
-			<div class="bubble bubble_1">
+		</div>
+        <div class="next">?</div>
+        <img src="../img/close.png" class="close">
+	<div class="black"><img src="../img/fingerwalk.jpg" class="fingerwalk"><span>손가락을 이용해 V자 모양을 만들어, 발자국 위(<img src="../img/footprint-01_outline.png">)를 손가락을 이용해 걸어가보자</span></div>
+		<div class="footer_wrapper">
+    		<div class="foot foot_front  foot_front_1 foot_activated"></div>
+    		<div class="foot foot_front  foot_front_2"></div>
+    		<div class="foot foot_front  foot_front_3"></div>
+    		<div class="foot foot_front  foot_front_4"></div>
+    		<div class="foot foot_front  foot_front_5"></div>
+    		<div class="foot foot_front  foot_front_6"></div>
+    		<div class="foot foot_front  foot_front_7"></div>
+    		<div class="foot foot_front  foot_front_8"></div>
+    		<div class="foot foot_front  foot_front_9"></div>
+    		<div class="foot foot_front foot_front_10"></div>
+    		<div class="foot foot_front foot_front_11"></div>
+    		<div class="foot foot_front foot_front_12"></div>
+    		<div class="foot foot_front foot_front_13"></div>
+    		<div class="foot foot_front foot_front_14"></div>
+    		<div class="foot foot_front foot_front_15"></div>
+    		<div class="foot foot_front foot_front_16"></div>
+    		<div class="foot foot_front foot_front_17"></div>
+    		<div class="foot foot_front foot_front_18"></div>
+    		<div class="foot foot_front foot_front_19"></div>
+    		<div class="foot foot_front foot_front_20"></div>
+    		<div class="foot foot_front foot_front_21"></div>
+    		<div class="foot foot_front foot_front_22"></div>
+    		<div class="foot foot_front foot_front_23"></div>
+    		<div class="foot foot_front foot_front_24"></div>
+    		<div class="foot foot_front foot_front_25"></div>
+    		<div class="foot foot_front foot_front_26"></div>
+    		<div class="foot foot_front foot_front_27"></div>
+    		<div class="foot foot_front foot_front_28"></div>
+    		<div class="foot foot_front foot_front_29"></div>
+    		<div class="foot foot_front foot_front_30"></div>
+    		<div class="foot foot_front foot_front_31"></div>
+    		<div class="foot foot_front foot_front_32"></div>
+    		<div class="foot foot_front foot_front_33"></div>
+    		<div class="foot foot_front foot_front_34"></div>
+    		<div class="foot foot_front foot_front_35"></div>
+    		<div class="foot foot_front foot_front_36"></div>
+    		<div class="foot foot_front foot_front_37"></div>
+    		<div class="foot foot_front foot_front_38"></div>
+    		<div class="foot foot_front foot_front_39"></div>
+    		<div class="foot foot_front foot_front_40"></div>
+    	</div>
+			<div class="bubble bubble_1 zindex_up">
 				<span>새로운 기후에 적응한 동식물이 자라고 있다.</span>
-				<img src="plant6.png">
 			</div>
 			<div class="bubble bubble_2">
 				<img src="plant1.png">
@@ -604,11 +713,10 @@ transform: translateZ(10000vw);
 				<img src="plant4.png">
 			</div>
 			<div class="bubble bubble_6">
-				<img src="plant5.png">
-			</div>
-			<div class="bubble bubble_7">
-				<span>몇몇 동식물은 새로운 모습으로 적응하려는 기미도 보인다.</span>
 				<img src="bird.png">
+			</div>
+			<div class="bubble bubble_7 zindex_up">
+				<span>몇몇 동식물은 새로운 모습으로 적응하려는 기미도 보인다.</span>
 			</div>
 			<div class="bubble bubble_8">
 				<img src="plant1.png">
@@ -626,7 +734,6 @@ transform: translateZ(10000vw);
 				<img src="plant5.png">
 			</div>
 			<div class="bubble bubble_13">
-				<!-- <span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span> -->
 				<img src="turtle.png">
 			</div>
 			<div class="bubble bubble_14">
@@ -651,11 +758,10 @@ transform: translateZ(10000vw);
 				<img src="plant4.png">
 			</div>
 			<div class="bubble bubble_21">
-				<img src="plant5.png">
+				<img src="fish.png">
 			</div>
 			<div class="bubble bubble_22">
-				<!-- <span>지구는 비슷하면서도 다른 모습이다.</span> -->
-				<img src="fish.png">
+				<span>지구는 비슷하면서도 다른 모습이다.</span>
 			</div>
 			<div class="bubble bubble_23">
 				<img src="plant1.png">
@@ -664,10 +770,10 @@ transform: translateZ(10000vw);
 				<img src="plant2.png">
 			</div>
 			<div class="bubble bubble_25">
-				<img src="plant3.png">
+				<img src="frog.png">
 			</div>
 			<div class="bubble bubble_26 speaking_1">
-				<img src="frog.png">
+				<span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span>
 			</div>
 			<div class="bubble bubble_27">
 				<img src="plant5.png">
@@ -681,9 +787,8 @@ transform: translateZ(10000vw);
 			<div class="bubble bubble_30">
 				<img src="plant6.png">
 			</div>
-			<div class="bubble bubble_31">
+			<div class="bubble bubble_31 zindex_up">
 				<span>새로운 기후에 적응한 동식물이 자라고 있다.</span>
-				<img src="plant6.png">
 			</div>
 			<div class="bubble bubble_32">
 				<img src="plant1.png">
@@ -692,7 +797,7 @@ transform: translateZ(10000vw);
 				<img src="plant6.png">
 			</div>
 			<div class="bubble bubble_34">
-				<img src="plant3.png">
+				<img src="bird.png">
 			</div>
 			<div class="bubble bubble_35">
 				<img src="plant4.png">
@@ -700,9 +805,8 @@ transform: translateZ(10000vw);
 			<div class="bubble bubble_36">
 				<img src="plant5.png">
 			</div>
-			<div class="bubble bubble_37">
+			<div class="bubble bubble_37 zindex_up">
 				<span>몇몇 동식물은 새로운 모습으로 적응하려는 기미도 보인다.</span>
-				<img src="bird.png">
 			</div>
 			<div class="bubble bubble_38">
 				<img src="plant1.png">
@@ -719,9 +823,7 @@ transform: translateZ(10000vw);
 			<div class="bubble bubble_42">
 				<img src="plant5.png">
 			</div>
-			<div class="bubble bubble_43">
-				<span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span>
-				<img src="turtle.png">
+			<div class="bubble bubble_43 zindex_up">
 			</div>
 			<div class="bubble bubble_44">
 				<img src="plant6.png">
@@ -740,7 +842,7 @@ transform: translateZ(10000vw);
 				<img src="plant5.png">
 			</div>
 			<div class="bubble bubble_49">
-				<img src="plant6.png">
+				<img src="fish.png">
 			</div>
 			<div class="bubble bubble_50">
 				<img src="plant4.png">
@@ -748,9 +850,8 @@ transform: translateZ(10000vw);
 			<div class="bubble bubble_51">
 				<img src="plant5.png">
 			</div>
-			<div class="bubble bubble_52">
+			<div class="bubble bubble_52 zindex_up">
 				<span>지구는 비슷하면서도 다른 모습이다.</span>
-				<img src="fish.png">
 			</div>
 			<div class="bubble bubble_53">
 				<img src="plant1.png">

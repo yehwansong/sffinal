@@ -9,6 +9,7 @@
   <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
   <meta name="apple-mobile-web-app-title" content="onlyWebPro" />
   <style type="text/css">
+*{pointer-events: auto !important;}
     .text{
         position: fixed;
         left: 50%;
@@ -39,25 +40,37 @@
         height: 10vh;
         width: 7.5vh;
     }
-    .hotspot3{
-        height: 10vh;
+    .hotspot1{
+        height: 15vh;
         width: 15vh;
+    }
+    .hotspot2{
+        height: 15vh;
+        width: 25vh;
+    }
+    .hotspot3{
+        height: 15vh;
+        width: 25vh;
     }
     .hotspot4{
         height: 10vh;
         width: 15vh;
     }
     .hotspot5{
-        height: 10vh;
+        height: 15vh;
         width: 15vh;
     }
+    .hotspot6{
+height: 10vh;
+width: 10vh;
+}
     .hotspot7{
-        height: 10vh;
-        width: 5vh;
+        height: 15vh;
+        width: 15vh;
     }
     .hotspot8{
-        height: 10vh;
-        width: 15vh;
+        height: 30vh;
+        width: 35vh;
         /*background:blue;*/
     }
 </style>
@@ -79,13 +92,7 @@
             text_0()
         function text_0(){
             $('.text').addClass('texton center')
-            $('.text').html('나는 인간으로 남기로 한다.')
-            setTimeout(function(){
-                text_1()
-            },2500)
-        }
-        function text_1(){
-            $('.text').html('하준의 도움으로 나는 화성에 왔다.')
+            $('.text').html('화성')
             setTimeout(function(){
                 text_2()
             },2500)
@@ -95,6 +102,22 @@
             $('.text').removeClass('center')
             $('.black').fadeOut(300)
         }
+
+        $('.next').bind('touchstart', function(e){
+            text_next()
+            $('.black').show()
+        })
+        function text_next(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('사람들이 모여있는 곳이 보인다.')
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
     })
 viewer = pannellum.viewer('panorama', ﻿{
     "type": "equirectangular",
@@ -103,14 +126,14 @@ viewer = pannellum.viewer('panorama', ﻿{
     // "hotSpotDebug": true,
     "hotSpots": [ 
         {//1mellowsong  Center Pitch: 4.780283566889203, Center Yaw: 52.38215770325755, HFOV: 90
-            "pitch": 45,
-            "yaw": -25, 
+            "pitch": 90,
+            "yaw": -5, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot hotspot1"
         },
         {//1mellowsong  Center Pitch: 4.780283566889203, Center Yaw: 52.38215770325755, HFOV: 90
             "pitch": 20,
-            "yaw": -40, 
+            "yaw": -80, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot hotspot2"
         },
@@ -134,7 +157,7 @@ viewer = pannellum.viewer('panorama', ﻿{
         },
         {//1mellowsong  Center Pitch: 4.780283566889203, Center Yaw: 52.38215770325755, HFOV: 90
             "pitch": 20,
-            "yaw": 120, 
+            "yaw": 100, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot hotspot6"
         },
@@ -173,7 +196,8 @@ function hotspot() {
     $('.hotspot7').empty().append('<img src="alien.png">')
     $('.hotspot8').empty().append('<img src="../img/marspeople_icon.png">')
     $('.custom-hotspot').bind('touchstart', function(e){
-            $(this).find('img').css({'transform':'scale(4)'})
+            $(this).css({'filter': 'brightness(0.25)'})
+            $(this).find('img').css({'transform':'scale(2.5)'})
             var num = parseInt($(this).attr('class').split(' hotspot')[1].split(' ')[0])
             $('.text').html(button_array[num])
             $('.text').addClass('texton')
@@ -202,6 +226,8 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
 </script>
+        <div class="next">?</div>
+        <img src="../img/close.png" class="close">
 <div class="black"></div>
 <div class="message">사막화가 진행되고 있다.</div>
         <div class="text"></div>

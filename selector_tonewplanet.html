@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		font-size: 0
+	}
+	html,body{
+		height: 100%;
+		width: 100vw
+	}
+	.wrapper{
+		width: 35vw;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform-origin: right top;
+		transition: 10s;
+		height: 100%
+	}
+	.img{
+		width: 100%;
+		background-position: center;
+		transition: 10s;
+	}
+	.img_1{
+		height: 35vw;
+		background-size: 100% 100%;
+		background-image: url(img/test-01.png)
+	}
+	.img_2{
+		height: 25vw;
+		background-size: 800% 100%;
+		background-image: url(img/test-02.png)
+	}
+	.img_animate_step_1{
+		transform: skewX(-10deg);
+	}
+	.img_animate_step_1 .img_1{
+		height: 45vw;
+	}
+	.img_animate_step_1 .img_2{
+		height: calc(70% - 45vw);
+	}
+	.img_animate_step_2{
+		transform: skewX(-25deg);
+	}
+	.img_animate_step_2 .img_1{
+		height: 60vw;
+	}
+	.img_animate_step_2 .img_2{
+		height: calc(100% - 60vw);
+	}
+	body{
+		/*background-image: url(img/travel.gif);*/
+		background-size: 100vw;
+		background-position: top;}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.black').hide()
+			$('.wrapper').addClass('img_animate_step_2')
+		text_1()
+		})
+		setTimeout(function(){
+			$('.black').fadeIn(2000)
+		},8000)
+        function text_1(){
+            $('.text').addClass('texton')
+            $('.text').html('나는 동면상태에 들어가길 기다리며 정보를 본다. 기울어지는 글자에 맞춰 화면을 기울여 보자')
+            setTimeout(function(){
+            },3000)
+        }
+	</script>
+    <div class="black"></div>
+    <div class="text"></div>
+	<div class="wrapper">
+		<div class="img img_1"></div>
+		<div class="img img_2"></div>
+	</div>
+</body>
+</html>

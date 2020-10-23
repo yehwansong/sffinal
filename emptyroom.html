@@ -103,18 +103,20 @@ pointer-events: none;
 color: white
 }
 .white_speaking{
-	position: fixed;
-	z-index: 100000000;
-	left: 50vw;
-	top: 45%;
-	transform: translate(-50%, -50%);
-	background: rgba(255, 40, 0, 0.66);
-	padding: 1vh;
-	padding-left: 3vw;
-	padding-right: 3vw;
-	white-space: nowrap;
-	border-radius: 0.5vh;
-	opacity: 0
+position: fixed;
+z-index: 100000000;
+left: 0vw;
+top: 45%;
+transform: translateY(-50%);
+background: rgba(255, 40, 0, 0.66);
+padding: 1vh;
+padding-left: 3vw;
+padding-right: 3vw;
+/* white-space: nowrap; */
+border-radius: 0.5vh;
+opacity: 0;
+width: 25vw;
+height: auto;
 }
 .speaking_12{
 	transform: scale(1.2);
@@ -190,7 +192,7 @@ width: 100%;
 	opacity: 0;
 	pointer-events: none;
 }
-.right_button{
+.right_button,.round_button{
 background: radial-gradient(red, transparent);
 position: fixed;
 left: 3vw;
@@ -199,24 +201,74 @@ height: 8vw;
 top: 45%;
 border-radius: 50%;
 	position: fixed;
-	z-index: 1000000000000000000000000000000000;
+	z-index: 10000000;
 display: none;}
+.round_button{
+background: rgba(255, 255, 255, 0.15);
+border: 0.8vw solid rgb(0, 37, 255);
+pointer-events: auto;
+width: 15vw;
+height: 15vw;
+}
+.round_button_1{
+margin-top: -27.5vw;
+margin-left: 25vw;
+  animation: blinker 1s linear infinite;
+}
+.round_button_2{
+	margin-top: 0vw;
+	margin-left: 35vw;
+  animation: blinker 1s linear infinite;
+}
+.round_button_3{
+margin-top: 27.4vw;
+margin-left: 25vw;
+  animation: blinker 1s linear infinite;
+}
 .ppl_speaking{
-background: blue;
-color: white !important;
+border: 0.5vw solid blue;
+background: white;
+color: black !important;
 display: inline-block;
-	padding: 1.5vw;
-	padding-left: 3vw;
-	padding-right: 3vw;
+padding: 1.5vw;
+padding-left: 3vw;
+padding-right: 3vw;
 left: 50vw;
-position: absolute;
+position: fixed;
 transform: translateX(-50%);
 text-align: center;
-top: 30vw;
+bottom: 80vw;
 border-radius: 1vw;
 display: none;}
+.ppl_speaking img{
+	width: 5vw;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	height: auto;
+}
 .next{
 	display: none;
+}
+.right_button{
+	pointer-events: auto
+}
+.text img{
+position: absolute;
+width: 5vw;
+top: 100%;
+height: auto;
+/* transform: translateY(100%); */
+left: 40vw;}
+.mespeaking{
+	transform: translateX(-50%) translateY(-20vw) !important;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 </style>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
@@ -235,44 +287,62 @@ display: none;}
 		}
 
 		$(document).ready(function(){
-			text_000()
-			function text_000(){
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 1 && stage < 6)||(stage > 10 && stage < 23)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 5)||(stage > 9 && stage < 22)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				if(stage == 1){text_0()}
+				if(stage == 2){text_1()}
+				if(stage == 3){text_2()}
+				if(stage == 4){text_3()}
+				if(stage == 5){text_4()}
+
+				if(stage == 10){text_5()}
+				if(stage == 11){text_6()}
+				if(stage == 12){text_7()}
+				if(stage == 13){text_8()}
+				if(stage == 14){text_9()}
+				if(stage == 15){text_10()}
+				if(stage == 16){text_11()}
+				if(stage == 17){text_12()}
+				if(stage == 18){text_13()}
+				if(stage == 19){text_14()}
+				if(stage == 20){text_15()}
+				if(stage == 21){text_16()}
+				if(stage == 22){text_17()}
+			}
+
+
+
+
+			function text_0(){
 				$('.text').html('나는 지구를 도는 우주정거장에서 일하던 중 우주 쓰레기에 맞는 사고를 당한다.')
 				$('.text').addClass('texton')
 				$('.text').addClass('center')
-				setTimeout(function(){
-					text_00()
-				},2500)
-			}
-			function text_00(){
-				$('.text').html('회복하기 어려운 손상을 입은 나는 미래를 기약하고 동면에 들어간다. ')
-				setTimeout(function(){
-					text_0()
-				},2500)
-			}
-			function text_0(){
-				$('.text').html('얼마나 시간이 흘렀을까... ')
-				setTimeout(function(){
-					text_1()
-				},2500)
 			}
 			function text_1(){
-				$('.text').html('여기가 어디지?')
-				$('.text').removeClass('center')
-				setTimeout(function(){
-					text_2()
-				},2500)
+				$('.text').html('회복하기 어려운 손상을 입은 나는 미래를 기약하고 동면에 들어간다.')
 			}
 			function text_2(){
-				$('.text').html('화면을 두드려 눈을 떠보자')
-				setTimeout(function(){
-					text_3()
-				},2500)
+				$('.text').html('얼마나 시간이 흘렀을까... ')
 			}
-	        function text_3(){
-	            $('.text').removeClass('texton')
-	            $('.text').removeClass('center')
-	        }
+			function text_3(){
+				$('.text').html('여기가 어디지?')
+				$('.text').removeClass('center')
+			}
+			function text_4(){
+				$('.text').html('화면을 두드려 눈을 떠보자')
+				$('.black').css({'pointer-events':'auto'})
+			}
 			var counter_op = 0
 			$('.black').bind('touchstart', function(e){
 				counter_op ++
@@ -284,104 +354,71 @@ display: none;}
 				if(counter_op == 6){
 					$('.black').hide()
 					$('.crack').hide()
-					text_4()
+					text_5()
 				}
 			})
-			function text_4(){
+			function text_5(){
+				stage = 10
 				$('.text').html('어두운 방이 나타났다.')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_5()
-				},2500)
-			}
-			function text_5(){
-				$('.text').html('저 사람들은 누구지?')
-				setTimeout(function(){
-					text_6()
-				},2500)
 			}
 			function text_6(){
-				$('.text').html('')
-				$('.ppl_speaking').show()
-				$('.ppl_speaking').html('정신이 듭니까?')
-				setTimeout(function(){
-					text_7()
-				},2500)
+				$('.text').html('저 사람들은 누구지?')
 			}
 			function text_7(){
-				$('.ppl_speaking').html('당신이 사고를 당한 지 100년이 넘게 지났습니다.')
-				setTimeout(function(){
-					text_8()
-				},2500)
+				$('.text').html('')
+				$('.ppl_speaking').show()
+				$('.ppl_speaking>span').html('정신이 듭니까?')
 			}
 			function text_8(){
-				$('.ppl_speaking').hide()
-				$('.text').addClass('texton')
-				$('.text').html('이제 제 상처를 치료할 수 있게 된 건가요?')
-				setTimeout(function(){
-					text_9()
-				},2500)
+				$('.text').removeClass('texton mespeaking')
+				$('.ppl_speaking>span').html('당신이 사고를 당한 지 100년이 넘게 지났습니다.')
 			}
 			function text_9(){
-				$('.ppl_speaking').show()
-				$('.text').removeClass('texton')
-				$('.ppl_speaking').html('그렇긴 하지만 여기는 병원이 아닙니다. 저희가 당신을 빼돌려 은밀한 곳으로 데려온 겁니다.')
-				setTimeout(function(){
-					text_10()
-				},2500)
+				$('.ppl_speaking').hide()
+				$('.text').addClass('texton mespeaking')
+				$('.text').html('이제 제 상처를 치료할 수 있게 된 건가요?<img src="img/tail_black_str.png">')
 			}
 			function text_10(){
-				$('.ppl_speaking').hide()
-				$('.text').addClass('texton')
-				$('.text').html('뭐, 뭐라고? 어, 어째서?')
-				setTimeout(function(){
-					text_11()
-				},2500)
+				$('.ppl_speaking').show()
+				$('.text').removeClass('texton mespeaking')
+				$('.ppl_speaking>span').html('그렇긴 하지만 여기는 병원이 아닙니다. 저희가 당신을 빼돌려 은밀한 곳으로 데려온 겁니다.')
 			}
 			function text_11(){
-				$('.ppl_speaking').show()
-				$('.text').removeClass('texton')
-				$('.ppl_speaking').html('지난 100년 동안 달을 중심으로 한 세력이 인간의 기계화를 추구하고 있습니다.')
-				setTimeout(function(){
-					text_12()
-				},2500)
+				$('.ppl_speaking').hide()
+				$('.text').addClass('texton mespeaking')
+				$('.text').html('뭐, 뭐라고? 어, 어째서?<img src="img/tail_black_str.png">')
 			}
 			function text_12(){
-				$('.ppl_speaking').html('하지만 저희는 그것에 동의하지 않습니다.')
-				setTimeout(function(){
-					text_13()
-				},2500)
+				$('.ppl_speaking').show()
+				$('.text').removeClass('texton mespeaking')
+				$('.ppl_speaking>span').html('지난 100년 동안 달을 중심으로 한 세력이 인간의 기계화를 추구하고 있습니다.')
 			}
 			function text_13(){
-				$('.ppl_speaking').html('아무리 지구를 떠났다고 해도 인간의 육체를 순수하게 간직해야 한다고 생각합니다.')
-				setTimeout(function(){
-					text_14()
-				},2500)
+				$('.ppl_speaking>span').html('하지만 저희는 그것에 동의하지 않습니다.')
 			}
 			function text_14(){
-				$('.ppl_speaking').html('이제 당신도 그런 권유를 받을 겁니다. 저희는 당신이 본래 육체를 소중히 여긴다는 메시지를 발표해 주길 바랍니다.')
-				setTimeout(function(){
-					text_15()
-				},2500)
+				$('.ppl_speaking>span').html('아무리 지구를 떠났다고 해도 인간의 육체를 순수하게 간직해야 한다고 생각합니다.')
+			}
+			function text_15(){
+				$('.ppl_speaking>span').html('이제 당신도 그런 권유를 받을 겁니다. 저희는 당신이 본래 육체를 소중히 여긴다는 메시지를 발표해 주길 바랍니다.')
 			}
 			var fullread = false
-			function text_15(){
-				fullread = true
-				$('.ppl_speaking').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
-				setTimeout(function(){
-					text_16()
-				},2500)
-			}
 			function text_16(){
+				fullread = true
+				$('.ppl_speaking>span').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
+			}
+			function text_17(){
 				$('.ppl_speaking').hide()
 				$('.right_button').show()
+				$('.round_button').show()
 				$('.text').addClass('texton')
 				$('.text').html('납치를 당한 것 같다. 출구를 찾을 수 없다.')
 				$('.next').show()
 			}
 
 			$('body').bind('touchstart', function(e){
-				if(fullread){
+				if(fullread && !button_1_on && !button_2_on && !button_3_on){
 								$('.ppl_speaking').show()
 								$('.ppl_speaking').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
 								setTimeout(function(){
@@ -389,11 +426,13 @@ display: none;}
 								},2500)
 							}
 			})
-			$('.right_button').click(function(){
-				showcontent_white()
-			})
+			// $('.right_button').click(function(){
+			// 	showcontent_white()
+			// })
 
 			function showcontent_white(){
+				$('.right_button').hide()
+				$('.round_button').hide()
 					$('.white_speaking_1').css({'opacity':1})
 					setTimeout(function(){
 						$('.white_speaking_2').css({'opacity':1})
@@ -410,9 +449,9 @@ display: none;}
 									$('.white').css({'opacity':'1'})
 									location.replace("c.html");
 								},5000)
-							},1000)
-						},1000)
-					},1000)
+							},2000)
+						},2000)
+					},3000)
 			}
 
 
@@ -423,7 +462,7 @@ display: none;}
         function text_next(){
             $('.close').show()
             $('.text').addClass('texton center')
-            $('.text').html('알 수 없는 빨간 빛이 보인다. 한번 클릭해보자')
+            $('.text').html('알 수 없는 빨간 빛이 보인다. 빨간 빛 주변의 파란 원에 손가락을 나란히 터치해 빨간빛을 감싸보자. 손가락 아래에서 무슨 일이 일어날까?')
         }
         $('.close').bind('touchstart', function(e){
             $('.text').removeClass('texton')
@@ -432,28 +471,54 @@ display: none;}
             $('.close').hide()
         })
 
+		var button_1_on = false
+		var button_2_on = false
+		var button_3_on = false
+			$('.round_button_1').bind('touchstart', function(e){
+				button_1_on = true
+				console.log('ad;flk')
+			})
+			$('.round_button_2').bind('touchstart', function(e){
+				button_2_on = true
+				console.log('ad;flk')
+			})
+			$('.round_button_3').bind('touchstart', function(e){
+				button_3_on = true
+				console.log('ad;flk')
+			})
+			$('.round_button_1').bind('touchend', function(e){
+				button_1_on = false
+			})
+			$('.round_button_2').bind('touchend', function(e){
+				button_2_on = false
+			})
+			$('.round_button_3').bind('touchend', function(e){
+				button_3_on = false
+			})
+			$('.round_button').bind('touchstart', function(e){
+				if(button_1_on && button_3_on && e.originalEvent.touches.length>1){
+					showcontent_white()
+				}
+			})
+
 
 		})
 	</script>
-        <div class="next">?</div>
-            <img src="img/close.png" class="close">
-        <div class="text"></div>
+	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+	<img class="text-arrow arrow-left" src="img/arrow-left.png">
+    <div class="next">?</div>
+    <img src="img/close.png" class="close">
+    <div class="text"><img class="arrow_left"><img class="arrow_right"></div>
 	<div class="black"></div>
 	<div class="white"></div>
 	<img src="img/crack.jpg" class='crack'>
 	<img src="img/ppl.png" class="ppl">
 	<img src="img/arrow.png" class='arrow'>
-		<div class="ppl_speaking"></div>
-		<!-- <div class="speaking">순수하게 간직해야 한다고 생각하네<div class="speaking_shadow"></div>.</div>
-		<div class="speaking">인간의 육체를<div class="speaking_shadow"></div></div> 
-		<div class="speaking">생명 공학기술을 발전시<div class="speaking_shadow"></div>켜</div>
-		<div class="speaking">하지만 우리는 그것에 동의하지 않<div class="speaking_shadow"></div>아</div>
-		<div class="speaking">인간의 기계화를 추구하고 있네<div class="speaking_shadow"></div>.</div>
-		<div class="speaking">우주공간에서 더욱 편히 살 수 있도<div class="speaking_shadow"></div>록</div>
-		<div class="speaking">지금은 달 세력을 중심으<div class="speaking_shadow"></div>로</div>
-		<div class="speaking">자네가 사고를 당한지 100년이 지났<div class="speaking_shadow"></div>네</div>
-		<div class="speaking">정신이 드는<div class="speaking_shadow"></div>가</div> -->
+	<div class="ppl_speaking"><img src="img/tail_blue_str.png"><span></span></div>
 	<div class="right_button"></div>
+	<div class="round_button round_button_1"></div>
+	<div class="round_button round_button_2"></div>
+	<div class="round_button round_button_3"></div>
 	<div class="popup">나갈 수 없네!</div>
 	<div class="popup">인간의 육체를 보하겠다고 약속해주게</div>
 	<div class="red"></div>

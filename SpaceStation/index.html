@@ -55,6 +55,7 @@ height: 30vw !important;
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: center;
+		transition: 0.5s
 	}
 	.button_0{
 		background-image: url(../img/laptop.png);
@@ -92,54 +93,77 @@ height: 15vw;
 top: 340vw;
 	}
 	.button_5{
+		background-image: url(../img/recycle.png);
 left: 32vw;
 width: 15vw;
 height: 15vw;
 top: 365vw;
 	}
 	.button_6{
+		background-image: url(../img/capsule.png);
 left: 70vw;
 width: 15vw;
 height: 15vw;
 top: 390vw;
 	}
 	.button_7{
+		background-image: url(../img/science.png);
 left: 3vw;
 width: 15vw;
 height: 15vw;
 top: 390vw;
 	}
 	.stone{
+		pointer-events: auto;
 position: fixed;
 z-index: 10;
-transform: translateY(30vw) scale(0.25);
+transform: translateY(30vw) scaleX(0.45) scaleY(0.25) rotate(30deg);
 transition:3s cubic-bezier(.43,.01,1,.53);
+}
+.button,.next,.close{
+	pointer-events: auto
+}
+.button_visible{
+	transform: scale(4);
 }
 </style>
 </head>
 <script type="text/javascript">
 	$(document).ready(function(){
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 1 && stage < 5)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 4)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_1()}
+				if(stage == 2){text_2()}
+				if(stage == 3){text_3()}
+				if(stage == 4){text_4()}
+			}
+
+
+
         text_1()
         function text_1(){
             $('.text').addClass('texton center')
             $('.text').html('지구를 떠난 사람들은 달과 화성 등으로 흩어졌다.')
-            setTimeout(function(){
-                text_2()
-            },2500)
         }
         function text_2(){
             $('.text').addClass('texton center')
             $('.text').html('나는 하준과 지구 궤도에 건설한 우주정거장에 머물며 지구 복원 계획에 참여한다.')
-            setTimeout(function(){
-                text_3()
-            },2500)
         }
         function text_3(){
             $('.text').addClass('texton center')
             $('.text').html('우주정거장')
-            setTimeout(function(){
-                text_4()
-            },2500)
         }
         function text_4(){
             $('.text').removeClass('texton')
@@ -188,8 +212,12 @@ transition:3s cubic-bezier(.43,.01,1,.53);
 			'맛보다 영양에만 신경 쓴 식사',
 			'자원을 최대한 아끼기 위한 재활용 장치',
 			'우리는 달의 연구소에서 유전자를 조작해 이산화탄소를 제거하게 만든 미생물을 캡슐에 담아 지구 대기에 살포한다. ',
+			'그 외의 여러 아이디어의 효과를 테스트하는 실험도 임무의 일부다.',
+			'자원을 최대한 아끼기 위한 재활용 장치',
+			'우리는 달의 연구소에서 유전자를 조작해 이산화탄소를 제거하게 만든 미생물을 캡슐에 담아 지구 대기에 살포한다. ',
 			'그 외의 여러 아이디어의 효과를 테스트하는 실험도 임무의 일부다.']
 		$('.button').bind('touchstart', function(e){
+            $(this).css({'filter': 'brightness(0.25)'})
 			e.preventDefault();
 			var num = parseInt($(this).attr('class').split('button_')[1].split(' ')[0])
 			$(this).addClass('button_visible')
@@ -224,6 +252,8 @@ transition:3s cubic-bezier(.43,.01,1,.53);
 	})
 </script>
 <body>
+    	<img class="text-arrow arrow-right" src="../img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="../img/arrow-left.png">
         <div class="next">?</div>
             <img src="../img/close.png" class="close">
 	<div class="black">&nbsp;</div>

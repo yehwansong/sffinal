@@ -1,38 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-	.text{
-		position: fixed;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 10px;
-		z-index: 100000000000000000000;
-		width: 90vw;
-
-		display: block;
-		background: black;
-		color: white;
-
-		font-size: 5vw;
-		text-align: center;
-		line-height: 1.4;
-		padding: 2vw;
-		/* width: 18vw; */
-		padding-top: 2.5vw;
-		 opacity: 0; 
-		 pointer-events: none;
-	}
-	.selector{
-		pointer-events: all !important
-	}
-	.texton{
-		opacity: 1
-	}
-	.texton_force{
-		opacity: 1 !important
-	}
-	.text.center{
-bottom: 52.5% !important;
-transform: translateY(50%) translateX(-50%);}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+.text{
+position: fixed;
+left: 50%;
+transform: translateX(-50%);
+bottom: 10px;
+z-index: 100000000000000000000;
+width: 95vw;
+display: block;
+background: black;
+color: white;
+font-size: 5vw;
+text-align: center;
+line-height: 1.4;
+padding: 2vw;
+/* width: 18vw; */
+padding-top: 2.5vw;
+opacity: 0;
+pointer-events: none;
+padding-right: 5vw;
+box-sizing: border-box;
+padding-right: 10vw;
+}
+html,body{
+	position: absolute;
+}
+.selector{
+	pointer-events: all !important
+}
+.texton{
+	opacity: 1
+}
+.texton_force{
+	opacity: 1 !important
+}
+.text.center{
+	bottom: 52.5% !important;
+	transform: translateY(50%) translateX(-50%);
+padding-right: 2vw;}
 .end{
     background-position: center;
     background-image: url(img/theend.png);
@@ -45,69 +50,79 @@ transform: translateY(50%) translateX(-50%);}
     position: relative;
     transform: translateX(-50%);
 }
-	*{
-touch-action: manipulation;
-margin: 0;
-padding: 0;
-font-family: 'Roboto', 'Noto Sans KR',  san-serif;
-word-break: keep-all;
-font-size: 4.75vw;
-line-height: 1.4;
--webkit-touch-callout: none;
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-line-height: 1.3;
-user-select: none;
-letter-spacing: -0.1vw;
+*{
+	touch-action: manipulation !important;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', 'Noto Sans KR',  san-serif;
+	word-break: keep-all;
+	font-size: 4.75vw;
+	line-height: 1.4;
+	-webkit-touch-callout: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	line-height: 1.3;
+	user-select: none;
+	letter-spacing: -0.1vw;
+	pointer-events: none;
 	}
 .next{
 position: fixed;
-width: 15vw;
-height: 15vw;
+width: 18vw;
+height: 18vw;
 right: 0;
 top: 0;
-background: red;
+/* background: red; */
 border-radius: 100%;
-border: 0.8vw solid black;
+/* border: 0.8vw solid black; */
 text-align: center;
-line-height: 15vw;
+line-height: 18vw;
 pointer-events: all;
 z-index: 100000;
 font-family: sans-serif;
+/* background-image: url(img/menu.png); */
+background-size: contain;
+background-repeat: no-repeat;
+background: radial-gradient(rgb(182, 255, 154) 48.32%, rgba(255, 90, 0, 1) 55.88%, rgba(255, 163, 0, 0) 80.67%);
+color: rgb(255, 0, 0);
+font-size: 3vh;
 }
 .close{
-position: fixed;
-right: 0;
-top: 0;
-width: 10vw;
-height: 10vw;
-display: block;
-left: auto;
-transform: none;
-/* background: white; */
-z-index: 10000000000;
-display: none;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 10vw;
+	height: 10vw;
+	display: block;
+	left: auto;
+	transform: none;
+	/* background: white; */
+	z-index: 10000000000;
+	display: none;
+	background:white;
 }
-	.black{position: fixed;
-width: 100vw;
-height: 100vh;
-z-index: 10000000;
-background: black;
-left: 0;
-top: 0;
-	}
-	.white{position: fixed;
-width: 100vw;
-height: 100vh;
-z-index: 10000000;
-background: white;
-left: 0;
-top: 0;
-pointer-events: none;
-	}
+.black{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10000000;
+	background: black;
+	left: 0;
+	top: 0;
+}
+.white{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10000000;
+	background: white;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+}
 .text a,.selector {
     border: 0.3vw solid white;
     padding: 1.5vw;
@@ -120,9 +135,116 @@ pointer-events: none;
     position: absolute;
     height: 14vw;
 }
-    .text .a_2,.selector_2 {
-left: 50vw;
+.text .a_2,.selector_2 {
+	left: 50vw;
 }
 .selector{
 	color:white !important;
+}
+.text-arrow{
+position: fixed;
+z-index: 10000000000000000000000000000;
+width: 9vw;
+right: 2.5vw;
+bottom: 2.5vw;
+transform: none;
+left: auto;
+top: auto;
+background: white;
+border-radius: 50%;
+transform: translateZ(10vw) rotate(90deg);
+pointer-events: auto !important;
+height: 9vw;
+}
+.arrow-left{
+	bottom: 11.5vw
+}
+
+.result{
+position: absolute;
+z-index: 1000000000000;
+width: 90vw;
+height: 94%;
+overflow-y: scroll;
+pointer-events: all;
+box-shadow: 0vh 0vh 1vh black;
+background: white;
+background: black;
+display: none;
+left: 5vw;
+top: 3%;}
+.result .box {
+margin-top: 3vw;
+width: 42vw;
+/* height: 42vw; */
+float: left;
+/* margin-bottom: 5vw; */
+/* padding-bottom: 33vw; */
+box-shadow: 0vw 0vw 1vw white;
+position: relative;
+left: 3vw;
+margin-bottom: 21vw
+}
+.result .inner_img{
+width: 100%;
+height: 42vw;
+background-size: cover;
+background-repeat: no-repeat;
+opacity: 1;
+
+}
+.result .box:nth-child(2n-1) {
+transform: translateY(21vw);
+}
+.result .box span{
+text-align: center;
+position: relative;
+display: block;
+/* left: 40vw; */
+/* top: 40vw; */
+/* transform: translateX(-50%) translateY(-50%); */
+background: rgba(255, 255, 255, 1);
+padding: 1vw;
+padding-left: 1.5vw;
+padding-right: 1.5vw;
+border: 0.2vw solid white;
+/* border-radius: 1vw; */
+/* box-shadow: 0vw 0vw 5vw rgba(0, 0, 0, 1); */
+}
+.result_close{
+position: fixed;
+display: block;
+pointer-events: all;
+right: 5vw;
+top: 5%;
+}
+.theend_button{
+border: 0.3vw solid white !important;
+padding: 1.5vw !important;
+display: block !important;
+display: block !important;
+border-radius: 1vw !important;
+margin-top: 2vw !important;
+width: 40vw !important;
+/* float: left; */
+position: relative !important;
+height: 14vw !important;
+height: auto !important;
+color: white !important;
+text-decoration: none !important;
+padding-bottom: 0.8vw !important;
+position: relative;
+left: 50%;
+transform: translateX(-50%)
+}
+.theend{
+width: 50vw;
+height: auto;
+}
+.theend a,
+.theend .sum{
+pointer-events: all
+}
+.next,.close{
+	pointer-events: auto !important
 }

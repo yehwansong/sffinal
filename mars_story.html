@@ -15,6 +15,21 @@ crossorigin="anonymous"></script>
 	*{
 		margin:0;
 	}
+	body,html{
+	}
+	body,html
+	{
+		width: 100vw;
+		height: 100%;
+		position: fixed;
+	}
+	.wrapper{
+		width: 100vw;
+		height: 600vw;
+transition: 1s;
+position: absolute;
+z-index: 1;
+	}
 	.ppl, .wife{
 		width: 20vw;
 		height: 60vw;
@@ -28,36 +43,36 @@ crossorigin="anonymous"></script>
 		transition: 0.5s
 	}
 	.wife{
-		transition: 1s
+		transition: 1s;
+		transform: none !important;
 	}
 	.ppl_down{
 		transform: translateY(-35vw);
 		background-size: 100% 100%
 	}
-	.warpper>div:nth-child(4n){
+	.wrapper>div:nth-child(4n){
 		background-image: url(img/mars_story-03.jpg)
 	}
-	.warpper>div:nth-child(4n+1){
+	.wrapper>div:nth-child(4n+1){
 		background-image: url(img/mars_story-04.jpg)
 	}
-	.warpper>div:nth-child(4n+2){
+	.wrapper>div:nth-child(4n+2){
 		background-image: url(img/mars_story-05.jpg)
 	}
-	.warpper>div:nth-child(4n+3){
+	.wrapper>div:nth-child(4n+3){
 		background-image: url(img/mars_story-06.jpg)
 	}
-	.warpper>div:nth-child(9n-3){
+	.wrapper>div:nth-child(9n-3){
 		margin-left: 10vw;
 	}
 	.wrapper{
-		display: flex;
-		flex-direction: column-reverse;
-	}
+			width: 100vw
+		}
 	.wife{
 		background-image: url(img/mars_story-wife.png) !important;
 		position: absolute;
 		right: 0;
-		top: 200vw;
+		top: 99.5vw;
 		z-index: 100000000000;
 		height: 20vw;
 		transform-origin: right;
@@ -77,6 +92,16 @@ crossorigin="anonymous"></script>
 .heart_ani{
 	transform: translateY(-120vh);
 }
+.ppl, .wife{
+	pointer-events: all
+}
+.story_img{
+position: absolute;
+width: 100vw;
+top: 180vw;}
+.wrapper{
+	transition: 1s
+}
 </style>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
 	<title></title>
@@ -84,6 +109,42 @@ crossorigin="anonymous"></script>
 <body>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 1 && stage < 5)||(stage > 10 && stage < 13)||(stage > 19 && stage < 30)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 4)||(stage > 9 && stage < 12)||(stage > 18 && stage < 29)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_1()}
+				if(stage == 2){text_2()}
+				if(stage == 3){text_3()}
+				if(stage == 4){text_4()}
+
+				if(stage == 10){text_5()}
+				if(stage == 11){text_6()}
+
+				if(stage == 19){}
+				if(stage == 20){text_7()}
+				if(stage == 21){text_8()}
+				if(stage == 22){text_9()}
+				if(stage == 23){text_10()}
+				if(stage == 24){text_11()}
+				if(stage == 25){text_12()}
+				if(stage == 26){text_13()}
+				if(stage == 27){text_14()}
+				if(stage == 28){text_15()}
+				if(stage == 29){text_16()}
+				// if(stage == 12){text_7()}
+			}
+
 			var leftarray = []
 			var toparray = []
 			$('.ppl').each(function(){
@@ -91,31 +152,21 @@ crossorigin="anonymous"></script>
 				toparray.push($(this).offset().top)
 				if(leftarray.length == $('.ppl').length){
 					$('.ppl').each(function(index){
-						$(this).css({'position':'absolute'})
+						$(this).css({'position':'fixed'})
 						$(this).css({'left':leftarray[index] + 'px'})
 						$(this).css({'top':toparray[index] + 'px'})
 					})
 				}
 			})
-        text_1()
         function text_1(){
             $('.text').addClass('texton')
             $('.text').html('중력이 약한 곳에서 살다 보니 사람의 몸도 사실 많이 변했다.')
-            setTimeout(function(){
-                text_2()
-            },2500)
         }
         function text_2(){
             $('.text').html('지구인보다 훨씬 더 키가 크고 호리호리한 몸으로, 이제는 사실 지구에 가고 싶어도 가지 못하게 됐다.')
-            setTimeout(function(){
-                text_3()
-            },2500)
         }
         function text_3(){
             $('.text').html('과연 자신이 고집한 원래의 몸이라는 게 의미가 있는걸까?')
-            setTimeout(function(){
-            	text_4()
-            },2500)
         }
           
         function text_4(){
@@ -123,28 +174,12 @@ crossorigin="anonymous"></script>
             $('.text').removeClass('center')
             $('.black').fadeOut(300)
         }
-			// $('.ppl').each(function(i) {
-		 //        $(this).css('z-index', 1000 - i);
-		 //    });
+
 
         function text_5(){
+        	stage = 10
             $('.text').addClass('texton')
-            $('.text').html('나는 소행성대가 궁금해서 여행을 갔다가 한 여인을 만났다.')
-            setTimeout(function(){
-            	text_6()
-            },2500)
-        }
-        function text_6(){
-            $('.text').html('소행성대의 여인이다.')
-            setTimeout(function(){
-            	text_7()
-            },2500)
-        }
-        function text_7(){
-            $('.text').html('그렇게 나는 사랑에 빠졌다.')
-            setTimeout(function(){
-            	location.replace("mars_story_2.html");
-            },5000)
+            $('.text').html('나는 소행성대가 궁금해서 여행을 갔다가 한 여인을 만났다. 소행성대의 여인이다.')
 			    	setTimeout(function(){
 			    		$('.heart_1').addClass('heart_ani')
 			    	},1*200)
@@ -193,9 +228,64 @@ crossorigin="anonymous"></script>
 			    	setTimeout(function(){
 			    		$('.heart_16').addClass('heart_ani')
 			    	},16*500)
+        	stage = 19
+        }
+        function text_7(){
+			$('.wrapper').css({'transform': 'translateY(-100vw)'})
+            $('.text').html('그렇게 나는 사랑에 빠졌다.')
+        }
+        function text_8(){
+			$('.wrapper').css({'transform': 'translateY(-175vw)'})
+            $('.text').html('우리는 결혼을 했고')
+        }
+        function text_9(){
+			$('.wrapper').css({'transform': 'translateY(-250vw)'})
+            $('.text').html('이내 귀여운 아들까지 가지게 되었다.')
+        }
+        function text_10(){
+			$('.wrapper').css({'transform': 'translateY(-325vw)'})
+            $('.text').html('아이를 키우는 동안만큼은 지구를 잊을 정도로 즐거운 시간이었다.')
+        }
+        function text_11(){
+			$('.wrapper').css({'transform': 'translateY(-400vw)'})
+            $('.text').html('중력이 거의 없는 소행성 지대라 아들은 걷기보다 우주 유영에 훨씬 더 익숙했다.')
+        }
+        function text_12(){
+			$('.wrapper').css({'transform': 'translateY(-425vw) '})
+            $('.text').html('아마 아들은 평생 이렇게 우주공간에서 살게 될 것이다.')
+        }
+        function text_13(){
+            $('.text').html('땅에 발을 딛고 보는 푸른 하늘 따위는 알지도 못한 채')
+        }
+        function text_14(){
+            $('.text').html('자원을 찾아 소행성을 옮겨다니며...')
+        }
+        function text_15(){
+            $('.text').html('과연 이런 게 인류의 미래일까?')
+        }
+        function text_16(){
+            $('.text').html('그러던 어느날')
+            setTimeout(function(){
+            	// text_7()
+            	location.replace("mars_story_2.html");
+            },2000)
         }
 
-
+        $('.next').bind('touchstart', function(e){
+            text_next()
+            $('.black').show()
+        })
+        function text_next(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('사람들 속에서 여인을 찾아보자')
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
     $(".ppl")
         .on("touchmove", function(e) {
             var xPos = e.originalEvent.touches[0].pageX;
@@ -223,11 +313,11 @@ crossorigin="anonymous"></script>
 
 	        $('.wife').bind('touchstart', function(e){
 	        	text_5()
-			    	$('.wife_5').css({'transform':'scale(5)'})
-			    	$('.wife_4').css({'transform':'scale(4)'})
-			    	$('.wife_3').css({'transform':'scale(3)'})
-			    	$('.wife_2').css({'transform':'scale(2)'})
-			    	$('.wife_1').css({'transform':'scale(1)'})
+			    	$('.wife_5').attr('style', 'transform:scale(5) !important')
+			    	$('.wife_4').attr('style', 'transform:scale(4) !important')
+			    	$('.wife_3').attr('style', 'transform:scale(3) !important')
+			    	$('.wife_2').attr('style', 'transform:scale(2) !important')
+			    	$('.wife_1').attr('style', 'transform:scale(1) !important')
 	        })
 	        $('.wife').bind('touchend', function(e){
 			    	// $('.wife_1').css({'transform':'scale(1)'})
@@ -242,17 +332,10 @@ crossorigin="anonymous"></script>
 
 		})
 	</script>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
         <div class="text"></div>
-	<div class="warpper">
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
+		<div class="wrapper">
 		<div class="ppl"></div>
 		<div class="ppl"></div>
 		<div class="ppl"></div>
@@ -294,14 +377,6 @@ crossorigin="anonymous"></script>
 		<div class="wife wife_7"></div>
 		<div class="wife wife_8"></div>
 		<div class="wife wife_9"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
-		<div class="ppl"></div>
 
 		<img src='img/mars_story-heart.png' class="heart heart_1">
 		<img src='img/mars_story-heart.png' class="heart heart_2">
@@ -324,6 +399,10 @@ crossorigin="anonymous"></script>
 		<img src='img/mars_story-heart.png' class="heart heart_3">
 		<img src='img/mars_story-heart.png' class="heart heart_4">
 		<img src='img/heart.png' class="heart heart_5">
+		<img src="img/marstory-01.png" class="story_img">
 	</div>
+    	<div class="next">?</div>
+    	<img src="img/close.png" class="close">
+	<div class="black"></div>
 </body>
 </html>

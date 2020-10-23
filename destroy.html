@@ -9,129 +9,131 @@
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="all.css"/>
+<link rel="stylesheet" href="all.css"/>
 <style type="text/css">
-	*{
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-	html,body{
-		width: 100vw;
-		height: 100%;
-		overflow: hidden;
-	}
-	body{
-		background-image: url('img/newplanet_bg-01.png');
-		background-size: 100vw;
-		background-position: top;
-	}
-	.wrapper>div{
-		width: 16.65vw;
-		height:  16.65vw;
-		border:0.1vw solid black;
-		position: absolute;
-	}
-	.left_2{
-		left:16.65vw
-	}
-	.left_3{
-		left:33.1vw
-	}
-	.left_4{
-		left:49.95vw
-	}
-	.left_5{
-		left:66.6vw
-	}
-	.left_6{
-		left:83.25vw
-	}
-	.top_2{
-		top:16.65vw
-	}
-	.top_3{
-		top:33.1vw
-	}
-	.top_4{
-		top:49.95vw
-	}
-	.top_5{
-		top:66.6vw
-	}
-	.top_6{
-		top:83.25vw
-	}
-	.top_7{
-		top:100vw
-	}
-	.top_8{
-		top:116.655vw
-	}
-	.top_9{
-		top:133.1vw
-	} 
-	.top_10{
-		top:149.95vw
-	} 
-	.top_11{
-		top:166.6vw
-	} 
-	.selected{
-background: linear-gradient(rgb(119, 0, 0), black 83.61%);
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-	.wrapper img{
-		width: 100%;
-		position:absolute;
-		bottom: 0;
-		left: 0
-	}
+html,body{
+	width: 100vw;
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	background-image: url('img/newplanet_bg-01.png');
+	background-size: 100vw;
+	background-position: top;
+}
+.wrapper>div{
+	width: 16.65vw;
+	height:  16.65vw;
+	border:0.1vw solid black;
+	position: absolute;
+}
+.left_2{
+	left:16.65vw
+}
+.left_3{
+	left:33.1vw
+}
+.left_4{
+	left:49.95vw
+}
+.left_5{
+	left:66.6vw
+}
+.left_6{
+	left:83.25vw
+}
+.top_2{
+	top:16.65vw
+}
+.top_3{
+	top:33.1vw
+}
+.top_4{
+	top:49.95vw
+}
+.top_5{
+	top:66.6vw
+}
+.top_6{
+	top:83.25vw
+}
+.top_7{
+	top:100vw
+}
+.top_8{
+	top:116.655vw
+}
+.top_9{
+	top:133.1vw
+} 
+.top_10{
+	top:149.95vw
+} 
+.top_11{
+	top:166.6vw
+} 
+.selected{
+	background: linear-gradient(rgb(119, 0, 0), black 83.61%);
+}
+.wrapper img{
+	width: 100%;
+	position:absolute;
+	bottom: 0;
+	left: 0
+}
 	.building{
-		opacity: 0
+		opacity: 0;
+		transform: translateY(30vw);
+		transition: transform 0.3s cubic-bezier(.56,.01,.69,1.45), 0.3s opacity linear
 	}
 	.selected img{
 		opacity: 0
 	}
 	.selected .building{
 		opacity: 1;
-transform-origin: bottom;
+		transform: translateY(0vw);
 	}
-	.time_1 .building_1{
-		transform: rotate(-20deg);
-	}
-	.time_1 .building_2{
-		transform: rotate(20deg);
-	}
-	.time_1 .building_3{
-		transform: rotate(-10deg);
-	}
-	.time_1 .building_4{
-		transform: rotate(10deg);
-	}
-	.time_2 .building_1{
-		transform: rotate(-20deg) translateY(10vw);
-mix-blend-mode: difference;
-	}
-	.time_2 .building_2{
-		transform: rotate(20deg) translateY(5vw);
-	}
-	.time_2 .building_3{
-		transform: rotate(-10deg) translateY(10vw);
-	}
-	.time_2 .building_4{
-		transform: rotate(10deg) translateY(0vw);
-	}
+.time_1 .building_1{
+	transform: rotate(-20deg);
+}
+.time_1 .building_2{
+	transform: rotate(20deg);
+}
+.time_1 .building_3{
+	transform: rotate(-10deg);
+}
+.time_1 .building_4{
+	transform: rotate(10deg);
+}
+.time_2 .building_1{
+	transform: rotate(-20deg) translateY(10vw);
+	mix-blend-mode: difference;
+}
+.time_2 .building_2{
+	transform: rotate(20deg) translateY(5vw);
+}
+.time_2 .building_3{
+	transform: rotate(-10deg) translateY(10vw);
+}
+.time_2 .building_4{
+	transform: rotate(10deg) translateY(0vw);
+}
 .op_1, .op_2{
-position: fixed;
-z-index: 100000;
-width: 100vw;
-bottom: 30vw;
-transform: translateY(-150%);
-height: 20vw;
-pointer-events: none;
-background: rgb(123, 147, 190);
-box-shadow: 0vh 0vh 1vh 1vh rgb(123, 147, 190);
-display: none;
+	position: fixed;
+	z-index: 100000;
+	width: 100vw;
+	bottom: 30vw;
+	transform: translateY(-150%);
+	height: 20vw;
+	pointer-events: none;
+	background: rgb(123, 147, 190);
+	box-shadow: 0vh 0vh 1vh 1vh rgb(123, 147, 190);
+	display: none;
 }
 .op_2{
 	transform: none;
@@ -175,31 +177,49 @@ display: none;
 	border: 0.5vw solid red
 }
 .op_2 .speaking{
-right: 22vw;
-border: 0.7vw solid blue;
-left: auto;
+	right: 22vw;
+	border: 0.7vw solid blue;
+	left: auto;
+}
+.box{
+	pointer-events: auto
+}
+.building_wrapper{
+	width: 100%;
+	height: 500%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+.otherside{
+	width: 100vw;
+	z-index: 100000;
+	position: absolute;
+	transform: translateY(-100%);
+	transition: 0.5s;
+}
+.wrapper{
+	position: absolute;
+	width: 100vw;
+	height: 100%;
+	transition: 0.5s;
 }
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
+var step = 0
 		$('.building').each(function(){
 			$(this).addClass('building_'+(Math.floor(Math.random()*4)+1))
 		})
-			text_1()
 			function text_1(){
 				$('.text').addClass('texton center')
-				$('.text').html('우리는 우리의 생존이 가장 중요하다는 결정을 내리고 도시 건설을 계속한다.')
-				setTimeout(function(){
-					text_2()
-				},2500)
+				$('.text').html('우리는 인간의 생존을 최우선으로 삼고 도시 건설을 계속한다.')
 			}
 			function text_2(){
 				$('.black').hide()
 				$('.text').removeClass('center')
 				$('.text').html('영역을 터치해 도시를 건설하자.')
-				setTimeout(function(){
-				$('.text').removeClass('texton')
-				},2500)
 			}
 
 		var touchcounter = 0
@@ -219,6 +239,34 @@ left: auto;
 				text_4()
 			}
 		})
+
+
+
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage>1&&stage<3)||(stage > 10 && stage < 18)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage>0&&stage<2)||(stage > 9 && stage < 17)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				if(stage == 1){text_1()}
+				if(stage == 2){text_2()}
+				if(stage == 10){}
+				if(stage == 11){text_10()}
+				if(stage == 12){text_11()}
+				if(stage == 13){text_12()}
+				if(stage == 14){text_13()}
+				if(stage == 15){text_14()}
+				if(stage == 16){text_15()}
+				if(stage == 17){text_16()}
+			}
+
 		function randomselect(left, top, init){
 			var random_left = parseInt(left,10) + Math.floor(Math.random()*2)
 			var random_top = parseInt(top,10) + Math.floor(Math.random()*2)
@@ -235,55 +283,119 @@ left: auto;
 				}
 			}else{
 			}
-			if($('.selected').length > 48){
-				$('.op_2').show()
-				$('.text').removeClass('texton')
+			if($('.selected').length > 40){
+				stage = 10
 				$('.wrapper>div').css({'pointer-events':'none'})
-				$('.op_2').find('.speaking').html('가장 위험한 육식 동물은 거의 사라졌고, 석기 시대 문명을 지녔던 종족도 많이 쇠퇴했네.')
-				setTimeout(function(){
-					$('.op_2').find('.speaking').html('도시에서 먼 외곽 농장 같은 곳에서는 영리한 이 종족을 붙잡아 훈련시킨 뒤 노예처럼 쓴다고 하더라.')
-					setTimeout(function(){
-						$('.op_2').hide()
-						text_10()
-					},2500)
-				},2500)
+				$('.text').html('가장 위험한 육식 동물은 거의 사라졌고, 석기 시대 문명을 지녔던 종족도 많이 쇠퇴했다.')
 			}
 		}
 			function text_4(){
 				$('.text').addClass('texton')
-				$('.text').html('지적인 종족을 일부러 죽이지는 않지만, 서식지에서 밀려난 이들은 공룡을 닮은 거대 육식 동물에 희생당해 수가 점점 줄어든다.')
+				$('.text').html('도시 건설로 서식지에서 밀려난 토착 생물은 점점 수가 줄어든다.')
 			}
 			function text_5(){
 				$('.text').addClass('texton')
 				$('.text').html('거대육식동물은 인류에게도 위협이 되기 때문에 이들 역시 도시 근처에 나타나는 대로 사냥해서 없앤다.')
 			}
+
+
 			function text_10(){
+				console.log('akjf;lkajd')
 				$('.text').addClass('texton')
 				$('.text').html('시간이 지날수록 행성의 생태계가 무너지고 있는 모습이 보인다.')
-					setTimeout(function(){
-						text_11()
-					},2500)
 			}
-// transform: rotate(-20deg);
 			function text_11(){
+				$('.text').addClass('texton')
 				$('.wrapper').addClass('time_1')
-					setTimeout(function(){
-						text_12()
-					},2500)
+				$('.text').html('도시에서 먼 외곽 농장 같은 곳에서는 영리한 이 종족을 붙잡아 훈련시킨 뒤 노예처럼 쓴다고 하더라.')
 			}
 			function text_12(){
+				$('.text').addClass('texton')
 				$('.wrapper').addClass('time_2')
-				$('.text').html('인류가 이 먼 곳까지 와서 지구에서와 똑같은 실수를 한 것이다.')
-					setTimeout(function(){
-						text_13()
-					},2500)
+				$('.text').html('욕심이 생긴 인류는 다른 대륙으로도 진출한다.')
 			}
 			function text_13(){
-				$('.text').addClass('center')
-				$('.text').addClass('texton')
-				$('.text').html('THE END')
+				other_ani()
+				$('.text').html('시간이 지날수록 행성의 생태계가 무너지고 있는 모습이 보인다.')
+			}
+			function text_14(){
+				$('.text').html('노년이 된 나와 서윤은 안타까워 눈물을 흘린다.')
+			}
+			function text_15(){
+				$('.wrapper').addClass('time_2')
+				$('.text').html('인류가 이 먼 곳까지 와서 지구에서와 똑같은 실수를 한 것이다.')
 			}
 
+
+			function text_16(){
+				$('.text').addClass('texton center theend')
+				$('.result').empty()
+				$('.result').append('\
+		        	<img src="../img/close.png" class="close result_close">\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/1.PNG)"></div>\
+						<span>XX년, 지구에서 살던 나는</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/2.PNG)"></div>\
+						<span>서윤을 따라 외계행성으로 떠났다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/3.PNG)"></div>\
+						<span>외계행성에 도착하니</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/4.PNG)"></div>\
+						<span>지구와 환경이 유사했다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/5.PNG)"></div>\
+						<span>그대로 정착하기로 결정했다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/6.PNG)"></div>\
+						<span>다만 그곳에 이미 살고 있던 생명체가 지적 능력이 있다는 것을 알았지만</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_des/7.PNG)"></div>\
+						<span>우리는 인간의 생존을 최우선으로 삼고 도시 건설을 계속한다. </span>\
+					</div>\
+				')
+				$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+				$('.sum').click(function(){
+					console.log
+					$('.result').show()
+				})
+				$('.result_close').click(function(){
+					$('.result').hide()
+				})
+			}
+function other_ani(){
+	step++
+	if(step == 1){
+		$('.wrapper').css({'transform':'translateY(20%)'})
+		$('.otherside').css({'transform':'translateY(-80%)'})
+	}
+	if(step == 2){
+		$('.wrapper').css({'transform':'translateY(40%)'})
+		$('.otherside').css({'transform':'translateY(-60%)'})
+	}
+	if(step == 3){
+		$('.wrapper').css({'transform':'translateY(60%)'})
+		$('.otherside').css({'transform':'translateY(-40%)'})
+	}
+	if(step == 4){
+		$('.wrapper').css({'transform':'translateY(80%)'})
+		$('.otherside').css({'transform':'translateY(-20%)'})
+	}	
+	if(step == 5){
+		$('.wrapper').css({'transform':'translateY(100%)'})
+		$('.otherside').css({'transform':'translateY(0%)'})
+	}
+	setTimeout(function(){
+		other_ani()
+	},800)
+}
 		var img_array =[
 		'<img class="" src="Newplanet/images/bird.png">	',
 		'<img class="din" src="Newplanet/images/din_1-clip.png">',
@@ -300,83 +412,88 @@ left: auto;
 		$('.box').each(function(){
 			$(this).append(img_array[Math.floor(Math.random()*17)])
 		})
+
 	})
 </script>
 </head>
 <body>
+	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+	<img class="text-arrow arrow-left" src="img/arrow-left.png">
 	<div class="text"></div>
 		<div class="black"></div>
+		<img class='otherside' src="img/otherside.png">
 	<div class="wrapper">
-		<div class="box left_1 top_1 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_1 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_1 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_1 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_1 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_1 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_2 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_2 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_2 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_2 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_2 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_2 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_3 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_3 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_3 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_3 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_3 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_3 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_4 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_4 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_4 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_4 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_4 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_4 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_5 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_5 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_5 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_5 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_5 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_5 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_6 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_6 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_6 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_6 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_6 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_6 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_7 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_7 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_7 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_7 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_7 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_7 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_8 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_8 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_8 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_8 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_8 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_8 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_9 "><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_9 "><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_9 "><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_9 "><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_9 "><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_9 "><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_10"><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_10"><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_10"><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_10"><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_10"><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_10"><img class="building" src="img/building.png"></div>
-		<div class="box left_1 top_11"><img class="building" src="img/building.png"></div>
-		<div class="box left_2 top_11"><img class="building" src="img/building.png"></div>
-		<div class="box left_3 top_11"><img class="building" src="img/building.png"></div>
-		<div class="box left_4 top_11"><img class="building" src="img/building.png"></div>
-		<div class="box left_5 top_11"><img class="building" src="img/building.png"></div>
-		<div class="box left_6 top_11"><img class="building" src="img/building.png"></div>
+		<div class="box left_1 top_1 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_1 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_1 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_1 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_1 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_1 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_2 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_2 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_2 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_2 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_2 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_2 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_3 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_3 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_3 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_3 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_3 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_3 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_4 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_4 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_4 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_4 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_4 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_4 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_5 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_5 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_5 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_5 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_5 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_5 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_6 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_6 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_6 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_6 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_6 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_6 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_7 selected "><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_7 selected "><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_7 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_7 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_7 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_7 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_8 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_8 selected "><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_8 selected "><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_8 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_8 selected "><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_8 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_9 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_9 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_9 selected "><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_9 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_9 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_9 ">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_10">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_10 selected"><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_10 selected"><div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_10">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_10">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_10">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_1 top_11">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_2 top_11">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_3 top_11">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_4 top_11">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_5 top_11">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
+		<div class="box left_6 top_11">			<div class="building_wrapper"><img class="building" src="img/building.png"></div></div>
 	</div>
 		<div class="op_2">
 			<div class="ppl"></div>
 			<div class="speaking"></div>
 		</div>
+	<div class="result"></div>
 </body>
 </html>

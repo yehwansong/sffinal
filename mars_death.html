@@ -32,63 +32,67 @@ crossorigin="anonymous"></script>
 <body>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 0 && stage < 8)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 8)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_1()}
+				if(stage == 2){text_2()}
+				if(stage == 3){text_3()}
+				if(stage == 4){text_3_1()}
+				if(stage == 5){text_3_2()}
+				if(stage == 6){text_4()}
+				if(stage == 7){text_5()}
+			}
+
 	        text_1()
 	        function text_1(){
 	            $('.text').addClass('texton')
 	            $('.text').addClass('center')
 	            $('.text').html('나는 소행성대의 문화에 따라 아들의 죽음을 지켜본다.')
-	            setTimeout(function(){
-	                text_2()
-	            },2500)
 	        }
 	        function text_2(){
-	        	$('img').addClass('img_animate')
+	        	$('.death').addClass('img_animate')
             	$('.text').removeClass('center')
             	$('.black').fadeOut(300)
 	            $('.text').html('위험한 우주에서 생존을 위해 모든 것과 싸우며 살아가는 사람들에게 죽음은 자연스러운 것이다.')
-	            setTimeout(function(){
-	                text_3()
-	            },6000)
         	}
 	        function text_3(){
             	$('.text').removeClass('center')
             	$('.black').fadeOut(300)
 	            $('.text').html('나는 기계인간과는 또 다른 새로운 우주 세대의 인간을 바라보며 외로움을 느끼지만,')
-	            setTimeout(function(){
-	                text_3_1()
-	            },6000)
         	}
 	        function text_3_1(){
             	$('.text').removeClass('center')
             	$('.black').fadeOut(300)
 	            $('.text').html('한없이 진취적이고 모험을 두려워하지 않는 그들을 보며')
-	            setTimeout(function(){
-	                text_3_2()
-	            },6000)
         	}
 	        function text_3_2(){
             	$('.text').removeClass('center')
             	$('.black').fadeOut(300)
 	            $('.text').html('한편으로는 인류가 앞으로 멸망할 일은 없을지도 모르겠다고 생각한다. ')
-	            setTimeout(function(){
-	                text_4()
-	            },6000)
         	}
 	        function text_4(){
             	$('.text').addClass('center')
             	$('.black').fadeOut(300)
 	            $('.text').html('The End')
-	            setTimeout(function(){
-	                text_5()
-	            },6000)
-        	}
-	        function text_5(){
-	            $('.text').fadeOut(500)
         	}
 		})
 	</script>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
       <div class="text"></div>
 	<div class="black"></div>
-	<img src="img/mars_death.png">
+	<img src="img/mars_death.png" class="death">
 </body>
 </html>

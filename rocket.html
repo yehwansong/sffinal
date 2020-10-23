@@ -58,9 +58,6 @@ border-radius: 50%;
 background: radial-gradient(white 40.76%, transparent 75.63%);
 z-index: 10;
 	}
-	.black{
-z-index: 1 !important;
-	}
 	.center_r{
 left: 50%;
 top: 50%;
@@ -169,25 +166,43 @@ background-image: url(img/call/100-02.png);
 <!-- 이제는 다시 동면에 들어가면 깨어날 수 있을지 없을지 확신이 없다. 우주선이 낡아서 위태롭기 때문이다. 우리는 운명을 걸고 다시 목표를 잡아서 떠난다. 어느 날 미지의 우주선과 마주친다. 자동으로 동면에서 깨어난 나는 외계인의 우주선을 만났다고 생각하며 조심스럽게 의사소통을 시작한다.  -->
 <script type="text/javascript">
 	$(document).ready(function(){
-			 text_0()
-        function text_0(){
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 1 && stage < 5)||(stage > 10 && stage < 14)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 4)||(stage > 9 && stage < 13)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_1()}
+				if(stage == 2){text_1_2()}
+				if(stage == 3){text_1_3()}
+				if(stage == 4){text_2()}
+
+				if(stage == 10){text_5()}
+				if(stage == 11){text_6()}
+				if(stage == 12){text_7()}
+				if(stage == 13){text_8()}
+			}
+
+
+
+        function text_1(){
             $('.text').addClass('texton center')
+            $('.black').show()
             $('.text').html('성도를 확인해 보니 그 외계행성이란 바로 서윤네 일행이 목표로 삼은 바로 그곳이었다.')
-            setTimeout(function(){
-                text_1_2()
-            },2500)
         }
         function text_1_2(){
             $('.text').html('외계인의 존재를 알게 되자 우주에 대한 호기심이 솟아오른다.')
-            setTimeout(function(){
-                text_1_3()
-            },2500)
         }
         function text_1_3(){
             $('.text').html('사실상 수명이 무한한 기계의 몸, 나는 우주 탐사에 몰두하기로 한다.')
-            setTimeout(function(){
-                text_2()
-            },2500)
         }
         function text_2(){
         	$('.black').hide()
@@ -229,30 +244,71 @@ background-image: url(img/call/100-02.png);
 			  clearTimeout(timeout);
 			})
 	        function text_5(){
+	        	stage = 10
 	            $('.text').html('심우주를 탐사하러 간다.')
-	            setTimeout(function(){
-	            	text_6()
-	            },2500)
 	        }
 	        function text_6(){
 	            $('.text').html('육체가 사라지면 감정도 사라지는 걸까 태양계를 떠나는 데도 아쉬움은 느껴지지 않는다.')
-	            setTimeout(function(){
-	            	text_7()
-	            },2500)
 	        }
 	        function text_7(){
 	            $('.text').html('우주가 우리에게 무엇을 보여줄지 궁금할 뿐.')
-	            setTimeout(function(){
-	            	text_8()
-	            },2500)
 	        }
 	        function text_8(){
-	            $('.text').html('THE END')
+				$('.text').addClass('center theend')
+				$('.result').append('\
+		        	<img src="../img/close.png" class="close result_close">\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/1.PNG)"></div>\
+						<span>XX년, 지구에서 살던 나는</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/2.PNG)"></div>\
+						<span>준을 따라 태양계에 남기로 결정한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/3.PNG)"></div>\
+						<span>우주 정류장에서 우주 쓰레기에 맞는 사고를 당한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/4.PNG)"></div>\
+						<span>순수 인간주의자에게 납치를 당하지만</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/5.PNG)"></div>\
+						<span>철수의 도움으로 탈출하고</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/6.PNG)"></div>\
+						<span>철수를 따라 기계가 되기로 결정한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/7.PNG)"></div>\
+						<span>기계가 되어 지구에 다시 돌아가</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/8.PNG)"></div>\
+						<span>변한 지구를 본 뒤,</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_sp/9.PNG)"></div>\
+						<span>심우주를 탐사하러 간다.</span>\
+					</div>\
+				')
+				$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+				$('.sum').click(function(){
+					console.log
+					$('.result').show()
+				})
+				$('.result_close').click(function(){
+					$('.result').hide()
+				})
 	        }
 		})
 </script>
 </head>
 <body>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
 		<div class="black"></div>
 		<div class="text"></div>
 	<div class="call"></div>
@@ -264,5 +320,6 @@ background-image: url(img/call/100-02.png);
 	<div class="screen screen_4"><div class="inner"></div></div>
 	<div class="screen screen_5"><div class="inner"></div></div>
 	<div class="screen screen_6"><div class="inner"></div></div>
+	<div class="result"></div>
 </body>
 </html>

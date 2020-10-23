@@ -60,6 +60,7 @@ crossorigin="anonymous"></script>
 		margin-left: -12.5vw;
 		overflow: hidden;
 		border-radius: 50%;
+		pointer-events: auto
 	}
 .ppl_speaking_1,
 .ppl_speaking_2{
@@ -78,11 +79,23 @@ crossorigin="anonymous"></script>
 	z-index: 1000000000000000000000000;
 }
 .ppl_speaking_1{
-display: block;
-width: 94vw;
-top: 3vw;
+width: 60vw;
+background: white;
+border: 0.5vw solid red;
+margin: 2vw;
+padding: 2vw;
 box-sizing: border-box;
-color: white;}
+padding-bottom: 1.5vw;
+border-radius: 2vw;
+/* display: none; */
+top: 0;
+position: fixed;
+left: 2vw;
+transform: none;}
+.ppl_speaking_1 img{
+position: absolute;
+left: 100%;
+width: 20vw;}
 .ppl_speaking_2{
 top: auto;
 top: 125vw;
@@ -95,6 +108,14 @@ transform: none;
 box-sizing: border-box;
 font-size: 4.5vw;
 box-shadow: 0vw 0vw 3vw black;}
+.call{
+z-index: 10000000;
+position: absolute;
+background: red;
+border-radius: 50%;
+width: 20vw;
+height: 20vw;
+right: 0;}
 .words{
 	z-index: 10000;
 	position: fixed;
@@ -124,7 +145,7 @@ left: auto;
 }
 .words{
 	display: none;
-}.inner{background: linear-gradient(rgb(0, 0, 0), rgb(68, 68, 255) 2.1%, white)}
+}.inner{background: linear-gradient(rgb(0, 0, 0), rgb(0, 35, 255) 2.1%, rgb(72, 121, 255))}
 @keyframes rotating {
   from {
     top:-100vh;
@@ -141,67 +162,76 @@ left: auto;
  
         }, { passive: false });
 	$(document).ready(function(){
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 1 && stage < 6)||(stage > 10 && stage < 19)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 5)||(stage > 9 && stage < 18)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_1()}
+				if(stage == 2){text_2()}
+				if(stage == 3){text_3()}
+				if(stage == 4){text_4()}
+				if(stage == 5){text_5()}
+
+				if(stage == 10){text_6()}
+				if(stage == 11){text_7()}
+				if(stage == 12){text_8()}
+				if(stage == 13){text_9()}
+				if(stage == 14){text_10()}
+				if(stage == 15){text_11()}
+				if(stage == 16){text_12()}
+				if(stage == 17){text_13()}
+				if(stage == 18){text_14()}
+			}
+
+
 			text_1()
 			function text_1(){
 				$('.ppl_speaking_1').show()
-				$('.ppl_speaking_1').html('안녕하세요')
-				setTimeout(function(){
-					text_2()
-				},2500)
+				$('.ppl_speaking_1 span').html('안녕하세요')
 			}
 			function text_2(){
 				$('.ppl_speaking_1').show()
-				$('.ppl_speaking_1').html('저희는 달 뒷면에 지하 도시를 건설하는 팀입니다.')
-				setTimeout(function(){
-					text_3()
-				},2500)
+				$('.ppl_speaking_1 span').html('저희는 달 뒷면에 지하 도시를 건설하는 팀입니다.')
 			}
 			function text_3(){
 				$('.ppl_speaking_1').show()
-				$('.ppl_speaking_1').html('달에서 알 수 없는 유적지를 발굴했습니다.')
-				setTimeout(function(){
-					text_4()
-				},2500)
+				$('.ppl_speaking_1 span').html('달에서 알 수 없는 유적지를 발굴했습니다.')
 			}
 			function text_4(){
 				$('.ppl_speaking_1').hide()
 				$('.text').html('외계인의 흔적이다.')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_5()
-				},2500)
 			}
 			function text_5(){
 				$('.text').html('달을 터치해 유적이 뭔지 살펴보자.')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					// text_6()
-				},2500)
 			}
 			function text_6(){
+				stage = 10
 				$('.ppl_speaking').hide()
 				$('.text').html('도시를 건설하려 했던 흔적이 보인다.')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_7()
-				},2500)
 			}
 			function text_7(){
 				$('.ppl_speaking').hide()
 					$('.words').fadeIn(300)
 				$('.text').html('글을 발견했다.')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_8()
-				},2500)
 			}
 			function text_8(){
 				$('.ppl_speaking').hide()
 				$('.text').html('분석해보자.')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_9()
-				},2500)
 			}
 
 
@@ -212,36 +242,24 @@ left: auto;
 				$('.ppl_speaking_2').html('[분석결과]<br>우리는 생명체를 찾아다니던 중')
 				$('.story img').css({'opacity': 0})
 				$('.ufo').css({'opacity': 1})
-				setTimeout(function(){
-					text_10()
-				},2500)
 			}
 
 			function text_10(){
 				$('.ppl_speaking_2').html('[분석결과]<br>이곳에 오게 되었다.')
 				$('.story img').css({'opacity': 0})
 				$('.earth').css({'opacity': 1})
-				setTimeout(function(){
-					text_11()
-				},2500)
 			}
 
 			function text_11(){
 				$('.ppl_speaking_2').html('[분석결과]<br>세 번째 행성은 소행성 충돌로 인해 생명체가 죽어 나가고 있다.')
 				$('.story img').css({'opacity': 0})
 				$('.astroid').css({'opacity': 1})
-				setTimeout(function(){
-					text_12()
-				},2500)
 			}
 
 			function text_12(){
 				$('.ppl_speaking_2').html('[분석결과]<br>이대로 두면 이곳 생명체가 절멸할 것이다.')
 				$('.story img').css({'opacity': 0})
 				$('.earth').css({'opacity': 1})
-				setTimeout(function(){
-					text_13()
-				},2500)
 			}
 
 			function text_13(){
@@ -251,6 +269,9 @@ left: auto;
 				setTimeout(function(){
                 	location.replace("rocket.html");
 				},2500)
+			}
+			function text_14(){
+                	location.replace("rocket.html");
 			}
 
 
@@ -266,14 +287,21 @@ left: auto;
 </script>
 </head>
 <body>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
+    	<img src="../img/call.svg" class="call">
 	<img src="img/words-01.png" class="words">
     <div class="text"></div>
-	<div class="ppl_speaking_1"></div>
+	<div class="ppl_speaking_1">
+		
+			<img src="img/tail_red_str.png">
+			<span></span>
+	</div>
 	<div class="ppl_speaking_2"></div>
 	<div class="wrapper">
 		<img src="img/moon/img3.png" class="moon top">
 		<img src="img/moon/img2.png" class="moon mid">
-		<img src="img/moon/img1 copy.png" class="moon inner">
+		<img src="img/moon/img1.png" class="moon inner">
 		<img src="img/moon/img4.png" class="moon bot">
 	</div>
 	<div class="story">

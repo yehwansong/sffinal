@@ -46,40 +46,54 @@ crossorigin="anonymous"></script>
             $('.black').show()
             $('.text').addClass('texton center')
             $('.text').html('서윤은 먼저 우리가 살아야 한다며 정착하자는 편에 선다.')
-            setTimeout(function(){
-                text_1_1()
-            },3000)
         }
         function text_1_1(){
         	$('.black').show()
             $('.text').addClass('texton center')
             $('.text').html('그러나 나는 도저히 주인 있는 행성을 빼앗을 수 없다. 뜻이 같은 사람들과 새로운 행성을 찾아 다시 길을 떠난다.')
-            setTimeout(function(){
-                text_2()
-            },3000)
         }
         function text_2(){
         	$('.black').hide()
             $('.text').removeClass('center')
             $('.text').html('다만 우주선의 상태가 전보다 좋지 않아 가장 가까운 곳으로 떠나야 한다. ')
-            setTimeout(function(){
-                text_3()
-            },3000)
         }
         function text_3(){
         	$('.black').hide()
             $('.text').removeClass('texton')
-            $('img').addClass('inner')
+            $('.anotherplanet').addClass('inner')
             setTimeout(function(){
                 location.replace("Anotherplanet/index.html");
             },2000)
         }
+            var stage = 1
+            move(stage)
+            $('.arrow-left').click(function(){
+                if((stage > 1 && stage < 5)||(stage > 10 && stage < 13)||(stage > 20 && stage < 23)){stage--}
+                console.log(stage)
+                move(stage)
+                return false
+            })
+            $('.arrow-right').click(function(){
+                if((stage > 0 && stage < 4)||(stage > 9 && stage < 12)||(stage > 19 && stage < 22)){stage++}
+                console.log(stage)
+                move(stage)
+                return false
+            })
+            function move(stage){
+                console.log('hey!')
+                if(stage == 1){text_1()}
+                if(stage == 2){text_1_1()}
+                if(stage == 3){text_2()}
+                if(stage == 4){text_3()}
+            }
 	})
 </script>
 </head>
 <body>
+        <img class="text-arrow arrow-right" src="img/arrow-right.png">
+        <img class="text-arrow arrow-left" src="img/arrow-left.png">
 		<div class="black"></div>
 		<div class="text"></div>
-		<img src="img/anotherplanet.png">
+		<img src="img/anotherplanet.png" class="anotherplanet">
 </body>
 </html>

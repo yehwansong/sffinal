@@ -80,6 +80,7 @@ background: linear-gradient(white 30%, black 70%);
 <body>
 	<script type="text/javascript">
 		$(document).ready(function(){
+				var nextpage = false
 			$('.text').addClass('texton')
 			$('.text').html('두 번째 후보지는 적색왜성에 딸린 행성이었다.')
 
@@ -139,19 +140,52 @@ background: linear-gradient(white 30%, black 70%);
 					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 바라보고 있다.<br>그쪽은 언제나 낮이라 뜨겁다.')
 				}
 				if(rotatedamount > 3){
-					setTimeout(function(){
+					nextpage = true
+				}
+			});
+	        function text_3(){
+				if(nextpage){
 				        	$('.black').show()
-				            $('.text').addClass('texton center')
+				            $('.text').addClass('texton')
 				            $('.text').html('결국 이 행성을 포기하고 또 다른 행성을 찾아 여행을 떠난다.')
 				            setTimeout(function(){
 				            	location.replace("../call.html");
 				            },1500)
-					},1500)
+				}else{
+					text_1()
 				}
-			});
+			}
+			text_0()
+	        function text_0(){
+	            $('.text').html('두 번째 후보지는 적색왜성에 딸린 행성이었다.')
+	        }
+			text_1()
+	        function text_1(){
+	            $('.text').html('화면을 돌리면서 행성을 둘러보자')
+	        }
+
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage>1&&stage<4)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage>0&&stage<3)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				if(stage == 1){text_0()}
+				if(stage == 2){text_1()}
+				if(stage == 3){text_3()}
+			}
 
 		})
 	</script>
+<img class="text-arrow arrow-right" src="../img/arrow-right.png">
+<img class="text-arrow arrow-left" src="../img/arrow-left.png">
 		<div class="text"></div>
 	<div class="scene">
   <div class="cube show-right">

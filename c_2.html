@@ -10,141 +10,141 @@ src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"></script>
 <style type="text/css">
-	*{
-		margin:0;
-		padding: 0;
-		/*font-family: 'KoPub Batang', serif;*/
-		word-break: keep-all;
-	}
-	img{
-		width: 100vw;
-		height: 360vw;
-		position: relative;
-    -webkit-user-select:none;
-    -webkit-touch-callout:none;
-	}
-	html,body{
-		height: 100%;
-		width: 100vw;
-		overflow:hidden;
-	}
-	body{
-		background-image: url(img/travel.gif);
-		background-size: 101% 101%;
-		background-position: center;
-	}
-	img, .robotme{
-		height: auto;
-		width: 113.5%;
-		position: absolute;
-		left: 50vw;
-		transform: translateX(-50%);
-		top: 0;
-	}
+*{
+	margin:0;
+	padding: 0;
+	/*font-family: 'KoPub Batang', serif;*/
+	word-break: keep-all;
+}
+img{
+	width: 100vw;
+	height: 360vw;
+	position: relative;
+-webkit-user-select:none;
+-webkit-touch-callout:none;
+}
+html,body{
+	height: 100%;
+	width: 100vw;
+	overflow:hidden;
+}
+body{
+	background-image: url(img/travel.gif);
+	background-size: 101% 101%;
+	background-position: center;
+}
+img, .robotme{
+	height: auto;
+	width: 113.5%;
+	position: absolute;
+	left: 50vw;
+	transform: translateX(-50%);
+	top: 0;
+}
 .wrapper {
-width: 100vw;
-height: 100%;
-transition: 8s;
-top: 50%;
-transform: translateY(-50%);
-position: absolute;
-background-color: rgb(0, 0, 101);
-/* border-bottom: 0.5vw solid white; */
-opacity: 0;
-transition: 5s;
-transform: translateY(-50%);
-border-radius: 1vw;
-box-shadow: inset 0vh 0vh 2vh blue; 
-	}
-	.handbox,
-	.speakingbox{
-		position: absolute;
-		opacity: 0;
-		background: black;
-		color: white;
-		padding: 2vw;
-		box-sizing: border-box;
-text-align: center;
-	}
-	.handbox{
-		z-index: 1000;
-		opacity: 0;
-		overflow: hidden;
-		background-image: url(img/travel.gif);
-		background-size: cover;
-		background-position: center;
+	width: 100vw;
+	height: 100%;
+	transition: 8s;
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+	background-color: rgb(0, 0, 101);
+	/* border-bottom: 0.5vw solid white; */
+	opacity: 0;
+	transition: 5s;
+	transform: translateY(-50%);
+	border-radius: 1vw;
+	box-shadow: inset 0vh 0vh 2vh blue; 
+}
+.handbox,
+.speakingbox{
+	position: absolute;
+	opacity: 0;
+	background: black;
+	color: white;
+	padding: 2vw;
+	box-sizing: border-box;
+	text-align: center;
+}
+.handbox{
+	z-index: 1000;
+	opacity: 0;
+	overflow: hidden;
+	background-image: url(img/travel.gif);
+	background-size: cover;
+	background-position: center;
 
-	}
+}
 .handbox_1,
 .speakingbox_1{
-left: 4.5vw;
-top: 103.5vw;
-width: 27.5vw;
-height: 29vw;
+	left: 4.5vw;
+	top: 103.5vw;
+	width: 27.5vw;
+	height: 29vw;
 }
 .handbox_2,
 .speakingbox_2{
-left: 41vw;
-top: 8.8vw;
-width: 55.5vw;
-height: 28vw;
+	left: 41vw;
+	top: 8.8vw;
+	width: 55.5vw;
+	height: 28vw;
 }
 .handbox_3,
 .speakingbox_3{
-top: 76vw;
-left: 37.5vw;
-width: 27.5vw;
-height: 29vw;
+	top: 76vw;
+	left: 37.5vw;
+	width: 27.5vw;
+	height: 29vw;
 }
 .handbox_4,
 .speakingbox_4{
-top: 41vw;
-width: 56vw;
-left: 8vw;
-height: 27.8vw;
+	top: 41vw;
+	width: 56vw;
+	left: 8vw;
+	height: 27.8vw;
 }
 .handbox_5,
 .speakingbox_5{
-width: 28.5vw;
-left: 70vw;
-top: 42vw;
-height: 56vw;
+	width: 28.5vw;
+	left: 70vw;
+	top: 42vw;
+	height: 56vw;
 }
 .handbox_6,
 .speakingbox_6{
-top: 41vw;
-width: 56vw;
-left: 8vw;
-height: 27.8vw;
+	top: 41vw;
+	width: 56vw;
+	left: 8vw;
+	height: 27.8vw;
 }
 .handbox_7,
 .speakingbox_7{
-top: 112vw;
-width: 56.5vw;
-left: 38vw;
-height: 46.5vw;
+	top: 112vw;
+	width: 56.5vw;
+	left: 38vw;
+	height: 46.5vw;
 }
 .handbox_8,
 .speakingbox_8{
-left: 38vw;
-top: 112vw;
-width: 56vw;
-height: 47vw;
+	left: 38vw;
+	top: 112vw;
+	width: 56vw;
+	height: 47vw;
 }
 .handbox_3{
 	pointer-events: none;
 }
 .handbox_3_animate{
-background: red;
-opacity: 1 !important;
-border-radius: 1vw;
-pointer-events: all
+	background: red;
+	opacity: 1 !important;
+	border-radius: 1vw;
+	pointer-events: all
 }
 .door{
-position: absolute;
-left: 50vw;
-transform-origin: bottom;
-transition: 8s;
+	position: absolute;
+	left: 50vw;
+	transform-origin: bottom;
+	transition: 8s;
 	transform: translateX(-50%) scale(1.5);
 }
 .c_face{
@@ -152,21 +152,24 @@ transition: 8s;
 	transition: 3s
 }
 .selector{
-margin-left: 5vw;
-background: black;
-color: white !important;
-text-align: center;
-bottom: 5vw;
-visibility: hidden;}
+	margin-left: 5vw;
+	background: black;
+	color: white !important;
+	text-align: center;
+	bottom: 5vw;
+	visibility: hidden;
+}
 .selector_2{
-margin-left: 2.5vw;}
+	margin-left: 2.5vw;
+}
 .loading{
-transform: translate(-50%, -50%);
-left: 50%;
-top: 50%;
-position: absolute;
-text-transform: uppercase;
-z-index: 1}
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	text-transform: uppercase;
+	z-index: 1
+}
 .robotme{
 	z-index: 100;
 	opacity: 0
@@ -191,10 +194,10 @@ z-index: 1}
 	<script type="text/javascript">
 		var w = window.innerWidth
 		var h = window.innerHeight
-        // document.addEventListener('touchmove', function(e) {
-        //     e.preventDefault();
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
  
-        // }, { passive: false });
+        }, { passive: false });
 
 
 		function map_range(value, low1, high1, low2, high2) {
@@ -202,37 +205,41 @@ z-index: 1}
 		}
 
 		$(document).ready(function(){
-// var sizearray = [ 
-//     [103.5, 27.5, 4.5, 29],
-//     [8.8, 55.5, 41, 28],
-//     [76, 28, 37, 29],
-//     [41, 56, 8, 27.8],
-//     [42, 28.5, 70, 56],
-//     [41, 56, 8, 27.8],
-//     [112, 56.5, 38, 46.5],
-//     [112, 38, 56, 47] 
-//  ]
-// $('.handbox').each(function(){
-// 	var num = parseInt($(this).attr('class').split('handbox_')[1].split(' ')[0]) - 1
-// 	$(this).css({'top':sizearray[num][0]/100 * w + 'px'})
-// 	$(this).css({'width':sizearray[num][1]/100 * w + 'px'})
-// 	$(this).css({'left':sizearray[num][2]/100 * w + 'px'})
-// 	$(this).css({'height':sizearray[num][3]/100 * w + 'px'})
-// })
-// $('.speakingbox').each(function(){
-// 	var num = parseInt($(this).attr('class').split('speakingbox_')[1].split(' ')[0]) - 1
-// 	$(this).css({'top':sizearray[num][0]/100 * w + 'px'})
-// 	$(this).css({'width':sizearray[num][1]/100 * w + 'px'})
-// 	$(this).css({'left':sizearray[num][2]/100 * w + 'px'})
-// 	$(this).css({'height':sizearray[num][3]/100 * w + 'px'})
-// })
-			text_1()
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if(stage > 0){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if(stage < 14 || stage > 29){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_1()}
+				if(stage == 2){text_2()}
+				if(stage == 3){text_3()}
+				if(stage == 4){speaking_1()}
+				if(stage == 5){speaking_2()}
+				if(stage == 6){speaking_3()}
+				if(stage == 7){speaking_4()}
+				if(stage == 8){speaking_5()}
+				if(stage == 9){speaking_6()}
+				if(stage == 10){speaking_7()}
+				if(stage == 11){speaking_8()}
+				if(stage == 12){speaking_9()}
+				if(stage == 13){speaking_10()}
+				if(stage == 31){speaking_12()}
+				if(stage == 32){speaking_12_1()}
+				if(stage == 33){speaking_13()}
+			}
+
 			function text_1(){
+				console.log('hey!')
 				$('.wrapper').css({'opacity':'1'})
-				// $('.door').css({'transform': 'translateX(-50%) scale(1.09)'})
-				setTimeout(function(){
-					text_2()
-				},2500)
 			}
 			function text_2(){
 				$('.text').addClass('texton')
@@ -240,16 +247,10 @@ z-index: 1}
 				$('.text').addClass('texton')
 				$('.c_face').css({'opacity':1})
 				$('.text').removeClass('center')
-				setTimeout(function(){
-					text_3()
-				},2500)
 			}
 			function text_3(){
 				$('.text').html('하준?')
 				$('.text').addClass('texton')
-				setTimeout(function(){
-					speaking_1()
-				},2500)
 			}
 
 
@@ -258,81 +259,53 @@ z-index: 1}
 				$('.text').removeClass('texton')
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_1').css({'opacity':1})
-				setTimeout(function(){
-					speaking_2()
-				},2500)
 			}
 			function speaking_2(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_2').css({'opacity':1})
-				setTimeout(function(){
-					speaking_3()
-				},2500)
 			}
 			function speaking_3(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_3').css({'opacity':1})
-				setTimeout(function(){
-					speaking_4()
-				},2500)
 			}
 			function speaking_4(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_4').css({'opacity':1})
-				setTimeout(function(){
-					speaking_5()
-				},2500)
 			}
 			function speaking_5(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_5').css({'opacity':1})
-				setTimeout(function(){
-					speaking_6()
-				},2500)
 			}
 			function speaking_6(){
 				$('.speakingbox').css({'opacity':0})
-				$('.speakingbox_6').css({'opacity':1})
-				setTimeout(function(){
-					speaking_7()
-				},2500)
+				$('.speakingbox_6').css({'opacity':1}) 
 			}
 			function speaking_7(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_7').css({'opacity':1})
-				setTimeout(function(){
-					speaking_8()
-				},2500)
 			}
 			function speaking_8(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_8').css({'opacity':1})
-				setTimeout(function(){
-					speaking_9()
-				},2500)
+				$('.text').removeClass('texton center')
+				$('.black').hide()
 			}
 			function speaking_9(){
 				$('.speakingbox').css({'opacity':0})
 				$('.text').html('나는 하준의 권유를 받아들여, 정신을 컴퓨터에 업로드해 하준과 함께 하기로 한다.')
 				$('.text').addClass('texton center')
 				$('.black').show()
-				setTimeout(function(){
-					speaking_10()
-				},2500)
 			}
 			function speaking_10(){
 				$('.black').hide()
 				$('.text').removeClass('texton center')
-					$('.handbox_3').addClass('handbox_3_animate')
-				setTimeout(function(){
-					// speaking_9()
-				},2500)
+				$('.handbox_3').addClass('handbox_3_animate')
 			}
 			var counter_op = 0
 			$('.handbox_3').bind('touchstart', function(e){
 				console.log('--------------')
 				$('.speakingbox').css({'opacity':0})
-				$('.speakingbox').html('LOADING')
+				// $('.speakingbox').html('LOADING')
 				setTimeout(function(){
 					$('.robotme_1').css({'opacity':1})
 				},1000)
@@ -355,35 +328,90 @@ z-index: 1}
 					speaking_11()
 				},7000)
 			})
-
 			function speaking_11(){
+				stage = 30
 				$('.black').hide()
 				$('.text').addClass('texton')
 				$('.robotme_1').hide()
 				$('.robotme_5').hide()
 				$('.robotme_4').hide()
-				$('.text').html('나는 하준과 하나로 융합했다.')
-				setTimeout(function(){
-					speaking_12()
-				},2500)
+				$('.text').html('얼마 뒤에는 하준과 하나로 융합했다.')
 			}
 			function speaking_12(){
 				$('.black').hide()
 				$('.text').addClass('texton')
 				$('.text').html('그 결과 그동안 하준이 겪은 모든 경험을 나의 것으로 만들었다.')
-				setTimeout(function(){
-					speaking_13()
-				},2500)
+			}
+			function speaking_12_1(){
+				$('.black').hide()
+				$('.text').addClass('texton')
+				$('.text').html('달에서 발견한 외계인의 흔적에 관한 이야기도 들었다.')
 			}
 			function speaking_13(){
 				$('.black').hide()
 				$('.text').addClass('texton')
-				$('.text').html('나와 하준은 먼 우주를 향해 여행을 떠난다.')
+				$('.text').html('나와 하준은 함께 다른 지성 종족을 찾아 먼 우주를 향해 여행을 떠난다.')
 				setTimeout(function(){
 					$('.handbox_3').removeClass('handbox_3_animate')
 					$('.handbox').css({'opacity':1})
-				$('.text').html('THE END')
-				// $('.text').css({'background':'transparent'})
+					$('.text').html('THE END')
+
+					$('.text').addClass('center theend')
+					$('.result').append('\
+				        <img src="../img/close.png" class="close result_close">\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/1.PNG)"></div>\
+						<span>XX년, 지구에서 살던 나는</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/2.PNG)"></div>\
+						<span>서윤을 따라 외계행성으로 떠났다.</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/3.PNG)"></div>\
+						<span>외계행성에 도착하니</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/4.PNG)"></div>\
+						<span>지구와 환경이 유사했다.</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/5.PNG)"></div>\
+						<span>타 생명체의 터전을 뺏지 않고 다른 행성을 찾아 나선다.</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/6.PNG)"></div>\
+						<span>그렇게 찾은 행성은</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/7.PNG)"></div>\
+						<span>살기에 적합하지 않았다.</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/8.PNG)"></div>\
+						<span>다시 여행을 떠나던 중</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/9.PNG)"></div>\
+						<span>준을 만났고</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/10.PNG)"></div>\
+						<span>나는 기계가 되어 준과 융합했다.</span>\
+						</div>\
+						<div class="box">\
+							<div class="inner_img" style="background-image : url(result_com/11.PNG)"></div>\
+							<span>나와 하준은 함께 다른 지성 종족을 찾아 여행을 떠난다.</span>\
+						</div>\
+					')
+					$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+					$('.sum').click(function(){
+						console.log
+						$('.result').show()
+					})
+					$('.result_close').click(function(){
+						$('.result').hide()
+					})
 				},2500)
 			}
 			var counter = 0
@@ -421,6 +449,8 @@ z-index: 1}
 			}
 		})
 	</script>
+        	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+        	<img class="text-arrow arrow-left" src="img/arrow-left.png">
         <div class="text"></div>
         <div class="black"></div>
         <div class="wrapper">
@@ -449,10 +479,11 @@ z-index: 1}
 			<div class="speakingbox speakingbox_2">이미 정신을 컴퓨터에 업로드해서</div>
 			<div class="speakingbox speakingbox_3">죽지 않고 살아갈 수 있는 몸이 되어 있어.</div>
 			<div class="speakingbox speakingbox_4">너는 광속에 가깝게 수백 년 동안 여행하고 있구나.</div>
-			<div class="speakingbox speakingbox_5">그동안 태양계의 인류는 지구를 아예 버렸다.</div>
+			<div class="speakingbox speakingbox_5">인간은 사실상 지구를 포기했어.</div>
 			<div class="speakingbox speakingbox_6">화성이나 타이탄, 소행성대 등 다양한 곳에 거주지를 짓고 살아가고 있어.</div>
 			<div class="speakingbox speakingbox_7">이미 인공두뇌에 정신까지 완전히 옮길 수 있는 기술이 개발되었어. </div>
 			<div class="speakingbox speakingbox_8">빨간 화면에 손가락을 대면 정신을 컴퓨터에 업로드해 줄게.</div>
         </div>
+	<div class="result"></div>
 </body>
 </html>

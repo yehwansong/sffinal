@@ -18,13 +18,18 @@ crossorigin="anonymous"></script>
 		height: 100%
 	}
 	.son{
-		width: 100vw;
+		width: 150vw;
 		position: fixed;
-		top: 0
+		top: 0;
+		transform-origin: left;
+		transition: 10s
+	}
+	.son_ani{
+		transform: rotate(22deg);
 	}
 	.sky{
 		position: fixed;
-		height: 80%;
+		height: 100%;
 		top: 0;
 		left: 0;
   		animation: example 10s infinite linear
@@ -39,14 +44,17 @@ transition:3s cubic-bezier(.43,.01,1,.53);
 	}
 	.hos{
 		width: 100vw;
-		height: 100%;
+		height: 470vw;
 		position: fixed;
-		top: 0;
+		top: calc(-470vw + 100%);
 		background-image: url('img/mars_story-hos.png');
-		background-size: cover;
-		background-position: center;
+		background-size: 100vw;
+		background-position: top;
 		display: none;
-		z-index: 100
+		z-index: 100;
+	}
+	.hos_animate{
+		top: calc(-260vw + 100%)
 	}
 	.wife{
 		background-image: url('img/mars_story-wife.png');
@@ -56,7 +64,8 @@ transition:3s cubic-bezier(.43,.01,1,.53);
 		width: 20vw;
 		height: 20vw;
 		border-radius: 50%;
-		right: 0
+		right: 0;
+		top: 0
 	}
 .speaking{
 	z-index: 10000000;
@@ -124,7 +133,7 @@ transition:3s cubic-bezier(.43,.01,1,.53);
 	opacity: 1
 }
 .wife_speaking{
-width: 75vw;
+width: 60vw;
 background: white;
 border: 0.5vw solid red;
 margin: 2vw;
@@ -133,8 +142,14 @@ box-sizing: border-box;
 padding-bottom: 1.5vw;
 border-radius: 2vw;
 display: none;
+top: 0;
+position: fixed;
 	/* The animation code */
 }
+.wife_speaking img{
+position: absolute;
+left: 100%;
+width: 20vw;}
 .selector{
 margin-left: 5vw;
 background: black;
@@ -150,6 +165,42 @@ margin-left: 2.5vw;}
 	50%  {transform: translateX(-80vw)}
 	100% {transform: translateX(0vw)}
 }
+	.button{
+width: 15vw;
+height: 15vw;
+position: absolute;
+z-index: 10000;
+/*background: red;*/
+pointer-events: auto;
+display: none;
+	}
+	.button_1{left: 40vw;
+bottom: 67vw;}
+.button_2{left: 26vw;
+bottom: 52vw;}
+.close_eye{
+width: 100vw;
+height: 130vw;
+position: absolute;
+bottom: 0;
+background: linear-gradient(to top, black 60%, transparent);
+display: none;}
+.red_light{
+position: absolute;
+bottom: 130vw;
+width: 20vw;
+height: 20vw;
+background: radial-gradient(red 31.09%, transparent 63.45%);
+right: 0vw;
+transition: 1.5s;
+display: none;
+  		animation: example_1 3s infinite linear;
+  		pointer-events: auto}
+@keyframes example_1 {
+	0%   {opacity: 0}
+	50%  {opacity: 1}
+	100% {opacity: 0}
+}
 </style>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
 <link rel='stylesheet' href='all.css' type='text/css' media='all' />
@@ -158,27 +209,46 @@ margin-left: 2.5vw;}
 <body>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			setTimeout(function(){
-				 text_0()
-			},3000)
+			$('.son').addClass('son_ani')
+			var stage = 1
+			move(stage)
+			$('.arrow-left').click(function(){
+				if((stage > 1 && stage < 5)||(stage > 10 && stage < 14)||(stage > 20 && stage < 26)){stage--}
+				console.log(stage)
+				move(stage)
+			})
+			$('.arrow-right').click(function(){
+				if((stage > 0 && stage < 4)||(stage > 9 && stage < 13)||(stage > 19 && stage < 25)){stage++}
+				console.log(stage)
+				move(stage)
+			})
+			function move(stage){
+				console.log('hey!')
+				if(stage == 1){text_0()}
+				if(stage == 2){text_1()}
+				if(stage == 3){text_2()}
+
+				if(stage == 10){text_4()}
+				if(stage == 11){text_5()}
+				if(stage == 12){text_6()}
+				if(stage == 13){text_7()}
+
+				if(stage == 20){text_11()}
+				if(stage == 21){text_12()}
+				if(stage == 22){text_13()}
+				if(stage == 23){text_14()}
+				if(stage == 24){text_15()}
+				if(stage == 25){text_16()}
+			}
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+ 
+        }, { passive: false });
+
+
+
         function text_0(){
             $('.text').addClass('texton')
-            $('.text').addClass('center')
-            $('.text').html('우리는 결혼을 했고 이내 귀여운 아들까지 가지게 되었다.')
-            setTimeout(function(){
-                text_1()
-            },2500)
-        }
-        function text_1(){
-            $('.text').removeClass('center')
-            $('.text').addClass('texton')
-        	$('.black').fadeOut(300)
-            $('.text').html('그러던 어느날')
-            setTimeout(function(){
-                text_2()
-            },2500)
-        }
-        function text_2(){
             $('.text').html('저게 뭐지?')
             setTimeout(function(){
 				$('.junk').css({'transform':'scale(7)'})
@@ -200,64 +270,167 @@ margin-left: 2.5vw;}
 			$('.black').fadeIn(100)
 			$('.hos').fadeIn(400)
 			$('.wife').fadeIn(400)
-            setTimeout(function(){
-                text_5()
-            },2500)
+			$('.button').show()
+			stage = 10
         }
         function text_5(){
             $('.text').html('')
             $('.text').removeClass('texton')
             $('.text').removeClass('center')
 			$('.black').fadeOut(400)
-            setTimeout(function(){
-                text_6()
-            },3000)
-        }
-        function text_6(){
             $('.text').addClass('texton')
             $('.text').html('하준에게 데려가 아들의 의식을 기계로 옮기면 아들은 기계 몸으로나마 계속 살아갈 수 있다.')
-            setTimeout(function(){
-                text_7()
-            },2500)
+        }
+        function text_6(){
+            $('.text').html('하지만 개척과 모험을 중시하는 소행성대인 아내는 기계로 사느니 죽는 게 낫다고 주장한다.')
+            	$('.wife_speaking').show()
+            	$('.wife_speaking span').html('사람의 삶이 원래 다 그런 거에요. 받아들이는게 좋겠어요.')
         }
         function text_7(){
-            $('.text').html('하지만 개척과 모험을 중시하는 소행성대인 아내는 기계로 사느니 죽는 게 낫다고 주장한다.')
-            setTimeout(function(){
-                text_8()
-            },2500)
-        }
-        function text_8(){
-            $('.text').html(' ')
-            $('.text').removeClass('texton')
-            $('.wife_speaking').show()
-            $('.wife_speaking').html('사람의 삶이 원래 다 그런 거에요. 받아들이는게 좋겠어요.')
-            setTimeout(function(){
-                text_9()
-            },2500)
-        }
-        function text_9(){
+			$('.wife').hide()
+            	$('.wife_speaking').hide()
+            	$('.red_light').show()
             $('.text').addClass('texton')
-            $('.text').html('나는 어떻게 하는게 좋을까?')
-            setTimeout(function(){
-                text_10()
-            },2500)
+            $('.text').html('나는 어떻게 하는게 좋을까? 아들을 살리려면 붉은 빛을 따라 철수를 찾으러 가자. 죽음을 택하려면, 아들의 두 눈을 두 손가락으로 덮어주자.')
         }
-        function text_10(){
-            $('.text').removeClass('texton')
-        	$('.selector').css({'visibility':'visible'})
-        }
+		$('.black').hide()
+		var button_1_on = false
+		var button_2_on = false
+			$('.button_1').bind('touchstart', function(e){
+				button_1_on = true
+			})
+			$('.button_2').bind('touchstart', function(e){
+				button_2_on = true
+			})
+			$('.button_1').bind('touchend', function(e){
+				button_1_on = false
+			})
+			$('.button_2').bind('touchend', function(e){
+				button_2_on = false
+			})
+			$('.button').bind('touchstart', function(e){
+				if(button_1_on && button_2_on && e.originalEvent.touches.length>1 && stage == 13){
+					console.log('hey')
+					$('.close_eye').fadeIn(800)
+					setTimeout(function(){
+						$('.hos').animate({'top':0},20000)
+					},300)
+					text_11()
+				}
+			})
+
+
+
+
+	        function text_11(){
+	        	$('.red_light').css({'pointer-events':'none'})
+	        	stage = 20
+	            $('.text').addClass('texton')
+	            $('.text').html('나는 소행성대의 문화에 따라 아들의 죽음을 지켜본다.')
+	        }
+	        function text_12(){
+	        	$('.death').addClass('img_animate')
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('위험한 우주에서 생존을 위해 모든 것과 싸우며 살아가는 사람들에게 죽음은 자연스러운 것이다.')
+        	}
+	        function text_13(){
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('나는 기계인간과는 또 다른 새로운 우주 세대의 인간을 바라보며 외로움을 느끼지만,')
+        	}
+	        function text_14(){
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('한없이 진취적이고 모험을 두려워하지 않는 그들을 보며')
+        	}
+	        function text_15(){
+            	$('.text').removeClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('한편으로는 인류가 앞으로 멸망할 일은 없을지도 모르겠다고 생각한다. ')
+        	}
+	        function text_16(){
+            	$('.text').addClass('center')
+            	$('.black').fadeOut(300)
+	            $('.text').html('The End')
+				$('.text').addClass('center theend')
+				$('.result').append('\
+		        	<img src="../img/close.png" class="close result_close">\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/1.PNG)"></div>\
+						<span>XX년, 지구에서 살던 나는</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/2.PNG)"></div>\
+						<span>준을 따라 태양계에 남기로 결정한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/3.PNG)"></div>\
+						<span>우주 정류장에서 우주 쓰레기에 맞는 사고를 당한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/4.PNG)"></div>\
+						<span>순수 인간주의자에게 납치를 당하지만</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/5.PNG)"></div>\
+						<span>철수의 도움으로 탈출하고</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/6.PNG)"></div>\
+						<span>인간으로 남아 화성으로 가기로 한다.</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/7.PNG)"></div>\
+						<span>화성에서 인연을 만나</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/8.PNG)"></div>\
+						<span>아들을 낳지만 </span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/9.PNG)"></div>\
+						<span>아들은 우주쓰레기에 맞는 사고를 당하고</span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/10.PNG)"></div>\
+						<span>소행성대의 문화에 따라 </span>\
+					</div>\
+					<div class="box">\
+						<div class="inner_img" style="background-image : url(result_death/11.PNG)"></div>\
+						<span>아들의 죽음을 지켜본다.</span>\
+					</div>\
+				')
+				$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+				$('.sum').click(function(){
+					console.log
+					$('.result').show()
+				})
+				$('.result_close').click(function(){
+					$('.result').hide()
+				})
+        	}
+
 		})
 	</script>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
         <div class="text"></div>
 	<div class="black"></div>
 	<img src="img/mars_story-sky.jpg" class="sky">
 	<img src="img/mars_story-junk.png" class="junk">
 	<img src="img/mars_story-son.png" class="son">
 	<div class="hos">
+		<a href="selector_sonlive.html" class="red_light"></a>
+		<div class="close_eye"></div>
+		<div class="button button_1"></div>
+		<div class="button button_2"></div>
 		<div class="wife"></div>
-		<div class="wife_speaking"></div>
+		<div class="wife_speaking">
+			<img src="img/tail_red_str.png">
+			<span></span>
+		</div>
 	</div>
-			<a href="mars_death.html" class="selector ">아들의 죽음을 선택한다. </a>
-			<a href="mars_alive.html" class="selector selector_2">아들의 생존을 선택한다.</a>
+	<div class="result"></div>
 </body>
 </html>

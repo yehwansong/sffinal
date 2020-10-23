@@ -1,0 +1,351 @@
+<html>
+<head>
+<title>Sketchpad</title>
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+    }
+    body{
+        background-image: url('img/newplanet_bg-01.png');
+        background-size: 100vw;
+        background-position: top;
+    }
+    .wrapper>div{
+        width: 16.65vw;
+        height:  16.65vw;
+        border:0.1vw solid black;
+        position: absolute;
+    }
+    .left_2{
+        left:16.65vw
+    }
+    .left_3{
+        left:33.1vw
+    }
+    .left_4{
+        left:49.95vw
+    }
+    .left_5{
+        left:66.6vw
+    }
+    .left_6{
+        left:83.25vw
+    }
+    .top_2{
+        top:16.65vw
+    }
+    .top_3{
+        top:33.1vw
+    }
+    .top_4{
+        top:49.95vw
+    }
+    .top_5{
+        top:66.6vw
+    }
+    .top_6{
+        top:83.25vw
+    }
+    .top_7{
+        top:100vw
+    }
+    .top_8{
+        top:116.655vw
+    }
+    .top_9{
+        top:133.1vw
+    } 
+    .top_10{
+        top:149.95vw
+    } 
+    .top_11{
+        top:166.6vw
+    } 
+    .selected{
+        background-color:rgb(157, 226, 20);
+    }
+    .wrapper img{
+        width: 100%;
+        position:absolute;
+        bottom: 0;
+        left: 0
+    }
+    .building{
+        opacity: 0
+    }
+    .selected img{
+        opacity: 0
+    }
+    .selected .building{
+        opacity: 1
+    }
+    .popup,
+    .popup2{
+        width: 90vw;
+        background:black;
+        left: 5vw;
+        position: fixed;
+        top: 5vw;
+        z-index: 100000;
+        z-index: 100000;
+        padding: 5%;
+        box-sizing: border-box;
+        display: none;
+        border-radius: 2vw;
+    }
+    .popup div,
+    .popup2 div{
+        color:white;
+        font-size: 5vw;
+        text-align: center;
+    }
+    .popup .closebutton,
+    .popup2 .closebutton2{
+        display: inline-block;
+        left: 50%;
+        position: relative;
+        transform: translateX(-50%);
+        border: 0.5vw solid white;
+        padding: 2vw;
+        padding-bottom: 1.5vw;
+        border-radius: 2vw;
+    }
+    .creature_2{
+        transition: 1s;
+    }
+    .scale{
+        transform: scale(3);
+    }
+    .warning{
+width: 10vw;
+background: red;
+height: 10vw;
+line-height: 2;
+border-radius: 50%;
+left: 50%;
+position: relative;
+transform: translateX(-50%);
+margin-bottom: 3vw;}
+canvas{
+    z-index: 10000000000;
+}</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var img_array =[
+        '<img src="Newplanet/images/bird.png">  ',
+        '<img src="Newplanet/images/din_1-clip.png">',
+        '<img src="Newplanet/images/din_2-clip.png">',
+        '<img src="Newplanet/images/din_3-clip.png">',
+        '<img src="Newplanet/images/frog-clip.png">',
+        '<img src="Newplanet/images/monkey_2.png">',
+        '<img src="Newplanet/images/monkey_3.png">',
+        '<img src="Newplanet/images/tree.png">    ',
+        '<img src="Newplanet/images/fox-clip.png">',
+        '','',''
+        ]
+        $('.creature').each(function(){
+            if($(this).hasClass('creature_2')){
+            }else{
+                $(this).append(img_array[Math.floor(Math.random()*10)])
+            }
+        })
+$(button)
+
+        var canvas = document.getElementsByTagName('canvas')[0];
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    })
+document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+
+}, { passive: false });
+    var canvas,ctx;
+    var mouseX,mouseY,mouseDown=0;
+    function drawDot(ctx,x,y,size) {
+        r=0; g=0; b=0; a=255;
+        ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI*2, true); 
+        ctx.closePath();
+        ctx.fill();
+    } 
+    function clearCanvas(canvas,ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    function sketchpad_mouseDown() {
+        mouseDown=1;
+        drawDot(ctx,mouseX,mouseY,12);
+    }
+    function sketchpad_mouseUp() {
+        mouseDown=0;
+    }
+    function sketchpad_mouseMove(e) { 
+        getMousePos(e);
+        if (mouseDown==1) {
+            drawDot(ctx,mouseX,mouseY,12);
+        }
+    }
+    function getMousePos(e) {
+        if (!e)
+            var e = event;
+
+        if (e.offsetX) {
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+        }
+        else if (e.layerX) {
+            mouseX = e.layerX;
+            mouseY = e.layerY;
+        }
+     }
+
+
+    // Set-up the canvas and add our event handlers after the page has loaded
+    function init() {
+        // Get the specific canvas element from the HTML document
+        canvas = document.getElementById('sketchpad');
+
+        // If the browser supports the canvas tag, get the 2d drawing context for this canvas
+        if (canvas.getContext)
+            ctx = canvas.getContext('2d');
+
+        // Check that we have a valid context to draw on/with before adding event handlers
+        if (ctx) {
+            canvas.addEventListener('touchstart', sketchpad_mouseDown, false);
+            canvas.addEventListener('touchmove', sketchpad_mouseMove, false);
+            window.addEventListener('touchend', sketchpad_mouseUp, false);
+        }
+    }
+</script>
+
+<style>
+/* Some CSS styling */
+#sketchpadapp {
+    /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#sketchpad {
+    float:left;
+    border:2px solid #888;
+    border-radius:4px;
+    position:relative; /* Necessary for correct mouse co-ords in Firefox */
+}
+</style>
+</head>
+
+<body onload="init()">
+    <div id="sketchpadapp">
+        <div class="leftside1">
+             
+
+             <input type="submit" value="Clear Sketchpad" onclick="clearCanvas(canvas,ctx);">
+        </div>
+        <div class="rightside">
+            <canvas id="sketchpad">
+            </canvas>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="box creature left_1 top_1"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_1"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_3 top_1"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_4 top_1"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_5 top_1"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_6 top_1"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_2"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_2"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_3 top_2"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_4 top_2"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_5 top_2"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_6 top_2"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_3"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_3"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_3 top_3"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_4 top_3"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_5 top_3"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_3"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_4"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_4"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_3 top_4"><img class="building" src="img/building.png"></div>
+        <div class="box creature creature_2 left_4 top_4"><img class="building" src="img/building.png"><img src="../img/earlyhuman.png"></div>
+        <div class="box left_5 top_4"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_4"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_5"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_5"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_3 top_5"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_5"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_5"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_5"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_6"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_6"><img class="building" src="img/building.png"></div>
+        <div class="box left_3 top_6"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_6"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_6"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_6"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_7"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_7"><img class="building" src="img/building.png"></div>
+        <div class="box left_3 top_7"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_7"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_7"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_7"><img class="building" src="img/building.png"></div>
+
+        <div class="box creature left_1 top_8"><img class="building" src="img/building.png"></div>
+        <div class="box creature left_2 top_8"><img class="building" src="img/building.png"></div>
+        <div class="box left_3 top_8"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_8"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_8"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_8"><img class="building" src="img/building.png"></div>
+
+        <div class="box left_1 top_9"><img class="building" src="img/building.png"></div>
+        <div class="box left_2 top_9"><img class="building" src="img/building.png"></div>
+        <div class="box left_3 top_9"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_9"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_9"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_9"><img class="building" src="img/building.png"></div>
+
+        <div class="box left_1 top_10"><img class="building" src="img/building.png"></div>
+        <div class="box left_2 top_10"><img class="building" src="img/building.png"></div>
+        <div class="box left_3 top_10"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_10"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_10"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_10"><img class="building" src="img/building.png"></div>
+
+        <div class="box left_1 top_11"><img class="building" src="img/building.png"></div>
+        <div class="box left_2 top_11"><img class="building" src="img/building.png"></div>
+        <div class="box left_3 top_11"><img class="building" src="img/building.png"></div>
+        <div class="box left_4 top_11"><img class="building" src="img/building.png"></div>
+        <div class="box left_5 top_11"><img class="building" src="img/building.png"></div>
+        <div class="box left_6 top_11"><img class="building" src="img/building.png"></div>
+    </div>
+</body>
+</html>

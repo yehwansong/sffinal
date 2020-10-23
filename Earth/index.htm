@@ -16,7 +16,9 @@ html{
     margin: 0;
     overflow: hidden;
 }
+*{pointer-events: auto !important;}
     #panorama, body{
+        pointer-events: auto;
         width: 100vw;
         height: 100vh;
         left: 0;
@@ -54,8 +56,8 @@ html{
         width: 100%
     }.custom-hotspot-extra,
     .custom-hotspot{
-        height: 12vh;
-        width: 12vh;
+        height: 18vh;
+        width: 18vh;
     }
     .hotspot2{
         height: 24vh;
@@ -66,8 +68,8 @@ html{
         width: 20vh;
     }
     .hotspot4{
-        height: 8vh;
-        width: 8vh;
+        height:18vh;
+        width:18vh;
     }
     .hotspot5{
         height: 24vh;
@@ -79,11 +81,11 @@ html{
     }
     .hotspot7{
         height: 15vh;
-        width: 10vh;
+        width: 30vh;
     }
     .hotspot8{
         height: 15vh;
-        width: 10vh;
+        width: 13vh;
     }
     .hotspot9{
         height: 30vh;
@@ -176,9 +178,329 @@ top: 120vw;}
 .y .speaking{
 left: 75vw;
 top: 120vw;}
-.text img{
-    width: 100%
+.friends{
+    width: 50%;
+    float: left;
+    transition: transform 2s;
+width: 50vw;
+float: left;
+transition: transform 2s;
+position: fixed;
+top: calc(50% - 45vw);
+left: 0;
+z-index: 100000000;
+display: none;
 }
+.y{
+    right: 0;
+    left: auto;
+}
+.animate_1{
+    transform: translateX(-150vw)
+}
+.animate_2{
+    transform: translateY(-150vw)
+}
+.text-arrow{
+display: none;
+}
+    .img,
+    .img_bg,
+    .foot_wrapper{
+        background-image: url(../img/earth_walk.png);
+        background-size: cover;
+        background-position: 0;
+        position: fixed;
+        height: 300vw;
+        width: 300vw;
+        bottom: -0%;
+        right: -0vw;
+        z-index: 100000;
+        transition: 0.5s
+    }
+    .img_bg{
+        background-image: url(../img/earthflat_n.png);
+        z-index: 0
+    }
+    .foot_wrapper{
+        background-image: none;
+        position: absolute;
+        height: 300vw;
+        width: 300vw;
+        z-index: 100;
+        display: none;
+    }
+
+    .left .img{
+        transform: skewX(-30deg);
+        transform-origin: right bottom
+    }
+    .right .img{
+        transform: skewX(30deg);
+        transform-origin: left bottom
+    }
+    .foot{
+height: 25vw !important;
+width: 25vw !important;
+/* background-color: red; */
+background-size: auto 50%;
+position: absolute;
+background-position: right;
+background-repeat: no-repeat;
+z-index: 100;
+/* filter: invert(); */
+pointer-events: auto !important;
+touch-action: manipulation;
+margin-left: -5vw;
+margin-top: -5vw;
+    }
+    .foot_front{
+        background-image: url(../img/footprint-01.svg) !important;
+        background-position: 47%;
+    }
+    .foot_side{
+        background-image: url(../img/footprint-02.svg) !important;
+        background-position: 60%;
+        /*filter: invert(0.4);*/
+    }
+    .foot_front_1 {
+left: 246vw;
+top: 254vw;
+transform: scaleX(-1);
+  }
+  .foot_front_2 {
+left: 247vw;
+top: 234vw;
+  }
+.foot_front_3 {
+left: 244vw;
+top: 217vw;
+transform: rotate(43deg) scaleX(-1);
+}
+.foot_front_4 {
+left: 268vw;
+top: 212vw;
+transform: rotate(49deg);
+}
+.foot_front_5 {
+left: 274vw;
+top: 196vw;
+transform: rotate(59deg) scaleX(-1);
+}
+.foot_front_6 {
+left: 288vw;
+top: 182vw;
+transform: rotate(-3deg);
+}
+.foot_front_7 {
+left: 281vw;
+top: 164vw;
+transform: rotate(-14deg) scaleX(-1);
+}
+.foot_front_8 {
+left: 280vw;
+top: 148vw;
+transform: rotate(-51deg);
+}
+.foot_front_9 {
+left: 262vw;
+top: 153vw;
+transform: rotate(-93deg) scaleX(-1);
+}
+.foot_front_10{
+left: 243vw;
+top: 146vw;
+transform: rotate(257deg);
+}
+.foot_front_11 {
+left: 226vw;
+top: 155vw;
+transform: rotate(-64deg) scaleX(-1);
+}
+.foot_front_12 {
+left: 219vw;
+top: 140vw;
+transform: rotate( 292deg)
+}
+.foot_front_13 {
+left: 203vw;
+top: 137vw;
+transform: rotate(-18deg) scaleX(-1);
+}
+.foot_front_14 {
+left: 209vw;
+top: 115vw;
+transform: rotate(-8deg);
+}
+.foot_front_15 {
+left: 203vw;
+top: 94vw;
+transform: rotate(43deg) scaleX(-1);
+}
+.foot_front_16 {
+left: 226vw;
+top: 85vw;
+transform: rotate(25deg);
+}
+.foot_front_17 {
+left: 225vw;
+top: 65vw;
+transform: rotate(42deg) scaleX(-1);
+}
+.foot_front_18 {
+left: 240vw;
+top: 54vw;
+transform: scaleX(1);
+}
+.foot_front_19 {
+left: 229vw;
+top: 36vw;
+transform: scaleX(-1)
+}
+.foot_front_20 {
+left: 239vw;
+top: 21vw;
+transform: rotate(-30deg);
+}
+.foot_front_21 {
+left: 222vw;
+top: 12vw;
+transform: scaleX(-1);
+}
+
+
+
+.foot_side_1 {
+transform: rotate(-90deg) scaleX(-1);
+left: 284vw;
+top: 221vw;
+}
+.foot_side_2 {
+left: 271vw;
+top: 234vw;
+transform: rotate(-88deg);
+}
+.foot_side_3 {
+left: 249vw;
+top: 228vw;
+transform: rotate(-138deg) scaleX(-1);
+}
+.foot_side_4 {
+left: 249vw;
+top: 228vw;
+transform: rotate(-138deg) scaleX(-1);
+}
+.foot_side_5 {
+left: 219vw;
+top: 228vw;
+transform: rotate(-66deg) scaleX(-1);
+}
+.foot_side_6 {
+left: 197vw;
+top: 224vw;
+transform: rotate(-25deg);
+}
+.foot_side_7 {
+left: 198vw;
+top: 199vw;
+transform: rotate(-49deg) scaleX(-1);
+}
+.foot_side_8 {
+left: 177vw;
+top: 200vw;
+transform: rotate(-55deg);
+}
+.foot_side_9 {
+left: 167vw;
+top: 184vw;
+transform: rotate(-103deg) scaleX(-1);
+}
+.foot_side_10 {
+position: absolute;
+left: 155vw;
+top: 202vw;
+transform: rotate(-127deg);
+}
+.foot_side_11 {
+position: absolute;
+left: 137vw;
+top: 206vw;
+transform: rotate(-178deg) scaleX(-1);
+}
+.foot_side_12 {
+position: absolute;
+left: 154vw;
+top: 221vw;
+transform: rotate(-200deg);
+}
+.foot_side_13 {
+position: absolute;
+left: 144vw;
+top: 235vw;
+transform: rotate(-201deg) scaleX(-1);
+}
+.foot_side_14 {
+position: absolute;
+left: 153vw;
+top: 255vw;
+transform: rotate(-146deg);
+}
+.foot_side_15 {
+position: absolute;
+left: 135vw;
+top: 255vw;
+transform: rotate(-139deg) scaleX(-1);
+}
+.foot_side_16 {
+position: absolute;
+left: 115vw;
+top: 257vw;
+transform: rotate(-58deg);
+}
+.foot_side_17 {
+position: absolute;
+left: 100vw;
+top: 242vw;
+transform: rotate(-46deg) scaleX(-1);
+}
+.foot_side_18 {
+position: absolute;
+left: 80vw;
+top: 245vw;
+transform: rotate(-74deg);
+}
+.foot_side_19 {
+position: absolute;
+left: 65vw;
+top: 231vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_20 {
+    position: absolute;
+left: 50vw;
+top: 245vw;
+transform: rotate(-90deg) scaleX(1);
+}
+.activated{
+filter: invert(0.8);
+}
+.nozoom{
+    pointer-events: none;
+}
+.selector_sec{
+position: fixed;
+z-index: 1000000;
+ display: none; 
+left: 0;
+top: 0;
+width: 100vw;
+height: 100%;}
+.text img{
+width: 3vw;
+top: 2vw;
+position: relative;
+padding-left: 1vw;
+padding-right: 1vw;}
 </style>
 </head>
 <body>
@@ -207,7 +529,7 @@ viewer = pannellum.viewer('panorama', ﻿{
             "cssClass":"custom-hotspot hotspot1"
         } ,
         {
-            "pitch": 25,
+            "pitch": -25,
             "yaw": -70, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot hotspot2"
@@ -249,8 +571,8 @@ viewer = pannellum.viewer('panorama', ﻿{
             "cssClass":"custom-hotspot hotspot8"
         },
         {
-            "pitch": 30,
-            "yaw": -200, 
+            "pitch": 0,
+            "yaw": -40, 
             "createTooltipFunc": hotspot,
             "cssClass":"custom-hotspot-extra hotspot9"
         }
@@ -270,51 +592,92 @@ var button_array = [
             ' \
                 ']
 function hotspot() {
-    $('.hotspot1').empty().append('<img src="virus.png">')
+    $('.hotspot1').empty().append('<img src="../img/virus2.png">')
     $('.hotspot2').empty().append('<img src="fire.png">')
-    $('.hotspot3').empty().append('<img src="fire.png">')
+    $('.hotspot3').empty().append('<img src="../img/earth.png">')
     $('.hotspot4').empty().append('<img src="virus.png">')
     $('.hotspot5').empty().append('<img src="building.png">')
     $('.hotspot6').empty().append('<img src="building2.png">')
-    $('.hotspot7').empty().append('<img src="rocket.png">')
+    $('.hotspot7').empty().append('<img src="../img/ruin.png">')
     $('.hotspot8').empty().append('<img src="../img/speaking.png">')
     $('.hotspot9').empty().append('<img src="../img/candy.png">')
     $('.hotspot9').bind('touchstart', function(e){
             text_3()
-            console.log("----")
-            $('.black').show()
     })
+
+            var stage = 1
+            $('.arrow-left').click(function(){
+                if(stage > 1 && stage < 7){stage--}
+                console.log(stage)
+                move(stage)
+            })
+            $('.arrow-right').click(function(){
+                if(stage > 0 && stage < 6){stage++}
+                console.log(stage)
+                move(stage)
+            })
+            function move(stage){
+                console.log('hey!')
+                if(stage == 1){text_3()}
+                if(stage == 2){text_4()}
+                if(stage == 3){text_5()}
+                if(stage == 4){text_6()}
+                if(stage == 5){text_7()}
+                if(stage == 6){text_8()}
+            }
+
         function text_3(){
+
+            $('.selector_sec').fadeIn(300)
+            $('.black').hide()
             $('.close').show()
-            $('.text').addClass('texton center')
-            $('.text').html('<img src="../img/candy.png">그때까지 살아남은 인류는 두 갈래로 나뉜다.\
-                <br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.\
-                <br>계란을 한 바구니에 담지 말라는 격언에 따라 둘 다 실행하기로 한다. \
+            $('.friends').show()
+            $('.text-arrow').show()
+            $('.text').addClass('texton')
+            $('.text').html('그때까지 살아남은 인류는 두 갈래로 나뉜다.\
                 ')
-            setTimeout(function(){
-                text_4()
-            },3000)
         }
         function text_4(){
+            $('.selector_sec').fadeIn(300)
+            $('.black').hide()
             $('.close').show()
-            $('.text').addClass('texton center')
-            $('.text').html('<img src="../img/candy.png">\
-                <br>나의 단짝 친구인 하준과 서윤은 각자 다른 선택을 한다.\
-                <br>하준 태양계에 남아 지구에 희망을 걸 생각이고,서윤는 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+            $('.friends').show()
+            $('.text-arrow').show()
+            $('.text').addClass('texton')
+            $('.text').html('아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.\
                 ')
-            setTimeout(function(){
-                text_5()
-            },3000)
         }
         function text_5(){
+            $('.selector_sec').fadeIn(300)
+            $('.black').hide()
             $('.close').show()
-            $('.text').addClass('texton center')
-            $('.text').html('<img src="../img/candy.png">\
-                <br>그리고 나 역시 두 길 중 하나를 선택해 떠나야 한다. \
-                <br>어떻게 하면 좋을까?\
-                <a href="../SpaceStation/index.html" class="selector">태양계에 머물자</a>\
-                <a href="../tonewplanet.html" class="a_2 selector_2 selector">태양계를 떠나 외계 행성으로 가자</a>\
+            $('.friends').show()
+            $('.text-arrow').show()
+            $('.text').addClass('texton')
+            $('.text').html('계란을 한 바구니에 담지 말라는 격언에 따라 둘 다 실행하기로 한다.\
                 ')
+        }
+        function text_6(){
+            $('.close').show()
+            $('.text').addClass('texton')
+            $('.text').html('\
+                나의 단짝 친구인 하준과 서윤은 각자 다른 선택을 한다.\
+                ')
+        }
+        function text_7(){
+            $('.close').show()
+            $('.text').addClass('texton')
+            $('.text').html('\
+                하준은 태양계에 남아 지구에 희망을 걸 생각이고,서윤는 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+                ')
+        }
+        function text_8(){
+            $('.text').html('\
+                하준을 따라가려면 하준의 발자국을(<img src="../img/footprint-02.svg">), 서윤을 따라가려면 서윤의 발자국(<img src="../img/footprint-01.svg">)을 손끝으로 그리 따라가보자.\
+                ')
+            $('.c').addClass('animate_1')
+            $('.y').addClass('animate_2')
+            $('.foot_wrapper').fadeIn(2000)
         }
                 
     $('.custom-hotspot').bind('touchstart', function(e){
@@ -325,6 +688,7 @@ function hotspot() {
             e.preventDefault();
         })
     $('.custom-hotspot').bind('touchend', function(e){
+            $(this).find('img').css({'filter': 'brightness(0.25)'})
             $('.custom-hotspot').find('img').css({'transform':'scale(1)'})
             $('.text').html(' ')
             $('.text').removeClass('texton')
@@ -341,6 +705,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 }
 $(document).ready(function(){
+
             text_1()
         function text_1(){
             $('.text').addClass('texton center')
@@ -356,7 +721,6 @@ $(document).ready(function(){
         }
         $('.next').bind('touchstart', function(e){
             text_4()
-            console.log("----")
             $('.black').show()
         })
         function text_4(){
@@ -364,41 +728,199 @@ $(document).ready(function(){
             $('.text').addClass('texton center')
             $('.text').html('친구들을 찾아보자')
         }
-        function text_3(){
-            $('.close').show()
-            $('.text').addClass('texton center')
-            $('.text').html('그때까지 살아남은 인류는 두 갈래로 나뉜다.\
-                <br>아예 태양계를 떠나 외계행성으로 떠나자는 의견과 태양계에 머물며 지구를 원상복구하자는 의견이다.\
-                <br>나의 단짝 친구인 하준과 서윤은 각자 다른 선택을 한다.\
-                <br>하준은 태양계에 남아 지구에 희망을 걸 생각이고,서윤은 우주선에 몸을 싣고 외계 행성으로 떠난다.\
-                <br>그리고 나 역시 두 길 중 하나를 선택해 떠나야 한다. \
-                <br>어떻게 하면 좋을까?\
-                <a class="selector">태양계를 떠나 외계 행성으로 가자</a>\
-                <a href="../SpaceStation/index.html" class="selector selector_2 a_2">태양계에 머물자</a>\
-                ')
-        }
         $('.close').bind('touchstart', function(e){
             $('.text').removeClass('texton')
             $('.text').removeClass('center')
+            $('.activated').removeClass('activated')
             $('.black').fadeOut(300)
             $('.close').hide()
+            $('.selector_sec').hide()
+            $('.friends').hide()
         })
+        var offleft
+        var footside_counter = 1
+        var foottop_counter = 1
+        var footwidth = $('.foot_side').outerWidth()
+        $(document).bind('touchmove',function(e){
+            var xPos = e.originalEvent.touches[0].pageX;
+            var yPos = e.originalEvent.touches[0].pageY;
+            if( (xPos > $('.foot_side_'+footside_counter).offset().left && xPos < $('.foot_side_'+footside_counter).offset().left + footwidth) &&
+                (yPos > $('.foot_side_'+footside_counter).offset().top && yPos < $('.foot_side_'+footside_counter).offset().top + footwidth)){
+                    $('.foot_side_'+footside_counter).addClass('activated')
+                    footside_counter++
+                    console.log(footside_counter)
+                    if(footside_counter==6){
+                        $('.img_bg'      ).css({'right':'-70vw'})
+                        $('.foot_wrapper').css({'right':'-70vw'})
+                    }
+                    if(footside_counter==15){
+                        $('.img_bg'    ).css({'right':'-150vw'})
+                        $('.foot_wrapper').css({'right':'-150vw'})
+
+                    }
+                    if(footside_counter==18){
+                        $('.img_bg'      ).css({'right':'-200vw'})
+                        $('.foot_wrapper').css({'right':'-200vw'})
+
+                    }
+                    if(footside_counter==19){
+                        $('.text').html('철수를 따라..')
+                            timeout = setTimeout(function(){
+                                  location.replace("../SpaceStation/index.html");
+                            }, 1000);
+                    }
+            }
+            if( (xPos > $('.foot_front_'+foottop_counter).offset().left && xPos < $('.foot_front_'+foottop_counter).offset().left + footwidth) &&
+                (yPos > $('.foot_front_'+foottop_counter).offset().top && yPos < $('.foot_front_'+foottop_counter).offset().top + footwidth)){
+                    $('.foot_front_'+foottop_counter).addClass('activated')
+                    foottop_counter++
+                    console.log(foottop_counter)
+                    if(foottop_counter==6){
+                        $('.img_bg'      ).css({'bottom':'-70vw'})
+                        $('.foot_wrapper').css({'bottom':'-70vw'})
+
+                    }
+                    if(foottop_counter==15){
+                        $('.img_bg'      ).css({'bottom':'-110vw'})
+                        $('.foot_wrapper').css({'bottom':'-110vw'})
+
+                    }
+                    if(foottop_counter==21){
+                        $('.text').html('영희를 따라..')
+                            timeout = setTimeout(function(){
+                                  location.replace("../tonewplanet.html");
+                            }, 1000);
+                    }
+            }
+
+        })
+            // $('.foot_side').bind('touchstart', function(e){
+            //     var num = $(this).attr('class').split('foot_side_')[1].split(' ')[0]
+            //     $('.foot_side_'+(num-1)).addClass('nozoom')
+            //     setTimeout(function(){
+            //         $('.foot_side_'+(num-1)).removeClass('nozoom')
+            //     },200)
+            //     if($('.foot_side_'+(num-1)).hasClass('activated') || num == 1){
+            //         $(this).addClass('activated')
+            //         if(num==6){
+            //             offleft = $(this).offset().left - $('.foot_side_'+(num-1)).offset().left + offleft
+            //             $('.img_bg'      ).css({'right':'-70vw'})
+            //             $('.foot_wrapper').css({'right':'-70vw'})
+            //         }
+            //         if(num==15){
+            //             offleft = $(this).offset().left - $('.foot_side_'+(num-1)).offset().left + offleft
+            //             $('.img_bg'    ).css({'right':'-150vw'})
+            //             $('.foot_wrapper').css({'right':'-150vw'})
+
+            //         }
+            //         if(num==18){
+            //             offleft = $(this).offset().left - $('.foot_side_'+(num-1)).offset().left + offleft
+            //             // $('.img'         ).css({'right':'-200vw'})
+            //             $('.img_bg'      ).css({'right':'-200vw'})
+            //             $('.foot_wrapper').css({'right':'-200vw'})
+
+            //         }
+            //         if(num==19){
+            //             $('.text').html('철수를 따라..')
+            //                 timeout = setTimeout(function(){
+            //                       location.replace("../SpaceStation/index.html");
+            //                 }, 1000);
+            //         }
+            //     }
+            // })
+            // $('.foot_front').bind('touchstart', function(e){
+
+            //     var num = $(this).attr('class').split('foot_front_')[1].split(' ')[0]
+            //     console.log(num)
+            //     $('.foot_front_'+(num-1)).addClass('nozoom')
+            //     setTimeout(function(){
+            //         $('.foot_front_'+(num-1)).removeClass('nozoom')
+            //     },200)
+            //     if($('.foot_front_'+(num-1)).hasClass('activated') || num == 1){
+            //         $(this).addClass('activated')
+            //         if(num==6){
+            //             offleft = $(this).offset().left - $('.foot_front_'+(num-1)).offset().left + offleft
+            //             // $('.img'         ).css({'bottom':'-70vw'})
+            //             $('.img_bg'      ).css({'bottom':'-70vw'})
+            //             $('.foot_wrapper').css({'bottom':'-70vw'})
+
+            //         }
+            //         if(num==15){
+            //             console.log('lakjdf')
+            //             offleft = $(this).offset().left - $('.foot_front_'+(num-1)).offset().left + offleft
+            //             // $('.img'         ).css({'bottom':'-130vw'})
+            //             $('.img_bg'      ).css({'bottom':'-130vw'})
+            //             $('.foot_wrapper').css({'bottom':'-130vw'})
+
+            //         }
+            //         if(num==21){
+            //             $('.text').html('영희를 따라..')
+            //                 timeout = setTimeout(function(){
+            //                       location.replace("../tonewplanet.html");
+            //                 }, 1000);
+            //         }
+            //     }
+            // })
 })
 
 </script>
-        <div class="black"></div>
         <div class="text"></div>
+        <img class="text-arrow arrow-right" src="../img/arrow-right.png">
+        <img class="text-arrow arrow-left" src="../img/arrow-left.png">
+        <div class="black"></div>
         <div class="next">?</div>
-            <img src="../img/close.png" class="close">
-        <div class="selector_wrapper">
-            <img src="../img/close.png" class="close">
-            <a href="" class="c selector">
-                <div class="selector_speaking_1 speaking">우리 가족은 태양계에 남을 생각이야.</div>
-            </a>
-            <a href="" class="y selector">
-                <div class="selector_speaking_1 speaking">우리 가족은 외계행성을 찾아가2 생각이야.</div>
-            </a>
-        </div>
+        <img src="../img/close.png" class="close">
+        <img class="c friends" src="../img/c.png"><img class="y friends" src="../img/y.png">
+  <div class="selector_sec">
+    <div class="foot_wrapper">
+        <div class="foot foot_front foot_front_1"></div>
+        <div class="foot foot_front foot_front_2"></div>
+        <div class="foot foot_front foot_front_3"></div>
+        <div class="foot foot_front foot_front_4"></div>
+        <div class="foot foot_front foot_front_5"></div>
+        <div class="foot foot_front foot_front_6"></div>
+        <div class="foot foot_front foot_front_7"></div>
+        <div class="foot foot_front foot_front_8"></div>
+        <div class="foot foot_front foot_front_9"></div>
+        <div class="foot foot_front foot_front_10"></div>
+        <div class="foot foot_front foot_front_11"></div>
+        <div class="foot foot_front foot_front_12"></div>
+        <div class="foot foot_front foot_front_13"></div>
+        <div class="foot foot_front foot_front_14"></div>
+        <div class="foot foot_front foot_front_15"></div>
+        <div class="foot foot_front foot_front_16"></div>
+        <div class="foot foot_front foot_front_17"></div>
+        <div class="foot foot_front foot_front_18"></div>
+        <div class="foot foot_front foot_front_19"></div>
+        <div class="foot foot_front foot_front_20"></div>
+        <div class="foot foot_front foot_front_21"></div>
+        <div class="foot foot_front foot_front_22"></div>
+        <div class="foot foot_front foot_front_23"></div>
+        <div class="foot foot_side foot_side_1"></div>
+        <div class="foot foot_side foot_side_2"></div>
+        <div class="foot foot_side foot_side_3"></div>
+        <div class="foot foot_side foot_side_4"></div>
+        <div class="foot foot_side foot_side_5"></div>
+        <div class="foot foot_side foot_side_6"></div>
+        <div class="foot foot_side foot_side_7"></div>
+        <div class="foot foot_side foot_side_8"></div>
+        <div class="foot foot_side foot_side_9"></div>
+        <div class="foot foot_side foot_side_10"></div>
+        <div class="foot foot_side foot_side_11"></div>
+        <div class="foot foot_side foot_side_12"></div>
+        <div class="foot foot_side foot_side_13"></div>
+        <div class="foot foot_side foot_side_14"></div>
+        <div class="foot foot_side foot_side_15"></div>
+        <div class="foot foot_side foot_side_16"></div>
+        <div class="foot foot_side foot_side_17"></div>
+        <div class="foot foot_side foot_side_18"></div>
+        <div class="foot foot_side foot_side_19"></div>
+        <div class="foot foot_side foot_side_20"></div>
+        <div class="foot foot_side foot_side_21"></div>
+       </div>
+  <div class="img_bg"></div>
+  </div>
 </body>
+
 
 </html>

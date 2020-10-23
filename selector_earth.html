@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		font-size: 0;
+    touch-action: none;
+	}
+	html,body{
+		height: 100%;
+		width: 100vw
+	}
+	.side{
+		width: 50vw;
+		position: absolute;
+		height: 100%;
+	}
+	.img,
+	.img_bg,
+	.foot_wrapper{
+		background-image: url(../img/earth_walk.png);
+		background-size: cover;
+		background-position: 0;
+		position: fixed;
+		height: 300vw;
+		width: 300vw;
+		bottom: -0%;
+		right: -0vw;
+		z-index: 100000;
+		transition: 0.5s
+	}
+	.img_bg{
+		background-image: url(../img/earthflat_n.png);
+		z-index: 0
+	}
+	.foot_wrapper{
+		background-image: none;
+		position: absolute;
+		height: 300vw;
+		width: 300vw;
+    z-index: 100;
+	}
+
+	.left .img{
+		transform: skewX(-30deg);
+		transform-origin: right bottom
+	}
+	.right .img{
+		transform: skewX(30deg);
+		transform-origin: left bottom
+	}
+	.foot{
+		height: 15vw !important;
+		width: 15vw !important;
+		/*background-color:red;*/
+		background-size: contain;
+		position: absolute;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 100;
+		/*filter: invert();*/
+		pointer-events: auto !important;
+    touch-action: manipulation;
+	}
+	.foot_front{
+		background-image: url(img/footprint-01.svg) !important;
+	}
+	.foot_side{
+		background-image: url(img/footprint-02.svg) !important;
+		/*filter: invert(0.4);*/
+	}
+	.foot_front_1 {
+    left: 242vw;
+    top: 254vw;
+    transform: scaleX(-1);
+  }
+  .foot_front_2 {
+    left: 252vw;
+    top: 237vw;
+  }
+.foot_front_3 {
+  left: 242vw;
+  top: 217vw;
+  transform: rotate(15deg) scaleX(-1);
+}
+.foot_front_4 {
+left: 262vw;
+top: 202vw;
+transform: rotate(32deg);
+}
+.foot_front_5 {
+left: 262vw;
+top: 183vw;
+transform: rotate(42deg) scaleX(-1);
+}
+.foot_front_6 {
+left: 282vw;
+top: 180vw;
+transform: rotate(42deg);
+}
+.foot_front_7 {
+left: 280vw;
+top: 161vw;
+transform: rotate(21deg) scaleX(-1);
+}
+.foot_front_8 {
+left: 290vw;
+top: 140vw;
+transform: rotate(-10deg);
+}
+.foot_front_9 {
+left: 270vw;
+top: 135vw;
+transform: rotate(-65deg) scaleX(-1);
+}
+.foot_front_10{
+left: 253vw;
+top: 121vw;
+transform: rotate(269deg);
+}
+.foot_front_11 {
+left: 243vw;
+top: 137vw;
+transform: rotate(-131deg) scaleX(-1);
+}
+.foot_front_12 {
+left: 223vw;
+top: 130vw;
+transform: rotate(-91deg);
+}
+.foot_front_13 {
+left: 208vw;
+top: 137vw;
+transform: rotate(-48deg) scaleX(-1);
+}
+.foot_front_14 {
+left: 213vw;
+top: 115vw;
+transform: rotate(-4deg) scaleX(-1);
+}
+.foot_front_15 {
+left: 206vw;
+top: 99vw;
+transform: rotate(38deg); 
+}
+.foot_front_16 {
+  left: 229vw;
+  top: 87vw;
+transform: rotate(-31deg) scaleX(-1);
+}
+.foot_front_17 {
+  left: 224vw;
+  top: 65vw;
+transform: rotate(-17deg);
+}
+.foot_front_18 {
+  left: 205vw;
+  top: 54vw;
+  transform:  scaleX(-1)
+}
+.foot_front_19 {
+  left: 190vw;
+  top: 33vw;
+}
+.foot_front_20 {
+  left: 205vw;
+  top: 15vw;
+  transform:  scaleX(-1)
+}
+.foot_front_21 {
+  left: 226vw;
+  top: 11vw;
+}
+.foot_front_22 {
+  left: 261vw;
+  top: 11vw;
+  transform:  scaleX(-1)
+}
+.foot_front_23 {
+  width: 10vw;
+  height: 22vw;
+}
+
+
+
+.foot_side_1 {
+transform: rotate(-90deg) scaleX(-1);
+left: 284vw;
+top: 211vw;
+}
+.foot_side_2 {
+left: 271vw;
+top: 229vw;
+transform: rotate(-90deg);
+}
+.foot_side_3 {
+  left: 255vw;
+  top: 213vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_4 {
+  left: 233vw;
+  top: 228vw;
+transform: rotate(-67deg);
+}
+.foot_side_5 {
+left: 225vw;
+top: 207vw;
+transform: rotate(-66deg) scaleX(-1);
+}
+.foot_side_6 {
+left: 204vw;
+top: 213vw;
+transform: rotate(-56deg);
+}
+.foot_side_7 {
+left: 194vw;
+top: 187vw;
+transform: rotate(-63deg) scaleX(-1);
+}
+.foot_side_8 {
+left: 173vw;
+top: 190vw;
+transform: rotate(-72deg);
+}
+.foot_side_9 {
+left: 158vw;
+top: 179vw;
+transform: rotate(-103deg) scaleX(-1);
+}
+.foot_side_10 {
+position: absolute;
+left: 151vw;
+top: 196vw;
+transform: rotate(-148deg);
+}
+.foot_side_11 {
+position: absolute;
+left: 136vw;
+top: 201vw;
+transform: rotate(-178deg) scaleX(-1);
+}
+.foot_side_12 {
+position: absolute;
+left: 145vw;
+top: 221vw;
+transform: rotate(-180deg);
+}
+.foot_side_13 {
+position: absolute;
+left: 138vw;
+top: 239vw;
+transform: rotate(-201deg) scaleX(-1);
+}
+.foot_side_14 {
+position: absolute;
+left: 153vw;
+top: 253vw;
+transform: rotate(-165deg);
+}
+.foot_side_15 {
+position: absolute;
+left: 133vw;
+top: 251vw;
+transform: rotate(-73deg) scaleX(-1);
+}
+.foot_side_16 {
+position: absolute;
+left: 117vw;
+top: 252vw;
+transform: rotate(-58deg);
+}
+.foot_side_17 {
+  position: absolute;
+  left: 97vw;
+  top: 230vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_18 {
+position: absolute;
+left: 75vw;
+top: 240vw;
+transform: rotate(-90deg);
+}
+.foot_side_19 {
+position: absolute;
+left: 50vw;
+top: 230vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_20 {
+}
+.activated{
+	opacity: 0.5
+}
+.nozoom{
+	pointer-events: none;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            console.log(document.elementFromPoint(event.clientX, event.clientY))
+ 
+        }, { passive: false });
+		$(document).ready(function(){<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		font-size: 0;
+    touch-action: none;
+	}
+	html,body{
+		height: 100%;
+		width: 100vw
+	}
+	.side{
+		width: 50vw;
+		position: absolute;
+		height: 100%;
+	}
+	.img,
+	.img_bg,
+	.foot_wrapper{
+		background-image: url(../img/earth_walk.png);
+		background-size: cover;
+		background-position: 0;
+		position: fixed;
+		height: 300vw;
+		width: 300vw;
+		bottom: -0%;
+		right: -0vw;
+		z-index: 100000;
+		transition: 0.5s
+	}
+	.img_bg{
+		background-image: url(../img/earthflat_n.png);
+		z-index: 0
+	}
+	.foot_wrapper{
+		background-image: none;
+		position: absolute;
+		height: 300vw;
+		width: 300vw;
+    z-index: 100;
+	}
+
+	.left .img{
+		transform: skewX(-30deg);
+		transform-origin: right bottom
+	}
+	.right .img{
+		transform: skewX(30deg);
+		transform-origin: left bottom
+	}
+	.foot{
+		height: 15vw !important;
+		width: 15vw !important;
+		/*background-color:red;*/
+		background-size: contain;
+		position: absolute;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 100;
+		/*filter: invert();*/
+		pointer-events: auto !important;
+    touch-action: manipulation;
+	}
+	.foot_front{
+		background-image: url(img/footprint-01.svg) !important;
+	}
+	.foot_side{
+		background-image: url(img/footprint-02.svg) !important;
+		/*filter: invert(0.4);*/
+	}
+	.foot_front_1 {
+    left: 242vw;
+    top: 254vw;
+    transform: scaleX(-1);
+  }
+  .foot_front_2 {
+    left: 252vw;
+    top: 237vw;
+  }
+.foot_front_3 {
+  left: 242vw;
+  top: 217vw;
+  transform: rotate(15deg) scaleX(-1);
+}
+.foot_front_4 {
+left: 262vw;
+top: 202vw;
+transform: rotate(32deg);
+}
+.foot_front_5 {
+left: 262vw;
+top: 183vw;
+transform: rotate(42deg) scaleX(-1);
+}
+.foot_front_6 {
+left: 282vw;
+top: 180vw;
+transform: rotate(42deg);
+}
+.foot_front_7 {
+left: 280vw;
+top: 161vw;
+transform: rotate(21deg) scaleX(-1);
+}
+.foot_front_8 {
+left: 290vw;
+top: 140vw;
+transform: rotate(-10deg);
+}
+.foot_front_9 {
+left: 270vw;
+top: 135vw;
+transform: rotate(-65deg) scaleX(-1);
+}
+.foot_front_10{
+left: 253vw;
+top: 121vw;
+transform: rotate(269deg);
+}
+.foot_front_11 {
+left: 243vw;
+top: 137vw;
+transform: rotate(-131deg) scaleX(-1);
+}
+.foot_front_12 {
+left: 223vw;
+top: 130vw;
+transform: rotate(-91deg);
+}
+.foot_front_13 {
+left: 208vw;
+top: 137vw;
+transform: rotate(-48deg) scaleX(-1);
+}
+.foot_front_14 {
+left: 213vw;
+top: 115vw;
+transform: rotate(-4deg) scaleX(-1);
+}
+.foot_front_15 {
+left: 206vw;
+top: 99vw;
+transform: rotate(38deg); 
+}
+.foot_front_16 {
+  left: 229vw;
+  top: 87vw;
+transform: rotate(-31deg) scaleX(-1);
+}
+.foot_front_17 {
+  left: 224vw;
+  top: 65vw;
+transform: rotate(-17deg);
+}
+.foot_front_18 {
+  left: 205vw;
+  top: 54vw;
+  transform:  scaleX(-1)
+}
+.foot_front_19 {
+  left: 190vw;
+  top: 33vw;
+}
+.foot_front_20 {
+  left: 205vw;
+  top: 15vw;
+  transform:  scaleX(-1)
+}
+.foot_front_21 {
+  left: 226vw;
+  top: 11vw;
+}
+.foot_front_22 {
+  left: 261vw;
+  top: 11vw;
+  transform:  scaleX(-1)
+}
+.foot_front_23 {
+  width: 10vw;
+  height: 22vw;
+}
+
+
+
+.foot_side_1 {
+transform: rotate(-90deg) scaleX(-1);
+left: 284vw;
+top: 211vw;
+}
+.foot_side_2 {
+left: 271vw;
+top: 229vw;
+transform: rotate(-90deg);
+}
+.foot_side_3 {
+  left: 255vw;
+  top: 213vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_4 {
+  left: 233vw;
+  top: 228vw;
+transform: rotate(-67deg);
+}
+.foot_side_5 {
+left: 225vw;
+top: 207vw;
+transform: rotate(-66deg) scaleX(-1);
+}
+.foot_side_6 {
+left: 204vw;
+top: 213vw;
+transform: rotate(-56deg);
+}
+.foot_side_7 {
+left: 194vw;
+top: 187vw;
+transform: rotate(-63deg) scaleX(-1);
+}
+.foot_side_8 {
+left: 173vw;
+top: 190vw;
+transform: rotate(-72deg);
+}
+.foot_side_9 {
+left: 158vw;
+top: 179vw;
+transform: rotate(-103deg) scaleX(-1);
+}
+.foot_side_10 {
+position: absolute;
+left: 151vw;
+top: 196vw;
+transform: rotate(-148deg);
+}
+.foot_side_11 {
+position: absolute;
+left: 136vw;
+top: 201vw;
+transform: rotate(-178deg) scaleX(-1);
+}
+.foot_side_12 {
+position: absolute;
+left: 145vw;
+top: 221vw;
+transform: rotate(-180deg);
+}
+.foot_side_13 {
+position: absolute;
+left: 138vw;
+top: 239vw;
+transform: rotate(-201deg) scaleX(-1);
+}
+.foot_side_14 {
+position: absolute;
+left: 153vw;
+top: 253vw;
+transform: rotate(-165deg);
+}
+.foot_side_15 {
+position: absolute;
+left: 133vw;
+top: 251vw;
+transform: rotate(-73deg) scaleX(-1);
+}
+.foot_side_16 {
+position: absolute;
+left: 117vw;
+top: 252vw;
+transform: rotate(-58deg);
+}
+.foot_side_17 {
+  position: absolute;
+  left: 97vw;
+  top: 230vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_18 {
+position: absolute;
+left: 75vw;
+top: 240vw;
+transform: rotate(-90deg);
+}
+.foot_side_19 {
+position: absolute;
+left: 50vw;
+top: 230vw;
+transform: rotate(-90deg) scaleX(-1);
+}
+.foot_side_20 {
+}
+.activated{
+	opacity: 0.5
+}
+.nozoom{
+	pointer-events: none;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            console.log(document.elementFromPoint(event.clientX, event.clientY))
+ 
+        }, { passive: false });
+		$(document).ready(function(){
+			$('.black').hide()
+			text_1()
+
+			var foot_1_on = false
+			var foot_2_on = false
+			var foot_3_on = false
+			var foot_4_on = false
+			var foot_5_on = false
+			var foot_6_on = false
+			var sidecount = 1
+			var offleft = 0
+			console.log($('.foot_side_' + sidecount))
+			$('.foot_side').click(function(){
+				return false
+			})
+			$('.foot').click(function(){
+				return false
+			})
+			$('.foot_side').bind('touchstart', function(e){
+				$(this)
+				var num = $(this).attr('class').split('foot_side_')[1].split(' ')[0]
+				$('.foot_side_'+(num-1)).addClass('nozoom')
+				setTimeout(function(){
+					$('.foot_side_'+(num-1)).removeClass('nozoom')
+				},200)
+				if($('.foot_side_'+(num-1)).hasClass('activated') || num == 1){
+					$(this).addClass('activated')
+					if(num==6){
+						offleft = $(this).offset().left - $('.foot_side_'+(num-1)).offset().left + offleft
+						$('.img'		 ).css({'right':'-70vw'})
+						$('.img_bg'		 ).css({'right':'-70vw'})
+						$('.foot_wrapper').css({'right':'-70vw'})
+
+					}
+          if(num==15){
+            offleft = $(this).offset().left - $('.foot_side_'+(num-1)).offset().left + offleft
+            $('.img'     ).css({'right':'-150vw'})
+            $('.img_bg'    ).css({'right':'-150vw'})
+            $('.foot_wrapper').css({'right':'-150vw'})
+
+          }
+					if(num==18){
+						console.log('lakjdf')
+						offleft = $(this).offset().left - $('.foot_side_'+(num-1)).offset().left + offleft
+						$('.img'		 ).css({'right':'-200vw'})
+						$('.img_bg'		 ).css({'right':'-200vw'})
+						$('.foot_wrapper').css({'right':'-200vw'})
+
+					}
+				}
+			})
+			$('.foot_front').bind('touchstart', function(e){
+
+				var num = $(this).attr('class').split('foot_front_')[1].split(' ')[0]
+				console.log(num)
+				$('.foot_front_'+(num-1)).addClass('nozoom')
+				setTimeout(function(){
+					$('.foot_front_'+(num-1)).removeClass('nozoom')
+				},200)
+				if($('.foot_front_'+(num-1)).hasClass('activated') || num == 1){
+					$(this).addClass('activated')
+					if(num==6){
+						offleft = $(this).offset().left - $('.foot_front_'+(num-1)).offset().left + offleft
+						$('.img'		 ).css({'bottom':'-70vw'})
+						$('.img_bg'		 ).css({'bottom':'-70vw'})
+						$('.foot_wrapper').css({'bottom':'-70vw'})
+
+					}
+					if(num==15){
+						console.log('lakjdf')
+						offleft = $(this).offset().left - $('.foot_front_'+(num-1)).offset().left + offleft
+						$('.img'		 ).css({'bottom':'-130vw'})
+						$('.img_bg'		 ).css({'bottom':'-130vw'})
+						$('.foot_wrapper').css({'bottom':'-130vw'})
+
+					}
+				}
+			})
+		})
+        function text_1(){
+            $('.text').addClass('texton')
+            $('.text').html('나는 동면상태에 들어가길 기다리며 정보를 본다. 기울어지는 글자에 맞춰 화면을 기울여 보자')
+            setTimeout(function(){
+            },3000)
+        }
+	</script>
+        <img class="text-arrow arrow-right" src="img/arrow-right.png">
+        <img class="text-arrow arrow-left" src="img/arrow-left.png">
+        <div class="black"></div>
+        <div class="text"></div>
+    <div class="foot_wrapper">
+        <div class="foot foot_front foot_front_1"></div>
+        <div class="foot foot_front foot_front_2"></div>
+        <div class="foot foot_front foot_front_3"></div>
+        <div class="foot foot_front foot_front_4"></div>
+        <div class="foot foot_front foot_front_5"></div>
+        <div class="foot foot_front foot_front_6"></div>
+        <div class="foot foot_front foot_front_7"></div>
+        <div class="foot foot_front foot_front_8"></div>
+        <div class="foot foot_front foot_front_9"></div>
+        <div class="foot foot_front foot_front_10"></div>
+        <div class="foot foot_front foot_front_11"></div>
+        <div class="foot foot_front foot_front_12"></div>
+        <div class="foot foot_front foot_front_13"></div>
+        <div class="foot foot_front foot_front_14"></div>
+        <div class="foot foot_front foot_front_15"></div>
+        <div class="foot foot_front foot_front_16"></div>
+        <div class="foot foot_front foot_front_17"></div>
+        <div class="foot foot_front foot_front_18"></div>
+        <div class="foot foot_front foot_front_19"></div>
+        <div class="foot foot_front foot_front_20"></div>
+        <div class="foot foot_front foot_front_21"></div>
+        <div class="foot foot_front foot_front_22"></div>
+        <div class="foot foot_front foot_front_23"></div>
+        <div class="foot foot_side foot_side_1"></div>
+        <div class="foot foot_side foot_side_2"></div>
+        <div class="foot foot_side foot_side_3"></div>
+        <div class="foot foot_side foot_side_4"></div>
+        <div class="foot foot_side foot_side_5"></div>
+        <div class="foot foot_side foot_side_6"></div>
+        <div class="foot foot_side foot_side_7"></div>
+        <div class="foot foot_side foot_side_8"></div>
+        <div class="foot foot_side foot_side_9"></div>
+        <div class="foot foot_side foot_side_10"></div>
+        <div class="foot foot_side foot_side_11"></div>
+        <div class="foot foot_side foot_side_12"></div>
+        <div class="foot foot_side foot_side_13"></div>
+        <div class="foot foot_side foot_side_14"></div>
+        <div class="foot foot_side foot_side_15"></div>
+        <div class="foot foot_side foot_side_16"></div>
+        <div class="foot foot_side foot_side_17"></div>
+        <div class="foot foot_side foot_side_18"></div>
+        <div class="foot foot_side foot_side_19"></div>
+        <div class="foot foot_side foot_side_20"></div>
+        <div class="foot foot_side foot_side_21"></div>
+       </div>
+  <img src="img/earthflat_n copy.png" class="img_bg">
+</body>
+</html>

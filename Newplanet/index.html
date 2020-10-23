@@ -26,6 +26,11 @@ crossorigin="anonymous"></script>
 	body{
 		height: 100%;
 		background:linear-gradient(to right, rgb(48, 87, 214), white);
+		height: 360vw;
+	}
+	body,html{
+		overflow-x: hidden;
+		overflow-y: scroll;
 	}
 	.wrapper{
 		transform-origin: 80%;
@@ -55,7 +60,7 @@ crossorigin="anonymous"></script>
 		transform:translate(-50%, -50%) scale(0.2);
 		left: 50vw;
 		top: 50vw;
-		border:0.8vw solid red;
+		border:4vw solid rgb(255, 40, 0);
 		background-image: url(images/tree.png);
 		background-size: contain;
 	}
@@ -72,6 +77,8 @@ crossorigin="anonymous"></script>
 		top: 220vw;
 		background-image: url(images/din_2.png);
 		background-size: contain;
+width: 150vw;
+top: 170vw;
 	}
 	.button_3{
 		transform: translate(-50%, -50%) scale(0.4);
@@ -81,11 +88,14 @@ crossorigin="anonymous"></script>
 		background-size: contain;
 	}
 	.button_4{
-		transform: translate(-50%, -50%) scale(0.2);
-		left: 20vw;
-		top: 305vw;
-		background-image: url(images/fox.png);
-		background-size: contain;
+transform: translate(-50%, -50%) scale(0.2);
+left: 30vw;
+top: 305vw;
+background-image: url(images/fox.png);
+background-size: contain;
+width: 200vw;
+height: 320vw;
+top: 331vw;
 	}
 	.button_5{
 		transform: translate(-50%, -50%) scale(0.3);
@@ -93,6 +103,8 @@ crossorigin="anonymous"></script>
 		top: 95vw;
 		background-image: url(images/frog.png);
 		background-size: contain;
+width: 200vw;
+left: 35vw;
 	}
 	.button_6{
 		transform: translate(-50%, -50%) scale(0.3);
@@ -100,6 +112,9 @@ crossorigin="anonymous"></script>
 		top: 335vw;
 		background-image: url(images/bird.png);
 		background-size: contain;
+		width: 150vw;
+height: 150vw;
+top:290vw;
 	}
 	.popupbutton_1{
 		transform: translate(-50%, -50%) scale(0.3);
@@ -121,6 +136,10 @@ crossorigin="anonymous"></script>
 		top: 235vw;
 		background-image: url(images/monkey_3.png);
 		background-size: contain;
+		width: 120vw;
+height: 120vw;
+top: 240vw;
+left: 15vw;
 	}
 	.button_visible{
 		transform:translate(-50%, -50%) scale(1);
@@ -142,7 +161,7 @@ crossorigin="anonymous"></script>
 	.planet1{z-index: 5}
 	.planet2{z-index: 4}
 	.planet3{z-index: 3}
-	.planet4{z-index: 2}
+	.planet4{z-index: 8}
 	.planet5{z-index: 1;opacity: 0.5;}
 	.text{
 		position: fixed;
@@ -275,6 +294,197 @@ left: auto;
 left: 48vw !important;
 /*padding-bottom: 21vw;*/
 }
+.arrow-right,
+.arrow-left,.popupbutton,.closebutton{
+	pointer-events: auto
+}
+    .talk{
+height: 40vw;
+width: 40vw;
+background-size: auto 40vw;
+background-repeat: no-repeat;
+background-position: 2vw top;
+background-color: white;
+transform-origin: 0vw top;
+position: fixed;
+z-index: 1000000;
+left: 50vw;
+top: 40vh;
+display: none;
+border-radius: 2vw;
+    }
+    .dir_button{
+width: 20vw;
+height: 20vw;
+position: fixed;
+z-index: 10000;
+pointer-events: all;
+background-image: url(../img/arrow-right.png);
+background-size: 80%;
+background-color: white;
+border-radius: 50%;
+border: 1vw solid rgb(83, 83, 83);
+background-position: center right;
+background-repeat: no-repeat;
+display: none;
+    }
+    .dir_button_1{
+right: 0;
+top: calc(50% - 20vw);
+z-index: 1000000000;}
+    .dir_button_2{
+transform: rotate(-90deg);
+right: 0;
+left: 40vw;
+top: 0;
+z-index: 1000000000;
+right: 0;}
+    .talk1{
+        background-image: url(../img/opinion-01.png);
+        transform: rotate(-45deg);
+		border: 0.8vw solid rgb(0, 45, 255);
+    }
+    .talk2{
+        background-image: url(../img/opinion-02.png);
+        transform: rotate(-135deg) scaleX(-1) scaleY(-1) translateX(-100%) translateY(-100%);
+        background-position: top right;
+		border: 0.8vw solid red;
+    }
+    .talk3{
+        background-image: url(../img/opinion-03.png);
+        transform: rotate(-225deg) scaleY(-1) scaleX(-1) translateY(-100%) translateX(-100%);
+        background-position: top right;
+		border: 0.8vw solid rgb(0, 45, 255);
+    }
+    .talk4{
+        background-image: url(../img/opinion-04.png);
+        transform: rotate(-315deg);
+		border: 0.8vw solid red;
+    }
+    .set_1.talk1{
+transform: rotate(0deg) translateY(50vw);
+    }
+    .set_1.talk2{
+transform: rotate(-90deg) scaleX(-1) scaleY(-1) translateX(-0%) translateY(-200%)
+    }
+    .set_1.talk3{
+transform: rotate(-deg) scaleY(-1) scaleX(-1) translateY(-200%) translateX(-0%);
+    }
+    .set_1.talk4{
+transform: rotate(-315deg) translateY(-200%) translateX(-100%);
+    }
+    .set_2.talk1{
+transform: rotate(-45deg) translateY(-0%) translateX(-200%);
+    }
+    .set_2.talk2{
+transform: rotate(135deg) translateY(100%) translateX(-200%);
+    }
+    .set_2.talk3{
+transform: rotate(-225deg) translateY(100%) translateX(0%);
+    }
+    .set_2.talk4{
+transform: rotate(-315deg) translateY(0%) translateX(100%);
+    }
+    .talk img{
+		width: 15vw;
+		position: absolute;
+		top: 100%;
+		height: auto;
+		left: 5vw;
+    }
+
+.talk_seq_1 {
+z-index: 10000000;
+transform: rotate(0deg) !important
+}
+.talk_seq_1 img{
+transform: scaleX(-1) translateX(-40%);
+}
+.talk_seq_2 {
+z-index: 10000000;
+transform: rotate(-90deg) scaleX(-1) scaleY(-1) translateX(-100%) translateY(-100%) !important
+}
+.talk_seq_3 {
+top: 30vh;
+transform: rotate(-180deg) scaleY(-1) scaleX(-1) translateY(-100%) translateX(-100%) !important
+}
+.talk_seq_3 img{
+transform: translateX(110%) scaleY(1.5);
+transform-origin: top;
+}
+.talk_seq_4 {
+z-index: 1000000;
+transform: rotate(-270deg) !important
+}
+.talk_seq_4 img{
+transform: scaleX(-1);
+}
+.talk_seq_5 {
+transform: rotate(-0deg) translateY(40vw) translateX(-100%) !important
+}
+.talk_seq_6 {
+transform: rotate(-90deg) scaleX(-1) scaleY(-1) translateX(-0%) translateY(-200%) !important
+}
+.talk_seq_7 {
+transform: rotate(-180deg) scaleY(-1) scaleX(-1) translateY(-200%) translateX(-0%) !important;
+z-index: 100000000;
+}
+.talk_seq_7 img{
+transform: scaleX(-1) scaleY(1.5) translateX(0%);
+transform-origin: top right
+}
+.talk_seq_8 {
+z-index: 100000000;
+transform: rotate(-270deg) translateY(-200%) translateX(-100%) !important;
+}
+.talk_seq_9 {
+z-index: 100000000;
+transform: rotate(0deg) translateY(-0%) translateX(50%) !important
+}
+.talk_seq_9 img{
+transform: scaleX(-1);
+}
+.talk_seq_10{
+transform: rotate(90deg) translateY(100%) translateX(-200%) !important
+}
+.talk_seq_11{
+display: none !important
+}
+.talk_seq_12{
+transform: rotate(-270deg) translateY(-100%) translateX(100%) !important
+}
+.talk_seq_12 img{
+transform: scaleX(-2) scaleY(1.5) translateX(30%);
+transform-origin: top
+}
+.pplspeaking1{
+position: fixed;
+z-index: 100000000;
+width: 55vw;
+height: auto;
+right: 22.5vw;
+bottom: 0;
+transform: scaleX(-1);
+display: none;}
+
+.pplspeaking2{
+position: fixed;
+z-index: 100000000;
+width: 50vw;
+height: auto;
+left: 0;
+top: 42.5vw;
+transform: rotate(90deg);
+display: none;}
+.next{
+	display: none;
+	pointer-events: auto !important
+}
+.tilt{
+width: 100% !important;
+height: auto !important;}
+.black{height: 100vh;
+z-index: 100000000000000000!important;}
 </style>
     <link rel="stylesheet" href="../all.css"/>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
@@ -287,34 +497,73 @@ left: 48vw !important;
         //     e.preventDefault();
  
         // }, { passive: false });
+
+
+		$(document).ready(function(){
+        $('.next').bind('touchstart', function(e){
+            text_00()
+            $('.black').show()
+            console.log('sasdfalsdk;j')
+        })
+        function text_00(){
+            $('.close').show()
+            $('.text').addClass('texton center')
+            $('.text').html('<img src="../img/tilted.jpg" class="tilt"> 한쪽 눈을 감고, 화면을 기울여 어떤 이야기를 하는지 읽어보자.')
+        }
+        $('.close').bind('touchstart', function(e){
+            $('.text').removeClass('texton')
+            $('.text').removeClass('center')
+            $('.activated').removeClass('activated')
+            $('.black').fadeOut(300)
+            $('.close').hide()
+        })
+
+
 		function map_range(value, low1, high1, low2, high2) {
 		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 		}
+            var stage = 1
+            $('.arrow-left').click(function(){
+                if((stage > 1 && stage < 5)||(stage > 10 && stage < 13)||(stage > 20 && stage < 23)){stage--}
+                console.log(stage)
+                move(stage)
+                return false
+            })
+            $('.arrow-right').click(function(){
+                if((stage > 0 && stage < 4)||(stage > 9 && stage < 12)||(stage > 19 && stage < 22)){stage++}
+                console.log(stage)
+                move(stage)
+                return false
+            })
+            function move(stage){
+                console.log('hey!')
+                if(stage == 1){text_1()}
+                if(stage == 2){text_1_1()}
+                if(stage == 3){text_2()}
+                if(stage == 4){text_3()}
 
-		$(document).ready(function(){
+                if(stage == 10){text_4()}
+                if(stage == 11){text_5()}
+                if(stage == 12){text_6()}
+
+                if(stage == 20){text_7()}
+                if(stage == 21){text_8()}
+                if(stage == 22){text_9()}
+            }
 		text_1()
         function text_1(){
         	$('.black').show()
             $('.text').addClass('texton center')
             $('.text').html('X백년 뒤')
-            setTimeout(function(){
-                text_1_1()
-            },3000)
         }
         function text_1_1(){
         	$('.black').show()
             $('.text').addClass('texton center')
             $('.text').html('나는 정신을 차린다.')
-            setTimeout(function(){
-                text_2()
-            },3000)
         }
         function text_2(){
         	$('.black').fadeIn(1500)
             $('.text').html('도착한걸까?')
-            setTimeout(function(){
-                text_3()
-            },3000)
         }
         function text_3(){
         	$('.black').fadeIn(1500)
@@ -337,29 +586,19 @@ left: 48vw !important;
 			}
 		})
         function text_4(){
+        	stage = 10
             $('.text').addClass('texton')
             $('.text').html('도착했다!')
-            setTimeout(function(){
-                text_5()
-            },3000)
+            $('.button').css({'pointer-events':'auto'})
+            $('.button').css({'pointer-events':'auto'})
         }
         function text_5(){
             $('.text').html('다행히 지구와 비슷해 사람이 살 수 있을 것 같다.')
-            setTimeout(function(){
-                text_6()
-            },3000)
         }
         function text_6(){
             $('.text').html('조금 더 살펴보도록 할까?')
                 $('.black').css({'pointer-events':'all'})
         }
-
-
-		// 이 행성에는 토착생명체가 있다. 
-		// 선발대가 위험을 파악하기 위해 내려간다. 
-		// 선발대가 가져온 결과는 놀랍다. 
-		// 지구의 공룡을 연상하게 하는 거대 동물이 지상을 활보하는 등 온갖 크고 작은 생명체가 살고 있는 것이다. 
-		// 게다가 샘플을 분석해 보니 이곳 동물의 생리가 지구의 동물과 매우 비슷하다. 심지어 인간과 비슷한 DNA까지 지니고 있다!
 
 			var scrolltimeout 
 		  	$(document).scroll(function(){
@@ -382,6 +621,7 @@ left: 48vw !important;
 		  		]
 		  		var button_counter = 0
 		$('.button').bind('touchstart', function(e){
+            $(this).css({'filter': 'brightness(0.25)'})
 			button_counter++
 			e.preventDefault();
 			var num = parseInt($(this).attr('class').split('button_')[1].split(' ')[0])
@@ -389,7 +629,12 @@ left: 48vw !important;
 			$('.text').html(button_array[num])
 			$('.text').addClass('texton')
 			if(button_counter > 7){
+				$('.next').show()
+			// if(button_counter > 1){
 				$('.button').css({'pointer-events':'none'})
+				$('.popupbutton').css({'pointer-events':'none'})
+				$('.popup').hide()
+				$('.bubble').css({'pointer-events':'auto'})
 	            setTimeout(function(){
 					$('.text').addClass('texton')
 	                text_7()
@@ -398,42 +643,36 @@ left: 48vw !important;
 		})
 		 // text_7()
         function text_7(){
+        	$('.dir_button').show()
+        	$('.pplspeaking').show()
+        	stage = 20
         	$('.text').addClass('texton')
-        	$('.text').addClass('texton_force')
+        	// $('.text').addClass('texton_force')
             $('.text').html('우주선을 같이 탄 사람들 사이에서 논쟁이 들린다.')
-        	$('.op_1').show()
-        	$('.op_2').show()
-            $('.op_1 .speaking').html('!!!$#@#^&!!!')
-            $('.op_2 .speaking').html('!!!$#@#^&!!!')
-            setTimeout(function(){
-                text_8()
-            },3000)
+	            setTimeout(function(){
+	                show_img()
+	            },1000)
         }
         function text_8(){
-        	$('.op_1').show()
-            $('.op_1 .speaking').html('이미 자리잡고 있는 생명체의 터전을 빼앗을 수 없습니다.')
-            setTimeout(function(){
-                text_9()
-            },3000)
+            $('.text').html('정확히 무슨 말을 하는지 들리지 않는다.')
         }
         function text_9(){
-            $('.op_1 .speaking').html('다른 행성을 찾아 떠나야 합니다.')
-            setTimeout(function(){
-                text_10()
-            },3000)
+            $('.text').html('한쪽 눈을 감고, 화면을 기울여 어떤 이야기를 하는지 읽어보자. 동의하는 말풍선을 터치해 따라가자')
         }
-        function text_10(){
-        	$('.op_2').show()
-            $('.op_2 .speaking').html('인간의 생존이 최우선입니다.')
-            setTimeout(function(){
-                text_11()
-            },3000)
-        }
-        function text_11(){
-            $('.op_2 .speaking').html('정착해야 합니다.')
-            setTimeout(function(){
-                text_12()
-            },3000)
+        var counter = 0
+        function show_img(){
+            console.log('sdfk')
+            $('.talk').eq(counter).show()
+            counter++
+            if(counter<3){
+	            setTimeout(function(){
+	                show_img()
+	            },2000)
+            }else{
+	            setTimeout(function(){
+	                show_img()
+	            },1000)
+            }
         }
         function text_12(){
         	$('.text').addClass('texton')
@@ -459,6 +698,7 @@ left: 48vw !important;
 			})
 		})
 	</script>
+        <div class="next">?</div>
 	<img src="../img/crack.jpg" class='crack'>
 		<img class="planet1 planet" src="planet1.png">
 		<img class="planet2 planet" src="planet2.png">
@@ -501,5 +741,23 @@ left: 48vw !important;
 			<div class="ppl"></div>
 			<div class="speaking"></div>
 		</div>
+        <img src="../img/close.png" class="close">
+<img class="text-arrow arrow-right" src="../img/arrow-right.png">
+<img class="text-arrow arrow-left" src="../img/arrow-left.png">
+    <a href="../start_building.html" class="bubble talk_seq_1 talk talk1"><img src="../img/tail_blue.png"></a>
+    <a href="../toanotherplanet.html" class="bubble talk_seq_2 talk talk2"><img src=" ../img/tail_red.png"></a>
+    <a href="../start_building.html" class="bubble talk_seq_3 talk talk3"><img src="../img/tail_blue.png"></a>
+    <a href="../toanotherplanet.html" class="bubble talk_seq_4 talk talk4"><img src=" ../img/tail_red.png"></a>
+    <a href="../start_building.html" class="bubble talk_seq_5 talk set_1 talk1"><img src="../img/tail_blue.png"></a>
+    <a href="../toanotherplanet.html" class="bubble talk_seq_6 talk set_1 talk2"><img src=" ../img/tail_red.png"></a>
+    <a href="../start_building.html" class="bubble talk_seq_7 talk set_1 talk3"><img src="../img/tail_blue.png"></a>
+    <a href="../toanotherplanet.html" class="bubble talk_seq_8 talk set_1 talk4"><img src=" ../img/tail_red.png"></a>
+    <a href="../start_building.html" class="bubble talk_seq_9 talk set_2 talk1"><img src="../img/tail_blue.png"></a>
+    <a href="../toanotherplanet.html" class="bubble talk_seq_10 talk set_2 talk2"><img src=" ../img/tail_red.png"></a>
+    <a href="../start_building.html" class="bubble talk_seq_11 talk set_2 talk3"><img src="../img/tail_blue.png"></a>
+    <a href="../toanotherplanet.html" class="bubble talk_seq_12 talk set_2 talk4"><img src=" ../img/tail_red.png"></a>
+    <img class="pplspeaking pplspeaking1" src="../img/pplspeaking.png">
+    <img class="pplspeaking pplspeaking2" src="../img/pplspeaking2.png">
+</body>
 </body>
 </html>

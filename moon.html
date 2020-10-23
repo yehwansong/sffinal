@@ -60,6 +60,7 @@ crossorigin="anonymous"></script>
 		margin-left: -12.5vw;
 		overflow: hidden;
 		border-radius: 50%;
+		pointer-events: auto;
 	}
 .ppl_speaking_1,
 .ppl_speaking_2{
@@ -141,55 +142,20 @@ left: auto;
  
         }, { passive: false });
 	$(document).ready(function(){
-			text_1()
-			function text_1(){
-				$('.ppl_speaking_1').show()
-				$('.ppl_speaking_1').html('안녕하세요')
-				setTimeout(function(){
-					text_2()
-				},2500)
-			}
-			function text_2(){
-				$('.ppl_speaking_1').show()
-				$('.ppl_speaking_1').html('저희는 달 뒷면에 지하 도시를 건설하는 팀입니다.')
-				setTimeout(function(){
-					text_3()
-				},2500)
-			}
-			function text_3(){
-				$('.ppl_speaking_1').show()
-				$('.ppl_speaking_1').html('달에서 알 수 없는 유적지를 발굴했습니다.')
-				setTimeout(function(){
-					text_4()
-				},2500)
-			}
-			function text_4(){
-				$('.ppl_speaking_1').hide()
-				$('.text').html('외계인의 흔적이다.')
-				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_5()
-				},2500)
-			}
 			function text_5(){
-				$('.text').html('달을 터치해 유적이 뭔지 살펴보자.')
+				$('.ppl_speaking').hide()
+				$('.text').html('달을 터치해보자.')
 				$('.text').addClass('texton')
 				setTimeout(function(){
 					// text_6()
 				},2500)
 			}
 			function text_6(){
-				$('.ppl_speaking').hide()
-				$('.text').html('도시를 건설하려 했던 흔적이 보인다.')
-				$('.text').addClass('texton')
-				setTimeout(function(){
-					text_7()
-				},2500)
+					$('.words').fadeIn(300)
 			}
 			function text_7(){
 				$('.ppl_speaking').hide()
-					$('.words').fadeIn(300)
-				$('.text').html('글을 발견했다.')
+				$('.text').html('달에서 외계인의 유적을 발견했는데, 놀라운 이야기가 적혀 있다. 백악기 후기의 소행성 충돌 직후에 지구를 방문한 외계인이 살아남은 생명체를 모아 우리가 개척하려는 행성에 가져다 놓았다는 것이다.')
 				$('.text').addClass('texton')
 				setTimeout(function(){
 					text_8()
@@ -203,13 +169,22 @@ left: auto;
 					text_9()
 				},2500)
 			}
+			function text_9(){
+				$('.ppl_speaking').hide()
+					$('.words').fadeIn(300)
+				$('.text').html('글을 발견했다.')
+				$('.text').addClass('texton')
+				setTimeout(function(){
+					text_8()
+				},2500)
+			}
 
 
 			function text_9(){
 				$('.text').removeClass('texton')
 				$('.ppl_speaking_2').show()
 				$('.story').show()
-				$('.ppl_speaking_2').html('[분석결과]<br>우리는 생명체를 찾아다니던 중')
+				$('.ppl_speaking_2').html('')
 				$('.story img').css({'opacity': 0})
 				$('.ufo').css({'opacity': 1})
 				setTimeout(function(){
@@ -249,7 +224,7 @@ left: auto;
 				$('.story img').css({'opacity': 0})
 				$('.move').css({'opacity': 1})
 				setTimeout(function(){
-                	location.replace("last_selector.html");
+                	// location.replace("last_selector.html");
 				},2500)
 			}
 
@@ -266,6 +241,8 @@ left: auto;
 </script>
 </head>
 <body>
+    	<img class="text-arrow arrow-right" src="img/arrow-right.png">
+    	<img class="text-arrow arrow-left" src="img/arrow-left.png">
 	<img src="img/words-01.png" class="words">
     <div class="text"></div>
 	<div class="ppl_speaking_1"></div>

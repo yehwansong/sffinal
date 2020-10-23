@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="all.css"/>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0
+	}
+	html,body{
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+		background: white;
+	}
+	body{
+		background: #cce1e4;
+	}
+	.thunder{
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-size: 100% 100%;
+		background-image: url(img/thunder.png);
+	}
+	img{
+		width: 100vw;
+		transform: rotate(-45deg) scale(1.2);
+		position: absolute;
+		bottom: -20vw;
+	}
+	.button{
+		width: 10vw;
+		height: 10vw;
+		position: absolute;
+		z-index: 10000;
+		background: red;
+		pointer-events: auto;
+	}
+	.button_1{
+left: 70vw;
+bottom: 50vw;}
+.button_2{
+left: 50vw;
+bottom: 80vw;}
+.button_3{
+left: 20vw;
+bottom: 85vw;}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+ 
+        }, { passive: false });
+		$('.black').hide()
+		var button_1_on = false
+		var button_2_on = false
+		var button_3_on = false
+			$('.button_1').bind('touchstart', function(e){
+				button_1_on = true
+			})
+			$('.button_2').bind('touchstart', function(e){
+				button_2_on = true
+			})
+			$('.button_3').bind('touchstart', function(e){
+				button_3_on = true
+			})
+			$('.button_1').bind('touchend', function(e){
+				button_1_on = false
+			})
+			$('.button_2').bind('touchend', function(e){
+				button_2_on = false
+			})
+			$('.button_3').bind('touchend', function(e){
+				button_3_on = false
+			})
+			$('.button').bind('touchstart', function(e){
+					console.log(button_1_on)
+					console.log(button_2_on)
+					console.log(e.originalEvent.touches.length)
+					console.log(button_3_on)
+				if(button_1_on && button_2_on && e.originalEvent.touches.length>1){
+					console.log('hey')
+					$('.black').fadeIn(800)
+				}
+			})
+	})
+</script>
+</head>
+<body>
+	<div class="text"></div>
+	<div class="black"></div>
+	<img src="img/son_death.png">
+	<div class="button button_1"></div>
+	<div class="button button_2"></div>
+	<div class="button button_3"></div>
+</body>
+</html>

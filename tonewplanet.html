@@ -36,6 +36,13 @@ crossorigin="anonymous"></script>
 		top: 50%;
 		transform: translateY(-50%);
 	}
+    .alien{
+        transform: scale(0) !important;
+        transition: 10s
+    }
+    .img_animate{
+        transform: scale(1) !important;
+    }
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -45,23 +52,15 @@ crossorigin="anonymous"></script>
             $('.text').addClass('texton center')
             $('.text').html('나는 서윤와 함께 새로운 행성을 찾아 외계행성으로 떠나기로 했다.\
                 ')
-            setTimeout(function(){
-        $('.black').fadeOut(300)
-                text_2()
-            },3000)
         }
         function text_2(){
+            $('.black').fadeOut(300)
+        $('.alien').addClass('img_animate')
             $('.text').removeClass('center')
             $('.text').html('저 멀리 외계행성이 하나 보인다.')
-            setTimeout(function(){
-                text_3()
-            },3000)
         }
         function text_3(){
             $('.text').html('관측 결과 가장 가까우면서도 지구와 가장 비슷한 행성이다.')
-            setTimeout(function(){
-                text_4()
-            },3000)
         }
         function text_4(){
         	$('.black').fadeIn(1500)
@@ -70,12 +69,36 @@ crossorigin="anonymous"></script>
                 location.replace("Newplanet/index.html");
             },3000)
         }
+            var stage = 1
+            move(stage)
+            $('.arrow-left').click(function(){
+                if((stage > 1 && stage < 6)){stage--}
+                console.log(stage)
+                move(stage)
+                return false
+            })
+            $('.arrow-right').click(function(){
+                if((stage > 0 && stage < 5)){stage++}
+                console.log(stage)
+                move(stage)
+                return false
+            })
+            function move(stage){
+                console.log('hey!')
+                if(stage == 1){text_1()}
+                if(stage == 2){text_1_1()}
+                if(stage == 3){text_2()}
+                if(stage == 4){text_3()}
+                if(stage == 5){text_4()}
+            }
 	})
 </script>
 </head>
 <body>
+        <img class="text-arrow arrow-right" src="img/arrow-right.png">
+        <img class="text-arrow arrow-left" src="img/arrow-left.png">
     <div class="black"></div>
     <div class="text"></div>
-    <img src="img/alien.png" class="alien">
+    <img src="img/test-01.png" class="alien">
 </body>
 </html>
