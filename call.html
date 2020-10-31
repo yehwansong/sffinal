@@ -76,6 +76,7 @@ crossorigin="anonymous"></script>
 
 		background-size: contain;
 		display: none;
+		pointer-events: none;
 	}
 	.inner{
 		background-size: contain;
@@ -175,12 +176,12 @@ crossorigin="anonymous"></script>
 			var stage = 1
 			move(stage)
 			$('.arrow-left').click(function(){
-				if(stage > 0){stage--}
+				if((stage > 1 && stage < 7)||(stage > 10 && stage < 13)){stage--}
 				console.log(stage)
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if(stage < 14){stage++}
+				if((stage > 0 && stage < 6)||(stage > 9 && stage < 12)){stage++}
 				console.log(stage)
 				move(stage)
 			})
@@ -192,10 +193,10 @@ crossorigin="anonymous"></script>
 				if(stage == 4){text_3()}
 				if(stage == 5){text_4()}
 				if(stage == 6){text_5()}
+
+				if(stage == 11){text_6()}
+				if(stage == 12){text_7()}
 			}
-		setTimeout(function(){
-			 text_0()
-		},3000)
         function text_0(){
         	$('.black').hide()
             $('.text').addClass('texton')
@@ -217,9 +218,12 @@ crossorigin="anonymous"></script>
         }
         function text_5(){
             $('.text').html('우주선을 터치해 조심스럽게 의사소통을 시도해보자.')
+            $('.center').css({'pointer-events':'auto'})
+            $('.text-arrow').css({'pointer-events':'none'})
         }
 		var timeout
 			$('.center').bind('touchstart', function(e){
+				stage = 7
 				console.log('-------')
 			  clearTimeout(timeout);
 			  timeout = setTimeout(function(){
@@ -237,18 +241,20 @@ crossorigin="anonymous"></script>
 			  timeout = setTimeout(function(){
 			  	$('.screen_5 .inner').css({'opacity':1})
             	$('.text').html('연결이 되었다!')
-	            setTimeout(function(){
-            	$('.text').html('그 우주선은 인간의 우주선이다! 대화를 나누던 도중 나는 아는 사람을 발견한다.')
-	            	$('.center_blue').addClass('center_blue_animate')
-						  timeout = setTimeout(function(){
-								location.replace("c_2.html");
-						  }, 1000);
-		        },2500)
+            	$('.text-arrow').css({'pointer-events':'auto'})
+            	stage = 10
 			  }, 3500);
 			})
-			$('.center').bind('touchend', function(e){
-			  // clearTimeout(timeout);
-			})
+	        function text_6(){
+	            $('.text').html('그 우주선은 인간의 우주선이다! 대화를 나누던 도중 나는 아는 사람을 발견한다.')
+	            $('.center').css({'pointer-events':'auto'})
+	            	$('.center_blue').addClass('center_blue_animate')
+	        }
+	        function text_7(){
+								location.replace("c_2.html");
+						  timeout = setTimeout(function(){
+						  }, 1000);
+	        }
 		})
 </script>
 </head>

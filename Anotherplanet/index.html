@@ -26,6 +26,7 @@ background: linear-gradient(white 30%, black 70%);
   width: 100vw;
   height: 100vh;
   perspective: 1200px;
+    background: linear-gradient(to bottom, white 30%, black 40%);
 }
 
 .cube {
@@ -89,7 +90,15 @@ background: linear-gradient(white 30%, black 70%);
 		var currentClass = '';
 		var rotate = 2
 		function changeSide() {
-			console.log(rotate)
+									if(rotate == 1){
+										$('.text').html('반대쪽은 언제나 별을 등지고 있다. 그쪽은 언제나 밤이라 차다.')
+									}
+									if(rotate == 2){
+										$('.text').html('중간 지대는 온도가 적당했지만, 안타깝게도 이 행성의 대기에는 산소가 없다.')
+									}
+									if(rotate == 3){
+										$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 바라보고 있다.<br>그쪽은 언제나 낮이라 뜨겁다.')
+									}
 		  	var showClass = 'show-' + sidearray[rotate];
 		  	if ( currentClass ) {
 		    	cube.classList.remove( currentClass );
@@ -106,60 +115,53 @@ background: linear-gradient(white 30%, black 70%);
 			$(document).bind('touchend', function(){
 			});
 			$(document).bind('touchmove', function(e){
-				upX = e.originalEvent.touches[0].pageX
-				if(originX > upX + 50){
-					rotatedamount++
-					rotate = rotate+1
-					if(rotate>3){
-						rotate = 3
-					}
-					originX = upX
-					changeSide()
-					return false
-				}
-				if(originX < upX - 50){
-					rotatedamount++
-					rotate = rotate-1
-					if(rotate<1){
-						rotate = 1
-					}
-					originX = upX
-					changeSide()
-					return false
-				}
-				var rotate_1 = false
-				var rotate_2 = false
-				var rotate_1 = false
-				if(rotate == 1){
-					$('.text').html('반대쪽은 언제나 별을 등지고 있다. 그쪽은 언제나 밤이라 차다.')
-				}
-				if(rotate == 2){
-					$('.text').html('중간 지대는 온도가 적당했지만, 안타깝게도 이 행성의 대기에는 산소가 없다.')
-				}
-				if(rotate == 3){
-					$('.text').html('조석 고정 현상 때문에 한쪽 면이 언제나 별을 바라보고 있다.<br>그쪽은 언제나 낮이라 뜨겁다.')
-				}
-				if(rotatedamount > 3){
-					nextpage = true
-				}
+				if(stage > 1){
+									upX = e.originalEvent.touches[0].pageX
+									if(originX > upX + 50){
+										rotatedamount++
+										rotate = rotate+1
+										if(rotate>3){
+											rotate = 3
+										}
+										originX = upX
+										changeSide()
+										return false
+									}
+									if(originX < upX - 50){
+										rotatedamount++
+										rotate = rotate-1
+										if(rotate<1){
+											rotate = 1
+										}
+										originX = upX
+										changeSide()
+										return false
+									}
+									var rotate_1 = false
+									var rotate_2 = false
+									var rotate_1 = false
+									console.log(rotate)
+									if(rotatedamount > 3){
+										nextpage = true
+									}
+								}
 			});
 	        function text_3(){
 				if(nextpage){
 				        	$('.black').show()
 				            $('.text').addClass('texton')
 				            $('.text').html('결국 이 행성을 포기하고 또 다른 행성을 찾아 여행을 떠난다.')
-				            setTimeout(function(){
-				            	location.replace("../call.html");
-				            },1500)
 				}else{
 					text_1()
 				}
 			}
+	        function text_4(){
+				     location.replace("../call.html");
+	        }
 			text_0()
 	        function text_0(){
 	            $('.text').html('두 번째 후보지는 적색왜성에 딸린 행성이었다.')
 	        }
-			text_1()
 	        function text_1(){
 	            $('.text').html('화면을 돌리면서 행성을 둘러보자')
 	        }
@@ -167,12 +169,12 @@ background: linear-gradient(white 30%, black 70%);
 			var stage = 1
 			move(stage)
 			$('.arrow-left').click(function(){
-				if((stage>1&&stage<4)){stage--}
+				if((stage>1&&stage<5)){stage--}
 				console.log(stage)
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if((stage>0&&stage<3)){stage++}
+				if((stage>0&&stage<4)){stage++}
 				console.log(stage)
 				move(stage)
 			})
@@ -180,6 +182,7 @@ background: linear-gradient(white 30%, black 70%);
 				if(stage == 1){text_0()}
 				if(stage == 2){text_1()}
 				if(stage == 3){text_3()}
+				if(stage == 4){text_4()}
 			}
 
 		})

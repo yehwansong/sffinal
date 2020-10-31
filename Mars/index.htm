@@ -202,17 +202,23 @@ function hotspot() {
             $('.text').html(button_array[num])
             $('.text').addClass('texton')
             e.preventDefault();
-        })
+        })  
+            var stage = 0
+            $('.arrow-right').click(function(){
+                if(stage == 1){
+                    location.replace("../mars_story.html");
+                }
+            })
     $('.hotspot8').bind('touchstart', function(e){
-        setTimeout(function(){
-            location.replace("../mars_story.html");
-        })
+        stage = 1
     })
     $('.custom-hotspot').bind('touchend', function(e){
-            $('.custom-hotspot').find('img').css({'transform':'scale(1)'})
-            $('.text').html(' ')
-            $('.text').removeClass('texton')
-            e.preventDefault();
+            if(stage<1){
+                $('.custom-hotspot').find('img').css({'transform':'scale(1)'})
+                $('.text').html(' ')
+                $('.text').removeClass('texton')
+                e.preventDefault();
+            }
         })
 }
     window.onload = function(){

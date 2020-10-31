@@ -43,7 +43,7 @@ crossorigin="anonymous"></script>
 		overflow-y: scroll;
 	}
 	.wrapper_fly{
-		transform: scale(1);
+		transform: scale(0.8);
 	}
 	.popupbutton,
 	.button{
@@ -312,6 +312,7 @@ left: 50vw;
 top: 40vh;
 display: none;
 border-radius: 2vw;
+pointer-events: none;
     }
     .dir_button{
 width: 20vw;
@@ -480,13 +481,14 @@ display: none;}
 	display: none;
 	pointer-events: auto !important;
 	
-    z-index: 10000000000000;
+    z-index: 10000000000000 !important;
 }
 .tilt{
 width: 100% !important;
 height: auto !important;}
 .black{height: 100vh;
 z-index: 100000000000000000!important;}
+
 </style>
     <link rel="stylesheet" href="../all.css"/>
 <link rel='stylesheet' id='kopub-css'  href='https://cdn.jsdelivr.net/font-kopub/1.0/kopubbatang.css?ver=5.3' type='text/css' media='all' />
@@ -606,10 +608,10 @@ z-index: 100000000000000000!important;}
 		  	$(document).scroll(function(){
 		  		var scrolltop = $(window).scrollTop()/w
 		  		console.log(map_range(scrolltop, 0, 2.6, 0, 1))
-		  		$('.planet2').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.8)*-100+'vw'})
-		  		$('.planet3').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.5)*-100+'vw'})
+		  		// $('.planet2').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.8)*-100+'vw'})
+		  		// $('.planet3').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.5)*-100+'vw'})
 		  		$('.planet4').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2)*-100+'vw'})
-		  		$('.planet5').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2.5)*-100+'vw'})
+		  		// $('.planet5').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2.5)*-100+'vw'})
 		    })
 		  	var button_array = [
 		  		' 온갖 동식물이 행성 전체에 퍼져 살고 있다.',
@@ -636,7 +638,6 @@ z-index: 100000000000000000!important;}
 				$('.button').css({'pointer-events':'none'})
 				$('.popupbutton').css({'pointer-events':'none'})
 				$('.popup').hide()
-				$('.bubble').css({'pointer-events':'auto'})
 	            setTimeout(function(){
 					$('.text').addClass('texton')
 	                text_7()
@@ -666,10 +667,13 @@ z-index: 100000000000000000!important;}
             console.log('sdfk')
             $('.talk').eq(counter).show()
             counter++
+	                if(counter > 10){
+            			$('.talk').css({'pointer-events':'auto'})
+            		}
             if(counter<3){
 	            setTimeout(function(){
 	                show_img()
-	            },2000)
+	            },1500)
             }else{
 	            setTimeout(function(){
 	                show_img()
@@ -702,10 +706,10 @@ z-index: 100000000000000000!important;}
 	</script>
         <div class="next">?</div>
 		<img class="planet1 planet" src="planet1.png">
-		<img class="planet2 planet" src="planet2.png">
-		<img class="planet3 planet" src="planet3.png">
+		<!-- <img class="planet2 planet" src="planet2.png"> -->
+		<!-- <img class="planet3 planet" src="planet3.png"> -->
 		<img class="planet4 planet" src="planet4.png">
-		<img class="planet5 planet" src="planet5.png">
+		<!-- <img class="planet5 planet" src="planet5.png"> -->
 		<!-- <div class="button button_tree">&nbsp;</div> -->
 	<div class="wrapper">
 	</div>

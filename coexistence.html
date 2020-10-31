@@ -31,6 +31,7 @@ crossorigin="anonymous"></script>
 		height:  16.65vw;
 		border:0.1vw solid black;
 		position: absolute;
+		pointer-events: none;
 	}
 	.left_2{
 		left:16.65vw
@@ -205,6 +206,7 @@ overflow: hidden;}
 			}
 			function text_3(){
 				$('.text').html('영역을 터치해 우리가 개발할 지역을 결정해보자.')
+				$('.wrapper>div').css({'pointer-events':'auto'})
 			}
 
 			$('.closebutton2').bind('touchstart', function(e){
@@ -231,6 +233,8 @@ overflow: hidden;}
 				$('.text').html('부디 시간이 흘러도 이런 마음가짐이 변하지 않기를 바라면서 우리는 불안한 공존을 계속한다.')
 			}
 			function text_8(){
+					$('.popup').hide()
+					$('.popup2').hide()
 				$('.text').addClass('center theend')
 				$('.result').append('\
 		        	<img src="img/close.png" class="close result_close">\
@@ -284,8 +288,10 @@ overflow: hidden;}
 					},2500)
 				}else if($(this).hasClass('creature')){
 					$('.popup').show()
+					$('.popup2').hide()
 				}else if($('.selected').length > 10){
 					$('.popup2').show()
+					$('.popup').hide()
 				}else{
 					$(this).addClass('selected')
 					var left_var = $(this).attr('class').split('left_')[1].split(' ')[0]

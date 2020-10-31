@@ -204,17 +204,24 @@ img, .robotme{
 		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 		}
 
+			var pass1 = false
 		$(document).ready(function(){
-			var stage = 1
+			setTimeout(function(){
+				pass1 = true
+			}, 3000)
+			var stage = 2
 			move(stage)
 			$('.arrow-left').click(function(){
-				if(stage > 0){stage--}
-				console.log(stage)
+				if(stage > 1){stage--}
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if(stage < 14 || stage > 29){stage++}
-				console.log(stage)
+				if(stage < 14 || stage > 29){
+					stage++
+					if(stage == 3 && !pass1){
+						stage--
+					}
+				}
 				move(stage)
 			})
 			function move(stage){
@@ -238,10 +245,10 @@ img, .robotme{
 			}
 
 			function text_1(){
-				console.log('hey!')
-				$('.wrapper').css({'opacity':'1'})
 			}
 			function text_2(){
+				console.log('hey!')
+				$('.wrapper').css({'opacity':'1'})
 				$('.text').addClass('texton')
 				$('.text').html('누구지?')
 				$('.text').addClass('texton')
@@ -303,6 +310,7 @@ img, .robotme{
 			}
 			var counter_op = 0
 			$('.handbox_3').bind('touchstart', function(e){
+            $('.text-arrow').css({'pointer-events':'none'})
 				console.log('--------------')
 				$('.speakingbox').css({'opacity':0})
 				// $('.speakingbox').html('LOADING')
@@ -329,6 +337,7 @@ img, .robotme{
 				},7000)
 			})
 			function speaking_11(){
+            $('.text-arrow').css({'pointer-events':'auto'})
 				stage = 30
 				$('.black').hide()
 				$('.text').addClass('texton')

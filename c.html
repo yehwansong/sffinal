@@ -25,7 +25,7 @@ crossorigin="anonymous"></script>
 	}
 	html,body{
 		overflow: hidden;
-		position: fixed;
+		position: fixed !important;
 	}
 	html,body,.whole_original{
 		height: 100%;
@@ -36,6 +36,8 @@ crossorigin="anonymous"></script>
 		background-image: url('img/c_door-02.png');
 		background-size: 101% 101%;
 		background-position: center;
+    z-index: 10000;
+    position: absolute;
 	}
 	.whole_original,.whole{
 		transition: 15s
@@ -312,7 +314,8 @@ img{
 		function map_range(value, low1, high1, low2, high2) {
 		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 		}
-
+		var pass1 = false
+		var pass2 = false
 		$(document).ready(function(){
 			function text_1(){
 				console.log('hey')
@@ -320,6 +323,10 @@ img{
 				$('.text').addClass('texton')
 				$('.wrapper').css({'width': '100vw'})
 				$('.wrapper').css({'top': '0%'})
+
+				setTimeout(function(){
+					pass1 = true
+				},8000)
 				setTimeout(function(){
 					$('.c_face').css({'opacity':1})
 				},2000)
@@ -337,7 +344,15 @@ img{
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if((stage < 13) || (stage == 14)){stage++}
+				if((stage < 13) || (stage == 14)){
+					stage++
+					if(stage == 3 && !pass1){
+						stage -- 
+					}
+					if(stage == 15 && !pass2){
+						stage -- 
+					}
+				}
 				console.log(stage)
 				move(stage)
 			})
@@ -427,7 +442,6 @@ img{
 				$('.text').html('사람으로 남기로 한 나는 화성으로 떠나며 계속 손을 비추어본다. 사람으로 남길 잘했다는 생각이 든다.')
 				$('.text').addClass('texton')
 				$('.speakingbox').css({'pointer-events':'auto'})
-				console.log($('.human_wrapper'))
 			}
 			function speaking_13(){
 				$('.next_wrapper').css({'background-color':'rgb(0, 0, 0)'})
@@ -437,7 +451,6 @@ img{
 				$('.text').html('나는 화성으로 간다.')
 				$('.text').addClass('texton')
 				$('.speakingbox').css({'pointer-events':'auto'})
-				console.log($('.human_wrapper'))
 							$('.black').fadeIn(2000)
 						setTimeout(function(){
 						location.replace("Mars/index.htm");
@@ -563,6 +576,10 @@ img{
 						$('.human_wrapper').css("pointer-events", "none !important")
 						$('.whole').css({'transform':'translateY(0vh)'})
 						$('.whole_original').css({'transform':'translateY(-80vh)'})
+						setTimeout(function(){
+							pass2 = true
+							speaking_13()
+						},10000)
 						stage = 14
 						move(14)
 					}

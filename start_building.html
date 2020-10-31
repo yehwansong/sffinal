@@ -311,12 +311,14 @@ transform: translateX(-50%);}
         	$('.black').show()
             $('.text').addClass('texton center')
             $('.text').html('우리는 생명체가 가장 적게 분포하는 대륙을 골라 착륙한다. 그리고 도시를 건설하기 시작한다.')
+            $('.wrapper>div').css({'pointer-events':'none'})
         }
         function text_2(){
         	$('.black').hide()
             $('.text').addClass('texton')
             $('.text').removeClass('center')
             $('.text').html('도시를 건설하고 싶은 영역을 터치해 도시를 건설해보자.')
+            $('.wrapper>div').css({'pointer-events':'auto'})
         }
         $('.closebutton').click(function(){
         	stage = 3
@@ -324,22 +326,27 @@ transform: translateX(-50%);}
 			$('.popup').hide()
             $('.text').addClass('texton')
             $('.text').html('그러던 어느 날 지구에서 보낸 소식이 도착한다.')
+            $('.wrapper>div').css({'pointer-events':'none'})
         })
         function text_5(){
         	stage = 11
         	$('.popup_call').hide()
 			$('.popup_2').show()
             $('.text').html('여기 있는 생명체는 그때 외계인이 가져온 생명체의 후손인 것이다. 즉, 우리의 친척인 셈이다.')
+            $('.wrapper>div').css({'pointer-events':'none'})
         }
         function text_6(){
             $('.text').html('그 사실을 알게 되니 도구를 쓰는 동물도 전과 다르게 보인다.')
+            $('.wrapper>div').css({'pointer-events':'none'})
         }
         function text_7(){
             $('.text').html('이들을 특별히 다르게 대해야 할까?')
+            $('.wrapper>div').css({'pointer-events':'none'})
         }
         function text_8(){
 			$('.popup_2').hide()
             $('.text').html('계속 개발을 하려면 빈 화면을 계속 클릭하자. 이들을 지성체로 대하고 함께 공존하려면, 이미 개발된 지역을 터치해 개발을 제지해보자.')
+            $('.wrapper>div').css({'pointer-events':'auto'})
             $('.box').bind('touchstart', function(e){
             	console.log($(this).attr('class'))
             	if($(this).attr('class').split('selected').length>0){

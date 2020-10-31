@@ -112,12 +112,12 @@ top: 180vw;}
 			var stage = 1
 			move(stage)
 			$('.arrow-left').click(function(){
-				if((stage > 1 && stage < 5)||(stage > 10 && stage < 13)||(stage > 19 && stage < 30)){stage--}
+				if((stage > 1 && stage < 5)||(stage > 10 && stage < 13)||(stage > 19 && stage < 31)){stage--}
 				console.log(stage)
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if((stage > 0 && stage < 4)||(stage > 9 && stage < 12)||(stage > 18 && stage < 29)){stage++}
+				if((stage > 0 && stage < 4)||(stage > 9 && stage < 12)||(stage > 18 && stage < 30)){stage++}
 				console.log(stage)
 				move(stage)
 			})
@@ -142,6 +142,7 @@ top: 180vw;}
 				if(stage == 27){text_14()}
 				if(stage == 28){text_15()}
 				if(stage == 29){text_16()}
+				if(stage == 30){text_17()}
 				// if(stage == 12){text_7()}
 			}
 
@@ -265,10 +266,9 @@ top: 180vw;}
         }
         function text_16(){
             $('.text').html('그러던 어느날')
-            setTimeout(function(){
-            	// text_7()
+        }
+        function text_17(){
             	location.replace("mars_story_2.html");
-            },2000)
         }
 
         $('.next').bind('touchstart', function(e){
