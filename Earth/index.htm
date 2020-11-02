@@ -708,7 +708,14 @@ $(document).ready(function(){
             text_1()
         function text_1(){
             $('.text').addClass('texton center')
-            $('.text').html('서기 2XXX년. 지구')
+            $('.text').html('서기 2XXX년')
+            setTimeout(function(){
+                text_1_1()
+            },3000)
+        }
+        function text_1_1(){
+            $('.text').addClass('texton center')
+            $('.text').html('[지구]')
             setTimeout(function(){
                 text_2()
             },4000)

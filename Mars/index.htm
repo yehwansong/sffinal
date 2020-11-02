@@ -73,6 +73,9 @@ width: 10vh;
         width: 35vh;
         /*background:blue;*/
     }
+    .text-arrow{
+        display: none;
+    }
 </style>
 </head>
 <body>
@@ -92,7 +95,7 @@ width: 10vh;
             text_0()
         function text_0(){
             $('.text').addClass('texton center')
-            $('.text').html('화성')
+            $('.text').html('[화성]')
             setTimeout(function(){
                 text_2()
             },2500)
@@ -210,6 +213,7 @@ function hotspot() {
                 }
             })
     $('.hotspot8').bind('touchstart', function(e){
+            $('.arrow-right').show()
         stage = 1
     })
     $('.custom-hotspot').bind('touchend', function(e){

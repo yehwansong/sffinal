@@ -383,7 +383,7 @@ border: 0.5vw solid white
 		left: 35vw;
 		top: 70vw;
 		transition: 3s;
-		pointer-events: all
+		pointer-events: none
 	}
 	.footer_wrapper{
 z-index: 110000000;
@@ -405,7 +405,7 @@ opacity:0;
 		touch-action: manipulation;
 		background-image: url(../img/footprint-01_outline.png) !important;
 		left: 50vw;
-		top: 90vw;
+		top: 40vh;
 		transform:translateY(-20vw);
 		opacity: 0;
 		transition: 0.5s
@@ -525,6 +525,7 @@ transform: translateZ(1000vw);
 		}
 		function text_3(){
 			$('.text').html('지구를 클릭해 지구로 들어가보자')
+			$('.earth').css({'pointer-events':'auto'})
 		}
 		$('.earth').click(function(){
 			$('.next').show()

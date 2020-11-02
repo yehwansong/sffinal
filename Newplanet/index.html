@@ -594,8 +594,6 @@ z-index: 100000000000000000!important;}
         	stage = 10
             $('.text').addClass('texton')
             $('.text').html('도착했다!')
-            $('.button').css({'pointer-events':'auto'})
-            $('.button').css({'pointer-events':'auto'})
         }
         function text_5(){
             $('.text').html('다행히 지구와 비슷해 사람이 살 수 있을 것 같다.')
@@ -603,6 +601,8 @@ z-index: 100000000000000000!important;}
         function text_6(){
             $('.text').html('조금 더 살펴보도록 할까?')
                 $('.black').css({'pointer-events':'all'})
+            $('.button').css({'pointer-events':'auto'})
+            $('.button').css({'pointer-events':'auto'})
         }
 
 			var scrolltimeout 
@@ -645,6 +645,7 @@ z-index: 100000000000000000!important;}
 	            },500)
 			}
 		})
+		var allread = false
 		 // text_7()
         function text_7(){
         	$('.dir_button').show()
@@ -661,15 +662,17 @@ z-index: 100000000000000000!important;}
             $('.text').html('정확히 무슨 말을 하는지 들리지 않는다.')
         }
         function text_9(){
+        	allread = true
             $('.text').html('한쪽 눈을 감고, 화면을 기울여 어떤 이야기를 하는지 읽어보자. 동의하는 말풍선을 터치해 따라가자')
         }
         var counter = 0
         function show_img(){
-            console.log('sdfk')
             $('.talk').eq(counter).show()
             counter++
 	                if(counter > 10){
-            			$('.talk').css({'pointer-events':'auto'})
+	                	if(allread){
+	                	            			$('.talk').css({'pointer-events':'auto'})
+	                	            		}
             		}
             if(counter<3){
 	            setTimeout(function(){
