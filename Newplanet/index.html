@@ -625,6 +625,7 @@ z-index: 100000000000000000!important;}
 		  		' 지구와 비슷하면서도 다른 생명체들이 기묘한 분위기를 풍긴다.'
 		  		]
 		  		var button_counter = 0
+		  		var on7= false
 		$('.button').bind('touchstart', function(e){
             $(this).addClass('filter')
 			
@@ -639,15 +640,18 @@ z-index: 100000000000000000!important;}
 				$('.button').css({'pointer-events':'none'})
 				$('.popupbutton').css({'pointer-events':'none'})
 				$('.popup').hide()
-	            setTimeout(function(){
+	            // setTimeout(function(){
+					$('.text').attr('style', 'display:block !important');
+					$('.text').attr('style', 'opacity:1 !important');
 					$('.text').addClass('texton')
 	                text_7()
-	            },500)
+	            // },500)
 			}
 		})
 		var allread = false
 		 // text_7()
         function text_7(){
+        	on7 = true
         	$('.dir_button').show()
         	$('.pplspeaking').show()
         	stage = 20
@@ -697,8 +701,10 @@ z-index: 100000000000000000!important;}
 		$('.button').bind('touchend', function(e){
 	    	e.preventDefault();
 			$('.button').removeClass('button_visible')
-			$('.text').html(' ')
-			$('.text').removeClass('texton')
+			if(!on7){
+				$('.text').html(' ')
+				$('.text').removeClass('texton')
+			}
 		});
 			$('.popupbutton').click(function(){
 				$('.popup').show()

@@ -246,12 +246,12 @@ var step = 0
 			var stage = 1
 			move(stage)
 			$('.arrow-left').click(function(){
-				if((stage>1&&stage<3)||(stage > 10 && stage < 18)){stage--}
+				if((stage>1&&stage<3)||(stage > 10 && stage < 17)){stage--}
 				console.log(stage)
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if((stage>0&&stage<2)||(stage > 9 && stage < 17)){stage++}
+				if((stage>0&&stage<2)||(stage > 9 && stage < 16)){stage++}
 				console.log(stage)
 				move(stage)
 			})
@@ -265,7 +265,6 @@ var step = 0
 				if(stage == 14){text_13()}
 				if(stage == 15){text_14()}
 				if(stage == 16){text_15()}
-				if(stage == 17){text_16()}
 			}
 
 		function randomselect(left, top, init){
@@ -316,18 +315,15 @@ var step = 0
 			}
 			function text_13(){
 				other_ani()
-				$('.text').html('시간이 지날수록 행성의 생태계가 무너지고 있는 모습이 보인다.')
-			}
-			function text_14(){
 				$('.text').html('노년이 된 나와 서윤은 안타까워 눈물을 흘린다.')
 			}
-			function text_15(){
+			function text_14(){
 				$('.wrapper').addClass('time_2')
 				$('.text').html('인류가 이 먼 곳까지 와서 지구에서와 똑같은 실수를 한 것이다.')
 			}
 
 
-			function text_16(){
+			function text_15(){
 				$('.text').addClass('texton center theend')
 				$('.text-arrow').attr('style', 'pointer-events:none !important');
 				$('.result').empty()
