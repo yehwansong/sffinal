@@ -51,7 +51,7 @@ crossorigin="anonymous"></script>
         function text_1(){
             $('.black').show()
             $('.text').addClass('texton center')
-            $('.text').html('나는 서윤와 함께 새로운 행성을 찾아 외계행성으로 떠나기로 했다.\
+            $('.text').html('나는 서윤과 함께 새로운 행성을 찾아 외계행성으로 떠나기로 했다.\
                 ')
         }
         function text_2(){
@@ -65,21 +65,21 @@ crossorigin="anonymous"></script>
         }
         function text_4(){
         	$('.black').fadeIn(1500)
-            $('.text').html('나와 서윤는 외계행성에 수백년 날아가기 위해 동면 상태로 들어간다.')
+            $('.text').html('나와 서윤은 외계행성에 수백년 날아가기 위해 동면 상태로 들어간다.')
         }
-        function text_4(){
+        function text_5(){
                 location.replace("Newplanet/index.html");
         }
             var stage = 1
             move(stage)
             $('.arrow-left').click(function(){
-                if((stage > 1 && stage < 7)){stage--}
+                if((stage > 1 && stage < 6)){stage--}
                 console.log(stage)
                 move(stage)
                 return false
             })
             $('.arrow-right').click(function(){
-                if((stage > 0 && stage < 6)){stage++}
+                if((stage > 0 && stage < 5)){stage++}
                 console.log(stage)
                 move(stage)
                 return false
@@ -87,11 +87,10 @@ crossorigin="anonymous"></script>
             function move(stage){
                 console.log('hey!')
                 if(stage == 1){text_1()}
-                if(stage == 2){text_1_1()}
-                if(stage == 3){text_2()}
-                if(stage == 4){text_3()}
-                if(stage == 5){text_4()}
-                if(stage == 6){text_5()}
+                if(stage == 2){text_2()}
+                if(stage == 3){text_3()}
+                if(stage == 4){text_4()}
+                if(stage == 5){text_5()}
             }
 	})
 </script>

@@ -5,6 +5,7 @@
      name='viewport' 
      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
 />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <script
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -264,7 +265,7 @@ left: 40vw;}
 .mespeaking{
 	transform: translateY(-20vw) !important;
 }
-
+html, body {touch-action: none;}
 @keyframes blinker {
   50% {
     opacity: 0;
@@ -282,6 +283,23 @@ left: 40vw;}
         //     e.preventDefault();
  
         // }, { passive: false });
+        document.addEventListener('gesturestart', function(e) {
+    e.preventDefault();
+    // special hack to prevent zoom-to-tabs gesture in safari
+    document.body.style.zoom = 0.99;
+});
+
+document.addEventListener('gesturechange', function(e) {
+    e.preventDefault();
+    // special hack to prevent zoom-to-tabs gesture in safari
+    document.body.style.zoom = 0.99;
+});
+
+document.addEventListener('gestureend', function(e) {
+    e.preventDefault();
+    // special hack to prevent zoom-to-tabs gesture in safari
+    document.body.style.zoom = 0.99;
+});
 		function map_range(value, low1, high1, low2, high2) {
 		    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 		}
@@ -357,12 +375,14 @@ left: 40vw;}
 					text_5()
 				}
 			})
+			var fullread = false
 			function text_5(){
 				stage = 10
 				$('.text').html('어두운 방이 나타났다.')
 				$('.text').addClass('texton')
 			}
 			function text_6(){
+				$('.ppl_speaking').hide()
 				$('.text').html('저 사람들은 누구지?')
 			}
 			function text_7(){
@@ -402,10 +422,14 @@ left: 40vw;}
 			}
 			function text_15(){
 				$('.ppl_speaking>span').html('이제 당신도 그런 권유를 받을 겁니다. 저희는 당신이 본래 육체를 소중히 여긴다는 메시지를 발표해 주길 바랍니다.')
+				fullread = false
 			}
-			var fullread = false
 			function text_16(){
 				fullread = true
+				$('.ppl_speaking').show()
+				$('.right_button').hide()
+				$('.round_button').hide()
+				$('.text').removeClass('texton')
 				$('.ppl_speaking>span').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
 			}
 			function text_17(){
@@ -417,15 +441,15 @@ left: 40vw;}
 				$('.next').show()
 			}
 
-			$('body').bind('touchstart', function(e){
-				if(fullread && !button_1_on && !button_2_on && !button_3_on){
-								$('.ppl_speaking').show()
-								$('.ppl_speaking').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
-								setTimeout(function(){
-								$('.ppl_speaking').hide()
-								},2500)
-							}
-			})
+			// $('body').bind('touchstart', function(e){
+			// 	if(fullread && !button_1_on && !button_2_on && !button_3_on&&e.originalEvent.touches[0].pageY < 0.75*$('body').outerHeight()){
+			// 					$('.ppl_speaking').show()
+			// 					$('.ppl_speaking').html('약속해주기 전에는 여기서 내보내주지 않겠습니다.')
+			// 					setTimeout(function(){
+			// 					$('.ppl_speaking').hide()
+			// 					},2500)
+			// 				}
+			// })
 			// $('.right_button').click(function(){
 			// 	showcontent_white()
 			// })
@@ -497,6 +521,8 @@ left: 40vw;}
 			})
 			$('.round_button').bind('touchstart', function(e){
 				if(button_1_on && button_3_on && e.originalEvent.touches.length>1){
+            		$('.text-arrow').attr('style', 'pointer-events:none !important');
+					$('.round_button').hide()
 					showcontent_white()
 				}
 			})

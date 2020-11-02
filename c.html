@@ -416,20 +416,24 @@ img{
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox_9').css({'opacity':1})
 				$('.speakingbox_10').css({'opacity':1})
+				$('.whole_original').css({'pointer-events':'none'})
 			}
 			function speaking_10(){
 				$('.speakingbox').css({'opacity':0})
 				$('.speakingbox').css({'opacity':1})
 				$('.speakingbox').css({'color':'transparent'})
 				$('.speakingbox img').show()
+				$('.whole_original').css({'pointer-events':'auto'})
 				$('.whole_original').bind('touchstart', function(e){
 					screentouched = true
+					console.log(screentouched)
 				})
 				$('.text').html('나는 화면에 손을 대어본다. 일부는 로봇 손이 일부는 지금 내 손이 비춰보인다.')
 				$('.text').addClass('texton')
 			}
 			function speaking_11(){
 				if(screentouched){
+				$('.whole_original').css({'pointer-events':'none'})
 				$('.text').html('어떻게 하면 좋을까? 기계가 되려면 기계손을, 사람으로 남기 위해선 사람 손을 클릭하자.')
 				$('.text').addClass('texton')
 				$('.speakingbox').css({'pointer-events':'auto'})

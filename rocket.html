@@ -202,18 +202,18 @@ background-image: url(img/call/100-02.png);
             $('.text').html('외계인의 존재를 알게 되자 우주에 대한 호기심이 솟아오른다.')
         }
         function text_1_3(){
+            $('.text').addClass('texton center')
+            $('.black').show()
             $('.text').html('사실상 수명이 무한한 기계의 몸, 나는 우주 탐사에 몰두하기로 한다.')
         }
         function text_2(){
         	$('.black').hide()
             $('.text').removeClass('center')
             $('.text').html('중앙을 터치해 우주선을 건조하자')
-            setTimeout(function(){
-            },2500)
         }
 		var timeout
 			$('.center_r').bind('touchstart', function(e){
-				console.log('-------')
+				$('.text-arrow').attr('style', 'pointer-events:none !important');
 			  clearTimeout(timeout);
 			  timeout = setTimeout(function(){
 			  	$('.center_r_white').css({'opacity':0.8})
@@ -244,6 +244,8 @@ background-image: url(img/call/100-02.png);
 			  // clearTimeout(timeout);
 			})
 	        function text_5(){
+	        	console.log('--------------------')
+				$('.text-arrow').attr('style', 'pointer-events:auto !important');
 	        	stage = 10
 	            $('.text').html('심우주를 탐사하러 간다.')
 	        }
@@ -256,8 +258,12 @@ background-image: url(img/call/100-02.png);
 	        }
 	        function text_8(){
 				$('.text').addClass('center theend')
+				$('.text-arrow').attr('style', 'pointer-events:none !important');
 				$('.result').append('\
 		        	<img src="img/close.png" class="close result_close">\
+		        	<div class="result_arrow result_arrow_up"></div>\
+			        <div class="result_arrow result_arrow_down"></div>\
+					<div class="box_wrapper">\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_sp/1.PNG)"></div>\
 						<span>XX년, 지구에서 살던 나는</span>\
@@ -268,11 +274,11 @@ background-image: url(img/call/100-02.png);
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_sp/3.PNG)"></div>\
-						<span>우주 정류장에서 우주 쓰레기에 맞는 사고를 당한다.</span>\
+						<span>우주 정류장에서 머물던 중 우주 쓰레기에 맞는 사고를 당한다.</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_sp/4.PNG)"></div>\
-						<span>순수 인간주의자에게 납치를 당하지만</span>\
+						<span>미래의 개발될 기술로 치료를 받고자 동면상태에 들어갔으나, 깨어나 보니 순수 인간주의자에게 납치를 당한 상태였다.</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_sp/5.PNG)"></div>\
@@ -288,20 +294,66 @@ background-image: url(img/call/100-02.png);
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_sp/8.PNG)"></div>\
-						<span>변한 지구를 본 뒤,</span>\
+						<span>변한 지구를 둘러보던 중, 외계인의 존재를 알게 되고,</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_sp/9.PNG)"></div>\
-						<span>심우주를 탐사하러 간다.</span>\
+						<span>외계인을 찾아 심우주를 탐사하러 간다.</span>\
+					</div>\
 					</div>\
 				')
-				$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+				$('.text').html('SF스토리체험이 종료되었습니다. 내가 선택한 SF스토리를 확인해보세요<br><a href="index.html" class="theend_button">다시 체험하기</a><div class="theend_button sum">SF스토리 확인하기</div>')
 				$('.sum').click(function(){
 					console.log
 					$('.result').show()
 				})
 				$('.result_close').click(function(){
 					$('.result').hide()
+				})
+				var sc_min = 0
+				var sc_max
+				measure()
+				function measure(){
+					sc_max = $('.box_wrapper').outerHeight() - window.innerHeight + 100
+					if($('.box_wrapper').outerHeight() == 0){
+						timeout = setTimeout(function(){
+							measure()
+						},500)
+					}
+				}
+				var sc = 0
+				var button_on = false
+				var margin = 3
+				console.log($('.box_wrapper').outerHeight())
+				function margin_move(dir){
+					if(dir === 'up'){
+						margin = margin - 15
+					}
+					if(dir === 'down'){
+						margin = margin + 15
+					}
+					if(margin<0){margin = sc_min}
+					if(margin>sc_max){margin = sc_max}
+					$('.result .box').css({'top':-1*margin + 'px'})
+					if(button_on){
+						timeout = setTimeout(function(){
+							margin_move(dir)
+						},30)
+					}
+				}
+				$('.result_arrow_up').bind('touchstart', function(e){
+					button_on = true
+					margin_move('up')
+				})
+				$('.result_arrow_down').bind('touchstart', function(e){
+					button_on = true
+					margin_move('down')
+				})
+				$('.result_arrow_up').bind('touchend', function(e){
+					button_on = false
+				})
+				$('.result_arrow_down').bind('touchend', function(e){
+					button_on = false
 				})
 	        }
 		})

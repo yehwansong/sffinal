@@ -222,15 +222,16 @@ transform: translateX(-50%);}
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
+		console.log('cacheremoved3')
 			var stage = 1
 			move(stage)
 			$('.arrow-left').click(function(){
-				if((stage > 1 && stage < 3)||(stage > 10 && stage < 18)){stage--}
+				if((stage > 1 && stage < 3)||(stage > 10 && stage < 15)){stage--}
 				console.log(stage)
 				move(stage)
 			})
 			$('.arrow-right').click(function(){
-				if((stage > 0 && stage < 2)||(stage > 9 && stage < 17)){stage++}
+				if((stage > 0 && stage < 2)||(stage > 9 && stage < 14)){stage++}
 				console.log(stage)
 				move(stage)
 			})
@@ -244,14 +245,10 @@ transform: translateX(-50%);}
 				if(stage == 12){text_6()}
 				if(stage == 13){text_7()}
 				if(stage == 14){text_8()}
-				if(stage == 15){text_9()}
-				if(stage == 16){text_10()}
-				if(stage == 17){text_11()}
 			}
 
 
 
-		$(this).addClass('selected')
 		var clickcounter = 0
 			var popupon = false
 		$('.wrapper>div').bind('touchstart', function(e){
@@ -261,13 +258,15 @@ transform: translateX(-50%);}
 				popupon = true
 				$('.popup_1').show()
             	$('.text').removeClass('texton')
+			}else if(clickcounter<3){
+				$(this).addClass('selected')
+				var left_var = $(this).attr('class').split('left_')[1].split(' ')[0]
+				var top_var = $(this).attr('class').split('top_')[1].split(' ')[0]
+				randomselect(left_var, top_var, true)
+				randomselect(left_var, top_var, true)
+				randomselect(left_var, top_var, true)
+				randomselect(left_var, top_var, true)
 			}
-			var left_var = $(this).attr('class').split('left_')[1].split(' ')[0]
-			var top_var = $(this).attr('class').split('top_')[1].split(' ')[0]
-			randomselect(left_var, top_var, true)
-			randomselect(left_var, top_var, true)
-			randomselect(left_var, top_var, true)
-			randomselect(left_var, top_var, true)
 		})
 		function randomselect(left, top, init){
 			var random_left = parseInt(left,10) + Math.floor(Math.random()*2)
@@ -340,6 +339,7 @@ transform: translateX(-50%);}
             $('.wrapper>div').css({'pointer-events':'none'})
         }
         function text_7(){
+			$('.popup_2').show()
             $('.text').html('이들을 특별히 다르게 대해야 할까?')
             $('.wrapper>div').css({'pointer-events':'none'})
         }
@@ -349,7 +349,8 @@ transform: translateX(-50%);}
             $('.wrapper>div').css({'pointer-events':'auto'})
             $('.box').bind('touchstart', function(e){
             	console.log($(this).attr('class'))
-            	if($(this).attr('class').split('selected').length>0){
+            	console.log($(this).attr('class').split('selected').length)
+            	if($(this).attr('class').split('selected').length>1){
 					location.replace("coexistence.html");
 					console.log('1')
             	}else{

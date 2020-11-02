@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>SamsaraMarket</title>
+    <title>SF 스토리체험</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -583,7 +583,7 @@ var button_array = [
             '신종 전염병, 환경 오염 등으로 지구는 이제 인류가 살 수 없는 곳이 됐다.',
             '기후 변화로 인한 생태계 파괴는 걷잡을 수 없게 심해졌다.',
             '기후 변화로 인한 생태계 파괴는 걷잡을 수 없게 심해졌다.',
-            '신종 전염병 등으로 지구는 이제 인류가 살 수 없는 곳이 됐다.',
+            '신종 전염병, 환경 오염 등으로 지구는 이제 인류가 살 수 없는 곳이 됐다.',
             '지구를 벗어나는 것만이 유일한 살 길.',
             '지구를 벗어나는 것만이 유일한 살 길.',
             '그때까지 살아남은 인류는 두 갈래로 나뉜다.<br>아예 태양계를 떠나 외계행성을 개척하자는 무리와 태양계에 머물며 지구를 원상복구하자는 무리다.',
@@ -667,12 +667,12 @@ function hotspot() {
             $('.close').show()
             $('.text').addClass('texton')
             $('.text').html('\
-                준은 태양계에 남아 지구에 희망을 걸 생각이고,서윤는 우주선에 몸을 싣고 외계 행성으로 떠난다.\
+                준은 태양계에 남아 지구에 희망을 걸 생각이고, 서윤은 우주선에 몸을 싣고 외계 행성으로 떠난다.\
                 ')
         }
         function text_8(){
             $('.text').html('\
-                준을 따라가려면 준의 발자국을(<img src="../img/footprint-02.svg">), 서윤을 따라가려면 서윤의 발자국(<img src="../img/footprint-01.svg">)을 손끝으로 그리 따라가보자.\
+                준을 따라가려면 준의 발자국을(<img src="../img/footprint-02.svg">), 서윤을 따라가려면 서윤의 발자국(<img src="../img/footprint-01.svg">)을 손끝으로 그리며 따라가보자.\
                 ')
             $('.c').addClass('animate_1')
             $('.y').addClass('animate_2')
@@ -764,9 +764,10 @@ $(document).ready(function(){
                     }
                     if(footside_counter==19){
                         $('.text').html('나는 준과 함께 태양계에 남는다.')
+                        $('.text-arrow').attr('style', 'pointer-events:none !important');
                             timeout = setTimeout(function(){
                                   location.replace("../SpaceStation/index.html");
-                            }, 1000);
+                            }, 3000);
                     }
             }
             if( (xPos > $('.foot_front_'+foottop_counter).offset().left && xPos < $('.foot_front_'+foottop_counter).offset().left + footwidth) &&
@@ -784,11 +785,12 @@ $(document).ready(function(){
                         $('.foot_wrapper').css({'bottom':'-110vw'})
 
                     }
-                    if(foottop_counter==21){
-                        $('.text').html('나는 영희를 따라 외계행성으로 간다.')
+                    if(foottop_counter==20){
+                        $('.text').html('나는 서윤을 따라 외계행성으로 간다.')
+                        $('.text-arrow').attr('style', 'pointer-events:none !important');
                             timeout = setTimeout(function(){
                                   location.replace("../tonewplanet.html");
-                            }, 1000);
+                            }, 3000);
                     }
             }
 

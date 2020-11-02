@@ -219,10 +219,11 @@ crossorigin="anonymous"></script>
         function text_5(){
             $('.text').html('우주선을 터치해 조심스럽게 의사소통을 시도해보자.')
             $('.center').css({'pointer-events':'auto'})
-            $('.text-arrow').css({'pointer-events':'none'})
+            $('.text-arrow').attr('style', 'pointer-events:none !important');
         }
 		var timeout
 			$('.center').bind('touchstart', function(e){
+				$('audio')[0].play()
 				stage = 7
 				console.log('-------')
 			  clearTimeout(timeout);
@@ -241,7 +242,8 @@ crossorigin="anonymous"></script>
 			  timeout = setTimeout(function(){
 			  	$('.screen_5 .inner').css({'opacity':1})
             	$('.text').html('연결이 되었다!')
-            	$('.text-arrow').css({'pointer-events':'auto'})
+				// $('audio')[0].pause()
+            $('.text-arrow').attr('style', 'pointer-events:auto !important');
             	stage = 10
 			  }, 3500);
 			})
@@ -259,6 +261,9 @@ crossorigin="anonymous"></script>
 </script>
 </head>
 <body>
+  	<audio loop="">
+  		<source src="sound/beep.mp3" type="audio/mpeg">
+  	</audio>
     	<img class="text-arrow arrow-right" src="img/arrow-right.png">
     	<img class="text-arrow arrow-left" src="img/arrow-left.png">
 		<div class="black"></div>

@@ -310,7 +310,7 @@ img, .robotme{
 			}
 			var counter_op = 0
 			$('.handbox_3').bind('touchstart', function(e){
-            $('.text-arrow').css({'pointer-events':'none'})
+            $('.text-arrow').attr('style', 'pointer-events:none !important');
 				console.log('--------------')
 				$('.speakingbox').css({'opacity':0})
 				// $('.speakingbox').html('LOADING')
@@ -337,7 +337,7 @@ img, .robotme{
 				},7000)
 			})
 			function speaking_11(){
-            $('.text-arrow').css({'pointer-events':'auto'})
+            $('.text-arrow').attr('style', 'pointer-events:auto !important');
 				stage = 30
 				$('.black').hide()
 				$('.text').addClass('texton')
@@ -363,11 +363,14 @@ img, .robotme{
 				setTimeout(function(){
 					$('.handbox_3').removeClass('handbox_3_animate')
 					$('.handbox').css({'opacity':1})
-					$('.text').html('THE END')
 
 					$('.text').addClass('center theend')
+					$('.text-arrow').attr('style', 'pointer-events:none !important');
 					$('.result').append('\
 				        <img src="img/close.png" class="close result_close">\
+				        <div class="result_arrow result_arrow_up"></div>\
+				        <div class="result_arrow result_arrow_down"></div>\
+						<div class="box_wrapper">\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/1.PNG)"></div>\
 						<span>XX년, 지구에서 살던 나는</span>\
@@ -378,23 +381,23 @@ img, .robotme{
 						</div>\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/3.PNG)"></div>\
-						<span>외계행성에 도착하니</span>\
+						<span>외계행성에 도착해 확인해보니</span>\
 						</div>\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/4.PNG)"></div>\
-						<span>지구와 환경이 유사했다.</span>\
+						<span>지구와 환경이 유사한 곳이었지만 다른 생명체의 터전이었다.</span>\
 						</div>\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/5.PNG)"></div>\
-						<span>타 생명체의 터전을 뺏지 않고 다른 행성을 찾아 나선다.</span>\
+						<span>다른 생명체의 터전을 뺏지 않고 다른 행성을 찾아 나서기로 결정했다.</span>\
 						</div>\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/6.PNG)"></div>\
-						<span>그렇게 찾은 행성은</span>\
+						<span>하지만 그렇게 찾은 행성은</span>\
 						</div>\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/7.PNG)"></div>\
-						<span>살기에 적합하지 않았다.</span>\
+						<span>정착하기에 적합하지 않았다.</span>\
 						</div>\
 						<div class="box">\
 							<div class="inner_img" style="background-image : url(result_com/8.PNG)"></div>\
@@ -412,14 +415,60 @@ img, .robotme{
 							<div class="inner_img" style="background-image : url(result_com/11.PNG)"></div>\
 							<span>나와 준은 함께 다른 지성 종족을 찾아 여행을 떠난다.</span>\
 						</div>\
+						</div>\
 					')
-					$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+					$('.text').html('SF스토리체험이 종료되었습니다. 내가 선택한 SF스토리를 확인해보세요<br><a href="index.html" class="theend_button">다시 체험하기</a><div class="theend_button sum">SF스토리 확인하기</div>')
 					$('.sum').click(function(){
-						console.log
 						$('.result').show()
 					})
 					$('.result_close').click(function(){
 						$('.result').hide()
+					})
+
+					var sc_min = 0
+					var sc_max
+					measure()
+					function measure(){
+						sc_max = $('.box_wrapper').outerHeight() - window.innerHeight + 100
+						if($('.box_wrapper').outerHeight() == 0){
+							timeout = setTimeout(function(){
+								measure()
+							},500)
+						}
+					}
+					var sc = 0
+					var button_on = false
+					var margin = 3
+					console.log($('.box_wrapper').outerHeight())
+					function margin_move(dir){
+						if(dir === 'up'){
+							margin = margin - 15
+						}
+						if(dir === 'down'){
+							margin = margin + 15
+						}
+						if(margin<0){margin = sc_min}
+						if(margin>sc_max){margin = sc_max}
+						$('.result .box').css({'top':-1*margin + 'px'})
+						if(button_on){
+							timeout = setTimeout(function(){
+								margin_move(dir)
+							},30)
+						}
+					}
+					$('.result_arrow_up').bind('touchstart', function(e){
+						button_on = true
+						margin_move('up')
+					})
+					$('.result_arrow_down').bind('touchstart', function(e){
+						button_on = true
+						margin_move('down')
+					})
+					$('.result_arrow_up').bind('touchend', function(e){
+						button_on = false
+					})
+					$('.result_arrow_down').bind('touchend', function(e){
+						button_on = false
 					})
 				},2500)
 			}

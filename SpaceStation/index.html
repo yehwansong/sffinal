@@ -163,6 +163,7 @@ transition:3s cubic-bezier(.43,.01,1,.53);
         }
         function text_3(){
             $('.text').addClass('texton center')
+            $('.black').show()
             $('.text').html('우주정거장')
         }
         function text_4(){
@@ -187,6 +188,7 @@ transition:3s cubic-bezier(.43,.01,1,.53);
 		})
 		function die_1(){
 			$('.text').addClass('texton')
+            $('.text-arrow').attr('style', 'pointer-events:none !important');
 			$('.text').html('저게 뭐지?<br>')
 			setTimeout(function(){
 				$('.stone').css({'transform': 'translateY(30vw) scale(5)'})

@@ -213,6 +213,7 @@ var step = 0
 			$(this).addClass('building_'+(Math.floor(Math.random()*4)+1))
 		})
 			function text_1(){
+				$('.black').show()
 				$('.text').addClass('texton center')
 				$('.text').html('우리는 인간의 생존을 최우선으로 삼고 도시 건설을 계속한다.')
 			}
@@ -300,14 +301,13 @@ var step = 0
 
 
 			function text_10(){
-				console.log('akjf;lkajd')
 				$('.text').addClass('texton')
 				$('.text').html('시간이 지날수록 행성의 생태계가 무너지고 있는 모습이 보인다.')
 			}
 			function text_11(){
 				$('.text').addClass('texton')
 				$('.wrapper').addClass('time_1')
-				$('.text').html('도시에서 먼 외곽 농장 같은 곳에서는 영리한 이 종족을 붙잡아 훈련시킨 뒤 노예처럼 쓴다고 하더라.')
+				$('.text').html('도시에서 먼 외곽 농장 같은 곳에서는 영리한 이 종족을 붙잡아 훈련시킨 뒤 노예처럼 쓴다고 한다.')
 			}
 			function text_12(){
 				$('.text').addClass('texton')
@@ -329,9 +329,13 @@ var step = 0
 
 			function text_16(){
 				$('.text').addClass('texton center theend')
+				$('.text-arrow').attr('style', 'pointer-events:none !important');
 				$('.result').empty()
 				$('.result').append('\
 		        	<img src="img/close.png" class="close result_close">\
+			        <div class="result_arrow result_arrow_up"></div>\
+			        <div class="result_arrow result_arrow_down"></div>\
+					<div class="box_wrapper">\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_des/1.PNG)"></div>\
 						<span>XX년, 지구에서 살던 나는</span>\
@@ -342,26 +346,27 @@ var step = 0
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_des/3.PNG)"></div>\
-						<span>외계행성에 도착하니</span>\
+						<span>외계행성에 도착해 확인해보니</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_des/4.PNG)"></div>\
-						<span>지구와 환경이 유사했다.</span>\
+						<span>지구와 환경이 유사한 곳이었지만 다른 생명체의 터전이었다.</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_des/5.PNG)"></div>\
-						<span>그대로 정착하기로 결정했다.</span>\
+						<span>하지만 나는 그대로 정착하기로 결정한다.</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_des/6.PNG)"></div>\
-						<span>다만 그곳에 이미 살고 있던 생명체가 지적 능력이 있다는 것을 알았지만</span>\
+						<span>그곳에 이미 살고 있던 생명체가 지적 능력이 있다는 것을 알게 되었지만</span>\
 					</div>\
 					<div class="box">\
 						<div class="inner_img" style="background-image : url(result_des/7.PNG)"></div>\
-						<span>우리는 인간의 생존을 최우선으로 삼고 도시 건설을 계속한다. </span>\
+						<span>우리는 인간의 생존을 최우선으로 삼고 도시 건설을 계속하며 같은 실수를 반복한다. </span>\
+					</div>\
 					</div>\
 				')
-				$('.text').html('THE END<br><a href="index.html" class="theend_button">다시하기</a><div class="theend_button sum">요약보기</div>')
+				$('.text').html('SF스토리체험이 종료되었습니다. 내가 선택한 SF스토리를 확인해보세요<br><a href="index.html" class="theend_button">다시 체험하기</a><div class="theend_button sum">SF스토리 확인하기</div>')
 				$('.sum').click(function(){
 					console.log
 					$('.result').show()
@@ -369,6 +374,52 @@ var step = 0
 				$('.result_close').click(function(){
 					$('.result').hide()
 				})
+
+					var sc_min = 0
+					var sc_max
+					measure()
+					function measure(){
+						sc_max = $('.box_wrapper').outerHeight() - window.innerHeight + 100
+						if($('.box_wrapper').outerHeight() == 0){
+							timeout = setTimeout(function(){
+								measure()
+							},500)
+						}
+					}
+					var sc = 0
+					var button_on = false
+					var margin = 3
+					console.log($('.box_wrapper').outerHeight())
+					function margin_move(dir){
+						if(dir === 'up'){
+							margin = margin - 15
+						}
+						if(dir === 'down'){
+							margin = margin + 15
+						}
+						if(margin<0){margin = sc_min}
+						if(margin>sc_max){margin = sc_max}
+						$('.result .box').css({'top':-1*margin + 'px'})
+						if(button_on){
+							timeout = setTimeout(function(){
+								margin_move(dir)
+							},30)
+						}
+					}
+					$('.result_arrow_up').bind('touchstart', function(e){
+						button_on = true
+						margin_move('up')
+					})
+					$('.result_arrow_down').bind('touchstart', function(e){
+						button_on = true
+						margin_move('down')
+					})
+					$('.result_arrow_up').bind('touchend', function(e){
+						button_on = false
+					})
+					$('.result_arrow_down').bind('touchend', function(e){
+						button_on = false
+					})
 			}
 function other_ani(){
 	step++

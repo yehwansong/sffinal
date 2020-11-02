@@ -205,12 +205,13 @@ left: auto;
 			}
 			function text_3(){
 				$('.ppl_speaking_1').show()
+				$('.text').removeClass('texton')
 				$('.ppl_speaking_1 span').html('달에서 알 수 없는 유적지를 발굴했습니다.')
 			}
 			function text_4(){
 				$('.ppl_speaking_1').hide()
-				$('.text').html('외계인의 흔적이다.')
 				$('.text').addClass('texton')
+				$('.text').html('외계인의 흔적이다.')
 			}
 			function text_5(){
 				$('.text').html('달을 터치해 유적이 뭔지 살펴보자.')
@@ -232,6 +233,8 @@ left: auto;
 				$('.ppl_speaking').hide()
 				$('.text').html('분석해보자.')
 				$('.text').addClass('texton')
+				$('.ppl_speaking_2').hide()
+				$('.story').hide()
 			}
 
 

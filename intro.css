@@ -9,6 +9,13 @@
 		width: 100vw;
 		height: 100%;
 		background:black;
+		top: 0
+	}
+	body{
+		background-image: url(img/intro_top-01.png),url(img/intro_mid-01.png),url(img/intro_bot-01.png);
+		background-position: top,center,bottom;
+		background-size: contain;
+		background-repeat: no-repeat;
 	}
 	.cover{
 		width: 100vw;
@@ -36,10 +43,10 @@ color: white}
 	white-space: nowrap
 }
 .title{
-font-size: 9vw;
+font-size: 11vw;
 line-height: 1;
 white-space: nowrap;
-border: 0.5vw solid white;
+/* border: 0.5vw solid white; */
 /* background: white; */
 padding: 1vw;
 padding-top: 1.2vw;
@@ -52,12 +59,17 @@ padding-right: 1;
 padding-right: 1.;
 padding-right: 1.5;
 padding-right: 1.5v;
-background: rgba(255, 255, 255, 0.17);
+/* background: rgba(255, 255, 255, 0.17); */
 padding-right: 1.5vw;
-margin-bottom: 4vw;
-border-radius: 1vw;}
+margin-bottom: -1vw;
+border-radius: 1vw;
+}
+
+.credit{
+	margin-bottom: 17vw;
+}
 .button{
-border: 0.5vw solid white;
+border: 0.35vw solid white;
 width: auto;
 display: inline-block;
 text-align: center;
@@ -65,10 +77,65 @@ color: white;
 text-decoration: none;
 padding: 1vw;
 padding: 1vw;
-padding-bottom: 0.75vw;
+padding-bottom: 0.35vw;
 padding-left: 2vw;
 padding-right: 2vw;
 border-radius: 1vw;
-background: rgba(255, 255, 255, 0.61);
-color: black;
-box-shadow: 0vh 0vh 2vh 0vh black}
+background: black;
+color: white;
+box-shadow: 0vh 0vh 2vh 0vh black;
+font-size: 5.5vw;
+display: inline-block;
+width: 27vw;
+/* clear: both; */
+margin: 1vw;
+float: left;
+pointer-events: auto
+}
+.popup{
+background: black;
+width: 90vw;
+left: 5vw;
+position: absolute;
+top: 50%;
+transform: translate();
+transform: translateY(-50%);
+padding: 4vw;
+box-sizing: border-box;
+border-radius: 0vw;
+z-index: 1000000;
+color: white;
+line-height: 1.5;
+font-size: 5vw;
+display: none;
+}
+.popup span{
+width: 6vw;
+height: 6vw;
+background-size: contain;
+background-repeat: no-repeat;
+background-color: white;
+background-position: center;
+filter: invert();
+display: inline-block;
+margin-bottom: -1vw;
+margin-left: 1vw;
+margin-right: 1.25vw;
+}
+.popup .crack{
+background-image: url('img/crack.jpg');
+background-size: 350%;
+filter: none;}
+.popup .a{
+background-image: url('img/intro_a.png');
+filter: none;
+background-color: black;
+transform: rotate(-90deg);}
+.popup .q{
+filter: none;}
+.popup .close{
+display: block;
+position: relative;
+float: right;
+pointer-events: auto;
+transform: translateX(4vw) translateY(-4vw);}
