@@ -474,7 +474,7 @@ document.addEventListener('gestureend', function(e) {
 								$('body').css({'background-size': 'auto 300vh'})
 								setTimeout(function(){
 									$('.white').css({'opacity':'1'})
-									location.replace("c.html");
+									window.location.href = 'c.html'
 								},5000)
 							},2000)
 						},2000)

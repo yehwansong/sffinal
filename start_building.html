@@ -351,10 +351,10 @@ transform: translateX(-50%);}
             	console.log($(this).attr('class'))
             	console.log($(this).attr('class').split('selected').length)
             	if($(this).attr('class').split('selected').length>1){
-					location.replace("coexistence.html");
+					window.location.href = 'coexistence.html'
 					console.log('1')
             	}else{
-            		location.replace("destroy.html");
+            		window.location.href = 'destroy.html'
 					console.log('2')
             	}
             })
@@ -389,7 +389,7 @@ transform: translateX(-50%);}
 			<img src="img/alert.svg">
 			<span class="howto">확인하려면 클릭하세요</span>
 			<div class="info">
-				달에서 외계인의 유적을 발견했는데, 백악기 후기의 소행성 충돌 직후에 지구를 방문한 외계인이 살아남은 생명체를 모아 우리가 개척하려는 행성에 가져다 놓은 것으로 보인다.<br>
+				달에서 외계인의 유적을 발견했는데 지구에 살아남은 생명체를 외계인이 모아서 옮겨놓은 것으로 보인다.<br>
 				<div class='closebutton'>
 					확인
 				</div>

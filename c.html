@@ -457,7 +457,7 @@ img{
 				$('.speakingbox').css({'pointer-events':'auto'})
 							$('.black').fadeIn(2000)
 						setTimeout(function(){
-						location.replace("Mars/index.htm");
+							window.location.href = 'Mars/index.htm'
 						},3000)
 			}
 			var counter_op = 0
@@ -571,7 +571,7 @@ img{
 					if(stage == 13){
 						$('.robot_wrapper').css("pointer-events", "none !important")
 						$('.human_wrapper').css("pointer-events", "none !important")
-						location.replace("selector_becomerobot.html");
+						window.location.href = 'selector_becomerobot.html'
 					}
 				})
 				$('.human_wrapper').bind('touchstart', function(e){

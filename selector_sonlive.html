@@ -579,7 +579,7 @@ transform: rotate(-0deg);
             $('.text').addClass('texton')
             $('.text').html('준을 찾았다!')
             setTimeout(function(){
-                location.replace("mars_alive.html");
+                window.location.href = 'mars_alive.html'
             },2500)
         }
         $('.next').bind('touchstart', function(e){

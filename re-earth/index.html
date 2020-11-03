@@ -368,7 +368,8 @@ display: none;
 border-radius: 1.5vw;
 box-shadow: 0vh 0vh 2vh 0.5vh black;
 text-align: center;
-border: 0.5vw solid white
+border: 0.5vw solid white;
+transform: translateZ(100000000000000vw) !important;
 	}
 	.popup_call a{display: block;pointer-events: auto;}
 	.popup_call img{
@@ -426,18 +427,20 @@ opacity:0;
 		transition: margin-top 0.3s,margin-left 0.3
 	}
 	.zindex_up{
-z-index: 1000000000;
-transform: translateZ(1000000000000vw);
+		z-index: 1000000000;
+		transform: translateZ(1000000000000vw);
 	}
-.text img,
-.black>span>img{
-width: 3vw;
-top: 2vw;
-position: relative;
-padding-left: 1vw;
-padding-right: 1vw;}
+	.text img,
+	.black>span>img{
+		width: 3vw;
+		top: 2vw;
+		position: relative;
+		padding-left: 1vw;
+		padding-right: 1vw;
+		margin-top: 0;
+	}
 .next, .close,.black {
-transform: translateZ(1000vw);
+transform: translateZ(100000000000000vw) !important;
 }
 .black {
 transform: translateZ(900vw);
@@ -699,7 +702,6 @@ transform: translateZ(1000vw);
     		<div class="foot foot_front foot_front_40"></div>
     	</div>
 			<div class="bubble bubble_1 zindex_up">
-				<span>새로운 기후에 적응한 동식물이 자라고 있다.</span>
 			</div>
 			<div class="bubble bubble_2">
 				<img src="plant1.png">
@@ -717,7 +719,7 @@ transform: translateZ(1000vw);
 				<img src="bird.png">
 			</div>
 			<div class="bubble bubble_7 zindex_up">
-				<span>몇몇 동식물은 새로운 모습으로 적응하려는 기미도 보인다.</span>
+				<span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span>
 			</div>
 			<div class="bubble bubble_8">
 				<img src="plant1.png">
@@ -774,7 +776,7 @@ transform: translateZ(1000vw);
 				<img src="frog.png">
 			</div>
 			<div class="bubble bubble_26 speaking_1">
-				<span>오랜 시간이 지나면 진화를 통해 우리가 아는 것과 다른 생명체가 될 것 같다.</span>
+				<span>기후 변화는 어느 정도 안정됐지만, 다시 과거로 돌아가지는 못했다.</span>
 			</div>
 			<div class="bubble bubble_27">
 				<img src="plant5.png">

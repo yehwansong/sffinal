@@ -57,17 +57,19 @@ crossorigin="anonymous"></script>
 	}
 	.button_0{
 		border-radius: 50%;
-		transform:translate(-50%, -50%) scale(0.2);
-		left: 50vw;
-		top: 50vw;
-		border:4vw solid rgb(255, 40, 0);
+		transform: translate(-50%, -50%) scale(0.2);
+		left: 70vw;
+		top: 30vw;
+		border: 4vw solid rgb(255, 40, 0);
 		background-image: url(images/tree.png);
 		background-size: contain;
+		width: 150vw;
+		height: 150vw;
 	}
 	.button_1{
-		transform: translate(-50%, -50%) scale(0.4);
-		left: 70vw;
-		top: 115vw;
+transform: translate(-50%, -50%) scale(0.4);
+left: 80vw;
+top: 155vw;
 		background-image: url(images/din_1.png);
 		background-size: contain;
 	}
@@ -81,11 +83,13 @@ width: 150vw;
 top: 170vw;
 	}
 	.button_3{
-		transform: translate(-50%, -50%) scale(0.4);
-		left: 70vw;
-		top: 335vw;
-		background-image: url(images/din_3.png);
+transform: translate(-50%, -50%) scale(0.6);
+left: 55vw;
+top: 305vw;
+		background-image: url(images/din_2.png);
 		background-size: contain;
+width: 150vw;
+top: 300vw;
 	}
 	.button_4{
 transform: translate(-50%, -50%) scale(0.2);
@@ -604,7 +608,7 @@ z-index: 100000000000000000!important;}
             $('.button').css({'pointer-events':'auto'})
             $('.button').css({'pointer-events':'auto'})
         }
-
+        var activated7 = false
 			var scrolltimeout 
 		  	$(document).scroll(function(){
 		  		var scrolltop = $(window).scrollTop()/w
@@ -613,6 +617,18 @@ z-index: 100000000000000000!important;}
 		  		// $('.planet3').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 1.5)*-100+'vw'})
 		  		$('.planet4').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2)*-100+'vw'})
 		  		// $('.planet5').css({'margin-top':map_range(scrolltop, 0, 2.6, 0, 2.5)*-100+'vw'})
+				if($('.filter').length>3 && !activated7){
+					activated7 = true
+				$('.text').addClass('texton')
+					$('.next').show()
+					$('.button').css({'pointer-events':'none'})
+					$('.popupbutton').css({'pointer-events':'none'})
+					$('.popup').hide()
+						$('.text').attr('style', 'display:block !important');
+						$('.text').attr('style', 'opacity:1 !important');
+						$('.text').addClass('texton')
+		                text_7()
+				}
 		    })
 		  	var button_array = [
 		  		' 온갖 동식물이 행성 전체에 퍼져 살고 있다.',
@@ -634,19 +650,6 @@ z-index: 100000000000000000!important;}
 			$(this).addClass('button_visible')
 			$('.text').html(button_array[num])
 			$('.text').addClass('texton')
-			if($('.filter').length>6){
-				$('.next').show()
-			// if(button_counter > 1){
-				$('.button').css({'pointer-events':'none'})
-				$('.popupbutton').css({'pointer-events':'none'})
-				$('.popup').hide()
-	            // setTimeout(function(){
-					$('.text').attr('style', 'display:block !important');
-					$('.text').attr('style', 'opacity:1 !important');
-					$('.text').addClass('texton')
-	                text_7()
-	            // },500)
-			}
 		})
 		var allread = false
 		 // text_7()
@@ -725,14 +728,14 @@ z-index: 100000000000000000!important;}
 	</div>
 		<div class="button button_0"></div>
 		<div class="button button_1"></div>
-		<div class="button button_2"></div>
+		<!-- <div class="button button_2"></div> -->
 		<div class="button button_3"></div>
 
-		<div class="button button_4"></div>
+		<!-- <div class="button button_4"></div> -->
 		<div class="button button_5"></div>
-		<div class="button button_6"></div>
-		<div class="popupbutton popupbutton_1"></div>
-		<div class="popupbutton popupbutton_2"></div>
+		<!-- <div class="button button_6"></div> -->
+		<!-- <div class="popupbutton popupbutton_1"></div> -->
+		<!-- <div class="popupbutton popupbutton_2"></div> -->
 		<div class="popupbutton popupbutton_3"></div>
 		<div class="black"></div>
 		<div class="text"></div>

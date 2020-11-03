@@ -591,13 +591,13 @@ var button_array = [
             ' \
                 ']
 function hotspot() {
-    $('.hotspot1').empty().append('<img src="../img/virus2.png">')
-    $('.hotspot2').empty().append('<img src="../img/fire.png">')
+    $('.hotspot1').hide()
+    $('.hotspot2').hide()
     $('.hotspot3').empty().append('<img src="../img/earth.png">')
     $('.hotspot4').empty().append('<img src="../img/virus.png">')
-    $('.hotspot5').empty().append('<img src="../img/ebuilding.png">')
+    $('.hotspot5').hide()
     $('.hotspot6').empty().append('<img src="../img/ebuilding2.png">')
-    $('.hotspot7').empty().append('<img src="../img/ruin.png">')
+    $('.hotspot7').hide()
     $('.hotspot8').empty().append('<img src="../img/speaking.png">')
     $('.hotspot9').empty().append('<img src="../img/candy.png">')
     $('.hotspot9').bind('touchstart', function(e){
@@ -708,7 +708,7 @@ $(document).ready(function(){
             text_1()
         function text_1(){
             $('.text').addClass('texton center')
-            $('.text').html('서기 2XXX년')
+            $('.text').html('서기 2120년')
             setTimeout(function(){
                 text_1_1()
             },3000)
@@ -773,7 +773,7 @@ $(document).ready(function(){
                         $('.text').html('나는 준과 함께 태양계에 남는다.')
                         $('.text-arrow').attr('style', 'pointer-events:none !important');
                             timeout = setTimeout(function(){
-                                  location.replace("../SpaceStation/index.html");
+                                window.location.href = '../SpaceStation/index.html'
                             }, 3000);
                     }
             }
@@ -796,7 +796,7 @@ $(document).ready(function(){
                         $('.text').html('나는 서윤을 따라 외계행성으로 간다.')
                         $('.text-arrow').attr('style', 'pointer-events:none !important');
                             timeout = setTimeout(function(){
-                                  location.replace("../tonewplanet.html");
+                                window.location.href = '../tonewplanet.html'
                             }, 3000);
                     }
             }
