@@ -4,7 +4,7 @@
 position: fixed;
 left: 12.5vw;
 /* transform: translateX(-50%); */
-bottom: 2.5vw;
+bottom: 10vw;
 z-index: 100000000000000000000;
 width: 75vw;
 display: block;
@@ -152,6 +152,7 @@ height: 7vw;
 	color:white !important;
 }
 .text-arrow{
+	opacity: 0;
 position: fixed;
 z-index: 10000000000000000000000000000;
 width: 12.5vw;
